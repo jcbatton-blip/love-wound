@@ -63,3 +63,6 @@
 - [ ] Mobile responsiveness test - test on actual mobile devices
 - [ ] Database test - confirm customer data is properly stored (requires Stripe integration)
 - [ ] API endpoint test - test portal session creation (requires Stripe integration)
+
+## Copy Updates
+- [x] Update Pattern Revealed page - changed line to "When we're born, all we know is love. We just don't know how to do love—and that's where mom and dad come in."

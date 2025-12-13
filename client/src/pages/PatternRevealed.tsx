@@ -96,7 +96,7 @@ export default function PatternRevealed() {
             </h2>
 
             <p>
-              Before you had language, before memory, before logic—you absorbed a blueprint. You learned what love looks like, what safety feels like, what connection means.
+              When we're born, all we know is love. We just don't know <em>how</em> to do love—and that's where mom and dad come in. Before you had language, before memory, before logic, you absorbed their blueprint. You learned what love looks like, what safety feels like, what connection means.
             </p>
 
             <p>
