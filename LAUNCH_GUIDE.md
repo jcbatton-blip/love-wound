@@ -42,3 +42,15 @@ If you get stuck on the DNS/Domain part, just ask me here, and I can walk you th
 
 **Ready to Launch?**
 Click the **"Publish"** button in the top right of the Manus interface!
+
+## 6. Affiliate Marketing Setup
+I've added a "Books That Changed My Life" section to the Book page. To get paid when people buy them:
+
+1.  **Sign up for Amazon Associates:** Go to [affiliate-program.amazon.com](https://affiliate-program.amazon.com/) and create an account.
+2.  **Get your links:** Search for *Awareness*, *The Body Keeps the Score*, and *Attached*. Click "Get Link" (Text only).
+3.  **Update the site:**
+    *   Open the Manus "Code" panel.
+    *   Navigate to `client/src/pages/Book.tsx`.
+    *   Find the lines that say `href="https://amzn.to/3CQqZ1L"`.
+    *   Replace that URL with your unique affiliate link.
+    *   Click "Save" (or ask me to do it for you once you have the links!).

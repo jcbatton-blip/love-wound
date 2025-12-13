@@ -94,6 +94,85 @@ export default function Book() {
         </div>
       </section>
 
+      {/* Recommended Reading */}
+      <section className="py-24 bg-white mb-24">
+        <div className="container max-w-6xl mx-auto space-y-16">
+          <div className="text-center space-y-4">
+            <h2 className="text-3xl md:text-4xl font-serif text-primary">
+              Books That Changed My Life
+            </h2>
+            <p className="text-muted-foreground font-light max-w-2xl mx-auto">
+              I often tell clients: "I can't do the work for you, but I can show you the map." These are the maps I trust. Read them, and we'll have a lot more to talk about.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-12">
+            {/* Book 1 */}
+            <div className="group space-y-6">
+              <div className="aspect-[2/3] bg-muted relative overflow-hidden shadow-lg transition-transform group-hover:-translate-y-2 duration-300">
+                <img 
+                  src="/images/awareness-book.jpg" 
+                  alt="Awareness by Anthony De Mello" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="space-y-3 text-center">
+                <h3 className="text-xl font-serif text-primary">Awareness</h3>
+                <p className="text-sm text-muted-foreground uppercase tracking-wider">Anthony De Mello</p>
+                <p className="text-muted-foreground font-light text-sm leading-relaxed">
+                  "If you only read one book on this list, make it this one. It's the foundation of everything I teach about waking up."
+                </p>
+                <a href="https://amzn.to/3CQqZ1L" target="_blank" rel="noopener noreferrer" className="inline-block pt-2 text-primary hover:underline font-serif italic">
+                  Get it on Amazon &rarr;
+                </a>
+              </div>
+            </div>
+
+            {/* Book 2 */}
+            <div className="group space-y-6">
+              <div className="aspect-[2/3] bg-muted relative overflow-hidden shadow-lg transition-transform group-hover:-translate-y-2 duration-300">
+                <img 
+                  src="/images/body-keeps-score.jpg" 
+                  alt="The Body Keeps the Score" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="space-y-3 text-center">
+                <h3 className="text-xl font-serif text-primary">The Body Keeps the Score</h3>
+                <p className="text-sm text-muted-foreground uppercase tracking-wider">Bessel van der Kolk</p>
+                <p className="text-muted-foreground font-light text-sm leading-relaxed">
+                  "You can't think your way out of a trauma response. This book explains why your body remembers what your mind tries to forget."
+                </p>
+                <a href="https://amzn.to/3CQqZ1L" target="_blank" rel="noopener noreferrer" className="inline-block pt-2 text-primary hover:underline font-serif italic">
+                  Get it on Amazon &rarr;
+                </a>
+              </div>
+            </div>
+
+            {/* Book 3 */}
+            <div className="group space-y-6">
+              <div className="aspect-[2/3] bg-muted relative overflow-hidden shadow-lg transition-transform group-hover:-translate-y-2 duration-300">
+                <img 
+                  src="/images/attached-book.jpg" 
+                  alt="Attached" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="space-y-3 text-center">
+                <h3 className="text-xl font-serif text-primary">Attached</h3>
+                <p className="text-sm text-muted-foreground uppercase tracking-wider">Amir Levine & Rachel Heller</p>
+                <p className="text-muted-foreground font-light text-sm leading-relaxed">
+                  "The manual for your relationship style. Stop asking 'Why are they like this?' and start understanding the biology of attachment."
+                </p>
+                <a href="https://amzn.to/3CQqZ1L" target="_blank" rel="noopener noreferrer" className="inline-block pt-2 text-primary hover:underline font-serif italic">
+                  Get it on Amazon &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Reviews */}
       <section className="container mb-24">
         <div className="max-w-4xl mx-auto space-y-12">
