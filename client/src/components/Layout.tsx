@@ -27,6 +27,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     { href: "/patterns", label: "The Wounds" },
     { href: "/services", label: "Work With Me" },
     { href: "/book", label: "The Book" },
+    { href: "/coaches", label: "For Coaches" },
     { href: "/about", label: "About Jeffrey" },
   ];
 
