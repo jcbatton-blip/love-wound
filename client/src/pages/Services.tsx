@@ -7,6 +7,7 @@ import { trackBookingClick } from "@/lib/analytics";
 
 export default function Services() {
   const [loading, setLoading] = useState<string | null>(null);
+  const [isPaymentPlan, setIsPaymentPlan] = useState(false);
 
   const handleCheckout = async (productId: string) => {
     try {
@@ -49,7 +50,8 @@ export default function Services() {
       cta: "Get The Kit",
       id: "kit",
       popular: false,
-      delay: 0
+      delay: 0,
+      hasPaymentPlan: false
     },
     {
       name: "The Mirror Session",
@@ -64,7 +66,8 @@ export default function Services() {
       ],
       cta: "Book A Session",
       popular: false,
-      delay: 0.1
+      delay: 0.1,
+      hasPaymentPlan: false
     },
     {
       name: "The Teaching Clinic",
@@ -79,7 +82,8 @@ export default function Services() {
       cta: "Book a Clinic Session",
       id: "teaching_clinic",
       popular: false,
-      delay: 0.05
+      delay: 0.05,
+      hasPaymentPlan: false
     },
     {
       name: "The Group Container",
@@ -94,11 +98,13 @@ export default function Services() {
       cta: "Join the Waitlist",
       id: "group_container",
       popular: false,
-      delay: 0.1
+      delay: 0.1,
+      hasPaymentPlan: false
     },
     {
       name: "The Individual Container",
-      price: "5,000",
+      price: isPaymentPlan ? "1,350" : "5,000",
+      period: isPaymentPlan ? "/ month (4 payments)" : "/ total",
       description: "The Reps. The Practice. The Rewiring. We don't just talk. We run the play until you can't get it wrong.",
       features: [
         "12 Weekly Sessions (3 Months)",
@@ -109,11 +115,13 @@ export default function Services() {
       cta: "Apply for Individual Work",
       id: "individual_container",
       popular: true,
-      delay: 0.2
+      delay: 0.2,
+      hasPaymentPlan: true
     },
     {
       name: "The Couples Container",
-      price: "7,500",
+      price: isPaymentPlan ? "2,000" : "7,500",
+      period: isPaymentPlan ? "/ month (4 payments)" : "/ total",
       description: "The Relationship Reconstruction. Re-learning the dance, one step at a time. We rebuild the foundation while you're living in the house.",
       features: [
         "12 Weekly 90-Minute Sessions (3 Months)",
@@ -124,7 +132,8 @@ export default function Services() {
       cta: "Apply for Couples Work",
       id: "couples_container",
       popular: false,
-      delay: 0.3
+      delay: 0.3,
+      hasPaymentPlan: true
     }
   ];
 
@@ -147,11 +156,42 @@ export default function Services() {
   return (
     <div className="pt-32 pb-16 min-h-screen bg-[#F9F7F2]">
       <div className="container max-w-6xl mx-auto">
-        <div className="text-center space-y-6 mb-20">
+        <div className="text-center space-y-6 mb-12">
           <h1 className="text-5xl md:text-6xl font-serif text-primary">Work With Me</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
             I don't sell "advice." I sell awareness. Choose the level of depth you're ready for.
           </p>
+        </div>
+
+        {/* Payment Toggle */}
+        <div className="flex justify-center mb-12">
+          <div className="bg-white p-1 rounded-full border border-primary/10 inline-flex relative">
+            <motion.div
+              className="absolute top-1 bottom-1 bg-primary rounded-full"
+              initial={false}
+              animate={{
+                x: isPaymentPlan ? "100%" : "0%",
+                width: "50%"
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            />
+            <button
+              onClick={() => setIsPaymentPlan(false)}
+              className={`relative z-10 px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                !isPaymentPlan ? "text-white" : "text-primary hover:text-primary/80"
+              }`}
+            >
+              Pay in Full
+            </button>
+            <button
+              onClick={() => setIsPaymentPlan(true)}
+              className={`relative z-10 px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                isPaymentPlan ? "text-white" : "text-primary hover:text-primary/80"
+              }`}
+            >
+              Payment Plan
+            </button>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start mb-16">
@@ -171,9 +211,13 @@ export default function Services() {
               
               <div className="mb-8 space-y-4">
                 <h3 className="text-2xl font-serif text-primary">{tier.name}</h3>
-                <div className="flex items-baseline gap-1">
+                <div className="flex items-baseline gap-1 flex-wrap">
                   <span className="text-4xl font-bold text-primary">${tier.price}</span>
-                  {tier.name !== "The Kit" && <span className="text-muted-foreground">/ total</span>}
+                  {tier.hasPaymentPlan ? (
+                    <span className="text-sm text-muted-foreground">{tier.period}</span>
+                  ) : (
+                    tier.name !== "The Kit" && <span className="text-muted-foreground">/ total</span>
+                  )}
                 </div>
                 <p className="text-muted-foreground font-light leading-relaxed">
                   {tier.description}
