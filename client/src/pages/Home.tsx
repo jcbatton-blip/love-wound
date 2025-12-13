@@ -30,9 +30,9 @@ export default function Home() {
         
         {/* Central Mirror Frame Graphic - Now contains the content */}
         <div className="mirror-graphic absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[700px] h-[900px] border-[3px] border-primary rounded-[50%] shadow-[0_0_100px_rgba(0,0,0,0.2)] opacity-50" />
-          <div className="absolute w-[680px] h-[880px] border-[2px] border-primary/70 rounded-[50%]" />
-          <div className="absolute w-[660px] h-[860px] border-[1px] border-primary/40 rounded-[50%]" />
+          <div className="w-[700px] h-[900px] border-[3px] border-primary rounded-[50%] shadow-[0_0_100px_rgba(0,0,0,0.2)] opacity-60" />
+          <div className="absolute w-[680px] h-[880px] border-[2px] border-primary/80 rounded-[50%]" />
+          <div className="absolute w-[660px] h-[860px] border-[1px] border-primary/50 rounded-[50%]" />
         </div>
 
         {/* Content Container - Centered within mirror */}

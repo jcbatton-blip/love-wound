@@ -69,3 +69,4 @@
 - [x] Simplify homepage hero paragraph - changed to "You don't need fixing. You need remembering. Your patterns aren't problems—they're imprints from before you had words for them."
 - [x] Adjust header spacing - moved LOVE WOUND left (-ml-4) and added margin to nav (ml-8) with tighter gaps to separate from mirror graphic
 - [x] Redesign homepage hero - centered all content inside mirror frame for stronger visual metaphor and better focal point
+- [x] Increase mirror frame opacity (50% → 60%) and darken navigation text (80% → 90%, font-medium → font-semibold) for better readability against mirror edge

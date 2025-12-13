@@ -57,10 +57,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "text-xs xl:text-sm font-medium tracking-[0.2em] uppercase transition-colors hover:text-primary/60",
+                  "text-xs xl:text-sm font-semibold tracking-[0.2em] uppercase transition-colors hover:text-primary/70",
                   location === link.href
                     ? "text-primary border-b border-primary"
-                    : "text-primary/80"
+                    : "text-primary/90"
                 )}
               >
                 {link.label}
