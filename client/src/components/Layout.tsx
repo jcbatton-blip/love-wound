@@ -46,12 +46,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       >
         <div className="container flex items-center justify-between">
-          <Link href="/" className="text-2xl font-serif tracking-widest text-primary hover:opacity-80 transition-opacity uppercase">
+          <Link href="/" className="text-2xl font-serif tracking-widest text-primary hover:opacity-80 transition-opacity uppercase -ml-4">
             Love Wound
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-12 xl:gap-16">
+          <nav className="hidden md:flex items-center gap-8 xl:gap-12 ml-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}

@@ -67,3 +67,4 @@
 ## Copy Updates
 - [x] Update Pattern Revealed page - changed line to "When we're born, all we know is love. We just don't know how to do love—and that's where mom and dad come in."
 - [x] Simplify homepage hero paragraph - changed to "You don't need fixing. You need remembering. Your patterns aren't problems—they're imprints from before you had words for them."
+- [x] Adjust header spacing - moved LOVE WOUND left (-ml-4) and added margin to nav (ml-8) with tighter gaps to separate from mirror graphic
