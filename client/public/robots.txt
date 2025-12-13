@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jeffbatton.com/sitemap.xml

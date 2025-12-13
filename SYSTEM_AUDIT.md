@@ -50,3 +50,19 @@ We can consolidate this using **Stripe + Calendly + Website** as the core stack.
 ## 4. Immediate Next Step
 **Let's verify your Stripe account.**
 Once that is active, I can replace the "Get Your Kit" buttons with real "Purchase Session" buttons, and you can stop sending QuickBooks invoices forever.
+
+## 5. Platform Consolidation (The "Wix Question")
+**Do you need Wix?**
+**NO.** The website we have built here is a standalone, custom-coded application. It replaces Wix entirely.
+
+*   **Current State:** You likely pay Wix a monthly fee ($20-$50/mo) to keep your old site alive.
+*   **Future State:** Once we point `jeffbatton.com` to this new site, you can **cancel your Wix subscription**.
+*   **Benefit:**
+    *   **Cost Savings:** ~$300-$600/year back in your pocket.
+    *   **Ownership:** You own this code. It's not rented from a drag-and-drop builder.
+    *   **Performance:** This site is significantly faster and more SEO-friendly than a standard Wix site.
+
+**Action Item:**
+1.  Launch this new site (connect domain).
+2.  Verify everything is working.
+3.  **Cancel Wix.**
