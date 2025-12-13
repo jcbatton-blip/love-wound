@@ -73,9 +73,9 @@ export default function Home() {
                   Book Free Discovery Session
                 </Button>
               </Link>
-              <Link href="/quiz" className="inline-block">
+              <Link href="/pattern-revealed" className="inline-block">
                 <Button size="lg" variant="outline" className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white font-serif text-lg px-10 py-6 h-auto rounded-full transition-all duration-300">
-                  Take the Quiz: Discover Your Pattern
+                  See How Patterns Work
                 </Button>
               </Link>
             </motion.div>

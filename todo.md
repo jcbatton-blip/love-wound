@@ -33,3 +33,9 @@
 - [x] Integrate Calendly discovery session link
 - [x] Create Discovery Session booking page
 - [x] Add Discovery Session CTA to homepage
+
+## New Changes
+- [x] Create "The Pattern Revealed" story page with girl getting hit illustration
+- [x] Remove quiz page and references
+- [x] Update homepage CTA to link to new story page
+- [x] Final testing before publish
