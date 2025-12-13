@@ -67,6 +67,21 @@ export default function Services() {
       delay: 0.1
     },
     {
+      name: "The Teaching Clinic",
+      price: "150",
+      description: "High-level 1:1 coaching at a reduced rate. Work directly with Jeff while certification interns observe the session to learn.",
+      features: [
+        "Single 60-Minute Session",
+        "Full 'Love Wound' Methodology",
+        "Reduced Rate (Save 70%)",
+        "Limited Availability"
+      ],
+      cta: "Book a Clinic Session",
+      id: "teaching_clinic",
+      popular: false,
+      delay: 0.05
+    },
+    {
       name: "The Group Container",
       price: "350",
       description: "Healing happens in community. A weekly processing group for those ready to do the work alongside others on the path.",
@@ -177,7 +192,10 @@ export default function Services() {
               <Button 
                 className={`w-full py-6 rounded-full font-serif text-lg ${tier.popular ? 'bg-primary text-white hover:bg-primary/90' : 'bg-[#F9F7F2] text-primary hover:bg-[#F0EBE0]'}`}
                 onClick={() => {
-                  if (tier.id === "group_container") {
+                  if (tier.id === "teaching_clinic") {
+                    trackBookingClick('clinic');
+                    window.location.href = "mailto:jeff@jeffbatton.com?subject=Application for Teaching Clinic Session";
+                  } else if (tier.id === "group_container") {
                     trackBookingClick('group');
                     window.location.href = "mailto:jeff@jeffbatton.com?subject=Waitlist for The Group Container";
                   } else if (tier.id === "individual_container") {

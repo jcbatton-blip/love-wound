@@ -129,6 +129,9 @@ export default function Coaches() {
                   <Check className="w-4 h-4 text-[#D4AF37]" /> 6-Month Curriculum
                 </li>
                 <li className="flex items-center gap-3 text-sm text-white/80">
+                  <Check className="w-4 h-4 text-[#D4AF37]" /> Clinical Rounds (Observe Live Sessions)
+                </li>
+                <li className="flex items-center gap-3 text-sm text-white/80">
                   <Check className="w-4 h-4 text-[#D4AF37]" /> Official Certification Badge
                 </li>
                 <li className="flex items-center gap-3 text-sm text-white/80">
