@@ -44,26 +44,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       >
         <div className="container flex items-center justify-between">
-          <Link href="/">
-            <a className="text-2xl font-serif tracking-widest text-primary hover:opacity-80 transition-opacity uppercase">
-              Love Wound
-            </a>
+          <Link href="/" className="text-2xl font-serif tracking-widest text-primary hover:opacity-80 transition-opacity uppercase">
+            Love Wound
           </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                <a
-                  className={cn(
-                    "text-sm font-medium tracking-widest uppercase transition-colors hover:text-primary/60",
-                    location === link.href
-                      ? "text-primary border-b border-primary"
-                      : "text-primary/80"
-                  )}
-                >
-                  {link.label}
-                </a>
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "text-sm font-medium tracking-widest uppercase transition-colors hover:text-primary/60",
+                  location === link.href
+                    ? "text-primary border-b border-primary"
+                    : "text-primary/80"
+                )}
+              >
+                {link.label}
               </Link>
             ))}
             <Button variant="outline" size="sm" className="font-serif border-primary text-primary hover:bg-primary hover:text-white rounded-none px-6">
@@ -84,17 +82,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {mobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-[#F9F7F2] border-b border-primary/10 p-8 flex flex-col gap-6 shadow-lg animate-in slide-in-from-top-5 h-screen">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                <a
-                  className={cn(
-                    "text-xl font-serif text-center py-2 transition-colors",
-                    location === link.href
-                      ? "text-primary italic"
-                      : "text-primary/70"
-                  )}
-                >
-                  {link.label}
-                </a>
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "text-xl font-serif text-center py-2 transition-colors",
+                  location === link.href
+                    ? "text-primary italic"
+                    : "text-primary/70"
+                )}
+              >
+                {link.label}
               </Link>
             ))}
             <Button className="w-full font-serif mt-4 bg-primary text-white rounded-none py-6">Get Your Kit</Button>
@@ -122,10 +120,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href}>
-                    <a className="text-primary/60 hover:text-primary transition-colors font-light">
-                      {link.label}
-                    </a>
+                  <Link href={link.href} className="text-primary/60 hover:text-primary transition-colors font-light">
+                    {link.label}
                   </Link>
                 </li>
               ))}
