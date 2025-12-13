@@ -50,13 +50,13 @@ export default function Coaches() {
               That's because you're coaching the <strong>symptom</strong> (the fight, the breakup, the anxiety) instead of the <strong>source</strong> (the Wound).
             </p>
             <p className="text-lg text-muted-foreground font-light leading-relaxed">
-              When you learn to diagnose the 5 Love Wounds, you stop guessing. You become a surgeon. You see exactly where the wire is cut, and you know exactly how to fuse it back together.
+              When you learn to diagnose the 6 Love Wounds, you stop guessing. You become a surgeon. You see exactly where the wire is cut, and you know exactly how to fuse it back together.
             </p>
           </div>
           <div className="grid gap-6">
             {[
               { title: "Diagnose with Precision", desc: "Stop asking 'how does that feel' and start telling them 'here is why you do that.'", icon: Users },
-              { title: "The 5-Wound Framework", desc: "Master the specific antidotes for Abandonment, Rejection, Invisibility, Control, and Unworthiness.", icon: BookOpen },
+              { title: "The 6-Wound Framework", desc: "Master the specific antidotes for Abandonment, Rejection, Invisibility, Control, Unworthiness, and Betrayal.", icon: BookOpen },
               { title: "Certified Methodology", desc: "Stand out in a crowded market with a proprietary, proven clinical framework.", icon: Award },
             ].map((item, i) => (
               <div key={i} className="flex gap-4 p-6 rounded-xl bg-[#F9F7F2] border border-primary/5">

@@ -40,9 +40,9 @@ export default function Services() {
     {
       name: "The Kit",
       price: "47",
-      description: "The self-paced foundation. Understand the 5 Love Wounds and identify your primary pattern.",
+      description: "The self-paced foundation. Understand the 6 Love Wounds and identify your primary pattern.",
       features: [
-        "The 5 Love Wounds Digital Guide",
+        "The 6 Love Wounds Digital Guide",
         "Audio Walkthrough of the 'Wound -> Code -> Pattern' Framework",
         "The 'Pattern Hunter' Journal Prompts",
         "Immediate Access"
