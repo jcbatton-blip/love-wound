@@ -1,0 +1,66 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Jeff Batton Life Coaching - The Love Wound",
+  "alternateName": "Love Wound Mirror Method",
+  "url": "https://jeffbatton.com",
+  "logo": "https://jeffbatton.com/images/jeff-batton-headshot-enhanced.png",
+  "image": "https://jeffbatton.com/images/jeff-batton-headshot-enhanced.png",
+  "description": "Transform your relationship patterns through The Mirror Method™. Jeff Batton helps high-performers and couples heal their Love Wound and break subconscious patterns.",
+  "founder": {
+    "@type": "Person",
+    "name": "Jeff Batton",
+    "jobTitle": "Life Coach & Relationship Expert",
+    "image": "https://jeffbatton.com/images/jeff-batton-headshot-enhanced.png"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "US"
+  },
+  "priceRange": "$47-$15000",
+  "serviceType": [
+    "Relationship Coaching",
+    "Life Coaching",
+    "Couples Therapy Alternative",
+    "Pattern Healing",
+    "Love Wound Healing"
+  ],
+  "areaServed": "Worldwide",
+  "availableLanguage": "English",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Coaching Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "The Kit",
+          "description": "Self-paced foundation to understand the 6 Love Wounds",
+          "price": "47",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "The Mirror Session",
+          "description": "90-minute deep dive to locate your pattern",
+          "price": "350",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "The Container",
+          "description": "3-month intensive coaching program",
+          "price": "5000",
+          "priceCurrency": "USD"
+        }
+      }
+    ]
+  }
+}

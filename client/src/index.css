@@ -198,4 +198,25 @@
     /* Removed heavy shadow for cleaner editorial look */
     text-shadow: none;
   }
+  
+  /* Mobile Optimizations */
+  @media (max-width: 768px) {
+    /* Simplify mirror graphic on mobile */
+    .mirror-graphic {
+      opacity: 0.15 !important;
+      transform: scale(0.7) !important;
+    }
+    
+    /* Ensure CTAs are thumb-friendly */
+    button, .button, a[role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Improve mobile spacing */
+    .hero-section {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
 }

@@ -33,7 +33,7 @@ export default function Home() {
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
         
         {/* Central Mirror Frame Graphic (Abstract representation) - Enhanced with deeper opacity and layered rings */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
+        <div className="mirror-graphic absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
           <div className="w-[600px] h-[800px] border-[3px] border-primary rounded-[50%] transform scale-110 shadow-[0_0_80px_rgba(0,0,0,0.15)]" />
           <div className="absolute w-[580px] h-[780px] border-[2px] border-primary/80 rounded-[50%] transform scale-110" />
           <div className="absolute w-[560px] h-[760px] border-[1px] border-primary/50 rounded-[50%] transform scale-110" />
@@ -79,6 +79,30 @@ export default function Home() {
                 </Button>
               </Link>
             </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Testimonial Section */}
+      <section className="py-16 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]/30">
+        <div className="container max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="bg-white/50 backdrop-blur-sm rounded-2xl p-12 border border-primary/10 shadow-lg"
+          >
+            <div className="flex flex-col items-center text-center space-y-6">
+              <div className="text-6xl text-primary/20 font-serif leading-none">"</div>
+              <p className="text-xl md:text-2xl font-serif italic text-primary leading-relaxed -mt-8">
+                I spent years in therapy talking about my patterns. Three sessions with Jeff, and I finally understood why I kept choosing the same type of person. More importantly, I learned how to stop.
+              </p>
+              <div className="pt-4 border-t border-primary/10 w-full">
+                <p className="text-sm font-medium text-primary tracking-widest uppercase">Sarah M.</p>
+                <p className="text-sm text-primary/60">Marketing Director, Chicago</p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

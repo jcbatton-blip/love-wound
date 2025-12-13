@@ -16,6 +16,7 @@ import Services from "./pages/Services";
 import ClientPortal from "./pages/ClientPortal";
 import DiscoverySession from "./pages/DiscoverySession";
 import PatternRevealed from "./pages/PatternRevealed";
+import HowItWorks from "./pages/HowItWorks";
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
@@ -30,6 +31,7 @@ function Router() {
         <Route path="/services" component={Services} />
         <Route path="/about" component={About} />
         <Route path="/pattern-revealed" component={PatternRevealed} />
+        <Route path="/how-it-works" component={HowItWorks} />
         <Route path="/client-portal" component={ClientPortal} />
         <Route path="/discovery" component={DiscoverySession} />
         <Route component={NotFound} />

@@ -161,6 +161,11 @@ export default function Services() {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
             I don't sell "advice." I sell awareness. Choose the level of depth you're ready for.
           </p>
+          <div className="mt-6 inline-block px-6 py-3 bg-primary/5 border border-primary/20 rounded-full">
+            <p className="text-sm text-primary/70 font-medium">
+              <span className="font-serif italic">Limited Availability:</span> I work with a maximum of 10 clients at a time to ensure deep, focused attention.
+            </p>
+          </div>
         </div>
 
         {/* Payment Toggle */}
