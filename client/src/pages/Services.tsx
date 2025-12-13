@@ -3,6 +3,7 @@ import { Check, ArrowRight, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { toast } from "sonner";
+import { trackBookingClick } from "@/lib/analytics";
 
 export default function Services() {
   const [loading, setLoading] = useState<string | null>(null);
@@ -145,7 +146,11 @@ export default function Services() {
               <Button 
                 className={`w-full py-6 rounded-full font-serif text-lg ${tier.popular ? 'bg-primary text-white hover:bg-primary/90' : 'bg-[#F9F7F2] text-primary hover:bg-[#F0EBE0]'}`}
                 onClick={() => {
-                  if (tier.id === "individual_container" || tier.id === "couples_container") {
+                  if (tier.id === "individual_container") {
+                    trackBookingClick('individual');
+                    window.location.href = "mailto:jeff@jeffbatton.com?subject=Application for The Container";
+                  } else if (tier.id === "couples_container") {
+                    trackBookingClick('couples');
                     window.location.href = "mailto:jeff@jeffbatton.com?subject=Application for The Container";
                   } else {
                     handleCheckout(tier.id);

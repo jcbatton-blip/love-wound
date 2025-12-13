@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Star, Quote, BookOpen } from "lucide-react";
+import { trackAffiliateClick } from "@/lib/analytics";
 
 export default function Book() {
   const fadeIn = {
@@ -32,7 +33,7 @@ export default function Book() {
               Before I was a coach, I was a peanut farmer's son trying to outrun a 700-acre imprint. This is the raw, unpolished, and laugh-out-loud story of how I went from "caddywonked" to conscious.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a href="https://www.amazon.com/Grinnin-Like-Jackass-Eatin-Briars/dp/1734877421" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.amazon.com/Grinnin-Like-Jackass-Eatin-Briars-dp-1734877421/dp/1734877421" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="w-full sm:w-auto font-serif rounded-full px-10 py-6 h-auto bg-primary text-white hover:bg-primary/90">
                   Get the Book on Amazon
                 </Button>
@@ -122,7 +123,13 @@ export default function Book() {
                 <p className="text-muted-foreground font-light text-sm leading-relaxed">
                   "If you only read one book on this list, make it this one. It's the foundation of everything I teach about waking up."
                 </p>
-                <a href="https://amzn.to/3CQqZ1L" target="_blank" rel="noopener noreferrer" className="inline-block pt-2 text-primary hover:underline font-serif italic">
+                <a 
+                  href="https://amzn.to/3CQqZ1L" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-block pt-2 text-primary hover:underline font-serif italic"
+                  onClick={() => trackAffiliateClick('Awareness')}
+                >
                   Get it on Amazon &rarr;
                 </a>
               </div>
@@ -143,7 +150,13 @@ export default function Book() {
                 <p className="text-muted-foreground font-light text-sm leading-relaxed">
                   "You can't think your way out of a trauma response. This book explains why your body remembers what your mind tries to forget."
                 </p>
-                <a href="https://amzn.to/3CQqZ1L" target="_blank" rel="noopener noreferrer" className="inline-block pt-2 text-primary hover:underline font-serif italic">
+                <a 
+                  href="https://amzn.to/3CQqZ1L" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-block pt-2 text-primary hover:underline font-serif italic"
+                  onClick={() => trackAffiliateClick('The Body Keeps the Score')}
+                >
                   Get it on Amazon &rarr;
                 </a>
               </div>
@@ -164,7 +177,13 @@ export default function Book() {
                 <p className="text-muted-foreground font-light text-sm leading-relaxed">
                   "The manual for your relationship style. Stop asking 'Why are they like this?' and start understanding the biology of attachment."
                 </p>
-                <a href="https://amzn.to/3CQqZ1L" target="_blank" rel="noopener noreferrer" className="inline-block pt-2 text-primary hover:underline font-serif italic">
+                <a 
+                  href="https://amzn.to/3CQqZ1L" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-block pt-2 text-primary hover:underline font-serif italic"
+                  onClick={() => trackAffiliateClick('Attached')}
+                >
                   Get it on Amazon &rarr;
                 </a>
               </div>
@@ -214,7 +233,7 @@ export default function Book() {
           <p className="text-xl text-primary-foreground/80 font-light">
             Read the story. See the pattern. Then let's talk.
           </p>
-          <a href="https://www.amazon.com/Grinnin-Like-Jackass-Eatin-Briars/dp/1734877421" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.amazon.com/Grinnin-Like-Jackass-Eatin-Briars-dp-1734877421/dp/1734877421" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-[#F9F7F2] text-primary hover:bg-white font-serif text-xl px-12 py-8 h-auto rounded-full transition-transform hover:scale-105">
               Buy The Book
             </Button>
