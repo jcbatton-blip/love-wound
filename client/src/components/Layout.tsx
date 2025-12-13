@@ -23,53 +23,53 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/framework", label: "The Framework" },
-    { href: "/patterns", label: "Pattern Hunting" },
-    { href: "/about", label: "About" },
+    { href: "/framework", label: "The Method" },
+    { href: "/patterns", label: "The Wounds" },
+    { href: "/about", label: "About Jeffrey" },
   ];
 
   return (
-    <div className="min-h-screen flex flex-col font-sans">
-      {/* Navigation */}
+    <div className="min-h-screen flex flex-col font-sans bg-[#F9F7F2]">
+      {/* Navigation - Editorial Style */}
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out",
           isScrolled
-            ? "bg-background/80 backdrop-blur-md border-b border-border py-4 shadow-sm"
-            : "bg-transparent py-6"
+            ? "bg-[#F9F7F2]/90 backdrop-blur-md border-b border-primary/5 py-4 shadow-sm"
+            : "bg-transparent py-8"
         )}
       >
         <div className="container flex items-center justify-between">
           <Link href="/">
-            <a className="text-2xl font-serif font-bold tracking-tighter hover:opacity-80 transition-opacity">
+            <a className="text-2xl font-serif tracking-widest text-primary hover:opacity-80 transition-opacity uppercase">
               Love Wound
             </a>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
                 <a
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-primary",
+                    "text-sm font-medium tracking-widest uppercase transition-colors hover:text-primary/60",
                     location === link.href
-                      ? "text-primary"
-                      : "text-muted-foreground"
+                      ? "text-primary border-b border-primary"
+                      : "text-primary/80"
                   )}
                 >
                   {link.label}
                 </a>
               </Link>
             ))}
-            <Button variant="default" size="sm" className="font-serif">
-              Start Healing
+            <Button variant="outline" size="sm" className="font-serif border-primary text-primary hover:bg-primary hover:text-white rounded-none px-6">
+              Get Your Kit
             </Button>
           </nav>
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden p-2 text-primary"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -78,22 +78,22 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Mobile Nav */}
         {mobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-4 flex flex-col gap-4 shadow-lg animate-in slide-in-from-top-5">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-[#F9F7F2] border-b border-primary/10 p-8 flex flex-col gap-6 shadow-lg animate-in slide-in-from-top-5 h-screen">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
                 <a
                   className={cn(
-                    "text-lg font-medium py-2 px-4 rounded-md hover:bg-muted transition-colors",
+                    "text-xl font-serif text-center py-2 transition-colors",
                     location === link.href
-                      ? "text-primary bg-muted/50"
-                      : "text-foreground"
+                      ? "text-primary italic"
+                      : "text-primary/70"
                   )}
                 >
                   {link.label}
                 </a>
               </Link>
             ))}
-            <Button className="w-full font-serif mt-2">Start Healing</Button>
+            <Button className="w-full font-serif mt-4 bg-primary text-white rounded-none py-6">Get Your Kit</Button>
           </div>
         )}
       </header>
@@ -103,23 +103,23 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
 
-      {/* Footer */}
-      <footer className="bg-muted/30 border-t border-border py-16">
-        <div className="container grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div className="md:col-span-2 space-y-6">
-            <h3 className="text-2xl font-serif font-bold">Love Wound</h3>
-            <p className="text-muted-foreground max-w-md leading-relaxed">
-              It's not a wound, it's an imprint. Discover the patterns that define your relationships and rewrite the code of your love life.
+      {/* Footer - Minimalist Editorial */}
+      <footer className="bg-[#F0EBE0] py-20 border-t border-primary/5">
+        <div className="container grid grid-cols-1 md:grid-cols-3 gap-16 text-center md:text-left">
+          <div className="space-y-6">
+            <h3 className="text-2xl font-serif text-primary uppercase tracking-widest">Love Wound</h3>
+            <p className="text-primary/60 font-light leading-relaxed max-w-xs mx-auto md:mx-0">
+              Awakening isn't about becoming someone better. It's about remembering who you've always been.
             </p>
           </div>
           
-          <div className="space-y-4">
-            <h4 className="font-serif font-semibold text-lg">Explore</h4>
-            <ul className="space-y-2">
+          <div className="space-y-6">
+            <h4 className="font-serif text-lg text-primary">Navigation</h4>
+            <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href}>
-                    <a className="text-muted-foreground hover:text-primary transition-colors">
+                    <a className="text-primary/60 hover:text-primary transition-colors font-light">
                       {link.label}
                     </a>
                   </Link>
@@ -128,29 +128,29 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </ul>
           </div>
           
-          <div className="space-y-4">
-            <h4 className="font-serif font-semibold text-lg">Connect</h4>
-            <ul className="space-y-2">
+          <div className="space-y-6">
+            <h4 className="font-serif text-lg text-primary">Connect</h4>
+            <ul className="space-y-3">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#" className="text-primary/60 hover:text-primary transition-colors font-light">
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Twitter
+                <a href="#" className="text-primary/60 hover:text-primary transition-colors font-light">
+                  LinkedIn
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Newsletter
+                <a href="mailto:jeff@jeffbatton.com" className="text-primary/60 hover:text-primary transition-colors font-light">
+                  jeff@jeffbatton.com
                 </a>
               </li>
             </ul>
           </div>
         </div>
-        <div className="container mt-16 pt-8 border-t border-border/50 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Love Wound. All rights reserved.</p>
+        <div className="container mt-20 pt-8 border-t border-primary/10 text-center text-xs text-primary/40 uppercase tracking-widest">
+          <p>&copy; {new Date().getFullYear()} Jeff Batton Life Coaching. All rights reserved.</p>
         </div>
       </footer>
     </div>

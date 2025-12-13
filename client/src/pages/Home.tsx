@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Sparkles, Fingerprint, RefreshCw, Heart } from "lucide-react";
+import { ArrowRight, Heart, Eye, X, Ghost, Lock, Frown, UserX } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 
@@ -21,18 +21,16 @@ export default function Home() {
   };
 
   return (
-    <div className="overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="/images/hero-reflection.png" 
-            alt="Ethereal reflection" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/10 to-background/90" />
-          <div className="absolute inset-0 bg-black/20" />
+    <div className="overflow-hidden bg-background">
+      {/* Hero Section - Editorial Style */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#F9F7F2]">
+        {/* Subtle Background Texture */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
+        
+        {/* Central Mirror Frame Graphic (Abstract representation) */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-10">
+          <div className="w-[600px] h-[800px] border-[1px] border-primary rounded-[50%] transform scale-110" />
+          <div className="absolute w-[580px] h-[780px] border-[1px] border-primary rounded-[50%] transform scale-110" />
         </div>
 
         <div className="container relative z-10 pt-20">
@@ -40,139 +38,120 @@ export default function Home() {
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="max-w-3xl mx-auto text-center space-y-8"
+            className="max-w-4xl mx-auto text-center space-y-10"
           >
             <motion.div variants={fadeIn}>
-              <span className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-sm font-medium tracking-wider uppercase mb-4">
-                Beyond The Wound
+              <span className="font-serif italic text-xl text-primary/70 tracking-wide">
+                The Love Wound Mirror™
               </span>
             </motion.div>
             
-            <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl font-serif font-bold text-white leading-tight hero-text-shadow">
-              It's Not a Wound.<br />
-              <span className="text-gold-gradient italic">It's an Imprint.</span>
+            <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl font-serif font-medium text-primary leading-tight">
+              You Don't Need A Guru.<br />
+              <span className="italic">You Need A Mirror.</span>
             </motion.h1>
             
-            <motion.p variants={fadeIn} className="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-2xl mx-auto hero-text-shadow">
-              You were born knowing love. You just learned how to do it from watching others. Rewrite the code that defines your relationships.
-            </motion.p>
+            <motion.div variants={fadeIn} className="space-y-6">
+              <h2 className="text-2xl md:text-3xl font-serif text-primary/80">
+                Awaken the Self You Already Are.
+              </h2>
+              <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
+                You don't need to be fixed, healed, or reinvented. Just remember what you've forgotten. Your patterns aren't problems—they're the imprint you absorbed before you even had language.
+              </p>
+            </motion.div>
             
-            <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-serif text-lg px-8 py-6 h-auto rounded-full shadow-xl transition-transform hover:scale-105">
-                Discover Your Pattern
-              </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 font-serif text-lg px-8 py-6 h-auto rounded-full backdrop-blur-sm">
-                Explore the Framework
+            <motion.div variants={fadeIn} className="pt-8">
+              <Button size="lg" className="bg-transparent border border-primary text-primary hover:bg-primary hover:text-white font-serif text-lg px-10 py-6 h-auto rounded-full transition-all duration-300">
+                Take the Quiz: Discover Your Pattern
               </Button>
             </motion.div>
           </motion.div>
         </div>
-        
-        {/* Scroll Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/70 flex flex-col items-center gap-2"
-        >
-          <span className="text-xs uppercase tracking-widest">Scroll to Reflect</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-white/0 via-white/50 to-white/0" />
-        </motion.div>
       </section>
 
-      {/* The Insight Section */}
-      <section className="py-24 md:py-32 bg-background relative">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl relative z-10">
-                <img 
-                  src="/images/pattern-imprint.png" 
-                  alt="Neural pathways of imprinting" 
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
-              <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-accent/20 rounded-full blur-3xl" />
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-8"
-            >
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary">
-                The <span className="italic text-primary/80">Wound</span> is the Hook.<br />
-                The <span className="italic text-primary/80">Code</span> is the Root.
-              </h2>
-              
-              <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-                <p>
-                  We call it a "Love Wound," but that's just the surface. In your first seven years, you were in a state of pure absorption—downloading patterns of love from your parents without judgment.
-                </p>
-                <p>
-                  <strong className="text-primary font-medium">You didn't choose these patterns. You imprinted them.</strong>
-                </p>
-                <p>
-                  "Dad hits mom" becomes "Hitting is love."<br />
-                  "Mom hides emotions" becomes "Silence is safety."
-                </p>
-                <p>
-                  These aren't flaws in your character. They are codes in your operating system. And codes can be rewritten.
-                </p>
-              </div>
-              
-              <div className="pt-4">
-                <Link href="/framework">
-                  <a className="inline-flex items-center gap-2 text-primary font-medium hover:gap-4 transition-all group">
-                    <span className="border-b border-primary/30 pb-1 group-hover:border-primary">Read about the Imprinting Theory</span>
-                    <ArrowRight size={18} />
-                  </a>
-                </Link>
-              </div>
-            </motion.div>
+      {/* The Mirror Method Section */}
+      <section className="py-32 bg-[#F0EBE0]/30">
+        <div className="container text-center max-w-3xl mx-auto space-y-12">
+          <div className="flex justify-center gap-4 text-primary/40 mb-8">
+            <span className="text-2xl">♦</span>
+            <span className="text-2xl">♦</span>
+            <span className="text-2xl">♦</span>
+          </div>
+          
+          <h2 className="text-4xl font-serif text-primary uppercase tracking-widest">
+            The Mirror Method™
+          </h2>
+          
+          <p className="font-serif text-xl italic text-primary/80">
+            See the Pattern. Break its Spell. Rewrite Your Life.
+          </p>
+          
+          <div className="space-y-8 text-lg text-muted-foreground leading-relaxed font-light">
+            <p>
+              Your life isn't shaped by your choices — it's shaped by your imprint. Before you ever had language, before logic or memory, you absorbed one thing:
+            </p>
+            <p className="font-serif text-xl text-primary">
+              How love works.<br />
+              Not because anyone taught you... but because you felt it.
+            </p>
+            <p>
+              Those early experiences became the Love Wound Imprint™ — a subconscious pattern that still determines:
+            </p>
+            <ul className="space-y-2 italic text-primary/80">
+              <li>— who you're drawn to</li>
+              <li>— how you react</li>
+              <li>— what feels like "home," even when it hurts</li>
+            </ul>
+            <p>
+              Patterns aren't the problem. They're the map back to the root — the imprint you absorbed long before you had words for it.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* The Framework Steps */}
-      <section className="py-24 bg-muted/30 relative overflow-hidden">
-        {/* Background texture */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
-        
-        <div className="container relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-serif font-bold text-primary">From Pattern to Freedom</h2>
-            <p className="text-muted-foreground text-lg">
-              We don't "fix" you because you aren't broken. We bring the unconscious to the conscious.
+      {/* The Five Love Wounds Section */}
+      <section className="py-32 bg-[#FFFDF9]">
+        <div className="container">
+          <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
+            <h2 className="text-4xl md:text-5xl font-serif text-primary uppercase tracking-wide">
+              The Five Love Wounds
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              At the root of every relationship pattern is a Love Wound — a subconscious definition of how love works, formed in early childhood. This wound becomes the "code" that runs your adult relationships until you bring it into awareness and rewrite it.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
             {[
               {
-                icon: <Fingerprint className="w-10 h-10 text-primary" />,
-                title: "The Imprint",
-                desc: "Identify the specific 'Love Code' you downloaded in childhood. Not the vague trauma, but the specific rules of engagement you learned."
+                icon: <Heart className="w-12 h-12 stroke-1" />,
+                title: "The Abandonment Wound",
+                desc: "The fear that people will leave so you either cling, over-give, or pick the unavailable."
               },
               {
-                icon: <RefreshCw className="w-10 h-10 text-primary" />,
-                title: "The Pattern",
-                desc: "See how you attract partners with matching wounds. 'Iron sharpens iron'—we choose people who trigger our specific code to help us heal."
+                icon: <X className="w-12 h-12 stroke-1" />,
+                title: "The Rejection Wound",
+                desc: "The belief that you're 'too much' or 'not enough,' making relationships feel like auditions."
               },
               {
-                icon: <Sparkles className="w-10 h-10 text-primary" />,
-                title: "The Awakening",
-                desc: "You don't need to chop the root. You just need to see it. Awareness itself is the transformation. Once you see, you can't unsee."
+                icon: <Ghost className="w-12 h-12 stroke-1" />,
+                title: "The Invisibility Wound",
+                desc: "You learned love meant staying quiet, shrinking, or not having needs so you disappear in relationships."
+              },
+              {
+                icon: <Lock className="w-12 h-12 stroke-1" />,
+                title: "The Control Wound",
+                desc: "When chaos was normal, love feels safer when you're in charge. You manage others to manage your anxiety."
+              },
+              {
+                icon: <Frown className="w-12 h-12 stroke-1" />,
+                title: "The Unworthiness Wound",
+                desc: "The belief that love must be earned so you overperform, settle, or sabotage when it gets too good."
+              },
+              {
+                icon: <UserX className="w-12 h-12 stroke-1" />,
+                title: "The Betrayal Wound",
+                desc: "Trust feels dangerous. You anticipate the lie before it's spoken and protect yourself by never fully letting go."
               }
             ].map((item, i) => (
               <motion.div
@@ -180,124 +159,104 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.2, duration: 0.6 }}
+                transition={{ delay: i * 0.1 }}
+                className="text-center space-y-6 group"
               >
-                <Card className="h-full bg-background/50 backdrop-blur-sm border-primary/10 hover:border-primary/30 transition-colors duration-300">
-                  <CardContent className="p-8 space-y-6">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center mb-6">
-                      {item.icon}
-                    </div>
-                    <h3 className="text-2xl font-serif font-bold text-primary">{item.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </CardContent>
-                </Card>
+                <div className="w-24 h-24 mx-auto border border-primary/20 rounded-full flex items-center justify-center text-primary group-hover:border-primary/50 transition-colors bg-[#F9F7F2]">
+                  {item.icon}
+                </div>
+                <h3 className="text-2xl font-serif text-primary">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed font-light px-4">
+                  {item.desc}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Iron Sharpens Iron Section */}
-      <section className="py-24 md:py-32 relative">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="space-y-8 order-2 md:order-1"
-            >
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary">
-                Iron Sharpens Iron
-              </h2>
-              
-              <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-                <p>
-                  Why do you keep attracting the same type of partner? The one who disrespects you? The one who is emotionally unavailable?
-                </p>
-                <p>
-                  It's not bad luck. It's <strong className="text-primary">matching wounds</strong>.
-                </p>
-                <p>
-                  We subconsciously seek out partners who validate our internal belief system. If your code says "Love is earning affection," you will be bored by someone who gives it freely. You will seek the one who makes you work for it.
-                </p>
-                <p>
-                  But this isn't a mistake. It's an opportunity. Your relationship is the laboratory where the healing happens.
-                </p>
-              </div>
-              
-              <div className="pt-4">
-                <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-serif rounded-full px-8">
-                  Understand Your Attraction
-                </Button>
-              </div>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative order-1 md:order-2"
-            >
-              <div className="aspect-video md:aspect-square rounded-2xl overflow-hidden shadow-2xl relative z-10">
-                <img 
-                  src="/images/iron-sharpens-iron.png" 
-                  alt="Iron sharpening iron abstract" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
-              </div>
-            </motion.div>
+      {/* How I Help You Break the Pattern */}
+      <section className="py-32 bg-[#F0EBE0]/30">
+        <div className="container text-center max-w-3xl mx-auto space-y-10">
+          <h2 className="text-4xl font-serif text-primary">
+            How I Help You Break the Pattern
+          </h2>
+          
+          <div className="space-y-8 text-lg text-muted-foreground leading-relaxed font-light">
+            <p>
+              You don't rise by trying harder — you rise by becoming aware.
+            </p>
+            <p>
+              My work isn't about diagnosing you, fixing you, or giving you a list of strategies you'll forget by next Tuesday.
+            </p>
+            <p>
+              It's about helping you see the pattern that's been running your life — the same way a mirror shows you what you can't see on your own.
+            </p>
+            <p className="italic text-primary/80">
+              Once you finally see it, you stop repeating it.<br />
+              And when the pattern breaks, your entire experience of love, identity, and abundance transforms.
+            </p>
+            <p>
+              Awareness is the doorway. I just hold up the mirror — you walk through it.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="/images/awareness-light.png" 
-            alt="Light of awareness" 
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+      {/* Meet Jeffrey Section */}
+      <section className="py-0 bg-[#FFFDF9]">
+        <div className="grid md:grid-cols-2 min-h-[800px]">
+          <div className="p-16 md:p-24 flex flex-col justify-center space-y-8 bg-[#FFFDF9]">
+            <h2 className="text-5xl font-serif text-primary">
+              Meet Jeffrey
+            </h2>
+            <p className="text-xl font-serif italic text-primary/60">
+              The Mirror Behind the Method
+            </p>
+            
+            <div className="space-y-6 text-muted-foreground leading-relaxed font-light">
+              <p>
+                I'm not here to fix you. I'm here to help you finally see what's been running your life. For over three decades, I've coached individuals and couples through the deeper layers of their patterns—the subconscious beliefs formed in childhood that quietly shape every relationship, every reaction, every story they tell themselves.
+              </p>
+              <p>
+                I created The Love Wound Mirror™ because people don't need more strategies. They need to understand why the same experiences keep repeating... even when they're trying their hardest to change.
+              </p>
+              <p>
+                My approach is simple: I show you the truth you've been too close to see and once you see it, you can't unsee it. That's when life begins to shift effortlessly.
+              </p>
+            </div>
+            
+            <div className="pt-8">
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-serif rounded-none px-8 py-6">
+                Read My Full Story
+              </Button>
+            </div>
+          </div>
+          
+          <div className="relative h-[500px] md:h-auto bg-[#1a1a1a]">
+            {/* Placeholder for Jeff's Portrait */}
+            <img 
+              src="/images/jeff-portrait-placeholder.jpg" 
+              alt="Jeffrey Batton" 
+              className="w-full h-full object-cover opacity-90"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+          </div>
         </div>
-        
-        <div className="container relative z-10 text-center max-w-4xl mx-auto space-y-10">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-serif font-bold text-primary"
-          >
-            You don't change until you see.<br />
-            <span className="italic font-light">And once you see, you can't unsee.</span>
-          </motion.h2>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-muted-foreground"
-          >
-            Start the journey from subconscious pattern to conscious freedom.
-          </motion.p>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-          >
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-serif text-xl px-10 py-8 h-auto rounded-full shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
-              Begin Your Transformation
-            </Button>
-          </motion.div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-32 bg-primary text-primary-foreground text-center">
+        <div className="container max-w-4xl mx-auto space-y-10">
+          <h2 className="text-4xl md:text-6xl font-serif">
+            Ready to See What's In The Mirror?
+          </h2>
+          <p className="text-xl text-primary-foreground/80 font-light">
+            The pattern stops when the awareness begins.
+          </p>
+          <Button size="lg" className="bg-[#F9F7F2] text-primary hover:bg-white font-serif text-xl px-12 py-8 h-auto rounded-full transition-transform hover:scale-105">
+            Book Your Breakthrough Session
+          </Button>
         </div>
       </section>
     </div>

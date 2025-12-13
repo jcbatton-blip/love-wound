@@ -46,84 +46,90 @@
 }
 
 :root {
-  /* Alchemical Mirror Palette - Light Mode (Awareness) */
-  --primary: oklch(0.35 0.04 260); /* Deep Midnight Blue */
-  --primary-foreground: oklch(0.98 0.02 85); /* Soft Gold/Cream */
+  /* Light/Cream Editorial Palette */
+  /* Background: Soft Cream/Beige */
+  --background: oklch(0.98 0.01 85); 
+  /* Foreground: Deep Navy/Charcoal */
+  --foreground: oklch(0.20 0.03 260); 
   
-  --secondary: oklch(0.95 0.02 85); /* Light Cream */
-  --secondary-foreground: oklch(0.25 0.02 260); /* Dark Charcoal */
+  /* Primary: Deep Navy Blue (Text & key elements) */
+  --primary: oklch(0.25 0.04 260); 
+  --primary-foreground: oklch(0.98 0.01 85);
   
-  --muted: oklch(0.97 0.01 260); /* Very Light Blue-Grey */
-  --muted-foreground: oklch(0.55 0.02 260); /* Muted Blue-Grey */
+  /* Secondary: Warm Gold/Tan (Accents) */
+  --secondary: oklch(0.85 0.05 85); 
+  --secondary-foreground: oklch(0.20 0.03 260);
   
-  --accent: oklch(0.92 0.03 85); /* Soft Gold Accent */
-  --accent-foreground: oklch(0.35 0.04 260); /* Deep Blue Text */
+  /* Muted: Lighter Cream/Beige for cards/sections */
+  --muted: oklch(0.96 0.01 85); 
+  --muted-foreground: oklch(0.45 0.02 260);
   
-  --background: oklch(0.99 0.005 85); /* Off-White/Cream */
-  --foreground: oklch(0.20 0.02 260); /* Near Black/Deep Blue */
+  /* Accent: Soft Gold */
+  --accent: oklch(0.90 0.03 85); 
+  --accent-foreground: oklch(0.20 0.03 260);
   
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.20 0.02 260);
+  --card: oklch(0.99 0.005 85);
+  --card-foreground: oklch(0.20 0.03 260);
   
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.20 0.02 260);
+  --popover: oklch(0.99 0.005 85);
+  --popover-foreground: oklch(0.20 0.03 260);
   
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
   
-  --border: oklch(0.90 0.01 260);
-  --input: oklch(0.90 0.01 260);
-  --ring: oklch(0.70 0.10 85); /* Gold Ring */
+  --border: oklch(0.90 0.01 85);
+  --input: oklch(0.90 0.01 85);
+  --ring: oklch(0.85 0.05 85);
   
-  --radius: 0.5rem;
+  --radius: 0rem; /* Sharper corners for editorial look */
   
-  --sidebar: oklch(0.98 0.01 260);
-  --sidebar-foreground: oklch(0.25 0.02 260);
-  --sidebar-primary: oklch(0.35 0.04 260);
-  --sidebar-primary-foreground: oklch(0.98 0.02 85);
-  --sidebar-accent: oklch(0.95 0.02 85);
-  --sidebar-accent-foreground: oklch(0.25 0.02 260);
-  --sidebar-border: oklch(0.90 0.01 260);
-  --sidebar-ring: oklch(0.70 0.10 85);
+  --sidebar: oklch(0.98 0.01 85);
+  --sidebar-foreground: oklch(0.20 0.03 260);
+  --sidebar-primary: oklch(0.25 0.04 260);
+  --sidebar-primary-foreground: oklch(0.98 0.01 85);
+  --sidebar-accent: oklch(0.96 0.01 85);
+  --sidebar-accent-foreground: oklch(0.20 0.03 260);
+  --sidebar-border: oklch(0.90 0.01 85);
+  --sidebar-ring: oklch(0.85 0.05 85);
 }
 
 .dark {
-  /* Alchemical Mirror Palette - Dark Mode (Subconscious) */
-  --primary: oklch(0.85 0.05 85); /* Luminous Gold */
-  --primary-foreground: oklch(0.15 0.02 260); /* Deep Dark Blue */
+  /* Dark Mode - Deep Navy & Gold */
+  --background: oklch(0.15 0.03 260); 
+  --foreground: oklch(0.95 0.01 85); 
   
-  --secondary: oklch(0.20 0.03 260); /* Dark Blue-Grey */
-  --secondary-foreground: oklch(0.95 0.02 85); /* Cream Text */
+  --primary: oklch(0.90 0.03 85); 
+  --primary-foreground: oklch(0.15 0.03 260);
   
-  --muted: oklch(0.25 0.02 260); /* Muted Dark Blue */
-  --muted-foreground: oklch(0.70 0.02 260); /* Light Blue-Grey Text */
+  --secondary: oklch(0.25 0.04 260); 
+  --secondary-foreground: oklch(0.95 0.01 85);
   
-  --accent: oklch(0.25 0.04 260); /* Deep Blue Accent */
-  --accent-foreground: oklch(0.90 0.05 85); /* Gold Text */
+  --muted: oklch(0.20 0.03 260); 
+  --muted-foreground: oklch(0.70 0.02 260);
   
-  --background: oklch(0.12 0.03 260); /* Deepest Midnight Blue */
-  --foreground: oklch(0.95 0.02 85); /* Cream/Off-White */
+  --accent: oklch(0.25 0.04 260); 
+  --accent-foreground: oklch(0.95 0.01 85);
   
-  --card: oklch(0.15 0.03 260); /* Dark Card */
-  --card-foreground: oklch(0.95 0.02 85);
+  --card: oklch(0.18 0.03 260);
+  --card-foreground: oklch(0.95 0.01 85);
   
-  --popover: oklch(0.15 0.03 260);
-  --popover-foreground: oklch(0.95 0.02 85);
+  --popover: oklch(0.18 0.03 260);
+  --popover-foreground: oklch(0.95 0.01 85);
   
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.985 0 0);
   
-  --border: oklch(0.25 0.02 260);
-  --input: oklch(0.25 0.02 260);
-  --ring: oklch(0.60 0.12 85); /* Gold Ring */
+  --border: oklch(0.25 0.03 260);
+  --input: oklch(0.25 0.03 260);
+  --ring: oklch(0.60 0.12 85);
   
   --sidebar: oklch(0.15 0.03 260);
-  --sidebar-foreground: oklch(0.95 0.02 85);
-  --sidebar-primary: oklch(0.85 0.05 85);
-  --sidebar-primary-foreground: oklch(0.15 0.02 260);
-  --sidebar-accent: oklch(0.25 0.03 260);
-  --sidebar-accent-foreground: oklch(0.95 0.02 85);
-  --sidebar-border: oklch(0.25 0.02 260);
+  --sidebar-foreground: oklch(0.95 0.01 85);
+  --sidebar-primary: oklch(0.90 0.03 85);
+  --sidebar-primary-foreground: oklch(0.15 0.03 260);
+  --sidebar-accent: oklch(0.25 0.04 260);
+  --sidebar-accent-foreground: oklch(0.95 0.01 85);
+  --sidebar-border: oklch(0.25 0.03 260);
   --sidebar-ring: oklch(0.60 0.12 85);
 }
 
@@ -132,10 +138,10 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-primary;
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/10 selection:text-primary;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif tracking-tight;
+    @apply font-serif tracking-tight text-primary;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -179,16 +185,17 @@
     }
   }
   
-  /* Custom Utilities for Alchemical Mirror Theme */
-  .glass-panel {
-    @apply bg-background/60 backdrop-blur-md border border-white/10 shadow-lg;
+  /* Custom Utilities for Editorial Theme */
+  .editorial-card {
+    @apply bg-card border border-border/50 shadow-sm hover:shadow-md transition-shadow duration-300;
   }
   
-  .text-gold-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[oklch(0.85_0.05_85)] to-[oklch(0.70_0.10_85)];
+  .text-gold-accent {
+    @apply text-[oklch(0.65_0.12_85)];
   }
   
   .hero-text-shadow {
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    /* Removed heavy shadow for cleaner editorial look */
+    text-shadow: none;
   }
 }
