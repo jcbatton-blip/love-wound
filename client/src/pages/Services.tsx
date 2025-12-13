@@ -66,19 +66,34 @@ export default function Services() {
       delay: 0.1
     },
     {
-      name: "The Container",
-      price: "3,500",
-      description: "3 months of deep reconstruction. We don't just see the pattern; we rewrite the code.",
+      name: "The Individual Container",
+      price: "5,000",
+      description: "The Reps. The Practice. The Rewiring. We run the play every week until you can't get it wrong. This is high-intensity training for your nervous system.",
       features: [
-        "12 Weekly 60-Minute Sessions",
+        "12 Weekly Strategy Sessions (3 Months)",
         "Direct Voxer/WhatsApp Access (Mon-Fri)",
-        "Customized 'Homework' & Integration Practices",
+        "Real-time 'Game Tape' Review & Adjustments",
         "The Full 'Love Wound' Digital Library"
       ],
-      cta: "Apply For The Container",
-      id: "container",
+      cta: "Apply for Individual Work",
+      id: "individual_container",
       popular: true,
       delay: 0.2
+    },
+    {
+      name: "The Couples Container",
+      price: "7,500",
+      description: "The Relationship Reconstruction. Re-learning the dance, one step at a time. We rebuild the foundation while you're living in the house.",
+      features: [
+        "12 Weekly 90-Minute Sessions (3 Months)",
+        "Flexibility for Individual Breakout Sessions",
+        "Joint & Individual Voxer Support",
+        "Conflict Protocol Training"
+      ],
+      cta: "Apply for Couples Work",
+      id: "couples_container",
+      popular: false,
+      delay: 0.3
     }
   ];
 
@@ -92,7 +107,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 items-start">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
           {tiers.map((tier, index) => (
             <motion.div
               key={index}
@@ -130,7 +145,7 @@ export default function Services() {
               <Button 
                 className={`w-full py-6 rounded-full font-serif text-lg ${tier.popular ? 'bg-primary text-white hover:bg-primary/90' : 'bg-[#F9F7F2] text-primary hover:bg-[#F0EBE0]'}`}
                 onClick={() => {
-                  if (tier.id === "container") {
+                  if (tier.id === "individual_container" || tier.id === "couples_container") {
                     window.location.href = "mailto:jeff@jeffbatton.com?subject=Application for The Container";
                   } else {
                     handleCheckout(tier.id);

@@ -235,14 +235,75 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="relative h-[500px] md:h-auto bg-[#1a1a1a]">
-            {/* Placeholder for Jeff's Portrait */}
+          <div className="relative h-full min-h-[600px] bg-neutral-100">
             <img 
-              src="/images/jeff-portrait-placeholder.jpg" 
-              alt="Jeffrey Batton" 
-              className="w-full h-full object-cover opacity-90"
+              src="/images/jeff-batton-headshot-enhanced.png" 
+              alt="Jeff Batton" 
+              className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-24 bg-white">
+        <div className="container max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-serif text-primary text-center mb-16">Stories from the Mirror</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="space-y-6 p-8 bg-[#F9F7F2] rounded-lg border border-primary/5">
+              <p className="text-lg text-muted-foreground italic leading-relaxed">
+                "Jeff's guidance has saved my life. I was in therapy for 17 years. I struggled with anxiety, depression and addiction. Jeff is not only a safe place for me but someone whose guidance I can trust. I could never imagine my life & headspace where they are today."
+              </p>
+              <div>
+                <p className="font-serif text-primary text-lg">Tyler</p>
+                <p className="text-sm text-muted-foreground uppercase tracking-wider">"Everyone needs a Jeff"</p>
+              </div>
+            </div>
+            <div className="space-y-6 p-8 bg-[#F9F7F2] rounded-lg border border-primary/5">
+              <p className="text-lg text-muted-foreground italic leading-relaxed">
+                "The Work, The Syllabus, The Questions. Jeff has a way about him to cut to the heart of the matter. It's not always easy but definitely worth it. I like to call it The Unlearning of Barbara B. I am no longer caught up in my stories of lack."
+              </p>
+              <div>
+                <p className="font-serif text-primary text-lg">Barbara</p>
+                <p className="text-sm text-muted-foreground uppercase tracking-wider">"Life is Forever Changed"</p>
+              </div>
+            </div>
+            <div className="space-y-6 p-8 bg-[#F9F7F2] rounded-lg border border-primary/5">
+              <p className="text-lg text-muted-foreground italic leading-relaxed">
+                "Jeff is amazing!! I struggle with anxiety and depression.. when I started with Jeff it was hard to comprehend what was real vs what my ego is telling me, but in one session right before my eyes the negative assumptions changed and I saw the positive outcome."
+              </p>
+              <div>
+                <p className="font-serif text-primary text-lg">Denitra</p>
+                <p className="text-sm text-muted-foreground uppercase tracking-wider">"Jeff is the real deal"</p>
+              </div>
+            </div>
+            <div className="space-y-6 p-8 bg-[#F9F7F2] rounded-lg border border-primary/5">
+              <p className="text-lg text-muted-foreground italic leading-relaxed">
+                "Jeff taught me to be self sufficient. Before I would blame everyone around me instead of forgiving one's that have hurt me. It is hard to put into words how much he has done for me in just little over a year. He is the kindest, sensitive and engaging specialist I have ever met."
+              </p>
+              <div>
+                <p className="font-serif text-primary text-lg">Yumi</p>
+                <p className="text-sm text-muted-foreground uppercase tracking-wider">"A Road to Self-Empowerment"</p>
+              </div>
+            </div>
+            <div className="space-y-6 p-8 bg-[#F9F7F2] rounded-lg border border-primary/5">
+              <p className="text-lg text-muted-foreground italic leading-relaxed">
+                "Jeff is like a lighthouse. Metaphorically speaking, he has helped me navigate through life's challenges and difficult times. Jeff provides a sense of direction, safety, and hope. And just like a lighthouse, Jeff helps me see when I'm off course."
+              </p>
+              <div>
+                <p className="font-serif text-primary text-lg">Veronica</p>
+                <p className="text-sm text-muted-foreground uppercase tracking-wider">"Learning to see things differently"</p>
+              </div>
+            </div>
+            <div className="space-y-6 p-8 bg-[#F9F7F2] rounded-lg border border-primary/5">
+              <p className="text-lg text-muted-foreground italic leading-relaxed">
+                "I started working with Jeff since Feb 2023 and looking back I can not tell you how much I have grown, and finally seeing life for what it is. BEAUTIFUL! Thanks to Jeff I understand that I am not just a mom, a wife, a daughter, and a friend. I am on the path to love myself."
+              </p>
+              <div>
+                <p className="font-serif text-primary text-lg">Rachael</p>
+                <p className="text-sm text-muted-foreground uppercase tracking-wider">"Empowering Transformation"</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -51,14 +51,13 @@ export default function Book() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="order-1 md:order-2 flex justify-center relative"
           >
-            {/* Book Cover Placeholder */}
-            <div className="w-[300px] aspect-[2/3] bg-white shadow-2xl rotate-3 border border-primary/5 flex flex-col items-center justify-center text-center p-8 relative z-10">
-              <div className="absolute inset-2 border border-primary/10" />
-              <h3 className="font-serif text-2xl text-primary mb-2">Grinnin' Like a Jackass Eatin' Briars</h3>
-              <p className="text-sm text-muted-foreground mb-8">Jeff Batton</p>
-              <div className="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center">
-                <BookOpen className="w-8 h-8 text-primary/40" />
-              </div>
+            {/* Book Cover */}
+            <div className="w-[300px] aspect-[2/3] bg-white shadow-2xl rotate-3 border border-primary/5 relative z-10 overflow-hidden">
+              <img 
+                src="/images/book-cover.jpg" 
+                alt="Grinnin' Like a Jackass Eatin' Briars" 
+                className="w-full h-full object-cover"
+              />
             </div>
             {/* Decorative Elements */}
             <div className="absolute top-10 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-0" />
