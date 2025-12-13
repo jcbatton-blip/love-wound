@@ -49,13 +49,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden md:flex items-center gap-12 xl:gap-16">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "text-sm font-medium tracking-widest uppercase transition-colors hover:text-primary/60",
+                  "text-xs xl:text-sm font-medium tracking-[0.2em] uppercase transition-colors hover:text-primary/60",
                   location === link.href
                     ? "text-primary border-b border-primary"
                     : "text-primary/80"
