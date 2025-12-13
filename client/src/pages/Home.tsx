@@ -229,9 +229,11 @@ export default function Home() {
             </div>
             
             <div className="pt-8">
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-serif rounded-none px-8 py-6">
-                Read My Full Story
-              </Button>
+              <Link href="/about">
+                <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-serif rounded-none px-8 py-6">
+                  Read My Full Story
+                </Button>
+              </Link>
             </div>
           </div>
           
@@ -317,9 +319,11 @@ export default function Home() {
           <p className="text-xl text-primary-foreground/80 font-light">
             The pattern stops when the awareness begins.
           </p>
-          <Button size="lg" className="bg-[#F9F7F2] text-primary hover:bg-white font-serif text-xl px-12 py-8 h-auto rounded-full transition-transform hover:scale-105">
-            Book Your Breakthrough Session
-          </Button>
+          <Link href="/services">
+            <Button size="lg" className="bg-[#F9F7F2] text-primary hover:bg-white font-serif text-xl px-12 py-8 h-auto rounded-full transition-transform hover:scale-105">
+              Book Your Breakthrough Session
+            </Button>
+          </Link>
         </div>
       </section>
     </div>
