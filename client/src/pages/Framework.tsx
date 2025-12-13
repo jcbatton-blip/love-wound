@@ -82,6 +82,58 @@ export default function Framework() {
         </div>
       </section>
 
+      {/* Case Study: The Setup */}
+      <section className="py-24 bg-white mb-24">
+        <div className="container max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-xs font-bold tracking-widest uppercase text-primary/40">Case Study</span>
+            <h2 className="text-3xl md:text-5xl font-serif text-primary mt-4">The Setup</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6 text-lg text-muted-foreground font-light leading-relaxed">
+              <p>
+                A newlywed couple came to me in crisis. After just 6 months of marriage, the husband—who had never been violent in his life—had hit her. She brought him to me to "fix him."
+              </p>
+              <p>
+                When I asked about her history, she got agitated. "He's the problem!" she insisted. But I pressed on.
+              </p>
+              <ul className="space-y-2 pl-4 border-l-2 border-primary/20 italic">
+                <li>"Tell me about your dad." <span className="text-primary">"He was a beater."</span></li>
+                <li>"Your grandfather?" <span className="text-primary">"A beater."</span></li>
+                <li>"Great-grandfather?" <span className="text-primary">"Beater too."</span></li>
+              </ul>
+              <p>
+                Then I asked the clincher: "Has your stepdad ever hit your mom?" She paused. "Not much," she said.
+              </p>
+            </div>
+            
+            <div className="bg-[#F9F7F2] p-10 rounded-2xl border border-primary/10">
+              <h3 className="text-2xl font-serif text-primary mb-6">The Subconscious Logic</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-primary font-bold shrink-0">1</div>
+                  <p className="text-muted-foreground">Her childhood code: <strong className="text-primary">"If you don't hit me, you don't really love me."</strong></p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-primary font-bold shrink-0">2</div>
+                  <p className="text-muted-foreground">She subconsciously "set him up" to hit her to validate this belief system.</p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-primary font-bold shrink-0">3</div>
+                  <p className="text-muted-foreground">He likely had a matching wound ("I'm always in trouble," "I'm not enough") that made him susceptible to the setup.</p>
+                </div>
+              </div>
+              <div className="mt-8 pt-8 border-t border-primary/10 text-center">
+                <p className="text-xl font-serif text-primary italic">
+                  "It's not your fault. It's your programming."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Deep Dive: The "Dad Drinks" Example */}
       <section className="py-24 bg-[#F0EBE0]/30 mb-24">
         <div className="container">
