@@ -142,9 +142,11 @@ export default function Framework() {
           <p className="text-xl text-muted-foreground font-light">
             My job isn't to fix you. You aren't broken. My job is to hold up the mirror so you can see the code running your life.
           </p>
-          <Button size="lg" className="mt-8 font-serif rounded-full px-10 py-6 h-auto bg-primary text-white hover:bg-primary/90">
-            Book a Mirror Session
-          </Button>
+          <a href="/services" className="inline-block mt-8">
+            <Button size="lg" className="font-serif rounded-full px-10 py-6 h-auto bg-primary text-white hover:bg-primary/90">
+              Book a Mirror Session
+            </Button>
+          </a>
         </motion.div>
       </section>
     </div>
