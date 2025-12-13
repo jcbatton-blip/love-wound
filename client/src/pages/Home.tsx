@@ -1,3 +1,4 @@
+import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Heart, Eye, X, Ghost, Lock, Frown, UserX } from "lucide-react";
@@ -5,6 +6,10 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -27,11 +32,12 @@ export default function Home() {
         {/* Subtle Background Texture */}
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
         
-        {/* Central Mirror Frame Graphic (Abstract representation) */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
-          <div className="w-[600px] h-[800px] border-[2px] border-primary rounded-[50%] transform scale-110 shadow-[0_0_60px_rgba(0,0,0,0.1)]" />
-          <div className="absolute w-[580px] h-[780px] border-[1px] border-primary/60 rounded-[50%] transform scale-110" />
-          <div className="absolute w-[560px] h-[760px] border-[1px] border-primary/30 rounded-[50%] transform scale-110" />
+        {/* Central Mirror Frame Graphic (Abstract representation) - Enhanced with deeper opacity and layered rings */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
+          <div className="w-[600px] h-[800px] border-[3px] border-primary rounded-[50%] transform scale-110 shadow-[0_0_80px_rgba(0,0,0,0.15)]" />
+          <div className="absolute w-[580px] h-[780px] border-[2px] border-primary/80 rounded-[50%] transform scale-110" />
+          <div className="absolute w-[560px] h-[760px] border-[1px] border-primary/50 rounded-[50%] transform scale-110" />
+          <div className="absolute w-[540px] h-[740px] border-[1px] border-primary/30 rounded-[50%] transform scale-110" />
         </div>
 
         <div className="container relative z-10 pt-20">
@@ -61,9 +67,14 @@ export default function Home() {
               </p>
             </motion.div>
             
-            <motion.div variants={fadeIn} className="pt-8">
+            <motion.div variants={fadeIn} className="pt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link href="/discovery" className="inline-block">
+                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full transition-all duration-300 shadow-lg">
+                  Book Free Discovery Session
+                </Button>
+              </Link>
               <Link href="/quiz" className="inline-block">
-                <Button size="lg" className="bg-transparent border border-primary text-primary hover:bg-primary hover:text-white font-serif text-lg px-10 py-6 h-auto rounded-full transition-all duration-300">
+                <Button size="lg" variant="outline" className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white font-serif text-lg px-10 py-6 h-auto rounded-full transition-all duration-300">
                   Take the Quiz: Discover Your Pattern
                 </Button>
               </Link>

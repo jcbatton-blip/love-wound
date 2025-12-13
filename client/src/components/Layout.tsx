@@ -30,6 +30,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     { href: "/coaches", label: "For Coaches" },
     { href: "/vision", label: "The Vision" },
     { href: "/about", label: "About Jeffrey" },
+    { href: "/client-portal", label: "Client Portal" },
   ];
 
   return (

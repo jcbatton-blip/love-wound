@@ -53,6 +53,27 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // API route to create a Stripe Customer Portal session
+  app.post("/api/create-portal-session", async (req, res) => {
+    try {
+      const { customerId } = req.body;
+
+      if (!customerId) {
+        return res.status(400).json({ error: "Customer ID is required" });
+      }
+
+      const session = await stripe.billingPortal.sessions.create({
+        customer: customerId,
+        return_url: `${req.headers.origin}/client-portal`,
+      });
+
+      res.json({ url: session.url });
+    } catch (error: any) {
+      console.error("Portal session error:", error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
