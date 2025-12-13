@@ -61,9 +61,11 @@ export default function Home() {
             </motion.div>
             
             <motion.div variants={fadeIn} className="pt-8">
-              <Button size="lg" className="bg-transparent border border-primary text-primary hover:bg-primary hover:text-white font-serif text-lg px-10 py-6 h-auto rounded-full transition-all duration-300">
-                Take the Quiz: Discover Your Pattern
-              </Button>
+              <Link href="/quiz">
+                <Button size="lg" className="bg-transparent border border-primary text-primary hover:bg-primary hover:text-white font-serif text-lg px-10 py-6 h-auto rounded-full transition-all duration-300">
+                  Take the Quiz: Discover Your Pattern
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>

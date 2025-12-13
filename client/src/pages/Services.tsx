@@ -1,8 +1,39 @@
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { toast } from "sonner";
 
 export default function Services() {
+  const [loading, setLoading] = useState<string | null>(null);
+
+  const handleCheckout = async (productId: string) => {
+    try {
+      setLoading(productId);
+      const response = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ productId }),
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      if (data.url) {
+        window.location.href = data.url;
+      }
+    } catch (error) {
+      console.error("Checkout error:", error);
+      toast.error("Failed to start checkout. Please try again.");
+    } finally {
+      setLoading(null);
+    }
+  };
   const tiers = [
     {
       name: "The Kit",
@@ -15,12 +46,14 @@ export default function Services() {
         "Immediate Access"
       ],
       cta: "Get The Kit",
+      id: "kit",
       popular: false,
       delay: 0
     },
     {
       name: "The Mirror Session",
       price: "350",
+      id: "mirror_session",
       description: "A 90-minute deep dive to locate your 'Goat' and see the pattern you can't see yourself.",
       features: [
         "90-Minute Video Call",
@@ -43,6 +76,7 @@ export default function Services() {
         "The Full 'Love Wound' Digital Library"
       ],
       cta: "Apply For The Container",
+      id: "container",
       popular: true,
       delay: 0.2
     }
@@ -95,7 +129,16 @@ export default function Services() {
 
               <Button 
                 className={`w-full py-6 rounded-full font-serif text-lg ${tier.popular ? 'bg-primary text-white hover:bg-primary/90' : 'bg-[#F9F7F2] text-primary hover:bg-[#F0EBE0]'}`}
+                onClick={() => {
+                  if (tier.id === "container") {
+                    window.location.href = "mailto:jeff@jeffbatton.com?subject=Application for The Container";
+                  } else {
+                    handleCheckout(tier.id);
+                  }
+                }}
+                disabled={loading === tier.id}
               >
+                {loading === tier.id ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
                 {tier.cta} <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </motion.div>

@@ -11,6 +11,7 @@ import Patterns from "./pages/Patterns";
 import Book from "./pages/Book";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import Quiz from "./pages/Quiz";
 
 function Router() {
   return (
@@ -22,6 +23,7 @@ function Router() {
         <Route path="/book" component={Book} />
         <Route path="/services" component={Services} />
         <Route path="/about" component={About} />
+        <Route path="/quiz" component={Quiz} />
         <Route component={NotFound} />
       </Switch>
     </Layout>
