@@ -8,7 +8,9 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Framework from "./pages/Framework";
 import Patterns from "./pages/Patterns";
+import Book from "./pages/Book";
 import About from "./pages/About";
+import Services from "./pages/Services";
 
 function Router() {
   return (
@@ -17,6 +19,8 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/framework" component={Framework} />
         <Route path="/patterns" component={Patterns} />
+        <Route path="/book" component={Book} />
+        <Route path="/services" component={Services} />
         <Route path="/about" component={About} />
         <Route component={NotFound} />
       </Switch>
