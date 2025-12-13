@@ -107,7 +107,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Footer - Minimalist Editorial */}
       <footer className="bg-[#F0EBE0] py-20 border-t border-primary/5">
-        <div className="container grid grid-cols-1 md:grid-cols-3 gap-16 text-center md:text-left">
+        <div className="container grid grid-cols-1 md:grid-cols-4 gap-12 text-center md:text-left">
           <div className="space-y-6">
             <h3 className="text-2xl font-serif text-primary uppercase tracking-widest">Love Wound</h3>
             <p className="text-primary/60 font-light leading-relaxed max-w-xs mx-auto md:mx-0">
@@ -147,6 +147,27 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <a href="mailto:jeff@jeffbatton.com" className="text-primary/60 hover:text-primary transition-colors font-light">
                   jeff@jeffbatton.com
                 </a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-6">
+            <h4 className="font-serif text-lg text-primary">Client Portal</h4>
+            <ul className="space-y-3">
+              <li>
+                <a 
+                  href="https://us02web.zoom.us/j/6811699428" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-primary/60 hover:text-primary transition-colors font-light flex items-center gap-2 justify-center md:justify-start"
+                >
+                  Join Session (Zoom)
+                </a>
+              </li>
+              <li>
+                <span className="text-primary/40 font-light text-sm italic">
+                  More tools coming soon...
+                </span>
               </li>
             </ul>
           </div>
