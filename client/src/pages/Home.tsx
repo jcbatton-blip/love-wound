@@ -63,7 +63,7 @@ export default function Home() {
                 Awaken the Self You Already Are.
               </h2>
               <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
-                You don't need to be fixed, healed, or reinvented. Just remember what you've forgotten. Your patterns aren't problems—they're the imprint you absorbed before you even had language.
+                You don't need fixing. You need remembering. Your patterns aren't problems—they're imprints from before you had words for them.
               </p>
             </motion.div>
             
