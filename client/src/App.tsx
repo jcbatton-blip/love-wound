@@ -11,6 +11,7 @@ import Patterns from "./pages/Patterns";
 import Book from "./pages/Book";
 import About from "./pages/About";
 import Coaches from "./pages/Coaches";
+import Vision from "./pages/Vision";
 import Services from "./pages/Services";
 import Quiz from "./pages/Quiz";
 
@@ -23,6 +24,7 @@ function Router() {
         <Route path="/patterns" component={Patterns} />
         <Route path="/book" component={Book} />
         <Route path="/coaches" component={Coaches} />
+        <Route path="/vision" component={Vision} />
         <Route path="/services" component={Services} />
         <Route path="/about" component={About} />
         <Route path="/quiz" component={Quiz} />

@@ -67,14 +67,29 @@ export default function Services() {
       delay: 0.1
     },
     {
+      name: "The Group Container",
+      price: "350",
+      description: "Healing happens in community. A weekly processing group for those ready to do the work alongside others on the path.",
+      features: [
+        "Weekly 90-Minute Group Calls",
+        "Hot-Seat Coaching Opportunities",
+        "Peer Witnessing & Support",
+        "Monthly Subscription (Cancel Anytime)"
+      ],
+      cta: "Join the Waitlist",
+      id: "group_container",
+      popular: false,
+      delay: 0.1
+    },
+    {
       name: "The Individual Container",
       price: "5,000",
-      description: "The Reps. The Practice. The Rewiring. We run the play every week until you can't get it wrong. This is high-intensity training for your nervous system.",
+      description: "The Reps. The Practice. The Rewiring. We don't just talk. We run the play until you can't get it wrong.",
       features: [
-        "12 Weekly Strategy Sessions (3 Months)",
-        "Direct Voxer/WhatsApp Access (Mon-Fri)",
-        "Real-time 'Game Tape' Review & Adjustments",
-        "The Full 'Love Wound' Digital Library"
+        "12 Weekly Sessions (3 Months)",
+        "Direct Access (Voxer Support)",
+        "Customized 'Homework' Protocols",
+        "Lifetime Access to The Kit"
       ],
       cta: "Apply for Individual Work",
       id: "individual_container",
@@ -162,7 +177,10 @@ export default function Services() {
               <Button 
                 className={`w-full py-6 rounded-full font-serif text-lg ${tier.popular ? 'bg-primary text-white hover:bg-primary/90' : 'bg-[#F9F7F2] text-primary hover:bg-[#F0EBE0]'}`}
                 onClick={() => {
-                  if (tier.id === "individual_container") {
+                  if (tier.id === "group_container") {
+                    trackBookingClick('group');
+                    window.location.href = "mailto:jeff@jeffbatton.com?subject=Waitlist for The Group Container";
+                  } else if (tier.id === "individual_container") {
                     trackBookingClick('individual');
                     window.location.href = "mailto:jeff@jeffbatton.com?subject=Application for The Container";
                   } else if (tier.id === "couples_container") {
