@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, RefreshCcw } from "lucide-react";
 import { toast } from "sonner";
+import { trackEvent } from "@/lib/analytics";
 
 // Quiz Data
 const questions = [
@@ -124,6 +125,7 @@ export default function Quiz() {
       return;
     }
     // Here we would send the email to the backend/CRM
+    trackEvent('quiz_completed', { result: result });
     toast.success("Result unlocked!");
     setShowResult(true);
   };
