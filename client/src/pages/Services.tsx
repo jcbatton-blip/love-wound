@@ -98,6 +98,22 @@ export default function Services() {
     }
   ];
 
+  const retreat = {
+    name: "The Bespoke Retreat",
+    price: "15,000",
+    description: "A private, immersive weekend for one couple. No distractions. Just deep conversation, reflection, and connection in a curated environment.",
+    features: [
+      "2.5 Days of Intensive Immersion",
+      "Hosted at a Private Destination",
+      "Curated Culinary Experiences",
+      "Post-Retreat Integration Support"
+    ],
+    cta: "Inquire for Availability",
+    id: "retreat",
+    popular: false,
+    delay: 0.4
+  };
+
   return (
     <div className="pt-32 pb-16 min-h-screen bg-[#F9F7F2]">
       <div className="container max-w-6xl mx-auto">
@@ -108,7 +124,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start mb-16">
           {tiers.map((tier, index) => (
             <motion.div
               key={index}
@@ -164,6 +180,56 @@ export default function Services() {
             </motion.div>
           ))}
         </div>
+
+        {/* The Retreat Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative overflow-hidden rounded-3xl bg-[#1A2333] text-[#F9F7F2] p-8 md:p-16"
+        >
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37] opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
+          
+          <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <div className="inline-block px-4 py-1 rounded-full border border-[#D4AF37]/30 text-[#D4AF37] text-sm tracking-widest uppercase">
+                The Pinnacle Experience
+              </div>
+              <h2 className="text-4xl md:text-5xl font-serif text-white">
+                {retreat.name}
+              </h2>
+              <p className="text-lg text-white/80 font-light leading-relaxed">
+                {retreat.description}
+              </p>
+              <div className="pt-4">
+                <div className="text-3xl font-serif text-[#D4AF37] mb-1">Starting at ${retreat.price}</div>
+                <div className="text-sm text-white/60">All-inclusive (excluding travel)</div>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <ul className="grid gap-4">
+                {retreat.features.map((feature, i) => (
+                  <li key={i} className="flex items-center gap-4 text-lg text-white/90">
+                    <div className="w-8 h-8 rounded-full bg-[#D4AF37]/20 flex items-center justify-center shrink-0">
+                      <Check className="w-4 h-4 text-[#D4AF37]" />
+                    </div>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button 
+                className="w-full md:w-auto px-8 py-6 rounded-full font-serif text-lg bg-[#D4AF37] text-[#1A2333] hover:bg-[#C49F27]"
+                onClick={() => {
+                  trackBookingClick('retreat');
+                  window.location.href = "mailto:jeff@jeffbatton.com?subject=Inquiry for Bespoke Retreat";
+                }}
+              >
+                {retreat.cta} <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+          </div>
+        </motion.div>
 
         {/* FAQ / Objection Handling */}
         <div className="mt-32 max-w-3xl mx-auto space-y-12">
