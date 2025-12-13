@@ -61,7 +61,7 @@ export default function Home() {
             </motion.div>
             
             <motion.div variants={fadeIn} className="pt-8">
-              <Link href="/quiz">
+              <Link href="/quiz" className="inline-block">
                 <Button size="lg" className="bg-transparent border border-primary text-primary hover:bg-primary hover:text-white font-serif text-lg px-10 py-6 h-auto rounded-full transition-all duration-300">
                   Take the Quiz: Discover Your Pattern
                 </Button>
@@ -111,12 +111,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Five Love Wounds Section */}
+      {/* The Six Love Wounds Section */}
       <section className="py-32 bg-[#FFFDF9]">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
             <h2 className="text-4xl md:text-5xl font-serif text-primary uppercase tracking-wide">
-              The Five Love Wounds
+              The Six Love Wounds
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               At the root of every relationship pattern is a Love Wound — a subconscious definition of how love works, formed in early childhood. This wound becomes the "code" that runs your adult relationships until you bring it into awareness and rewrite it.
