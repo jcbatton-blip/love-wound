@@ -168,6 +168,20 @@ export default function Services() {
               <span className="font-serif italic">Limited Availability:</span> I work with a maximum of 10 clients at a time to ensure deep, focused attention.
             </p>
           </div>
+          
+          {/* Pull Quote */}
+          <div className="mt-12 max-w-3xl mx-auto">
+            <blockquote className="relative py-8">
+              <div className="absolute left-0 top-0 text-6xl text-primary/10 font-serif leading-none">"</div>
+              <p className="text-2xl md:text-3xl font-serif italic text-primary text-center px-12">
+                You can't plant tomatoes and get corn.
+              </p>
+              <div className="absolute right-0 bottom-0 text-6xl text-primary/10 font-serif leading-none">"</div>
+            </blockquote>
+            <p className="text-center text-muted-foreground text-sm mt-4">
+              To change the harvest, we have to change the seed.
+            </p>
+          </div>
         </div>
 
         {/* Payment Toggle */}

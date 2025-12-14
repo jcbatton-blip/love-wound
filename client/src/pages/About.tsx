@@ -179,7 +179,7 @@ export default function About() {
                   </li>
                 </ul>
                 <Link href="/services">
-                  <Button variant="secondary" className="w-full font-serif">Book A Session</Button>
+                  <Button className="w-full font-serif">Book A Session</Button>
                 </Link>
               </div>
             </motion.div>
@@ -217,7 +217,7 @@ export default function About() {
                 </li>
               </ul>
               <Link href="/services">
-                <Button variant="outline" className="w-full font-serif">Book Clinic Session</Button>
+                <Button className="w-full font-serif">Book Clinic Session</Button>
               </Link>
             </motion.div>
           </div>
@@ -352,7 +352,7 @@ export default function About() {
               </li>
             </ul>
             <Link href="/services">
-              <Button variant="outline" className="w-full font-serif">Join the Waitlist</Button>
+              <Button className="w-full font-serif">Join the Waitlist</Button>
             </Link>
           </motion.div>
 
@@ -389,7 +389,7 @@ export default function About() {
                 </li>
               </ul>
               <Link href="/services">
-                <Button variant="secondary" className="w-full font-serif">Inquire for Availability</Button>
+                <Button className="w-full font-serif">Inquire for Availability</Button>
               </Link>
             </div>
             <div className="absolute inset-0 bg-white/5 mix-blend-overlay" />

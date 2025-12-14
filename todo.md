@@ -78,3 +78,7 @@
 - [ ] Comprehensive mobile spacing review and optimization across all pages
 - [x] Clarify Mirror Session vs Teaching Clinic distinction - added ✓ for private features, ⚠ for observation/recording, emphasized privacy vs. teaching demonstration
 - [x] Expand About page to include all service offerings - added The Kit, Mirror Session, Teaching Clinic, Individual/Couples Containers, Group Container, and Bespoke Retreat with full descriptions and CTAs
+- [x] Change all booking/action buttons to navy color - removed variant="outline" and variant="secondary" from all About page CTAs
+- [x] Add "You can't plant tomatoes and get corn" as a floating pull quote on Services page header with decorative quotation marks
+- [x] Change all booking/action buttons to navy color - removed variant="outline" and variant="secondary" from all About page CTAs
+- [x] Add "You can't plant tomatoes and get corn" as a floating pull quote on Services page header with decorative quotation marks
