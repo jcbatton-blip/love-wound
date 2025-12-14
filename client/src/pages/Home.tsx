@@ -111,7 +111,7 @@ export default function Home() {
       </section>
 
       {/* The Mirror Method Section */}
-      <section className="py-24 bg-gradient-to-b from-[#F0EBE0]/30 to-[#F9F7F2]">
+      <section className="py-12 md:py-24 bg-gradient-to-b from-[#F0EBE0]/30 to-[#F9F7F2]">
         <div className="container max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -169,7 +169,7 @@ export default function Home() {
       </section>
 
       {/* The Six Love Wounds */}
-      <section className="py-24 bg-[#F9F7F2]">
+      <section className="py-12 md:py-24 bg-[#F9F7F2]">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -220,7 +220,7 @@ export default function Home() {
       </section>
 
       {/* How I Help Section */}
-      <section className="py-24 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]/30">
+      <section className="py-12 md:py-24 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]/30">
         <div className="container max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -258,7 +258,7 @@ export default function Home() {
       </section>
 
       {/* Meet Jeffrey Section */}
-      <section className="py-24 bg-[#F0EBE0]/30">
+      <section className="py-12 md:py-24 bg-[#F0EBE0]/30">
         <div className="container max-w-5xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -310,7 +310,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Grid */}
-      <section className="py-24 bg-[#F9F7F2]">
+      <section className="py-12 md:py-24 bg-[#F9F7F2]">
         <div className="container max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -382,7 +382,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]">
+      <section className="py-12 md:py-24 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]">
         <div className="container max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

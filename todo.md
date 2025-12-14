@@ -73,3 +73,4 @@
 - [x] Increase navigation left margin from ml-8 to ml-16 to push HOME away from mirror edge
 - [ ] Add Calendly booking link (https://calendly.com/jcbatton/let-s-talk) to all booking buttons across the site
 - [x] Fix testimonial section - removed confusing dots (• • •) that looked like swipe indicators
+- [x] Fix mobile spacing - reduced section padding from py-24 to py-12 on mobile (md:py-24 on desktop) for tighter visual flow
