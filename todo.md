@@ -71,3 +71,5 @@
 - [x] Redesign homepage hero - centered all content inside mirror frame for stronger visual metaphor and better focal point
 - [x] Increase mirror frame opacity (50% → 60%) and darken navigation text (80% → 90%, font-medium → font-semibold) for better readability against mirror edge
 - [x] Increase navigation left margin from ml-8 to ml-16 to push HOME away from mirror edge
+- [ ] Add Calendly booking link (https://calendly.com/jcbatton/let-s-talk) to all booking buttons across the site
+- [x] Fix testimonial section - removed confusing dots (• • •) that looked like swipe indicators

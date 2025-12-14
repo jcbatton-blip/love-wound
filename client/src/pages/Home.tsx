@@ -104,11 +104,6 @@ export default function Home() {
                     <p className="text-sm text-muted-foreground">Marketing Director, Chicago</p>
                   </div>
                 </div>
-                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 flex gap-1">
-                  <div className="w-2 h-2 rounded-full bg-primary/30"></div>
-                  <div className="w-2 h-2 rounded-full bg-primary/30"></div>
-                  <div className="w-2 h-2 rounded-full bg-primary/30"></div>
-                </div>
               </CardContent>
             </Card>
           </motion.div>
