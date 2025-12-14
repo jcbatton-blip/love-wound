@@ -74,3 +74,7 @@
 - [ ] Add Calendly booking link (https://calendly.com/jcbatton/let-s-talk) to all booking buttons across the site
 - [x] Fix testimonial section - removed confusing dots (• • •) that looked like swipe indicators
 - [x] Fix mobile spacing - reduced section padding from py-24 to py-12 on mobile (md:py-24 on desktop) for tighter visual flow
+- [ ] Audit and fix all broken button links (Read Full Story, Book Breakthrough Session, etc.)
+- [ ] Comprehensive mobile spacing review and optimization across all pages
+- [x] Clarify Mirror Session vs Teaching Clinic distinction - added ✓ for private features, ⚠ for observation/recording, emphasized privacy vs. teaching demonstration
+- [x] Expand About page to include all service offerings - added The Kit, Mirror Session, Teaching Clinic, Individual/Couples Containers, Group Container, and Bespoke Retreat with full descriptions and CTAs

@@ -57,27 +57,29 @@ export default function Services() {
       name: "The Mirror Session",
       price: "350",
       id: "mirror_session",
-      description: "A 90-minute deep dive to locate your 'Goat' and see the pattern you can't see yourself.",
+      description: "Private, confidential 1:1 coaching. A 90-minute deep dive to locate your pattern with Jeff's undivided attention.",
       features: [
-        "90-Minute Video Call",
-        "Personalized Pattern Diagnosis",
-        "Immediate 'Pattern Interrupt' Tools",
-        "Recording of the Session"
+        "✓ 100% Private & Confidential",
+        "✓ 90-Minute Video Call",
+        "✓ Personalized Pattern Diagnosis",
+        "✓ No Observers, No Recording",
+        "✓ Full Attention on You"
       ],
       cta: "Book A Session",
-      popular: false,
+      popular: true,
       delay: 0.1,
       hasPaymentPlan: false
     },
     {
       name: "The Teaching Clinic",
       price: "150",
-      description: "High-level 1:1 coaching at a reduced rate. Work directly with Jeff while certification interns observe the session to learn.",
+      description: "1:1 coaching with Jeff at 57% off. Your session is observed by 2-4 certification interns and recorded for training purposes.",
       features: [
-        "Single 60-Minute Session",
-        "Full 'Love Wound' Methodology",
-        "Reduced Rate (Save 70%)",
-        "Limited Availability"
+        "⚠ Observed by Interns (2-4 people)",
+        "⚠ Session Recorded for Training",
+        "✓ 60-Minute Session with Jeff",
+        "✓ Full Love Wound Methodology",
+        "✓ Save $200 (57% Discount)"
       ],
       cta: "Book a Clinic Session",
       id: "teaching_clinic",
