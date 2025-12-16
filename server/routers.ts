@@ -52,7 +52,7 @@ export const appRouter = router({
             },
           ],
           mode: "payment",
-          success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+          success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}&product_id=${input.productId}`,
           cancel_url: `${origin}/services`,
           allow_promotion_codes: true,
         });

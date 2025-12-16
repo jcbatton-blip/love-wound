@@ -62,7 +62,7 @@ export default function DiscoverySession() {
               </div>
             )}
             <iframe
-              src="https://calendly.com/jcbatton/let-s-talk?hide_gdpr_banner=1&background_color=f9f7f2&text_color=1e3a5f&primary_color=1e3a5f"
+              src="https://calendly.com/jcbatton/phone?hide_gdpr_banner=1&background_color=f9f7f2&text_color=1e3a5f&primary_color=1e3a5f"
               width="100%"
               height="700"
               frameBorder="0"

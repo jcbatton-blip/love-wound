@@ -1,3 +1,10 @@
+// Calendly booking links by session duration
+export const CALENDLY_LINKS = {
+  discovery: "https://calendly.com/jcbatton/phone", // 30 min - free discovery
+  coaching: "https://calendly.com/jcbatton/let-s-talk", // 60 min - teaching clinic
+  mirror: "https://calendly.com/jcbatton/mirror", // 90 min - mirror session
+};
+
 export const PRODUCTS = [
   {
     id: "kit",
@@ -6,6 +13,7 @@ export const PRODUCTS = [
     price: 4700, // $47 in cents
     currency: "usd",
     type: "one_time",
+    calendlyLink: null, // Digital product, no booking needed
   },
   {
     id: "mirror_session",
@@ -14,6 +22,7 @@ export const PRODUCTS = [
     price: 35000, // $350 in cents
     currency: "usd",
     type: "one_time",
+    calendlyLink: CALENDLY_LINKS.mirror, // 90 min
   },
   {
     id: "teaching_clinic",
@@ -22,6 +31,7 @@ export const PRODUCTS = [
     price: 15000, // $150 in cents
     currency: "usd",
     type: "one_time",
+    calendlyLink: CALENDLY_LINKS.coaching, // 60 min
   },
   {
     id: "group_container",
@@ -31,6 +41,7 @@ export const PRODUCTS = [
     currency: "usd",
     type: "subscription",
     interval: "month",
+    calendlyLink: null, // Group sessions scheduled separately
   },
   {
     id: "individual_container",
@@ -39,6 +50,7 @@ export const PRODUCTS = [
     price: 500000, // $5,000 in cents (pay in full)
     currency: "usd",
     type: "one_time",
+    calendlyLink: CALENDLY_LINKS.mirror, // 90 min sessions
   },
   {
     id: "individual_container_plan",
@@ -49,6 +61,7 @@ export const PRODUCTS = [
     type: "subscription",
     interval: "month",
     installments: 4,
+    calendlyLink: CALENDLY_LINKS.mirror, // 90 min sessions
   },
   {
     id: "couples_container",
@@ -57,6 +70,7 @@ export const PRODUCTS = [
     price: 750000, // $7,500 in cents (pay in full)
     currency: "usd",
     type: "one_time",
+    calendlyLink: CALENDLY_LINKS.mirror, // 90 min sessions
   },
   {
     id: "couples_container_plan",
@@ -67,6 +81,7 @@ export const PRODUCTS = [
     type: "subscription",
     interval: "month",
     installments: 4,
+    calendlyLink: CALENDLY_LINKS.mirror, // 90 min sessions
   },
   {
     id: "retreat",
@@ -75,6 +90,7 @@ export const PRODUCTS = [
     price: 1500000, // $15,000 in cents
     currency: "usd",
     type: "one_time",
+    calendlyLink: null, // Custom scheduling for retreats
   }
 ];
 

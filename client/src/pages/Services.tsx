@@ -27,6 +27,8 @@ export default function Services() {
 
   const handleCheckout = (productId: string) => {
     setLoading(productId);
+    // Store product ID for success page to show correct booking link
+    localStorage.setItem('last_product_id', productId);
     checkoutMutation.mutate({ productId });
   };
   const tiers = [

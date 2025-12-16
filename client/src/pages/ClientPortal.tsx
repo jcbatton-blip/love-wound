@@ -1,18 +1,37 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, CreditCard, FileText, User, ExternalLink } from 'lucide-react';
+import { Calendar, CreditCard, FileText, User, ExternalLink, AlertCircle } from 'lucide-react';
 import { toast } from 'sonner';
+import { CALENDLY_LINKS } from '@shared/products';
 
 export default function ClientPortal() {
+  const [email, setEmail] = useState('');
+  const [showEmailInput, setShowEmailInput] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleManageSubscription = async () => {
+    if (!showEmailInput) {
+      setShowEmailInput(true);
+      return;
+    }
+
+    if (!email || !email.includes('@')) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
     setLoading(true);
     try {
-      // For now, show a toast since we need a customer ID
-      // In production, this would use the logged-in user's Stripe customer ID
-      toast.info("To manage your billing, please contact Jeff directly or check your email for invoice links.");
+      // Stripe Customer Portal requires a customer ID
+      // For now, direct them to check their email for invoice links
+      // In production with accounts, we'd look up their Stripe customer ID
+      toast.info(
+        "Check your email for invoice and payment links from Stripe. If you need help, contact Jeff directly.",
+        { duration: 5000 }
+      );
+      setShowEmailInput(false);
+      setEmail('');
     } catch (error) {
       console.error('Error:', error);
       toast.error("Something went wrong. Please try again.");
@@ -34,6 +53,18 @@ export default function ClientPortal() {
             </p>
           </div>
 
+          {/* Cancellation Policy Notice */}
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-8 flex items-start gap-3">
+            <AlertCircle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+            <div>
+              <p className="text-sm text-amber-800 font-medium">24-Hour Cancellation Policy</p>
+              <p className="text-sm text-amber-700">
+                Sessions may be rescheduled up to 24 hours before your appointment. 
+                Cancellations within 24 hours are non-refundable.
+              </p>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-6 mb-12">
             <Card className="border-2 border-primary/10 hover:border-primary/30 transition-colors bg-white/80">
               <CardHeader>
@@ -45,10 +76,15 @@ export default function ClientPortal() {
                   Schedule your next coaching session at a time that works for you
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="space-y-2">
                 <Button className="w-full rounded-full" size="lg" asChild>
-                  <a href="https://calendly.com/jcbatton/let-s-talk" target="_blank" rel="noopener noreferrer">
-                    View Calendar <ExternalLink className="w-4 h-4 ml-2" />
+                  <a href={CALENDLY_LINKS.mirror} target="_blank" rel="noopener noreferrer">
+                    90-Min Mirror Session <ExternalLink className="w-4 h-4 ml-2" />
+                  </a>
+                </Button>
+                <Button className="w-full rounded-full" size="lg" variant="outline" asChild>
+                  <a href={CALENDLY_LINKS.coaching} target="_blank" rel="noopener noreferrer">
+                    60-Min Coaching Session <ExternalLink className="w-4 h-4 ml-2" />
                   </a>
                 </Button>
               </CardContent>
@@ -61,18 +97,37 @@ export default function ClientPortal() {
                 </div>
                 <CardTitle className="font-serif text-xl text-primary">Manage Payments</CardTitle>
                 <CardDescription className="font-light">
-                  Update payment methods, view invoices, and manage subscriptions
+                  View invoices and payment history via email links from Stripe
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button 
-                  className="w-full rounded-full" 
-                  size="lg"
-                  onClick={handleManageSubscription}
-                  disabled={loading}
-                >
-                  {loading ? 'Loading...' : 'Manage Billing'}
-                </Button>
+                {showEmailInput ? (
+                  <div className="space-y-3">
+                    <input
+                      type="email"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full px-4 py-2 border border-primary/20 rounded-full focus:outline-none focus:border-primary"
+                    />
+                    <Button 
+                      className="w-full rounded-full" 
+                      size="lg"
+                      onClick={handleManageSubscription}
+                      disabled={loading}
+                    >
+                      {loading ? 'Loading...' : 'Get Billing Info'}
+                    </Button>
+                  </div>
+                ) : (
+                  <Button 
+                    className="w-full rounded-full" 
+                    size="lg"
+                    onClick={handleManageSubscription}
+                  >
+                    Manage Billing
+                  </Button>
+                )}
               </CardContent>
             </Card>
 
@@ -88,7 +143,7 @@ export default function ClientPortal() {
               </CardHeader>
               <CardContent>
                 <Button className="w-full rounded-full" size="lg" variant="outline" asChild>
-                  <a href="https://us02web.zoom.us/j/4aboringzoomlink" target="_blank" rel="noopener noreferrer">
+                  <a href="https://us02web.zoom.us/j/6811699428" target="_blank" rel="noopener noreferrer">
                     Join Zoom <ExternalLink className="w-4 h-4 ml-2" />
                   </a>
                 </Button>
