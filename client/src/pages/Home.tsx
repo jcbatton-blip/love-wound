@@ -55,6 +55,9 @@ export default function Home() {
             </motion.h1>
             
             <motion.div variants={fadeIn} className="space-y-5">
+              <p className="text-base md:text-lg text-primary/70 font-light tracking-wide">
+                A transformational framework for healing relationship patterns and reclaiming clarity.
+              </p>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-serif text-primary/80">
                 Awaken the Self You Already Are.
               </h2>
@@ -66,7 +69,7 @@ export default function Home() {
             <motion.div variants={fadeIn} className="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center pointer-events-auto">
               <Link href="/discovery" className="inline-block">
                 <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-base md:text-lg px-8 md:px-10 py-5 md:py-6 h-auto rounded-full transition-all duration-300 shadow-lg">
-                  Book Free Discovery Session
+                  Begin the Mirror Method
                 </Button>
               </Link>
               <Link href="/pattern-revealed" className="inline-block">
@@ -288,6 +291,9 @@ export default function Home() {
                 The Mirror Behind the Method
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p className="text-sm text-primary/60 font-medium tracking-wide mb-2">
+                  Creator of The Mirror Method™ · Author of "Grinnin' Like a Jackass Eatin' Briars"
+                </p>
                 <p>
                   I'm not here to fix you. I'm here to help you finally see what's been running your life. For over three decades, I've coached individuals and couples through the deeper layers of their patterns—the subconscious beliefs formed in childhood that quietly shape every relationship, every reaction, every story they tell themselves.
                 </p>
@@ -399,7 +405,7 @@ export default function Home() {
             </p>
             <Link href="/discovery">
               <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-12 py-7 h-auto rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl">
-                Book Your Breakthrough Session
+                Begin Your Transformation
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>

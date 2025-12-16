@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Star, Quote, BookOpen } from "lucide-react";
+import { Star, Quote, BookOpen, ExternalLink } from "lucide-react";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 export default function Book() {
@@ -8,6 +8,37 @@ export default function Book() {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
   };
+
+  const recommendedBooks = [
+    {
+      title: "Awareness",
+      author: "Anthony De Mello",
+      description: "The foundation of everything I teach. De Mello strips away illusion with surgical precision. If you only read one book on this list, make it this one.",
+      amazonLink: "https://www.amazon.com/Awareness-Opportunities-Reality-Anthony-Mello/dp/0385249373?tag=lovewound-20",
+      image: "/images/awareness-book.jpg"
+    },
+    {
+      title: "Summerhill",
+      author: "A.S. Neill",
+      description: "A radical vision of education and freedom. Neill understood that children don't need to be molded—they need to be trusted. This book will change how you see childhood wounds.",
+      amazonLink: "https://www.amazon.com/Summerhill-School-Childhood-S-Neill/dp/0312141378?tag=lovewound-20",
+      image: "/images/summerhill-book.jpg"
+    },
+    {
+      title: "A Return to Love",
+      author: "Marianne Williamson",
+      description: "Williamson's interpretation of A Course in Miracles made accessible. Fear vs. love as the only two emotions. Essential reading for understanding the spiritual dimension of patterns.",
+      amazonLink: "https://www.amazon.com/Return-Love-Reflections-Principles-Miracles/dp/0060927488?tag=lovewound-20",
+      image: "/images/return-to-love-book.jpg"
+    },
+    {
+      title: "The Surrender Experiment",
+      author: "Michael Singer",
+      description: "What happens when you stop resisting life and start surrendering to it? Singer's memoir is proof that letting go isn't giving up—it's waking up.",
+      amazonLink: "https://www.amazon.com/Surrender-Experiment-Journey-Lifes-Perfection/dp/080414110X?tag=lovewound-20",
+      image: "/images/surrender-experiment-book.jpg"
+    }
+  ];
 
   return (
     <div className="pt-32 pb-16 min-h-screen bg-[#F9F7F2]">
@@ -33,12 +64,22 @@ export default function Book() {
               Before I was a coach, I was a peanut farmer's son trying to outrun a 700-acre imprint. This is the raw, unpolished, and laugh-out-loud story of how I went from "caddywonked" to conscious.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a href="https://www.amazon.com/Grinnin-Like-Jackass-Eatin-Briars-dp-1734877421/dp/1734877421" target="_blank" rel="noopener noreferrer">
+              <a 
+                href="https://www.amazon.com/Grinnin-Like-Jackass-Eatin-Briars-dp-1734877421/dp/1734877421?tag=lovewound-20" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={() => trackAffiliateClick('Grinnin Like a Jackass - Paperback')}
+              >
                 <Button size="lg" className="w-full sm:w-auto font-serif rounded-full px-10 py-6 h-auto bg-primary text-white hover:bg-primary/90">
                   Get the Book on Amazon
                 </Button>
               </a>
-              <a href="https://www.audible.com/pd/Grinnin-Like-a-Jackass-Eatin-Briars-Audiobook/B0B8DT1ZKZ" target="_blank" rel="noopener noreferrer">
+              <a 
+                href="https://www.audible.com/pd/Grinnin-Like-a-Jackass-Eatin-Briars-Audiobook/B0B8DT1ZKZ" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={() => trackAffiliateClick('Grinnin Like a Jackass - Audible')}
+              >
                 <Button size="lg" variant="outline" className="w-full sm:w-auto font-serif rounded-full px-10 py-6 h-auto border-primary text-primary hover:bg-primary hover:text-white">
                   Listen on Audible
                 </Button>
@@ -107,87 +148,38 @@ export default function Book() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-12">
-            {/* Book 1 */}
-            <div className="group space-y-6">
-              <div className="aspect-[2/3] bg-muted relative overflow-hidden shadow-lg transition-transform group-hover:-translate-y-2 duration-300">
-                <img 
-                  src="/images/awareness-book.jpg" 
-                  alt="Awareness by Anthony De Mello" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="space-y-3 text-center">
-                <h3 className="text-xl font-serif text-primary">Awareness</h3>
-                <p className="text-sm text-muted-foreground uppercase tracking-wider">Anthony De Mello</p>
-                <p className="text-muted-foreground font-light text-sm leading-relaxed">
-                  "If you only read one book on this list, make it this one. It's the foundation of everything I teach about waking up."
-                </p>
-                <a 
-                  href="https://amzn.to/3CQqZ1L" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-block pt-2 text-primary hover:underline font-serif italic"
-                  onClick={() => trackAffiliateClick('Awareness')}
-                >
-                  Get it on Amazon &rarr;
-                </a>
-              </div>
-            </div>
-
-            {/* Book 2 */}
-            <div className="group space-y-6">
-              <div className="aspect-[2/3] bg-muted relative overflow-hidden shadow-lg transition-transform group-hover:-translate-y-2 duration-300">
-                <img 
-                  src="/images/body-keeps-score.jpg" 
-                  alt="The Body Keeps the Score" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="space-y-3 text-center">
-                <h3 className="text-xl font-serif text-primary">The Body Keeps the Score</h3>
-                <p className="text-sm text-muted-foreground uppercase tracking-wider">Bessel van der Kolk</p>
-                <p className="text-muted-foreground font-light text-sm leading-relaxed">
-                  "You can't think your way out of a trauma response. This book explains why your body remembers what your mind tries to forget."
-                </p>
-                <a 
-                  href="https://amzn.to/3CQqZ1L" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-block pt-2 text-primary hover:underline font-serif italic"
-                  onClick={() => trackAffiliateClick('The Body Keeps the Score')}
-                >
-                  Get it on Amazon &rarr;
-                </a>
-              </div>
-            </div>
-
-            {/* Book 3 */}
-            <div className="group space-y-6">
-              <div className="aspect-[2/3] bg-muted relative overflow-hidden shadow-lg transition-transform group-hover:-translate-y-2 duration-300">
-                <img 
-                  src="/images/attached-book.jpg" 
-                  alt="Attached" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="space-y-3 text-center">
-                <h3 className="text-xl font-serif text-primary">Attached</h3>
-                <p className="text-sm text-muted-foreground uppercase tracking-wider">Amir Levine & Rachel Heller</p>
-                <p className="text-muted-foreground font-light text-sm leading-relaxed">
-                  "The manual for your relationship style. Stop asking 'Why are they like this?' and start understanding the biology of attachment."
-                </p>
-                <a 
-                  href="https://amzn.to/3CQqZ1L" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-block pt-2 text-primary hover:underline font-serif italic"
-                  onClick={() => trackAffiliateClick('Attached')}
-                >
-                  Get it on Amazon &rarr;
-                </a>
-              </div>
-            </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {recommendedBooks.map((book, index) => (
+              <motion.div 
+                key={book.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group space-y-6"
+              >
+                <div className="aspect-[2/3] bg-gradient-to-br from-primary/10 to-primary/5 relative overflow-hidden shadow-lg transition-transform group-hover:-translate-y-2 duration-300 flex items-center justify-center">
+                  <BookOpen className="w-16 h-16 text-primary/30" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
+                </div>
+                <div className="space-y-3 text-center">
+                  <h3 className="text-xl font-serif text-primary">{book.title}</h3>
+                  <p className="text-sm text-muted-foreground uppercase tracking-wider">{book.author}</p>
+                  <p className="text-muted-foreground font-light text-sm leading-relaxed">
+                    {book.description}
+                  </p>
+                  <a 
+                    href={book.amazonLink}
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center gap-2 pt-2 text-primary hover:underline font-serif italic"
+                    onClick={() => trackAffiliateClick(book.title)}
+                  >
+                    Get it on Amazon <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -196,6 +188,9 @@ export default function Book() {
       <section className="container mb-24">
         <div className="max-w-4xl mx-auto space-y-12">
           <h2 className="text-3xl font-serif text-center text-primary">What Readers Are Saying</h2>
+          <p className="text-center text-muted-foreground font-light">
+            Reviews for "Grinnin' Like a Jackass Eatin' Briars"
+          </p>
           <div className="grid md:grid-cols-2 gap-8">
             {[
               "Lovingly told, with warm and stark transparency and laugh-out-loud humor.",
@@ -233,7 +228,12 @@ export default function Book() {
           <p className="text-xl text-primary-foreground/80 font-light">
             Read the story. See the pattern. Then let's talk.
           </p>
-          <a href="https://www.amazon.com/Grinnin-Like-Jackass-Eatin-Briars-dp-1734877421/dp/1734877421" target="_blank" rel="noopener noreferrer">
+          <a 
+            href="https://www.amazon.com/Grinnin-Like-Jackass-Eatin-Briars-dp-1734877421/dp/1734877421?tag=lovewound-20" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            onClick={() => trackAffiliateClick('Grinnin Like a Jackass - Final CTA')}
+          >
             <Button size="lg" className="bg-[#F9F7F2] text-primary hover:bg-white font-serif text-xl px-12 py-8 h-auto rounded-full transition-transform hover:scale-105">
               Buy The Book
             </Button>

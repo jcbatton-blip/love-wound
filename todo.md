@@ -57,3 +57,35 @@
 - LW favicon (website) - interlocked serif monogram, navy blue
 - JBLC monogram (Stripe) - interlocked serif, navy blue
 - JBLC wordmark (invoices) - "Jeff Batton Life Coaching" light serif
+
+
+## Dec 16 Morning - Sam's Analysis Implementation
+- [x] Hero section: Add clarifying subheadline
+- [x] Hero section: Update CTA to "Begin the Mirror Method"
+- [ ] Hero section: Adjust spacing (80-100px desktop, 50-60px mobile)
+- [ ] Mirror Method section: Typography cleanup, break long paragraphs
+- [ ] Five Love Wounds section: Add micro-descriptions under each wound
+- [ ] Five Love Wounds section: Add subtle background contrast
+- [ ] "What Working With Me Feels Like": Tighten copy, add visual elevation
+- [x] Meet Jeffrey section: Add authority reinforcement line
+- [x] CTA consistency: Outcome-based language, button consistency
+- [ ] Global design cleanup: Normalize section padding
+- [ ] Mobile responsiveness pass
+
+## Book Page Updates
+- [x] Add book: Awareness by Anthony De Mello (with description + Amazon affiliate link)
+- [x] Add book: Summerhill by A.S. Neill (with description + Amazon affiliate link)
+- [x] Add book: A Return to Love by Marianne Williamson (with description + Amazon affiliate link)
+- [x] Add book: The Surrender Experiment by Michael Singer (with description + Amazon affiliate link)
+- [ ] Add Audible link for "Grinnin' Like a Jackass Eatin' Briars"
+
+## YouTube/Blog Integration
+- [x] Add YouTube channel follow button/link (footer + Client Portal)
+- [x] Create video resources section (curated videos for clients) - placeholder ready
+- [ ] Explore monetization options (YouTube Partner, affiliate links in descriptions)
+
+## Future Ideas (Discussed Last Night)
+- [ ] COR13 concept - weave 1 Corinthians 13 into Love Wound framework
+- [ ] Expand The Sanctuary concept
+- [ ] Coaching certification career path - certified coaches on website
+- [x] Clarify "What Readers Are Saying" section (now specifies it's for Jeff's book)
