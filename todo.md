@@ -89,3 +89,9 @@
 - [ ] Expand The Sanctuary concept
 - [ ] Coaching certification career path - certified coaches on website
 - [x] Clarify "What Readers Are Saying" section (now specifies it's for Jeff's book)
+
+
+## Quotes to Add (Dec 16)
+- [x] Wounds page: Add Carl Jung quote - "Until you make the unconscious conscious, it will direct your life and you will call it fate."
+- [x] Wounds page: Add quote about life bringing people/circumstances to show where we're not free
+- [ ] Add somewhere on site: "Why does it matter?" concept - if it matters, you're not free. Freedom is when it doesn't matter one way or the other.

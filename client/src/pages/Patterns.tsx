@@ -13,12 +13,23 @@ export default function Patterns() {
           transition={{ duration: 0.6 }}
         >
           <span className="text-primary/60 font-serif italic text-xl mb-4 block">The Art of Self-Observation</span>
+          
+          {/* Carl Jung Quote */}
+          <blockquote className="text-lg md:text-xl text-muted-foreground italic border-l-4 border-primary/30 pl-6 my-8 text-left max-w-2xl mx-auto">
+            "Until you make the unconscious conscious, it will direct your life and you will call it fate."
+            <footer className="text-sm text-primary/60 mt-2 not-italic">— Carl Jung</footer>
+          </blockquote>
           <h1 className="text-4xl md:text-6xl font-serif font-bold text-primary mb-8">
             Where's Your Goat<br />Still Gettable?
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             Your triggers aren't obstacles. They are the map to your freedom. If it can rattle you, it owns you.
           </p>
+          
+          {/* Life as Mirror Quote */}
+          <blockquote className="text-lg text-muted-foreground italic border-l-4 border-primary/30 pl-6 mt-8 text-left max-w-2xl mx-auto">
+            "Life will continue to bring you people and circumstances to show you where you are not free."
+          </blockquote>
         </motion.div>
       </section>
 

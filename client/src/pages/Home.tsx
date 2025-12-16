@@ -55,9 +55,6 @@ export default function Home() {
             </motion.h1>
             
             <motion.div variants={fadeIn} className="space-y-5">
-              <p className="text-base md:text-lg text-primary/70 font-light tracking-wide">
-                A transformational framework for healing relationship patterns and reclaiming clarity.
-              </p>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-serif text-primary/80">
                 Awaken the Self You Already Are.
               </h2>
