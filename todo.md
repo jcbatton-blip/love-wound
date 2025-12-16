@@ -95,3 +95,23 @@
 - [x] Wounds page: Add Carl Jung quote - "Until you make the unconscious conscious, it will direct your life and you will call it fate."
 - [x] Wounds page: Add quote about life bringing people/circumstances to show where we're not free
 - [ ] Add somewhere on site: "Why does it matter?" concept - if it matters, you're not free. Freedom is when it doesn't matter one way or the other.
+
+
+## Testimonials Migration (Dec 16)
+- [ ] Check Wix site for testimonial app
+- [ ] Capture all existing testimonials
+- [ ] Add testimonial collection capability to LW website
+
+## Real Estate Tasks (Bruce Scott)
+- [ ] Schedule photography dates/times with tenants (units should be clean/photo-ready)
+- [ ] Get tenant approval for property tours with preferred dates/times and blackout periods
+- [ ] Provide redacted leases for all units
+- [ ] Provide rent rolls/tenant ledgers for all units
+- [ ] Draft tenant notification letters for 2494 Hazelwood and 18703 Prairie
+- [ ] Build tenant communication portal for property sale notifications
+
+## Branding & Design
+- [ ] Create Batton Homes LLC branding standards (logo, colors, typography)
+- [ ] Design Batton Homes logo for property management communications
+- [ ] Create branded letterhead templates for tenant communications
+- [x] Add Calendly booking button to header and update all booking buttons

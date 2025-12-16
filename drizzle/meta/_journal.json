@@ -15,6 +15,13 @@
       "when": 1765642033895,
       "tag": "0001_quick_sersi",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1765922323773,
+      "tag": "0002_public_joystick",
+      "breakpoints": true
     }
   ]
 }

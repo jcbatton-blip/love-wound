@@ -5,6 +5,8 @@ import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 import Stripe from "stripe";
 import { PRODUCTS, getProductById } from "../shared/products";
+import { getDb } from "./db";
+import { tenantResponses } from "../drizzle/schema";
 
 // Initialize Stripe
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
@@ -22,6 +24,46 @@ export const appRouter = router({
         success: true,
       } as const;
     }),
+  }),
+
+  tenants: router({
+    submitResponse: publicProcedure
+      .input(z.object({
+        propertyAddress: z.string(),
+        tenantName: z.string(),
+        tenantEmail: z.string().email(),
+        tenantPhone: z.string().optional(),
+        photoDate1: z.string().optional(),
+        photoDate2: z.string().optional(),
+        photoDate3: z.string().optional(),
+        showingPreferences: z.string().optional(),
+        blackoutDates: z.string().optional(),
+        advanceNoticeHours: z.number().default(24),
+        questions: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const db = await getDb();
+        if (!db) {
+          throw new Error("Database not available");
+        }
+        
+        await db.insert(tenantResponses).values({
+          propertyAddress: input.propertyAddress,
+          tenantName: input.tenantName,
+          tenantEmail: input.tenantEmail,
+          tenantPhone: input.tenantPhone || null,
+          photoDate1: input.photoDate1 || null,
+          photoDate2: input.photoDate2 || null,
+          photoDate3: input.photoDate3 || null,
+          showingPreferences: input.showingPreferences || null,
+          blackoutDates: input.blackoutDates || null,
+          advanceNoticeHours: input.advanceNoticeHours,
+          questions: input.questions || null,
+          status: "pending",
+        });
+
+        return { success: true };
+      }),
   }),
 
   stripe: router({

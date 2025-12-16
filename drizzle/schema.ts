@@ -26,4 +26,35 @@ export const users = mysqlTable("users", {
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 
-// TODO: Add your tables here
+/**
+ * Tenant responses for property sale notifications
+ */
+export const tenantResponses = mysqlTable("tenantResponses", {
+  id: int("id").autoincrement().primaryKey(),
+  propertyAddress: varchar("propertyAddress", { length: 255 }).notNull(),
+  tenantName: varchar("tenantName", { length: 255 }).notNull(),
+  tenantEmail: varchar("tenantEmail", { length: 320 }).notNull(),
+  tenantPhone: varchar("tenantPhone", { length: 50 }),
+  
+  // Photography availability
+  photoDate1: varchar("photoDate1", { length: 100 }),
+  photoDate2: varchar("photoDate2", { length: 100 }),
+  photoDate3: varchar("photoDate3", { length: 100 }),
+  
+  // Showing preferences
+  showingPreferences: text("showingPreferences"),
+  blackoutDates: text("blackoutDates"),
+  advanceNoticeHours: int("advanceNoticeHours").default(24),
+  
+  // Questions/concerns
+  questions: text("questions"),
+  
+  // Status tracking
+  status: mysqlEnum("status", ["pending", "reviewed", "scheduled"]).default("pending").notNull(),
+  
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type TenantResponse = typeof tenantResponses.$inferSelect;
+export type InsertTenantResponse = typeof tenantResponses.$inferInsert;

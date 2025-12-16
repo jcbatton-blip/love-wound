@@ -66,11 +66,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 {link.label}
               </Link>
             ))}
-            {/* Hidden until Kit product is ready
-            <Button variant="outline" size="sm" className="font-serif border-primary text-primary hover:bg-primary hover:text-white rounded-none px-6">
-              Get Your Kit
+            <Button 
+              asChild
+              variant="default" 
+              size="sm" 
+              className="font-serif bg-primary text-white hover:bg-primary/90 rounded-full px-6"
+            >
+              <a href="https://calendly.com/jcbatton/let-s-talk" target="_blank" rel="noopener noreferrer">
+                Book Now
+              </a>
             </Button>
-            */}
           </nav>
 
           {/* Mobile Menu Toggle */}
@@ -99,9 +104,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 {link.label}
               </Link>
             ))}
-            {/* Hidden until Kit product is ready
-            <Button className="w-full font-serif mt-4 bg-primary text-white rounded-none py-6">Get Your Kit</Button>
-            */}
+            <Button 
+              asChild
+              className="w-full font-serif mt-4 bg-primary text-white rounded-full py-6"
+            >
+              <a href="https://calendly.com/jcbatton/let-s-talk" target="_blank" rel="noopener noreferrer">
+                Book Now
+              </a>
+            </Button>
           </div>
         )}
       </header>

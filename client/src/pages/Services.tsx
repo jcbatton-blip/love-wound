@@ -252,18 +252,18 @@ export default function Services() {
               <Button 
                 className={`w-full py-6 rounded-full font-serif text-lg ${tier.popular ? 'bg-primary text-white hover:bg-primary/90' : 'bg-[#F9F7F2] text-primary hover:bg-[#F0EBE0]'}`}
                 onClick={() => {
-                  if (tier.id === "teaching_clinic") {
-                    trackBookingClick('clinic');
-                    window.location.href = "mailto:jeff@jeffbatton.com?subject=Application for Teaching Clinic Session";
+                  if (tier.id === "teaching_clinic" || tier.id === "mirror_session") {
+                    trackBookingClick(tier.id === "teaching_clinic" ? 'clinic' : 'mirror');
+                    window.open("https://calendly.com/jcbatton/let-s-talk", "_blank");
                   } else if (tier.id === "group_container") {
                     trackBookingClick('group');
                     window.location.href = "mailto:jeff@jeffbatton.com?subject=Waitlist for The Group Container";
                   } else if (tier.id === "individual_container") {
                     trackBookingClick('individual');
-                    window.location.href = "mailto:jeff@jeffbatton.com?subject=Application for The Container";
+                    window.open("https://calendly.com/jcbatton/let-s-talk", "_blank");
                   } else if (tier.id === "couples_container") {
                     trackBookingClick('couples');
-                    window.location.href = "mailto:jeff@jeffbatton.com?subject=Application for The Container";
+                    window.open("https://calendly.com/jcbatton/let-s-talk", "_blank");
                   } else {
                     handleCheckout(tier.id);
                   }
