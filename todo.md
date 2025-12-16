@@ -82,3 +82,17 @@
 - [x] Add "You can't plant tomatoes and get corn" as a floating pull quote on Services page header with decorative quotation marks
 - [x] Change all booking/action buttons to navy color - removed variant="outline" and variant="secondary" from all About page CTAs
 - [x] Add "You can't plant tomatoes and get corn" as a floating pull quote on Services page header with decorative quotation marks
+
+## Tonight's Final Push (Dec 15, 2025)
+- [x] Hide "Get Your Kit" button until product is ready
+- [x] Fix Calendly embed on Discovery page
+- [x] Create & install LW favicon
+- [x] Claim Stripe sandbox account (user claimed)
+- [x] Stripe checkout integration working via tRPC
+- [ ] Create Stripe products in dashboard (Mirror Session, Teaching Clinic, etc.)
+- [ ] Get payment links and add to website buttons
+- [x] Create JBLC branding assets for Stripe (monogram + wordmark)
+- [ ] Customize Stripe receipt template
+- [ ] Connect Client Portal to Stripe Customer Portal
+- [ ] Test payment flow end-to-end
+- [ ] Final checkpoint & publish

@@ -4,37 +4,30 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { toast } from "sonner";
 import { trackBookingClick } from "@/lib/analytics";
+import { trpc } from "@/lib/trpc";
 
 export default function Services() {
   const [loading, setLoading] = useState<string | null>(null);
   const [isPaymentPlan, setIsPaymentPlan] = useState(false);
 
-  const handleCheckout = async (productId: string) => {
-    try {
-      setLoading(productId);
-      const response = await fetch("/api/create-checkout-session", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ productId }),
-      });
-
-      const data = await response.json();
-
-      if (data.error) {
-        throw new Error(data.error);
-      }
-
+  const checkoutMutation = trpc.stripe.createCheckoutSession.useMutation({
+    onSuccess: (data) => {
       if (data.url) {
         window.location.href = data.url;
       }
-    } catch (error) {
+    },
+    onError: (error) => {
       console.error("Checkout error:", error);
       toast.error("Failed to start checkout. Please try again.");
-    } finally {
+    },
+    onSettled: () => {
       setLoading(null);
-    }
+    },
+  });
+
+  const handleCheckout = (productId: string) => {
+    setLoading(productId);
+    checkoutMutation.mutate({ productId });
   };
   const tiers = [
     {

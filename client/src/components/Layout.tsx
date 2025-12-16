@@ -66,9 +66,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 {link.label}
               </Link>
             ))}
+            {/* Hidden until Kit product is ready
             <Button variant="outline" size="sm" className="font-serif border-primary text-primary hover:bg-primary hover:text-white rounded-none px-6">
               Get Your Kit
             </Button>
+            */}
           </nav>
 
           {/* Mobile Menu Toggle */}
@@ -97,7 +99,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 {link.label}
               </Link>
             ))}
+            {/* Hidden until Kit product is ready
             <Button className="w-full font-serif mt-4 bg-primary text-white rounded-none py-6">Get Your Kit</Button>
+            */}
           </div>
         )}
       </header>

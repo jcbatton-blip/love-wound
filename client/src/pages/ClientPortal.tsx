@@ -1,74 +1,72 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, CreditCard, FileText, User } from 'lucide-react';
+import { Calendar, CreditCard, FileText, User, ExternalLink } from 'lucide-react';
+import { toast } from 'sonner';
 
 export default function ClientPortal() {
-  const [portalUrl, setPortalUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   const handleManageSubscription = async () => {
     setLoading(true);
     try {
-      const response = await fetch('/api/create-portal-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-      });
-      const data = await response.json();
-      if (data.url) {
-        window.location.href = data.url;
-      }
+      // For now, show a toast since we need a customer ID
+      // In production, this would use the logged-in user's Stripe customer ID
+      toast.info("To manage your billing, please contact Jeff directly or check your email for invoice links.");
     } catch (error) {
-      console.error('Error creating portal session:', error);
+      console.error('Error:', error);
+      toast.error("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+    <div className="min-h-screen bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]/30">
       <div className="container py-24">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h1 className="text-5xl font-bold tracking-tight mb-4">
+            <h1 className="text-5xl font-serif font-medium text-primary tracking-tight mb-4">
               Client Portal
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground font-light">
               Manage your sessions, subscriptions, and payment methods
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <Card className="border-2 hover:border-primary/50 transition-colors">
+            <Card className="border-2 border-primary/10 hover:border-primary/30 transition-colors bg-white/80">
               <CardHeader>
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <Calendar className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle>Book a Session</CardTitle>
-                <CardDescription>
+                <CardTitle className="font-serif text-xl text-primary">Book a Session</CardTitle>
+                <CardDescription className="font-light">
                   Schedule your next coaching session at a time that works for you
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button className="w-full" size="lg">
-                  View Calendar
+                <Button className="w-full rounded-full" size="lg" asChild>
+                  <a href="https://calendly.com/jcbatton/let-s-talk" target="_blank" rel="noopener noreferrer">
+                    View Calendar <ExternalLink className="w-4 h-4 ml-2" />
+                  </a>
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="border-2 hover:border-primary/50 transition-colors">
+            <Card className="border-2 border-primary/10 hover:border-primary/30 transition-colors bg-white/80">
               <CardHeader>
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <CreditCard className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle>Manage Payments</CardTitle>
-                <CardDescription>
+                <CardTitle className="font-serif text-xl text-primary">Manage Payments</CardTitle>
+                <CardDescription className="font-light">
                   Update payment methods, view invoices, and manage subscriptions
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <Button 
-                  className="w-full" 
+                  className="w-full rounded-full" 
                   size="lg"
                   onClick={handleManageSubscription}
                   disabled={loading}
@@ -78,36 +76,38 @@ export default function ClientPortal() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 hover:border-primary/50 transition-colors">
+            <Card className="border-2 border-primary/10 hover:border-primary/30 transition-colors bg-white/80">
               <CardHeader>
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <FileText className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle>Session History</CardTitle>
-                <CardDescription>
-                  Review notes and insights from your previous sessions
+                <CardTitle className="font-serif text-xl text-primary">Join Session</CardTitle>
+                <CardDescription className="font-light">
+                  Click here when it's time for your scheduled session
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button className="w-full" size="lg" variant="outline">
-                  View History
+                <Button className="w-full rounded-full" size="lg" variant="outline" asChild>
+                  <a href="https://us02web.zoom.us/j/4aboringzoomlink" target="_blank" rel="noopener noreferrer">
+                    Join Zoom <ExternalLink className="w-4 h-4 ml-2" />
+                  </a>
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="border-2 hover:border-primary/50 transition-colors">
+            <Card className="border-2 border-primary/10 hover:border-primary/30 transition-colors bg-white/80">
               <CardHeader>
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <User className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle>Profile Settings</CardTitle>
-                <CardDescription>
-                  Update your contact information and preferences
+                <CardTitle className="font-serif text-xl text-primary">Resources</CardTitle>
+                <CardDescription className="font-light">
+                  Access your session materials and resources
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button className="w-full" size="lg" variant="outline">
-                  Edit Profile
+                <Button className="w-full rounded-full" size="lg" variant="outline" onClick={() => toast.info("Resources coming soon!")}>
+                  View Resources
                 </Button>
               </CardContent>
             </Card>
@@ -115,14 +115,14 @@ export default function ClientPortal() {
 
           <Card className="bg-primary/5 border-primary/20">
             <CardHeader>
-              <CardTitle>Need Help?</CardTitle>
-              <CardDescription>
+              <CardTitle className="font-serif text-xl text-primary">Need Help?</CardTitle>
+              <CardDescription className="font-light">
                 Have questions about your sessions or subscription? I'm here to help.
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button variant="outline" size="lg" asChild>
-                <a href="mailto:jcbatton@gmail.com">Contact Jeff</a>
+              <Button variant="outline" size="lg" className="rounded-full border-primary text-primary hover:bg-primary hover:text-white" asChild>
+                <a href="mailto:jeff@jeffbatton.com">Contact Jeff</a>
               </Button>
             </CardContent>
           </Card>

@@ -2,9 +2,16 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
+import { z } from "zod";
+import Stripe from "stripe";
+import { PRODUCTS, getProductById } from "../shared/products";
+
+// Initialize Stripe
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
+  apiVersion: "2025-11-17.clover" as any,
+});
 
 export const appRouter = router({
-    // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
   system: systemRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
@@ -17,12 +24,55 @@ export const appRouter = router({
     }),
   }),
 
-  // TODO: add feature routers here, e.g.
-  // todo: router({
-  //   list: protectedProcedure.query(({ ctx }) =>
-  //     db.getUserTodos(ctx.user.id)
-  //   ),
-  // }),
+  stripe: router({
+    createCheckoutSession: publicProcedure
+      .input(z.object({ productId: z.string() }))
+      .mutation(async ({ input, ctx }) => {
+        const product = getProductById(input.productId);
+        
+        if (!product) {
+          throw new Error("Product not found");
+        }
+
+        const origin = ctx.req.headers.origin || ctx.req.headers.referer?.replace(/\/$/, '') || 'https://lovewound.com';
+
+        const session = await stripe.checkout.sessions.create({
+          payment_method_types: ["card"],
+          line_items: [
+            {
+              price_data: {
+                currency: product.currency,
+                product_data: {
+                  name: product.name,
+                  description: product.description,
+                },
+                unit_amount: product.price,
+              },
+              quantity: 1,
+            },
+          ],
+          mode: "payment",
+          success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+          cancel_url: `${origin}/services`,
+          allow_promotion_codes: true,
+        });
+
+        return { url: session.url };
+      }),
+
+    createPortalSession: publicProcedure
+      .input(z.object({ customerId: z.string() }))
+      .mutation(async ({ input, ctx }) => {
+        const origin = ctx.req.headers.origin || ctx.req.headers.referer?.replace(/\/$/, '') || 'https://lovewound.com';
+
+        const session = await stripe.billingPortal.sessions.create({
+          customer: input.customerId,
+          return_url: `${origin}/client-portal`,
+        });
+
+        return { url: session.url };
+      }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;
