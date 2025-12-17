@@ -115,3 +115,7 @@
 - [ ] Design Batton Homes logo for property management communications
 - [ ] Create branded letterhead templates for tenant communications
 - [x] Add Calendly booking button to header and update all booking buttons
+- [x] Send invoice to Soumia Baalouky for $100
+- [x] Send invoice to Tracey MacDonald for $125
+- [x] Send invoice to Richard Tishler for $150 (memo: Molly's session)
+- [x] Draft Christmas newsletter for legacy clients

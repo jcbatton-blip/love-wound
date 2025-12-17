@@ -1,66 +1,181 @@
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Jeff Batton Life Coaching - The Love Wound",
-  "alternateName": "Love Wound Mirror Method",
-  "url": "https://jeffbatton.com",
-  "logo": "https://jeffbatton.com/images/jeff-batton-headshot-enhanced.png",
-  "image": "https://jeffbatton.com/images/jeff-batton-headshot-enhanced.png",
-  "description": "Transform your relationship patterns through The Mirror Method™. Jeff Batton helps high-performers and couples heal their Love Wound and break subconscious patterns.",
-  "founder": {
-    "@type": "Person",
-    "name": "Jeff Batton",
-    "jobTitle": "Life Coach & Relationship Expert",
-    "image": "https://jeffbatton.com/images/jeff-batton-headshot-enhanced.png"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "US"
-  },
-  "priceRange": "$47-$15000",
-  "serviceType": [
-    "Relationship Coaching",
-    "Life Coaching",
-    "Couples Therapy Alternative",
-    "Pattern Healing",
-    "Love Wound Healing"
-  ],
-  "areaServed": "Worldwide",
-  "availableLanguage": "English",
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Coaching Services",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "The Kit",
-          "description": "Self-paced foundation to understand the 6 Love Wounds",
-          "price": "47",
-          "priceCurrency": "USD"
-        }
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://jeffbatton.com/#organization",
+      "name": "Jeff Batton Life Coaching",
+      "alternateName": ["Love Wound Mirror Method", "The Mirror Method", "JBLC"],
+      "url": "https://jeffbatton.com",
+      "logo": "https://jeffbatton.com/images/jblc-monogram.png",
+      "image": "https://jeffbatton.com/images/jeff-batton-headshot-enhanced.png",
+      "description": "Transform your relationship patterns through The Mirror Method™. Jeff Batton helps individuals and couples heal their Love Wound and break subconscious patterns that run their relationships.",
+      "slogan": "You don't need a guru. You need a mirror.",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://jeffbatton.com/#person",
+        "name": "Jeff Batton",
+        "jobTitle": "Life Coach, Relationship Expert & Author",
+        "image": "https://jeffbatton.com/images/jeff-batton-headshot-enhanced.png",
+        "url": "https://jeffbatton.com/about",
+        "sameAs": [
+          "https://youtube.com/@JeffBattonLifeCoaching",
+          "https://www.instagram.com/jeffbattonlifecoaching",
+          "https://www.linkedin.com/in/jeff-batton"
+        ],
+        "knowsAbout": [
+          "Relationship Coaching",
+          "Love Wound Healing",
+          "Pattern Breaking",
+          "Attachment Theory",
+          "Depth Psychology",
+          "Jungian Psychology",
+          "Trauma Healing",
+          "Couples Counseling"
+        ]
       },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "The Mirror Session",
-          "description": "90-minute deep dive to locate your pattern",
-          "price": "350",
-          "priceCurrency": "USD"
-        }
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US",
+        "addressRegion": ["GA", "MI"]
       },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "The Container",
-          "description": "3-month intensive coaching program",
-          "price": "5000",
-          "priceCurrency": "USD"
-        }
+      "email": "jeff@jeffbatton.com",
+      "telephone": "+1-404-503-2488",
+      "priceRange": "$47-$15000",
+      "serviceType": [
+        "Relationship Coaching",
+        "Life Coaching",
+        "Couples Therapy Alternative",
+        "Pattern Healing",
+        "Love Wound Healing",
+        "Attachment Style Coaching",
+        "Trauma-Informed Coaching",
+        "Consciousness Work"
+      ],
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide (Online)"
+      },
+      "availableLanguage": "English",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Coaching Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Discovery Session",
+              "description": "30-minute complimentary discovery call to explore if we're a fit",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "The Mirror Session",
+              "description": "90-minute deep dive to locate your Love Wound pattern",
+              "price": "350",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "The Teaching Clinic",
+              "description": "60-minute coaching session with intern observation (reduced rate)",
+              "price": "150",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "The Group Container",
+              "description": "Weekly group coaching for pattern work in community",
+              "price": "350",
+              "priceCurrency": "USD",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "350",
+                "priceCurrency": "USD",
+                "unitText": "per month"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "The Individual Container",
+              "description": "3-month intensive 1-on-1 coaching program for deep pattern work",
+              "price": "5000",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "The Couples Container",
+              "description": "3-month intensive couples coaching program",
+              "price": "7500",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "The Bespoke Retreat",
+              "description": "Immersive multi-day retreat for deep transformational work",
+              "price": "15000",
+              "priceCurrency": "USD"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://jeffbatton.com/#website",
+      "url": "https://jeffbatton.com",
+      "name": "Love Wound | Jeff Batton Life Coaching",
+      "description": "Transform your relationship patterns through The Mirror Method™",
+      "publisher": {
+        "@id": "https://jeffbatton.com/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://jeffbatton.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Book",
+      "name": "Grinnin' Like a Jackass Eatin' Briars",
+      "author": {
+        "@id": "https://jeffbatton.com/#person"
+      },
+      "url": "https://jeffbatton.com/book",
+      "description": "Jeff Batton's memoir exploring the Love Wound framework and personal transformation",
+      "bookFormat": "EBook/Paperback",
+      "inLanguage": "English"
+    },
+    {
+      "@type": "Course",
+      "name": "Love Wound Practitioner Certification",
+      "description": "Training program to become a certified Love Wound practitioner",
+      "provider": {
+        "@id": "https://jeffbatton.com/#organization"
+      },
+      "url": "https://jeffbatton.com/coaches",
+      "courseMode": "online",
+      "educationalLevel": "Professional Development"
+    }
+  ]
 }
