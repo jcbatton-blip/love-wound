@@ -35,7 +35,7 @@ export default function Services() {
     {
       name: "Discovery Call",
       price: "Free",
-      description: "Not sure where to start? Let's talk. A 60-minute conversation to see if the Mirror Method is right for you.",
+      description: "Not sure where to start? Let's talk. Let's see if we're a match.",
       features: [
         "60-Minute Video Call",
         "Explore Your Pattern",

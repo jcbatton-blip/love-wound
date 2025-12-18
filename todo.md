@@ -133,3 +133,6 @@
 - [x] Fix tile styling consistency on Work With Me page
 - [x] Add 30% humor to Bespoke Retreat agenda (luxury hotel + Jeff's voice)
 - [x] Add "How change happens" section to How It Works page (consistency + 12 weeks + running the play)
+- [x] Update Discovery Call description: "Not sure where to start? Let's talk. Let's see if we're a match?"
+- [x] Create "The Kit" digital product framework and content (6 Love Wounds guide)
+- [x] Increase button font size on Book page (under "Grinnin' Like a Jackass Eatin' Briars")

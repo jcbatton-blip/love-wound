@@ -77,7 +77,7 @@ export default function Book() {
                 rel="noopener noreferrer"
                 onClick={() => trackAffiliateClick('Grinnin Like a Jackass - Paperback')}
               >
-                <Button size="lg" className="w-full sm:w-auto font-serif rounded-full px-10 py-6 h-auto bg-primary text-white hover:bg-primary/90">
+                <Button size="lg" className="w-full sm:w-auto font-serif text-lg rounded-full px-10 py-6 h-auto bg-primary text-white hover:bg-primary/90">
                   Get the Book on Amazon
                 </Button>
               </a>
@@ -87,7 +87,7 @@ export default function Book() {
                 rel="noopener noreferrer"
                 onClick={() => trackAffiliateClick('Grinnin Like a Jackass - Audible')}
               >
-                <Button size="lg" variant="outline" className="w-full sm:w-auto font-serif rounded-full px-10 py-6 h-auto border-primary text-primary hover:bg-primary hover:text-white">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto font-serif text-lg rounded-full px-10 py-6 h-auto border-primary text-primary hover:bg-primary hover:text-white">
                   Listen on Audible
                 </Button>
               </a>
