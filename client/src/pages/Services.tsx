@@ -341,7 +341,7 @@ export default function Services() {
                   <p><span className="text-white/90 font-medium">Thursday:</span> Arrive. Settle in. Nightcap (or three, no judgment).</p>
                   <p><span className="text-white/90 font-medium">Friday:</span> Morning coffee while we ease into the hard stuff. Lunch break (you'll need it). Afternoon deep dive. Dinner that costs more than your first car.</p>
                   <p><span className="text-white/90 font-medium">Saturday:</span> Breakfast. Sightseeing (because staring at your patterns all day is exhausting). Integration work. Celebration dinner at a restaurant with more forks than you know what to do with.</p>
-                  <p><span className="text-white/90 font-medium">Sunday:</span> Coffee, reflection, and the realization that you just paid $15k to have someone hold up a mirror. Worth it. Departure.</p>
+                  <p><span className="text-white/90 font-medium">Sunday:</span> Coffee, reflection, and the realization that the mirror was worth it. Departure.</p>
                 </div>
               </div>
               
