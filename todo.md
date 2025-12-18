@@ -119,3 +119,10 @@
 - [x] Send invoice to Tracey MacDonald for $125
 - [x] Send invoice to Richard Tishler for $150 (memo: Molly's session)
 - [x] Draft Christmas newsletter for legacy clients
+
+## New Features (Dec 18, 2025)
+- [ ] Build Zoom summary signup form and automation
+- [x] Add Meditations for Mortals by Oliver Burkeman to Book page
+- [x] Generate book cover images for all 5 recommended books
+- [x] Replace grey placeholder boxes with actual book covers
+- [ ] Create email automation for Zoom summary subscribers

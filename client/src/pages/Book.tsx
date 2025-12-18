@@ -37,6 +37,13 @@ export default function Book() {
       description: "What happens when you stop resisting life and start surrendering to it? Singer's memoir is proof that letting go isn't giving up—it's waking up.",
       amazonLink: "https://www.amazon.com/Surrender-Experiment-Journey-Lifes-Perfection/dp/080414110X?tag=lovewound-20",
       image: "/images/surrender-experiment-book.jpg"
+    },
+    {
+      title: "Meditations for Mortals",
+      author: "Oliver Burkeman",
+      description: "A four-week guide to embracing your limitations and making time for what counts. Burkeman dismantles the productivity myth and shows you how to stop trying to sort your life out and start living it.",
+      amazonLink: "https://www.amazon.com/Meditations-Mortals-Embrace-Limitations-Counts/dp/0374610398?tag=lovewound-20",
+      image: "/images/meditations-mortals-book.jpg"
     }
   ];
 
@@ -148,7 +155,7 @@ export default function Book() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
             {recommendedBooks.map((book, index) => (
               <motion.div 
                 key={book.title}
@@ -158,9 +165,12 @@ export default function Book() {
                 transition={{ delay: index * 0.1 }}
                 className="group space-y-6"
               >
-                <div className="aspect-[2/3] bg-gradient-to-br from-primary/10 to-primary/5 relative overflow-hidden shadow-lg transition-transform group-hover:-translate-y-2 duration-300 flex items-center justify-center">
-                  <BookOpen className="w-16 h-16 text-primary/30" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
+                <div className="aspect-[2/3] relative overflow-hidden shadow-lg transition-transform group-hover:-translate-y-2 duration-300">
+                  <img 
+                    src={book.image} 
+                    alt={`${book.title} by ${book.author}`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="space-y-3 text-center">
                   <h3 className="text-xl font-serif text-primary">{book.title}</h3>
