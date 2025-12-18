@@ -338,10 +338,10 @@ export default function Services() {
               <div className="pt-6 border-t border-white/10">
                 <h3 className="text-xl font-serif text-[#D4AF37] mb-4">The Experience</h3>
                 <div className="space-y-3 text-sm text-white/70">
-                  <p><span className="text-white/90 font-medium">Thursday:</span> Arrival, settle in, nightcap</p>
-                  <p><span className="text-white/90 font-medium">Friday:</span> Morning coffee, deep conversation, lunch break, afternoon session, curated dinner</p>
-                  <p><span className="text-white/90 font-medium">Saturday:</span> Breakfast, sightseeing, integration work, celebration dinner at a premier restaurant</p>
-                  <p><span className="text-white/90 font-medium">Sunday:</span> Coffee, reflection, departure</p>
+                  <p><span className="text-white/90 font-medium">Thursday:</span> Arrive. Settle in. Nightcap (or three, no judgment).</p>
+                  <p><span className="text-white/90 font-medium">Friday:</span> Morning coffee while we ease into the hard stuff. Lunch break (you'll need it). Afternoon deep dive. Dinner that costs more than your first car.</p>
+                  <p><span className="text-white/90 font-medium">Saturday:</span> Breakfast. Sightseeing (because staring at your patterns all day is exhausting). Integration work. Celebration dinner at a restaurant with more forks than you know what to do with.</p>
+                  <p><span className="text-white/90 font-medium">Sunday:</span> Coffee, reflection, and the realization that you just paid $15k to have someone hold up a mirror. Worth it. Departure.</p>
                 </div>
               </div>
               

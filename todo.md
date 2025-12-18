@@ -131,3 +131,4 @@
 - [x] Add retreat agenda to Bespoke Retreat section
 - [x] Add "How do things change?" to Common Questions
 - [x] Fix tile styling consistency on Work With Me page
+- [x] Add 30% humor to Bespoke Retreat agenda (luxury hotel + Jeff's voice)
