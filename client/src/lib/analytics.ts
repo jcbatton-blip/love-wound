@@ -21,6 +21,6 @@ export const trackAffiliateClick = (bookTitle: string) => {
   trackEvent('affiliate_click', { book: bookTitle });
 };
 
-export const trackBookingClick = (plan: 'individual' | 'couples' | 'retreat' | 'group' | 'clinic' | 'mirror') => {
+export const trackBookingClick = (plan: 'individual' | 'couples' | 'retreat' | 'group' | 'clinic' | 'mirror' | 'discovery') => {
   trackEvent('booking_click', { plan });
 };

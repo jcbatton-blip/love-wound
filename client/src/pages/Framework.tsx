@@ -42,7 +42,7 @@ export default function Framework() {
               step: "01",
               title: "The Download",
               icon: <Brain className="w-8 h-8 text-primary" />,
-              desc: "In the first 7 years, you are in a theta brainwave state—pure hypnosis. You absorb your parents' relationship dynamics as absolute truth. 'Dad drinks' becomes 'Love is unstable.'",
+              desc: "In the first 7 years, you are in a theta brainwave state—pure hypnosis. You absorb your parents' relationship dynamics as absolute truth. 'Dad drinks' becomes 'If you love me, you drink.'",
             },
             {
               step: "02",
@@ -154,10 +154,13 @@ export default function Framework() {
                   But to the subconscious mind, <strong className="font-medium text-primary">love = familiarity</strong>.
                 </p>
                 <p>
-                  If Dad loved Mom, and Dad drank, your 5-year-old brain wrote a simple equation: <span className="italic text-primary">Love includes drinking.</span>
+                  Love is our core, and our lives are spent looking for that. The crazy thing that happens when you're programmed to think "Dad loves Mom, Mom loves Dad, Dad drinks"—your subconscious writes a simple equation: <span className="italic text-primary">If you love me, you HAVE to drink. Otherwise, you don't REALLY love me.</span>
                 </p>
                 <p>
-                  So you meet a nice guy who doesn't drink. He's stable. He's kind. And you're... bored. There's no "spark." Because the spark isn't chemistry—it's recognition. Your wound recognizes its match.
+                  So you meet someone who doesn't drink. They're stable. They're kind. And you're... bored. There's no "spark." Because the spark isn't chemistry—it's recognition. Your wound recognizes its match.
+                </p>
+                <p className="font-medium text-primary">
+                  The pattern repeats itself. More times than not, it's literally the same pattern. Kids around alcoholics usually wind up with drinkers. It can be another form of medication, but it usually is the same.
                 </p>
               </div>
             </motion.div>
@@ -176,6 +179,76 @@ export default function Framework() {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Subtle Patterns Section */}
+      <section className="py-24 bg-white mb-24">
+        <div className="container max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif text-primary mb-6">
+              The Subtle Ones Are Harder to See
+            </h2>
+            <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto">
+              Drinking and hitting are the overt patterns—easy to spot. But the subtle patterns are just as powerful.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                pattern: "Dad was never home",
+                result: "You pick partners who are always gone"
+              },
+              {
+                pattern: "Mom never spoke up",
+                result: "You pick partners who are silent and passive"
+              },
+              {
+                pattern: "Dad worked constantly",
+                result: "You pick workaholics who are emotionally unavailable"
+              },
+              {
+                pattern: "Mom was a martyr",
+                result: "You pick partners who need saving"
+              },
+              {
+                pattern: "Dad raged quietly",
+                result: "You pick partners with suppressed anger"
+              },
+              {
+                pattern: "Mom was anxious and controlling",
+                result: "You pick partners who try to manage everything"
+              }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-[#F9F7F2] p-8 border border-primary/10"
+              >
+                <div className="space-y-4">
+                  <p className="text-lg font-serif text-primary">{item.pattern}</p>
+                  <div className="flex items-center gap-3">
+                    <div className="h-px flex-1 bg-primary/20" />
+                    <span className="text-primary/40 text-sm">→</span>
+                    <div className="h-px flex-1 bg-primary/20" />
+                  </div>
+                  <p className="text-muted-foreground font-light">{item.result}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          
+          <div className="mt-16 text-center">
+            <p className="text-xl font-serif text-primary italic">
+              The imprinting is that powerful. You don't just pick "someone with issues."
+              <br />
+              You pick the <strong>same</strong> pattern.
+            </p>
           </div>
         </div>
       </section>

@@ -126,3 +126,8 @@
 - [x] Move "Books That Changed My Life" section below testimonials
 - [x] Verify Meditations for Mortals is visible
 - [ ] Create email automation for Zoom summary subscribers
+- [x] Update Method page: make patterns more literal, emphasize SAME medication repeats, add subtle patterns section
+- [x] Add Discovery Call tile to Work With Me page (60 min, free)
+- [x] Add retreat agenda to Bespoke Retreat section
+- [x] Add "How do things change?" to Common Questions
+- [x] Fix tile styling consistency on Work With Me page

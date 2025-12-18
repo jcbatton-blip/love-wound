@@ -33,6 +33,22 @@ export default function Services() {
   };
   const tiers = [
     {
+      name: "Discovery Call",
+      price: "Free",
+      description: "Not sure where to start? Let's talk. A 60-minute conversation to see if the Mirror Method is right for you.",
+      features: [
+        "60-Minute Video Call",
+        "Explore Your Pattern",
+        "No Pressure, No Pitch",
+        "See If We're A Fit"
+      ],
+      cta: "Book Discovery Call",
+      id: "discovery",
+      popular: false,
+      delay: 0,
+      hasPaymentPlan: false
+    },
+    {
       name: "The Kit",
       price: "47",
       description: "The self-paced foundation. Understand the 6 Love Wounds and identify your primary pattern.",
@@ -217,7 +233,7 @@ export default function Services() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: tier.delay, duration: 0.5 }}
-              className={`relative p-8 bg-white border ${tier.popular ? 'border-primary shadow-xl scale-105 z-10' : 'border-primary/10 shadow-sm'} rounded-2xl flex flex-col h-full`}
+              className="relative p-8 bg-white border border-primary/10 shadow-sm rounded-2xl flex flex-col h-full"
             >
               {tier.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium tracking-wide">
@@ -252,7 +268,10 @@ export default function Services() {
               <Button 
                 className={`w-full py-6 rounded-full font-serif text-lg ${tier.popular ? 'bg-primary text-white hover:bg-primary/90' : 'bg-[#F9F7F2] text-primary hover:bg-[#F0EBE0]'}`}
                 onClick={() => {
-                  if (tier.id === "teaching_clinic" || tier.id === "mirror_session") {
+                  if (tier.id === "discovery") {
+                    trackBookingClick('discovery');
+                    window.open("https://calendly.com/jcbatton/let-s-talk", "_blank");
+                  } else if (tier.id === "teaching_clinic" || tier.id === "mirror_session") {
                     trackBookingClick(tier.id === "teaching_clinic" ? 'clinic' : 'mirror');
                     window.open("https://calendly.com/jcbatton/let-s-talk", "_blank");
                   } else if (tier.id === "group_container") {
@@ -314,6 +333,18 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
+              
+              {/* Retreat Agenda */}
+              <div className="pt-6 border-t border-white/10">
+                <h3 className="text-xl font-serif text-[#D4AF37] mb-4">The Experience</h3>
+                <div className="space-y-3 text-sm text-white/70">
+                  <p><span className="text-white/90 font-medium">Thursday:</span> Arrival, settle in, nightcap</p>
+                  <p><span className="text-white/90 font-medium">Friday:</span> Morning coffee, deep conversation, lunch break, afternoon session, curated dinner</p>
+                  <p><span className="text-white/90 font-medium">Saturday:</span> Breakfast, sightseeing, integration work, celebration dinner at a premier restaurant</p>
+                  <p><span className="text-white/90 font-medium">Sunday:</span> Coffee, reflection, departure</p>
+                </div>
+              </div>
+              
               <Button 
                 className="w-full md:w-auto px-8 py-6 rounded-full font-serif text-lg bg-[#D4AF37] text-[#1A2333] hover:bg-[#C49F27]"
                 onClick={() => {
@@ -347,6 +378,12 @@ export default function Services() {
               <h3 className="text-xl font-serif text-primary">What if I'm not ready for the full container?</h3>
               <p className="text-muted-foreground font-light">
                 Start with the Mirror Session. It's a low-risk way to experience the method. Most people see more in 90 minutes than they have in years of traditional work.
+              </p>
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-xl font-serif text-primary">How do things actually change?</h3>
+              <p className="text-muted-foreground font-light">
+                Just like in sports, the way you change is running the play over and over again until it becomes second nature. We don't just talk about the pattern—we practice new responses until they're automatic.
               </p>
             </div>
           </div>
