@@ -50,7 +50,10 @@ export default function Coaches() {
               That's because you're coaching the <strong>symptom</strong> (the fight, the breakup, the anxiety) instead of the <strong>source</strong> (the Wound).
             </p>
             <p className="text-lg text-muted-foreground font-light leading-relaxed">
-              When you learn to diagnose the 6 Love Wounds, you stop guessing. You become a surgeon. You see exactly where the wire is cut, and you know exactly how to fuse it back together.
+              Most coaches spend their careers pulling fruit off the tree—addressing communication issues, boundary problems, attachment styles. But here's the thing: <strong>the more fruit you pull, the more you get.</strong> The tree keeps blooming.
+            </p>
+            <p className="text-lg text-muted-foreground font-light leading-relaxed">
+              The Mirror Method lays the axe at the root. We don't cut it. We expose it. I make you a <strong>pattern hunter</strong>—you track the patterns (the fruit) back to the childhood imprint. When your client sees the root, the fruit changes on its own.
             </p>
           </div>
           <div className="grid gap-6">
@@ -122,7 +125,7 @@ export default function Coaches() {
                 <h3 className="text-3xl font-serif text-white mt-2">Love Wound™ Certified</h3>
               </div>
               <p className="text-white/70 font-light mb-8 flex-grow relative z-10">
-                A comprehensive 6-month training to master the Love Wound framework. Learn the theory, practice the diagnostic tools, and get certified to use this methodology with your own clients.
+                A comprehensive 6-month training to master the Love Wound framework. Learn the theory, practice the diagnostic tools, and get certified to use this methodology with your own clients. Upon certification, you're eligible to join the JBLC coaching team—practice under the Love Wound brand while we handle scheduling, billing, and marketing. You focus on the work, we handle the business.
               </p>
               <ul className="space-y-3 mb-8 relative z-10">
                 <li className="flex items-center gap-3 text-sm text-white/80">
@@ -135,7 +138,7 @@ export default function Coaches() {
                   <Check className="w-4 h-4 text-[#D4AF37]" /> Official Certification Badge
                 </li>
                 <li className="flex items-center gap-3 text-sm text-white/80">
-                  <Check className="w-4 h-4 text-[#D4AF37]" /> Listing in Practitioner Directory
+                  <Check className="w-4 h-4 text-[#D4AF37]" /> Coaching Position at JBLC
                 </li>
               </ul>
               <Button 

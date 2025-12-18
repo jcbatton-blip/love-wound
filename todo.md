@@ -136,3 +136,7 @@
 - [x] Update Discovery Call description: "Not sure where to start? Let's talk. Let's see if we're a match?"
 - [x] Create "The Kit" digital product framework and content (6 Love Wounds guide)
 - [x] Increase button font size on Book page (under "Grinnin' Like a Jackass Eatin' Briars")
+- [x] Update For Coaches page: Replace "surgeon" language with "pattern hunter" and tree/fruit analogy
+- [ ] Reorder Book page: Move "Grinnin' Like a Jackass" section above "Books That Changed My Life"
+- [x] Update Certification section: Replace directory listing with JBLC coaching team position offer
+- [x] Update The Vision page: Replace "Love Wound Center" with "The Sanctuary Spiritual Living Center" vision

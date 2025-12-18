@@ -94,12 +94,31 @@ export default function Vision() {
       <section className="py-24 px-4">
         <div className="container max-w-4xl mx-auto text-center space-y-12">
           <div className="space-y-6">
-            <h2 className="text-4xl font-serif text-primary">The Vision</h2>
+            <h2 className="text-4xl font-serif text-primary">The Sanctuary Spiritual Living Center</h2>
             <p className="text-xl text-muted-foreground font-light leading-relaxed">
-              Imagine a space that feels like a temple but welcomes you like a living room. A place for talks, workshops, meditation, and deep rest.
+              A refurbished church in Detroit reimagined as a vibrant community space built on one principle: <strong>Unconditional Love</strong>.
             </p>
             <p className="text-xl text-muted-foreground font-light leading-relaxed">
-              We are currently laying the groundwork for the <strong>Love Wound Center for Spiritual Living</strong>.
+              Not the greeting card version. The real thing. The kind that dissolves fear, heals wounds, loves your enemy, and opens the eyes of your heart—bringing you back to Source.
+            </p>
+            <p className="text-lg text-muted-foreground font-light leading-relaxed italic border-l-4 border-primary pl-6 py-4 bg-white/50 rounded-r-lg">
+              Weekly gatherings that feel like coming home—candles, live music, and teachings that answer the question: What does unconditional love actually mean? When you feel those warm fuzzies, you're getting closer. That's your nervous system recognizing truth.
+            </p>
+          </div>
+
+          <div className="space-y-4 text-left max-w-2xl mx-auto">
+            <h3 className="text-2xl font-serif text-primary text-center mb-6">What We're Building</h3>
+            <div className="space-y-3 text-muted-foreground">
+              <p><strong className="text-primary">Weekly Services</strong> - Spiritual teachings rooted in 1 Corinthians 13 (the Love Chapter)</p>
+              <p><strong className="text-primary">Guest Speakers</strong> - Mystics, teachers, and thought leaders who live this work</p>
+              <p><strong className="text-primary">Live Music & Art</strong> - Performances and installations designed to raise your vibration</p>
+              <p><strong className="text-primary">Event Space</strong> - A sacred container for workshops, ceremonies, and community</p>
+            </div>
+            <p className="text-center text-xl font-serif text-primary pt-6 italic">
+              Come here to find out what unconditional love really means.
+            </p>
+            <p className="text-center text-muted-foreground font-light pt-2">
+              This isn't religion. It's resonance. A place where you remember who you are.
             </p>
           </div>
 
