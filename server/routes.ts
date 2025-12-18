@@ -2,6 +2,8 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import Stripe from "stripe";
 import { PRODUCTS, getProductById } from "../shared/products";
+import { getWelcomeEmail } from "./welcome-emails";
+import { sendEmail } from "./email-service";
 
 // Initialize Stripe with the secret key from environment variables
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
@@ -72,6 +74,69 @@ export function registerRoutes(app: Express): Server {
       console.error("Portal session error:", error);
       res.status(500).json({ error: error.message });
     }
+  });
+
+  // Stripe webhook endpoint for payment success
+  app.post("/api/stripe/webhook", async (req, res) => {
+    const sig = req.headers["stripe-signature"];
+    const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
+    if (!sig || !webhookSecret) {
+      console.error("Missing webhook signature or secret");
+      return res.status(400).send("Webhook Error: Missing signature or secret");
+    }
+
+    let event: Stripe.Event;
+
+    try {
+      event = stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
+    } catch (err: any) {
+      console.error("Webhook signature verification failed:", err.message);
+      return res.status(400).send(`Webhook Error: ${err.message}`);
+    }
+
+    // Handle the checkout.session.completed event
+    if (event.type === "checkout.session.completed") {
+      const session = event.data.object as Stripe.Checkout.Session;
+      
+      // Extract customer email and product info
+      const customerEmail = session.customer_details?.email;
+      const lineItems = await stripe.checkout.sessions.listLineItems(session.id);
+      
+      if (customerEmail && lineItems.data.length > 0) {
+        const productName = lineItems.data[0].description;
+        
+        // Match product name to product ID
+        const product = PRODUCTS.find(p => p.name === productName);
+        
+        if (product) {
+          const welcomeEmail = getWelcomeEmail(product.id);
+          
+          if (welcomeEmail) {
+            // Send welcome email via Gmail
+            console.log("\n=== SENDING WELCOME EMAIL ===");
+            console.log("To:", customerEmail);
+            console.log("Product:", product.name);
+            console.log("Subject:", welcomeEmail.subject);
+            console.log("================================\n");
+            
+            const emailSent = await sendEmail({
+              to: customerEmail,
+              subject: welcomeEmail.subject,
+              body: welcomeEmail.body
+            });
+            
+            if (emailSent) {
+              console.log("✅ Welcome email sent successfully");
+            } else {
+              console.error("❌ Failed to send welcome email");
+            }
+          }
+        }
+      }
+    }
+
+    res.json({ received: true });
   });
 
   const httpServer = createServer(app);
