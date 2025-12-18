@@ -143,6 +143,41 @@ export default function Book() {
         </div>
       </section>
 
+      {/* Reviews */}
+      <section className="container mb-24">
+        <div className="max-w-4xl mx-auto space-y-12">
+          <h2 className="text-3xl font-serif text-center text-primary">What Readers Are Saying</h2>
+          <p className="text-center text-muted-foreground font-light">
+            Reviews for "Grinnin' Like a Jackass Eatin' Briars"
+          </p>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              "Lovingly told, with warm and stark transparency and laugh-out-loud humor.",
+              "An important book about uncovering our own truth and finding the courage to embrace what we find.",
+              "I laughed, I cried, and I saw myself in every page. A masterclass in vulnerability.",
+              "Jeff doesn't just tell his story; he invites you to look at your own with more compassion."
+            ].map((review, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white p-8 border border-primary/10 shadow-sm relative"
+              >
+                <Quote className="absolute top-6 left-6 w-8 h-8 text-primary/10" />
+                <div className="flex gap-1 mb-4 text-primary/60">
+                  {[...Array(5)].map((_, j) => <Star key={j} size={16} fill="currentColor" />)}
+                </div>
+                <p className="text-lg font-serif italic text-primary/80 relative z-10">
+                  "{review}"
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Recommended Reading */}
       <section className="py-24 bg-white mb-24">
         <div className="container max-w-6xl mx-auto space-y-16">
@@ -188,41 +223,6 @@ export default function Book() {
                     Get it on Amazon <ExternalLink className="w-4 h-4" />
                   </a>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Reviews */}
-      <section className="container mb-24">
-        <div className="max-w-4xl mx-auto space-y-12">
-          <h2 className="text-3xl font-serif text-center text-primary">What Readers Are Saying</h2>
-          <p className="text-center text-muted-foreground font-light">
-            Reviews for "Grinnin' Like a Jackass Eatin' Briars"
-          </p>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              "Lovingly told, with warm and stark transparency and laugh-out-loud humor.",
-              "An important book about uncovering our own truth and finding the courage to embrace what we find.",
-              "I laughed, I cried, and I saw myself in every page. A masterclass in vulnerability.",
-              "Jeff doesn't just tell his story; he invites you to look at your own with more compassion."
-            ].map((review, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white p-8 border border-primary/10 shadow-sm relative"
-              >
-                <Quote className="absolute top-6 left-6 w-8 h-8 text-primary/10" />
-                <div className="flex gap-1 mb-4 text-primary/60">
-                  {[...Array(5)].map((_, j) => <Star key={j} size={16} fill="currentColor" />)}
-                </div>
-                <p className="text-lg font-serif italic text-primary/80 relative z-10">
-                  "{review}"
-                </p>
               </motion.div>
             ))}
           </div>

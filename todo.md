@@ -122,7 +122,7 @@
 
 ## New Features (Dec 18, 2025)
 - [ ] Build Zoom summary signup form and automation
-- [x] Add Meditations for Mortals by Oliver Burkeman to Book page
-- [x] Generate book cover images for all 5 recommended books
-- [x] Replace grey placeholder boxes with actual book covers
+- [x] Fix book covers not displaying (images not loading)
+- [x] Move "Books That Changed My Life" section below testimonials
+- [x] Verify Meditations for Mortals is visible
 - [ ] Create email automation for Zoom summary subscribers
