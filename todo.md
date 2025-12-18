@@ -132,3 +132,4 @@
 - [x] Add "How do things change?" to Common Questions
 - [x] Fix tile styling consistency on Work With Me page
 - [x] Add 30% humor to Bespoke Retreat agenda (luxury hotel + Jeff's voice)
+- [x] Add "How change happens" section to How It Works page (consistency + 12 weeks + running the play)

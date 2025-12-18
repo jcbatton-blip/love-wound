@@ -146,6 +146,32 @@ export default function HowItWorks() {
         </div>
       </section>
 
+      {/* How Change Happens - Consistency */}
+      <section className="py-20">
+        <div className="container max-w-3xl">
+          <h2 className="text-4xl font-serif text-primary text-center mb-12">
+            How Change Actually Happens
+          </h2>
+          <div className="prose prose-lg max-w-none space-y-6 text-muted-foreground">
+            <p>
+              <strong>This is what makes me a coach, not a therapist.</strong> We don't just talk about your pattern—we run the play over and over again until it becomes second nature.
+            </p>
+            <p>
+              Think about learning any skill: shooting free throws, playing piano, speaking a new language. You don't get better by understanding the theory. You get better by practicing until your body knows what to do without thinking.
+            </p>
+            <p>
+              <strong>The same is true for relationship patterns.</strong> You've been running your Love Wound pattern for decades. It's automatic. To change it, you need repetition—not insight.
+            </p>
+            <p>
+              That's why the 12-week containers work. The people who see the most transformation are the people who show up consistently, week after week, running the new play until it replaces the old one.
+            </p>
+            <p className="text-xl font-serif italic text-primary border-l-4 border-primary pl-8 py-4 bg-white/50 rounded-r-lg">
+              Consistency beats intensity. Every single time.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-20">
         <div className="container max-w-3xl">
