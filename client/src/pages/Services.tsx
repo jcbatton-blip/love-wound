@@ -48,22 +48,23 @@ export default function Services() {
       delay: 0,
       hasPaymentPlan: false
     },
-    {
-      name: "The Kit",
-      price: "47",
-      description: "The self-paced foundation. Understand the 6 Love Wounds and identify your primary pattern.",
-      features: [
-        "The 6 Love Wounds Digital Guide",
-        "Audio Walkthrough of the 'Wound -> Code -> Pattern' Framework",
-        "The 'Pattern Hunter' Journal Prompts",
-        "Immediate Access"
-      ],
-      cta: "Get The Kit",
-      id: "kit",
-      popular: false,
-      delay: 0,
-      hasPaymentPlan: false
-    },
+    // TEMPORARILY DISABLED - The Kit will be re-enabled once digital files are ready
+    // {
+    //   name: "The Kit",
+    //   price: "47",
+    //   description: "The self-paced foundation. Understand the 6 Love Wounds and identify your primary pattern.",
+    //   features: [
+    //     "The 6 Love Wounds Digital Guide",
+    //     "Audio Walkthrough of the 'Wound -> Code -> Pattern' Framework",
+    //     "The 'Pattern Hunter' Journal Prompts",
+    //     "Immediate Access"
+    //   ],
+    //   cta: "Get The Kit",
+    //   id: "kit",
+    //   popular: false,
+    //   delay: 0,
+    //   hasPaymentPlan: false
+    // },
     {
       name: "The Mirror Session",
       price: "350",
