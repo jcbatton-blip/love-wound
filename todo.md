@@ -319,3 +319,11 @@
 - [x] Add "VISION" to main navigation menu
 - [x] Update Vision page branding to "A Conscious Living Community"
 - [x] Add Sanctuary CTA section to Services page (after retreats, before FAQ)
+
+## Vision Page Rewrite - Remove Religious Triggers (Dec 28, 2025)
+- [x] Remove scripture references (1 Corinthians 13, etc.)
+- [x] Remove "candles" language (too church-specific)
+- [x] Rewrite to focus on: atmosphere for healing, music, teaching, connection
+- [x] Add "If it resonates, come Wednesday" invitation
+- [x] Add ways to contribute (financially or volunteering)
+- [x] Keep essence: Unconditional love as practice (love enemies, do good to harm) without religious language

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MapPin, Calendar, Heart } from "lucide-react";
+import { ArrowRight, MapPin, Calendar, Heart, Users, Music, MessageCircle } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
 export default function Vision() {
@@ -35,7 +35,7 @@ export default function Vision() {
             transition={{ delay: 0.2 }}
             className="text-xl text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed"
           >
-            We are building a physical home for this work. A place where the community gathers not just to heal, but to live.
+            We're building a physical home for this work. A place where community gathers not just to heal, but to practice a different way of being.
           </motion.p>
         </div>
       </section>
@@ -47,7 +47,7 @@ export default function Vision() {
             <div className="space-y-6">
               <h2 className="text-4xl font-serif text-primary">The Gathering</h2>
               <p className="text-lg text-muted-foreground font-light leading-relaxed">
-                Every week, we open the doors. No cost. No barrier to entry. Just a community coming together to speak the truth and witness each other.
+                Every Wednesday, we create an atmosphere for healing and connection. Music. Teaching. Presence. No cost. No barrier to entry.
               </p>
               <p className="text-lg text-muted-foreground font-light leading-relaxed">
                 This is the seed of the Sanctuary. We start here, in the digital space, and we grow into the physical.
@@ -60,13 +60,17 @@ export default function Vision() {
                 </div>
                 <div className="flex items-center gap-4 text-primary/80">
                   <MapPin className="w-5 h-5" />
-                  <span>Live on Zoom (Soon in Person)</span>
+                  <span>Live on Zoom (Soon in Detroit)</span>
                 </div>
                 <div className="flex items-center gap-4 text-primary/80">
                   <Heart className="w-5 h-5" />
                   <span>Free & Open to All</span>
                 </div>
               </div>
+
+              <p className="text-base text-muted-foreground font-light italic pt-4">
+                If it resonates, come on Wednesday and be part of it.
+              </p>
 
               <Button 
                 className="mt-8 px-8 py-6 rounded-full font-serif text-lg bg-primary text-white hover:bg-primary/90"
@@ -99,20 +103,44 @@ export default function Vision() {
               A refurbished church in Detroit reimagined as a vibrant community space built on one principle: <strong>Unconditional Love</strong>.
             </p>
             <p className="text-xl text-muted-foreground font-light leading-relaxed">
-              Not the greeting card version. The real thing. The kind that dissolves fear, heals wounds, loves your enemy, and opens the eyes of your heart—bringing you back to Source.
+              Not the greeting card version. The real thing. The kind that dissolves fear, heals wounds, and changes you from the inside out.
             </p>
             <p className="text-lg text-muted-foreground font-light leading-relaxed italic border-l-4 border-primary pl-6 py-4 bg-white/50 rounded-r-lg">
-              Weekly gatherings that feel like coming home—candles, live music, and teachings that answer the question: What does unconditional love actually mean? When you feel those warm fuzzies, you're getting closer. That's your nervous system recognizing truth.
+              We're creating an atmosphere for healing and connection. Music that moves you. Teachings that land. A community that witnesses your becoming. When you feel those warm fuzzies, you're getting closer. That's your nervous system recognizing truth.
             </p>
           </div>
 
           <div className="space-y-4 text-left max-w-2xl mx-auto">
             <h3 className="text-2xl font-serif text-primary text-center mb-6">What We're Building</h3>
-            <div className="space-y-3 text-muted-foreground">
-              <p><strong className="text-primary">Weekly Services</strong> - Spiritual teachings rooted in 1 Corinthians 13 (the Love Chapter)</p>
-              <p><strong className="text-primary">Guest Speakers</strong> - Mystics, teachers, and thought leaders who live this work</p>
-              <p><strong className="text-primary">Live Music & Art</strong> - Performances and installations designed to raise your vibration</p>
-              <p><strong className="text-primary">Event Space</strong> - A sacred container for workshops, ceremonies, and community</p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="flex items-start gap-4">
+                <Users className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-primary mb-1">Weekly Gatherings</p>
+                  <p className="text-sm text-muted-foreground font-light">Teachings on unconditional love as a practice, not a theory</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <MessageCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-primary mb-1">Guest Teachers</p>
+                  <p className="text-sm text-muted-foreground font-light">Mystics, healers, and thought leaders who live this work</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Music className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-primary mb-1">Live Music & Art</p>
+                  <p className="text-sm text-muted-foreground font-light">Performances and installations that create resonance</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Heart className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-primary mb-1">Event Space</p>
+                  <p className="text-sm text-muted-foreground font-light">A container for workshops, ceremonies, and community</p>
+                </div>
+              </div>
             </div>
             <p className="text-center text-xl font-serif text-primary pt-6 italic">
               Come here to find out what unconditional love really means.
@@ -124,7 +152,7 @@ export default function Vision() {
 
           <div className="grid md:grid-cols-3 gap-8 text-left">
             {[
-              { title: "The Hall", desc: "A space for weekly talks and community gatherings." },
+              { title: "The Hall", desc: "A space for weekly gatherings and community connection." },
               { title: "The Kitchen", desc: "Because healing happens over shared meals." },
               { title: "The Gardens", desc: "Nature as the ultimate co-regulator." },
             ].map((item, i) => (
@@ -135,18 +163,33 @@ export default function Vision() {
             ))}
           </div>
 
+          {/* Ways to Contribute */}
           <div className="pt-12 border-t border-primary/10">
-            <p className="text-muted-foreground font-light mb-6">Want to be part of building this?</p>
-            <Button 
-              variant="outline"
-              className="px-8 py-6 rounded-full font-serif text-lg border-primary text-primary hover:bg-primary hover:text-white"
-              onClick={() => {
-                trackEvent('vision_inquiry_click');
-                window.location.href = "mailto:jeff@jeffbatton.com?subject=Inquiry about The Center";
-              }}
-            >
-              Contact Jeff
-            </Button>
+            <h3 className="text-2xl font-serif text-primary mb-6">Want to Be Part of Building This?</h3>
+            <p className="text-muted-foreground font-light mb-8 max-w-2xl mx-auto">
+              The Sanctuary is being built by the community, for the community. Whether you want to contribute financially, volunteer your time, or simply show up on Wednesdays—you're part of this.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                className="px-8 py-6 rounded-full font-serif text-lg bg-primary text-white hover:bg-primary/90"
+                onClick={() => {
+                  trackEvent('contribute_click');
+                  window.location.href = "mailto:jeff@jeffbatton.com?subject=I Want to Contribute to The Sanctuary";
+                }}
+              >
+                Contribute <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+              <Button 
+                variant="outline"
+                className="px-8 py-6 rounded-full font-serif text-lg border-primary text-primary hover:bg-primary hover:text-white"
+                onClick={() => {
+                  trackEvent('volunteer_click');
+                  window.location.href = "mailto:jeff@jeffbatton.com?subject=I Want to Volunteer at The Sanctuary";
+                }}
+              >
+                Volunteer <Heart className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
           </div>
         </div>
       </section>
