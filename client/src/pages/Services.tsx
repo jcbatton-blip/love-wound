@@ -541,6 +541,54 @@ export default function Services() {
           </motion.div>
         </div>
 
+        {/* The Sanctuary CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-32 relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1A2333] to-[#2A3343] text-[#F9F7F2] p-12 md:p-16"
+        >
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37] opacity-5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#D4AF37] opacity-5 rounded-full blur-3xl" />
+          
+          <div className="relative z-10 max-w-3xl mx-auto text-center space-y-8">
+            <div className="inline-block px-4 py-1 rounded-full border border-[#D4AF37]/30 text-[#D4AF37] text-sm tracking-widest uppercase">
+              Beyond Individual Work
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-serif text-white">
+              The Sanctuary
+            </h2>
+            
+            <p className="text-xl text-white/80 font-light leading-relaxed italic">
+              A Conscious Living Community
+            </p>
+            
+            <p className="text-lg text-white/70 font-light leading-relaxed max-w-2xl mx-auto">
+              Individual work removes your thorn and fills your cup. But what happens after? <strong className="text-white">The Sanctuary</strong> is where you come home. A physical and digital community built on one principle: <strong className="text-white">Unconditional Love</strong>.
+            </p>
+            
+            <p className="text-base text-white/60 font-light leading-relaxed max-w-xl mx-auto">
+              Weekly gatherings. Guest teachers. Live music. A refurbished church in Detroit reimagined as a space where healing becomes community.
+            </p>
+            
+            <div className="pt-4">
+              <Button 
+                asChild
+                className="px-8 py-6 rounded-full font-serif text-lg bg-[#D4AF37] text-[#1A2333] hover:bg-[#C49F27]"
+              >
+                <a href="/vision">
+                  See the Vision <ArrowRight className="w-4 h-4 ml-2" />
+                </a>
+              </Button>
+            </div>
+            
+            <p className="text-sm text-white/40 italic pt-4">
+              "Come here to find out what unconditional love really means."
+            </p>
+          </div>
+        </motion.div>
+
         {/* FAQ / Objection Handling */}
         <div className="mt-32 max-w-3xl mx-auto space-y-12">
           <h2 className="text-3xl font-serif text-center text-primary">Common Questions</h2>

@@ -314,3 +314,8 @@
 - [ ] Document retreat logistics (hotel selection, meal planning, session timing)
 - [ ] Create retreat curriculum outline (4-day intensive vs 12-week container)
 - [ ] Build retreat booking system (after first 3 are complete)
+
+## The Sanctuary Visibility (Dec 28, 2025)
+- [x] Add "VISION" to main navigation menu
+- [x] Update Vision page branding to "A Conscious Living Community"
+- [x] Add Sanctuary CTA section to Services page (after retreats, before FAQ)

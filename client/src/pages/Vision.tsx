@@ -26,7 +26,7 @@ export default function Vision() {
             className="text-5xl md:text-7xl font-serif text-primary leading-tight"
           >
             The Sanctuary.<br/>
-            <span className="italic text-primary/80">A Center for Spiritual Living.</span>
+            <span className="italic text-primary/80">A Conscious Living Community.</span>
           </motion.h1>
           
           <motion.p 
@@ -94,7 +94,7 @@ export default function Vision() {
       <section className="py-24 px-4">
         <div className="container max-w-4xl mx-auto text-center space-y-12">
           <div className="space-y-6">
-            <h2 className="text-4xl font-serif text-primary">The Sanctuary Spiritual Living Center</h2>
+            <h2 className="text-4xl font-serif text-primary">The Sanctuary: A Conscious Living Community</h2>
             <p className="text-xl text-muted-foreground font-light leading-relaxed">
               A refurbished church in Detroit reimagined as a vibrant community space built on one principle: <strong>Unconditional Love</strong>.
             </p>
