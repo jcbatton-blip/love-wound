@@ -163,3 +163,8 @@
 - [ ] Write blog post: "Relationship Life Coaching: What to Expect"
 - [ ] Write blog post: "Signs You're Repeating Past Wounds in Love"
 - [ ] Write blog post: "How Awareness Changes Your Relationship Outcomes"
+
+## Link Fixes (Dec 27, 2025 - User Reported)
+- [x] Change "Begin the Mirror Method" button to go directly to /discovery (not /work-with-me)
+- [x] Fix broken internal text links (Framework, Patterns, Work With Me)
+- [x] Test all homepage links end-to-end
