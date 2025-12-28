@@ -171,7 +171,10 @@ export default function Services() {
     <div className="pt-32 pb-16 min-h-screen bg-[#F9F7F2]">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center space-y-6 mb-12">
-          <h1 className="text-5xl md:text-6xl font-serif text-primary">Work With Me</h1>
+          <h1 className="text-5xl md:text-6xl font-serif text-primary">One-on-One Relationship Coaching with Jeff Batton</h1>
+          <h2 className="text-2xl md:text-3xl font-serif text-primary/80">
+            Break Toxic Patterns & Build Lasting Love
+          </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
             I don't sell "advice." I sell awareness. Choose the level of depth you're ready for.
           </p>

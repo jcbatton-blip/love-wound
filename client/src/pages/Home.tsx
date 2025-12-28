@@ -110,6 +110,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* What I Do - SEO Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center space-y-8"
+          >
+            <h2 className="text-3xl md:text-4xl font-serif font-medium text-primary">
+              Relationship Life Coaching for Pattern Healing & Lasting Love
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+              I help individuals and couples break toxic relationship patterns and build lasting, healthy love through awareness-based coaching. Whether you're stuck in cycles of abandonment, rejection, betrayal, or other Love Wounds, my approach gets to the root—not just the symptoms.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6 pt-6">
+              <div className="space-y-3">
+                <h3 className="text-xl font-serif text-primary">Singles</h3>
+                <p className="text-muted-foreground">Stuck in cycles of choosing the wrong person? Learn why—and how to stop.</p>
+              </div>
+              <div className="space-y-3">
+                <h3 className="text-xl font-serif text-primary">Couples</h3>
+                <p className="text-muted-foreground">Ready to transform your relationship? Heal patterns together and rebuild trust.</p>
+              </div>
+              <div className="space-y-3">
+                <h3 className="text-xl font-serif text-primary">High-Performers</h3>
+                <p className="text-muted-foreground">Successful everywhere except love? Discover the pattern holding you back.</p>
+              </div>
+            </div>
+            <div className="pt-6">
+              <Link href="/discovery">
+                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full">
+                  Book Your Free Discovery Session
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* The Mirror Method Section */}
       <section className="py-12 md:py-24 bg-gradient-to-b from-[#F0EBE0]/30 to-[#F9F7F2]">
         <div className="container max-w-4xl">
