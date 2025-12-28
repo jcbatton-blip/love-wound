@@ -23,14 +23,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   const navLinks = [
     { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
     { href: "/framework", label: "The Method" },
     { href: "/patterns", label: "The Wounds" },
-    { href: "/services", label: "Work With Me" },
     { href: "/how-it-works", label: "How It Works" },
+    { href: "/work-with-me", label: "Services" },
+  ];
+
+  const footerLinks = [
     { href: "/book", label: "The Book" },
     { href: "/coaches", label: "For Coaches" },
     { href: "/vision", label: "The Vision" },
-    { href: "/about", label: "About Jeffrey" },
     { href: "/client-portal", label: "Client Portal" },
   ];
 
@@ -72,9 +75,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               size="sm" 
               className="font-serif bg-primary text-white hover:bg-primary/90 rounded-full px-6"
             >
-              <a href="https://calendly.com/jcbatton/let-s-talk" target="_blank" rel="noopener noreferrer">
-                Book Now
-              </a>
+              <Link href="/discovery">
+                Book Free Call
+              </Link>
             </Button>
           </nav>
 
@@ -108,9 +111,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               asChild
               className="w-full font-serif mt-4 bg-primary text-white rounded-full py-6"
             >
-              <a href="https://calendly.com/jcbatton/let-s-talk" target="_blank" rel="noopener noreferrer">
-                Book Now
-              </a>
+              <Link href="/discovery">
+                Book Free Call
+              </Link>
             </Button>
           </div>
         )}
@@ -135,6 +138,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <h4 className="font-serif text-lg text-primary">Navigation</h4>
             <ul className="space-y-3">
               {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-primary/60 hover:text-primary transition-colors font-light">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+              {footerLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-primary/60 hover:text-primary transition-colors font-light">
                     {link.label}

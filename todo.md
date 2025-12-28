@@ -168,3 +168,34 @@
 - [x] Change "Begin the Mirror Method" button to go directly to /discovery (not /work-with-me)
 - [x] Fix broken internal text links (Framework, Patterns, Work With Me)
 - [x] Test all homepage links end-to-end
+
+## UX Audit Fixes (Dec 27, 2025 - Comprehensive Audit)
+
+### CRITICAL FIXES (Week 1)
+- [x] Fix Discovery Call duration inconsistency (standardize to 60 minutes)
+- [x] Simplify navigation from 11 items to 6 core items
+- [x] Standardize nav CTA to "Book Free Call"
+- [x] Add 6 Love Wounds detailed content to Patterns page
+- [x] Fix empty FAQ section on How It Works page (FAQs already exist, just updated duration)
+
+### HIGH-PRIORITY FIXES (Week 1-2)
+- [x] Simplify Services page to 4 primary options (moved Clinic/Group to "Other Options" section)
+- [x] Fix Group Container pricing display ($350/month)
+- [x] Add trust signals to Discovery booking page (What to Expect section + trust badges)
+- [ ] Add lead magnet: Love Wound Quiz or Pattern Hunter's Workbook PDF
+- [x] Add audience-specific CTAs under Singles/Couples/High-Performers sections
+- [x] Make hero CTAs clear primary/secondary (already done - solid primary, outline secondary)
+
+### MEDIUM-PRIORITY IMPROVEMENTS (Week 2-3)
+- [ ] Add visual timeline to "How It Works" page
+- [x] Add "What to expect" section on Discovery booking page
+- [ ] Explain "The Kit" on Services page
+- [ ] Add pricing hint to homepage footer
+- [ ] Create dedicated FAQ page
+- [ ] Add comparison table on Services page
+
+### ENHANCEMENTS (Week 3-4)
+- [ ] Add exit-intent popup for email capture
+- [ ] Add trust badges: "30+ Years Experience | 500+ Clients"
+- [ ] Test mobile responsiveness thoroughly
+- [ ] Add sticky CTA button on mobile

@@ -77,6 +77,73 @@ export default function Patterns() {
         </div>
       </section>
 
+      {/* Six Love Wounds */}
+      <section className="container mb-32">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
+            The Six Love Wounds
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            At the root of every relationship pattern is a Love Wound—a subconscious definition of how love works, formed in early childhood. This wound becomes the "code" that runs your adult relationships until you bring it into awareness and rewrite it.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            {
+              title: "Abandonment",
+              icon: "💔",
+              description: "Fear of being left behind or forgotten. You cling, chase, or sabotage before they can leave first.",
+              example: "'I'll leave you before you leave me.'"
+            },
+            {
+              title: "Rejection",
+              icon: "🚫",
+              description: "Fear of not being chosen. You dim your light, hide your truth, or perform to be accepted.",
+              example: "'I have to be perfect to be loved.'"
+            },
+            {
+              title: "Betrayal",
+              icon: "🗡️",
+              description: "Fear of being deceived. You test loyalty, withhold trust, or stay hypervigilant for signs of betrayal.",
+              example: "'Everyone will hurt me eventually.'"
+            },
+            {
+              title: "Invisibility",
+              icon: "👻",
+              description: "Fear of not mattering. You over-give, over-function, or disappear entirely to avoid being a burden.",
+              example: "'My needs don't matter.'"
+            },
+            {
+              title: "Suffocation",
+              icon: "⛓️",
+              description: "Fear of losing yourself. You pull away, create distance, or resist commitment to protect your autonomy.",
+              example: "'Love means losing my freedom.'"
+            },
+            {
+              title: "Inadequacy",
+              icon: "📉",
+              description: "Fear of not being enough. You overachieve, prove your worth, or stay small to avoid exposure.",
+              example: "'I'll never be good enough.'"
+            }
+          ].map((wound, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-white border border-primary/10 rounded-2xl p-8 hover:shadow-xl transition-shadow"
+            >
+              <div className="text-4xl mb-4">{wound.icon}</div>
+              <h3 className="text-2xl font-serif font-bold text-primary mb-4">{wound.title}</h3>
+              <p className="text-muted-foreground mb-4">{wound.description}</p>
+              <p className="text-sm text-primary/60 italic">{wound.example}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Iron Sharpens Iron */}
       <section className="container mb-24">
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -127,8 +194,8 @@ export default function Patterns() {
             <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto">
               You can't fix what you can't see. Let's find the patterns together.
             </p>
-            <Button size="lg" variant="secondary" className="font-serif rounded-full px-10 py-6 h-auto text-lg">
-              Book Your Breakthrough Session
+            <Button size="lg" variant="secondary" className="font-serif rounded-full px-10 py-6 h-auto text-lg" asChild>
+              <a href="/discovery">Book Free Discovery Call</a>
             </Button>
           </div>
           

@@ -31,7 +31,7 @@ export default function Services() {
     localStorage.setItem('last_product_id', productId);
     checkoutMutation.mutate({ productId });
   };
-  const tiers = [
+  const primaryTiers = [
     {
       name: "Discovery Call",
       price: "Free",
@@ -83,39 +83,6 @@ export default function Services() {
       hasPaymentPlan: false
     },
     {
-      name: "The Teaching Clinic",
-      price: "150",
-      description: "1:1 coaching with Jeff at 57% off. Your session is observed by 2-4 certification interns and recorded for training purposes.",
-      features: [
-        "⚠ Observed by Interns (2-4 people)",
-        "⚠ Session Recorded for Training",
-        "✓ 60-Minute Session with Jeff",
-        "✓ Full Love Wound Methodology",
-        "✓ Save $200 (57% Discount)"
-      ],
-      cta: "Book a Clinic Session",
-      id: "teaching_clinic",
-      popular: false,
-      delay: 0.05,
-      hasPaymentPlan: false
-    },
-    {
-      name: "The Group Container",
-      price: "350",
-      description: "Healing happens in community. A weekly processing group for those ready to do the work alongside others on the path.",
-      features: [
-        "Weekly 90-Minute Group Calls",
-        "Hot-Seat Coaching Opportunities",
-        "Peer Witnessing & Support",
-        "Monthly Subscription (Cancel Anytime)"
-      ],
-      cta: "Join the Waitlist",
-      id: "group_container",
-      popular: false,
-      delay: 0.1,
-      hasPaymentPlan: false
-    },
-    {
       name: "The Individual Container",
       price: isPaymentPlan ? "1,350" : "5,000",
       period: isPaymentPlan ? "/ month (4 payments)" : "/ total",
@@ -148,6 +115,43 @@ export default function Services() {
       popular: false,
       delay: 0.3,
       hasPaymentPlan: true
+    }
+  ];
+
+  const otherOptions = [
+    {
+      name: "The Teaching Clinic",
+      price: "150",
+      description: "1:1 coaching with Jeff at 57% off. Your session is observed by 2-4 certification interns and recorded for training purposes.",
+      features: [
+        "⚠ Observed by Interns (2-4 people)",
+        "⚠ Session Recorded for Training",
+        "✓ 60-Minute Session with Jeff",
+        "✓ Full Love Wound Methodology",
+        "✓ Save $200 (57% Discount)"
+      ],
+      cta: "Book a Clinic Session",
+      id: "teaching_clinic",
+      popular: false,
+      delay: 0.05,
+      hasPaymentPlan: false
+    },
+    {
+      name: "The Group Container",
+      price: "350",
+      period: "/ month",
+      description: "Healing happens in community. A weekly processing group for those ready to do the work alongside others on the path.",
+      features: [
+        "Weekly 90-Minute Group Calls",
+        "Hot-Seat Coaching Opportunities",
+        "Peer Witnessing & Support",
+        "Monthly Subscription (Cancel Anytime)"
+      ],
+      cta: "Join the Waitlist",
+      id: "group_container",
+      popular: false,
+      delay: 0.1,
+      hasPaymentPlan: false
     }
   ];
 
@@ -231,7 +235,7 @@ export default function Services() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start mb-16">
-          {tiers.map((tier, index) => (
+          {primaryTiers.map((tier, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -298,6 +302,61 @@ export default function Services() {
               </Button>
             </motion.div>
           ))}
+        </div>
+
+        {/* Other Options Section */}
+        <div className="mt-24 mb-16">
+          <h2 className="text-3xl font-serif text-primary text-center mb-4">Other Options</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Alternative ways to work with Jeff at different price points or formats.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            {otherOptions.map((option, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: option.delay, duration: 0.5 }}
+                className="p-8 bg-white border border-primary/10 shadow-sm rounded-2xl flex flex-col"
+              >
+                <div className="mb-8 space-y-4">
+                  <h3 className="text-2xl font-serif text-primary">{option.name}</h3>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-4xl font-bold text-primary">${option.price}</span>
+                    <span className="text-muted-foreground">{option.period || '/ session'}</span>
+                  </div>
+                  <p className="text-muted-foreground font-light leading-relaxed">
+                    {option.description}
+                  </p>
+                </div>
+
+                <ul className="space-y-4 mb-8 flex-grow">
+                  {option.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-3 text-sm text-primary/80">
+                      <Check className="w-5 h-5 text-primary shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Button 
+                  className="w-full py-6 rounded-full font-serif text-lg bg-[#F9F7F2] text-primary hover:bg-[#F0EBE0]"
+                  onClick={() => {
+                    if (option.id === "teaching_clinic") {
+                      trackBookingClick('clinic');
+                      window.open("https://calendly.com/jcbatton/let-s-talk", "_blank");
+                    } else if (option.id === "group_container") {
+                      trackBookingClick('group');
+                      window.location.href = "mailto:jeff@jeffbatton.com?subject=Waitlist for The Group Container";
+                    }
+                  }}
+                >
+                  {option.cta} <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* The Retreat Section */}

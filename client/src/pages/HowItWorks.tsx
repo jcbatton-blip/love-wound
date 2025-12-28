@@ -13,7 +13,7 @@ export default function HowItWorks() {
     {
       icon: Calendar,
       title: "Discovery Session",
-      duration: "30 minutes · Free",
+      duration: "60 minutes · Free",
       description: "We'll explore your relationship patterns and see if this work resonates with you. No pressure, no sales pitch—just clarity about whether we're a good fit."
     },
     {
