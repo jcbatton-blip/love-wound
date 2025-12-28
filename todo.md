@@ -199,3 +199,44 @@
 - [ ] Add trust badges: "30+ Years Experience | 500+ Clients"
 - [ ] Test mobile responsiveness thoroughly
 - [ ] Add sticky CTA button on mobile
+
+## Major Site Revision - Complete Framework Integration (Dec 27, 2025)
+
+### Homepage Updates
+- [x] Add "The Thorn You're Protecting" section (de Mello framework)
+- [x] Add "Stop Draining Your Cup" overflow messaging
+- [x] Add "Root vs. Fruit" section
+- [x] Add "The Rejoicing Test" diagnostic
+- [x] Add "The Relationship Myth" (two overflow cups)
+- [ ] Update hero section with abundance framing (not lack-based)
+
+### About Page Updates
+- [x] Add "I'm a Recovering Evangelical" personal story
+- [x] Add "The Lineage" section (Neill, Sanford, Jung, de Mello)
+- [ ] Add "Why I Focus on Root Work" philosophy section
+- [x] Add "Religion is just politics in drag" positioning statement
+
+### Services Page Updates
+- [x] Reframe all descriptions with "remove the thorn, not manage the cage"
+- [x] Update Individual Container with overflow cup messaging
+- [x] Update Couples Container with "two overflow cups" framework
+- [ ] Add "Root Work, Not Fruit Chasing" positioning
+
+### For Coaches Page - Complete Rebuild
+- [x] Build full certification program page from mockup
+- [x] Add 6-module curriculum overview
+- [x] Add pricing and cohort details ($12K, 6 months, 15 coaches)
+- [x] Add "The Lineage" section
+- [x] Add application process and waitlist CTA
+- [ ] Add "Recovering Evangelical" positioning for ideal candidates
+
+### New Pages to Create
+- [ ] /the-cup - Full Cup Framework explanation with visuals
+- [ ] /resources - Recommended reading with commentary
+- [ ] /videos - YouTube video embeds (future)
+- [ ] /blog - Blog template for video transcripts (future)
+
+### Navigation Updates
+- [ ] Add social media links (YouTube, Instagram, LinkedIn) - need URLs from Jeff
+- [ ] Ensure "For Coaches" is prominent in navigation
+- [ ] Add "Resources" to footer navigation

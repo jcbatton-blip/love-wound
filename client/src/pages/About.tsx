@@ -56,6 +56,96 @@ export default function About() {
         </div>
       </section>
 
+      {/* Recovering Evangelical Story */}
+      <section className="container mb-24">
+        <div className="max-w-3xl mx-auto space-y-8">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary text-center">
+            I'm a Recovering Evangelical. Let Me Be Your Sponsor.
+          </h2>
+          
+          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+            <p>
+              I grew up in a world where "dying to self" was the highest virtue, where questioning was sin, and where your worth was measured by how much you could endure without complaint.
+            </p>
+            <p>
+              It took me 30 years to see that I wasn't being holy—I was being programmed. The church didn't teach me love; it taught me self-betrayal. And when I finally left, I realized I'd been living someone else's life.
+            </p>
+            <p>
+              That's when I found the work of A.S. Neill, John and Paula Sanford, Carl Jung, and Anthony de Mello. I learned that transformation doesn't come from trying harder to be good—it comes from making the unconscious conscious. From seeing the pattern that's been running your life and choosing differently.
+            </p>
+            <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
+              Religion is just politics in drag. Let's strip away the costume and work with what's real.
+            </p>
+            <p>
+              Now I help other recovering evangelicals (and anyone else programmed by coercion) do the same. Not by giving you a new set of rules, but by holding up a mirror so you can finally see what's been invisible.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* The Lineage - Philosophical Foundation */}
+      <section className="container mb-24 bg-[#F0EBE0]/30 -mx-4 px-4 py-16 md:mx-0 md:px-16 rounded-2xl">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary text-center mb-12">
+            The Lineage: Standing on the Shoulders of Giants
+          </h2>
+          
+          <div className="space-y-12">
+            <div className="space-y-4">
+              <h3 className="text-2xl font-serif font-bold text-primary">A.S. Neill — <em>Summerhill: A Radical Approach to Child Rearing</em></h3>
+              <p className="text-lg text-muted-foreground">
+                Neill proved that coercion creates neurosis. When children are forced to "do what they should" instead of "what they want," they learn self-betrayal as a survival strategy. This becomes the foundation for drained cups and toxic relationships in adulthood.
+              </p>
+              <p className="text-primary font-medium">
+                What I took: The understanding that most relationship dysfunction stems from childhood coercion, not inherent brokenness.
+              </p>
+            </div>
+
+            <div className="w-24 h-0.5 bg-primary/20 mx-auto" />
+
+            <div className="space-y-4">
+              <h3 className="text-2xl font-serif font-bold text-primary">John & Paula Sanford — <em>Healing the Wounded Spirit</em> & <em>Transformation of the Inner Man</em></h3>
+              <p className="text-lg text-muted-foreground">
+                The Sanfords developed a comprehensive inner healing methodology rooted in Christian prayer ministry. Their work on bitter root judgments, generational patterns, and the wounded spirit was profound—but inaccessible to secular audiences.
+              </p>
+              <p className="text-primary font-medium">
+                What I took: Their systematic approach to tracing adult patterns back to childhood wounds, stripped of religious language and reframed for universal application.
+              </p>
+            </div>
+
+            <div className="w-24 h-0.5 bg-primary/20 mx-auto" />
+
+            <div className="space-y-4">
+              <h3 className="text-2xl font-serif font-bold text-primary">Carl Jung — Depth Psychology</h3>
+              <p className="text-lg text-muted-foreground">
+                Jung taught that "until you make the unconscious conscious, it will direct your life and you will call it fate." His work on shadow, projection, and individuation forms the psychological backbone of The Love Wound Method.
+              </p>
+              <p className="text-primary font-medium">
+                What I took: The understanding that awareness itself is transformative—once you see the pattern, you can't unsee it.
+              </p>
+            </div>
+
+            <div className="w-24 h-0.5 bg-primary/20 mx-auto" />
+
+            <div className="space-y-4">
+              <h3 className="text-2xl font-serif font-bold text-primary">Anthony de Mello — <em>Awareness: The Perils and Opportunities of Reality</em></h3>
+              <p className="text-lg text-muted-foreground">
+                De Mello's teachings on waking up from societal programming and releasing attachments provide the spiritual (but non-religious) dimension of this work. His emphasis on awareness over effort aligns perfectly with the Mirror Method.
+              </p>
+              <p className="text-primary font-medium">
+                What I took: The practice of helping clients see their illusions (waiting to be saved, needing external validation) without trying to fix them.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-xl font-serif italic text-primary/80 bg-primary/5 rounded-xl p-8">
+              All four sources say the same thing: You've been programmed to live unconsciously. Society and family trained you to betray yourself. <strong>Awareness breaks the spell.</strong> Once you see it, you're free.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* My Philosophy */}
       <section className="container mb-24 bg-[#F9F7F2] -mx-4 px-4 py-16 md:mx-0 md:px-16 rounded-2xl">
         <div className="max-w-3xl mx-auto">

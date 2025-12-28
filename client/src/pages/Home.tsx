@@ -231,6 +231,57 @@ export default function Home() {
         </div>
       </section>
 
+      {/* The Thorn You're Protecting - de Mello Framework */}
+      <section className="py-12 md:py-24 bg-white">
+        <div className="container max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-12"
+          >
+            <div className="text-center space-y-6">
+              <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
+                You're Not Broken. You Have a Thorn You're Protecting.
+              </h2>
+              <p className="text-xl text-primary/70 font-serif italic">
+                Most coaches help you build a better cage. I remove the thorn.
+              </p>
+            </div>
+
+            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+              <p>
+                Anthony de Mello tells a story about a thorn. Instead of removing it, we build a cage around it. We create rules: "Don't touch me there." We develop patterns: "I'll leave before you can hurt me." We demand our partner change: "You need to stop triggering me."
+              </p>
+              <p>
+                <strong className="text-primary">But the thorn is still there.</strong>
+              </p>
+              <p>
+                Most coaches help you build a better cage. Better boundaries. Better communication. Better coping strategies. They teach you to manage the thorn, protect it, work around it.
+              </p>
+              <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
+                I don't help you manage the cage. I remove the thorn.
+              </p>
+              <p>
+                The thorn is your Love Wound—the imprint formed in childhood that's been running your relationships ever since. The cage is the pattern you built to protect it. And the exhaustion you feel? That's from spending your whole life defending something that doesn't need to be there.
+              </p>
+              <p>
+                <strong className="text-primary">Once the thorn is removed, you don't need the cage anymore.</strong> No more rules. No more demands. No more victim stories. Just freedom.
+              </p>
+            </div>
+
+            <div className="text-center pt-6">
+              <Link href="/discovery">
+                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full">
+                  Remove the Thorn
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* The Six Love Wounds */}
       <section className="py-12 md:py-24 bg-[#F9F7F2]">
         <div className="container">
@@ -291,6 +342,173 @@ export default function Home() {
                 Book Your Free Discovery Session
               </Button>
             </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Stop Draining Your Cup - Overflow Framework */}
+      <section className="py-12 md:py-24 bg-white">
+        <div className="container max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-12"
+          >
+            <div className="text-center space-y-6">
+              <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
+                Stop Draining Your Cup. The Overflow Happens Naturally.
+              </h2>
+              <p className="text-xl text-primary/70 font-serif italic">
+                When your cup is full, you don't notice the slights, the injustices, or the black-tie dress code. You're free.
+              </p>
+            </div>
+
+            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+              <p>
+                Most people spend their lives draining their cup—doing what they <em>should</em> instead of what they <em>want</em>, betraying themselves to keep the peace, waiting to be saved by someone else.
+              </p>
+              <p>
+                The result? Resentment. Exhaustion. Toxic relationships. Medicating the emptiness.
+              </p>
+              <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
+                My work isn't about filling your cup. It's about helping you see how you're draining it.
+              </p>
+              <p>
+                Once you stop the drain (heal the wound, break the pattern, end the self-betrayal), the cup fills naturally. And when it overflows, you stop noticing. You stop keeping score. You stop defending yourself.
+              </p>
+              <p>
+                <strong className="text-primary">That's self-actualization. That's the father in the Prodigal Son. That's freedom.</strong>
+              </p>
+              <div className="bg-primary/5 rounded-xl p-8 mt-8">
+                <h3 className="text-2xl font-serif text-primary mb-4">The Rejoicing Test</h3>
+                <p className="mb-4">
+                  Scripture says, "Rejoice in all things." When your cup is in overflow, you <em>can</em> rejoice in all things—not because you're forcing it, but because nothing threatens you.
+                </p>
+                <p className="font-medium text-primary">
+                  Where are you NOT rejoicing? That's where your cup isn't full. That's where the wound lives.
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center pt-6">
+              <Link href="/discovery">
+                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full">
+                  Fill Your Cup to Overflow
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Root vs. Fruit Framework */}
+      <section className="py-12 md:py-24 bg-[#F0EBE0]/30">
+        <div className="container max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-12"
+          >
+            <div className="text-center space-y-6">
+              <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
+                Stop Chasing the Fruit. Heal the Root.
+              </h2>
+              <p className="text-xl text-primary/70 font-serif italic">
+                When you focus on the fruit, you're focused on lack.
+              </p>
+            </div>
+
+            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+              <p>
+                You think you want a better relationship. What you actually need is to see the pattern that keeps creating bad ones.
+              </p>
+              <p>
+                You think you want more confidence. What you actually need is to heal the wound that makes you seek validation.
+              </p>
+              <p>
+                You think you want inner peace. What you actually need is to stop betraying yourself.
+              </p>
+              <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
+                Most coaches help you chase the fruit. I help you heal the root. Once the root is healed, the fruit appears on its own.
+              </p>
+              <p>
+                <strong className="text-primary">The fruit—the relationship, the confidence, the peace—isn't a goal to chase. It's what remains when you stop draining your cup.</strong>
+              </p>
+            </div>
+
+            <div className="text-center pt-6">
+              <Link href="/discovery">
+                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full">
+                  Heal the Root
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* The Relationship Myth - Two Overflow Cups */}
+      <section className="py-12 md:py-24 bg-[#F9F7F2]">
+        <div className="container max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-12"
+          >
+            <div className="text-center space-y-6">
+              <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
+                Your Partner Can't Fill Your Cup. And You Can't Fill Theirs.
+              </h2>
+              <p className="text-xl text-primary/70 font-serif italic">
+                The goal is two overflow cups—not two people trying to complete each other.
+              </p>
+            </div>
+
+            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+              <p>
+                Most people enter relationships with half-empty cups, hoping their partner will fill the rest. "I got my cup to here, now YOU take it the rest of the way."
+              </p>
+              <p>
+                This is the source of every toxic dynamic:
+              </p>
+              <ul className="space-y-3 pl-6">
+                <li className="flex items-start gap-3">
+                  <span className="text-primary mt-1">—</span>
+                  <span>Codependency ("I need you to complete me")</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary mt-1">—</span>
+                  <span>Resentment ("I'm giving everything, why isn't it enough?")</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary mt-1">—</span>
+                  <span>Blame ("If you really loved me, I wouldn't feel this empty")</span>
+                </li>
+              </ul>
+              <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
+                Your partner can't fill your cup. Only you can. But here's the good news: Your partner shows you exactly where your cup isn't full. Every trigger, every fight, every moment of resentment—that's the mirror.
+              </p>
+              <p>
+                <strong className="text-primary">The goal isn't to find someone who fills your cup. The goal is to reach overflow yourself—and find someone who's also in overflow.</strong>
+              </p>
+              <p>
+                Two overflow cups = a relationship where nobody's keeping score, nobody's waiting to be saved, and nobody's operating from lack.
+              </p>
+            </div>
+
+            <div className="text-center pt-6">
+              <Link href="/discovery">
+                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full">
+                  Build Your Overflow
+                </Button>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>

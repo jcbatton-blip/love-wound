@@ -69,7 +69,7 @@ export default function Services() {
       name: "The Mirror Session",
       price: "350",
       id: "mirror_session",
-      description: "Private, confidential 1:1 coaching. A 90-minute deep dive to locate your pattern with Jeff's undivided attention.",
+      description: "One session to see the thorn you've been protecting. Most coaches help you build a better cage. I show you what doesn't need to be there.",
       features: [
         "✓ 100% Private & Confidential",
         "✓ 90-Minute Video Call",
@@ -86,7 +86,7 @@ export default function Services() {
       name: "The Individual Container",
       price: isPaymentPlan ? "1,350" : "5,000",
       period: isPaymentPlan ? "/ month (4 payments)" : "/ total",
-      description: "The Reps. The Practice. The Rewiring. We don't just talk. We run the play until you can't get it wrong.",
+      description: "We don't help you manage the cage. We remove the thorn. Then we fill your cup to overflow so the pattern can't run anymore.",
       features: [
         "12 Weekly Sessions (3 Months)",
         "Direct Access (Voxer Support)",
@@ -103,7 +103,7 @@ export default function Services() {
       name: "The Couples Container",
       price: isPaymentPlan ? "2,000" : "7,500",
       period: isPaymentPlan ? "/ month (4 payments)" : "/ total",
-      description: "The Relationship Reconstruction. Re-learning the dance, one step at a time. We rebuild the foundation while you're living in the house.",
+      description: "Most couples therapy teaches communication tactics. We help each partner fill their own cup to overflow. Two overflow cups = a relationship where nobody's keeping score.",
       features: [
         "12 Weekly 90-Minute Sessions (3 Months)",
         "Flexibility for Individual Breakout Sessions",
