@@ -202,9 +202,16 @@ export default function Home() {
                 <span>what feels like "home," even when it hurts</span>
               </li>
             </ul>
-            <p className="pt-6 text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
+              <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
               Patterns aren't the problem. They're the map back to the root — the imprint you absorbed long before you had words for it.
             </p>
+            <div className="text-center pt-8">
+              <Link href="/discovery">
+                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full">
+                  Book Your Free Discovery Session
+                </Button>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -219,11 +226,11 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center space-y-6 mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
+              <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
               The Six Love Wounds
             </h2>
             <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto">
-              At the root of every relationship pattern is a Love Wound — a subconscious definition of how love works, formed in early childhood. This wound becomes the "code" that runs your adult relationships until you bring it into awareness and rewrite it.
+              At the root of every relationship pattern is a Love Wound — a subconscious definition of how love works, formed in early childhood. This wound becomes the "code" that runs your adult relationships until you bring it into awareness and rewrite it. <Link href="/patterns" className="text-primary hover:underline font-medium">Learn more about each wound →</Link>
             </p>
           </motion.div>
 
@@ -257,6 +264,19 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center pt-12"
+          >
+            <Link href="/discovery">
+              <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full shadow-lg">
+                Book Your Free Discovery Session
+              </Button>
+            </Link>
+          </motion.div>
         </div>
       </section>
 
@@ -284,14 +304,14 @@ export default function Home() {
                 My work isn't about diagnosing you, fixing you, or giving you a list of strategies you'll forget by next Tuesday.
               </p>
               <p>
-                It's about helping you <strong className="text-primary">see the pattern</strong> that's been running your life — the same way a mirror shows you what you can't see on your own.
+                It's about helping you <strong className="text-primary">see the pattern</strong> that's been running your life — the same way a mirror shows you what you can't see on your own. <Link href="/framework" className="text-primary hover:underline font-medium">Discover The Mirror Method →</Link>
               </p>
               <p>
                 Once you finally see it, you stop repeating it.<br />
                 And when the pattern breaks, your entire experience of love, identity, and abundance transforms.
               </p>
               <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg mt-8">
-                Awareness is the doorway. I just hold up the mirror — you walk through it.
+                Awareness is the doorway. I just hold up the mirror — you walk through it. <Link href="/work-with-me" className="text-primary hover:underline font-medium not-italic text-base block mt-4">See how we work together →</Link>
               </p>
             </div>
           </motion.div>
@@ -310,7 +330,7 @@ export default function Home() {
             >
               <img 
                 src="/images/jeff-batton-headshot-enhanced.png" 
-                alt="Jeffrey Batton" 
+                alt="Jeff Batton - Relationship Life Coach and Creator of The Mirror Method for healing love wounds and toxic patterns" 
                 className="rounded-2xl shadow-2xl w-full"
               />
             </motion.div>

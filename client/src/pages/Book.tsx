@@ -104,7 +104,7 @@ export default function Book() {
             <div className="w-[300px] aspect-[2/3] bg-white shadow-2xl rotate-3 border border-primary/5 relative z-10 overflow-hidden">
               <img 
                 src="/images/book-cover.jpg" 
-                alt="Grinnin' Like a Jackass Eatin' Briars" 
+                alt="Grinnin' Like a Jackass Eatin' Briars - Memoir by Jeff Batton about healing relationship patterns and love wounds" 
                 className="w-full h-full object-cover"
               />
             </div>

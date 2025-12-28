@@ -150,13 +150,13 @@
 - [x] Add keyword-rich "What I Do" section to homepage with H2: "Relationship Life Coaching for Pattern Healing & Lasting Love"
 - [x] Optimize Services page title: "One-on-One Relationship Coaching with Jeff Batton"
 - [x] Add descriptive H2 headers to Services page: "Break Toxic Patterns & Build Lasting Love"
-- [ ] Add internal links between related pages
-- [ ] Add optimized alt text to all images with keywords
+- [x] Add internal links between related pages
+- [x] Add optimized alt text to all images with keywords
 - [x] Implement Schema markup (Organization, Person, Services, FAQ) - Already exists and comprehensive
 - [x] Update XML sitemap with current date and correct routes
-- [ ] Verify mobile optimization and page speed
-- [ ] Add repeated CTAs throughout homepage ("Book Free Discovery Session")
-- [ ] Add testimonials with specific results to homepage
+- [x] Verify mobile optimization and page speed
+- [x] Add repeated CTAs throughout homepage ("Book Free Discovery Session")
+- [x] Add testimonials with specific results to homepage (already present)
 - [ ] Create lead magnet: "5 Questions to Spot Your Love Wound"
 - [ ] Create blog content calendar with SEO-targeted topics
 - [ ] Write blog post: "How to Break a Toxic Relationship Pattern"

@@ -18,7 +18,7 @@ export default function About() {
             <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl bg-muted">
               <img 
                 src="/images/jeff-batton-headshot-enhanced.png" 
-                alt="Jeffrey Batton" 
+                alt="Jeff Batton - Life Coach specializing in relationship patterns, love wounds, and The Mirror Method" 
                 className="w-full h-full object-cover"
               />
             </div>
