@@ -240,3 +240,58 @@
 - [ ] Add social media links (YouTube, Instagram, LinkedIn) - need URLs from Jeff
 - [ ] Ensure "For Coaches" is prominent in navigation
 - [ ] Add "Resources" to footer navigation
+
+## Certification Program Overhaul (Dec 27, 2025 - Teaching Hospital Model)
+
+### For Coaches Page Updates
+- [ ] Update certification structure: Curriculum (Months 1-3) → Practicum (Months 4-6) → Residency (Months 7-12)
+- [ ] Add detailed 6-module curriculum breakdown with weekly structure
+- [ ] Update pricing: Founding Cohort $6K (normally $15K)
+- [ ] Add weekly 1-on-1 coaching with Jeff (24 sessions)
+- [ ] Add Residency program details (paid practice under Love Wound brand, $150/session, 70/30 split)
+- [ ] Add Teaching Hospital positioning language
+- [ ] Update application CTA for Founding Cohort (limited to 10 coaches)
+
+### Email Marketing
+- [ ] Draft Founding Cohort announcement email
+- [ ] Create email sequence for certification applicants
+- [ ] Build application form for Founding Cohort
+
+### Curriculum Development
+- [ ] Document Module 1: How We Learn Love (Weeks 1-4)
+- [ ] Document Module 2: The Overflow Cup (Weeks 5-8)
+- [ ] Document Module 3: Pattern Hunting (Weeks 9-12)
+- [ ] Document Module 4: The Mirror Method (Weeks 13-16)
+- [ ] Document Module 5: Changing the Story (Weeks 17-20)
+- [ ] Document Module 6: Filling the Cup (Weeks 21-24)
+- [ ] Create practicum supervision structure
+- [ ] Create residency onboarding materials
+
+## Quick Fixes (Dec 28, 2025)
+- [ ] Fix button alignment on homepage Singles/Couples/High-Performers section (buttons should be vertically aligned)
+
+## Certification Program Overhaul (Dec 28, 2025 - Teaching Hospital Model)
+
+### For Coaches Page Updates
+- [ ] Update certification structure: Curriculum (Months 1-3) → Practicum (Months 4-6) → Residency (Months 7-12)
+- [ ] Add detailed 6-module curriculum breakdown with weekly structure
+- [ ] Update pricing: Founding Cohort $6K (normally $15K)
+- [ ] Add weekly 1-on-1 coaching with Jeff (24 sessions total during 6-month program)
+- [ ] Add Residency program details (paid practice under Love Wound brand, $150/session, 70/30 split)
+- [ ] Add Teaching Hospital positioning language
+- [ ] Update application CTA for Founding Cohort (limited to 10 coaches)
+
+### Email Marketing
+- [ ] Draft Founding Cohort announcement email
+- [ ] Create email sequence for certification applicants
+- [ ] Build application form for Founding Cohort
+
+### Curriculum Development
+- [ ] Document Module 1: How We Learn Love (Weeks 1-4)
+- [ ] Document Module 2: The Overflow Cup (Weeks 5-8)
+- [ ] Document Module 3: Pattern Hunting (Weeks 9-12)
+- [ ] Document Module 4: The Mirror Method (Weeks 13-16)
+- [ ] Document Module 5: Changing the Story (Weeks 17-20)
+- [ ] Document Module 6: Filling the Cup (Weeks 21-24)
+- [ ] Create practicum supervision structure
+- [ ] Create residency onboarding materials

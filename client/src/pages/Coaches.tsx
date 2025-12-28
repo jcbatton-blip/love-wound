@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Check, Users, BookOpen, Award, Heart, Target, Lightbulb } from "lucide-react";
+import { ArrowRight, Check, Users, BookOpen, Award, Heart, Target, Lightbulb, GraduationCap, Stethoscope } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { trackEvent } from "@/lib/analytics";
@@ -29,17 +29,17 @@ export default function Coaches() {
             </h1>
             
             <p className="text-xl md:text-2xl text-primary/70 font-serif italic">
-              Master the secular inner healing method that transforms clients in 3-4 sessions, not 3-4 years
+              The Teaching Hospital for Inner Healing: Curriculum → Practicum → Residency
             </p>
             
             <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a href="mailto:jeff@jeffbatton.com?subject=Application for Love Wound Coach Certification 2025">
+              <a href="mailto:jeff@jeffbatton.com?subject=Founding Cohort Application - Love Wound Certification">
                 <Button 
                   size="lg" 
                   className="bg-primary text-white hover:bg-primary/90 font-serif text-base md:text-lg px-8 md:px-10 py-5 md:py-6 h-auto rounded-full transition-all duration-300 shadow-lg"
                   onClick={() => trackEvent('coach_cert_apply_hero')}
                 >
-                  Apply for 2025 Cohort
+                  Apply for Founding Cohort
                 </Button>
               </a>
               <a href="#curriculum">
@@ -125,7 +125,7 @@ export default function Coaches() {
                 I've spent three decades <strong className="text-primary">secularizing their methodology</strong>, integrating insights from A.S. Neill's radical psychology, Carl Jung's depth work, and Anthony de Mello's teachings on awareness. The result is <strong className="text-primary">The Love Wound Method</strong>—a systematic approach to helping clients see the unconscious pattern, break its spell, and rewrite their relational lives.
               </p>
               <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
-                This is not a weekend workshop. This is a 6-month immersive certification that will fundamentally change how you practice coaching.
+                This is not a weekend workshop. This is a 12-month Teaching Hospital program: 6 months of intensive training + 6 months of paid practice under supervision.
               </p>
             </div>
 
@@ -150,6 +150,106 @@ export default function Coaches() {
         </div>
       </section>
 
+      {/* The 3-Phase Model Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center space-y-6 mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
+              The Teaching Hospital Model
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              We train coaches the same way doctors and therapists are trained: Learn → Practice → Residency. This isn't a certificate program. It's a professional development pathway.
+            </p>
+          </motion.div>
+
+          <div className="space-y-8">
+            {[
+              {
+                phase: "Phase 1",
+                title: "Curriculum (Months 1-3)",
+                icon: BookOpen,
+                description: "Master the foundational frameworks through weekly group training and 1-on-1 coaching with Jeff.",
+                includes: [
+                  "Weekly 90-minute group training calls",
+                  "Weekly 30-minute 1-on-1 coaching with Jeff",
+                  "6 comprehensive modules covering the Love Wound Method",
+                  "Weekly homework assignments and reading",
+                  "Access to private community"
+                ]
+              },
+              {
+                phase: "Phase 2",
+                title: "Practicum (Months 4-6)",
+                icon: Stethoscope,
+                description: "Apply what you've learned with real clients under Jeff's supervision. Practice the Mirror Method, conduct pattern hunts, and refine your skills.",
+                includes: [
+                  "Work with 5-10 volunteer clients (you recruit them)",
+                  "Weekly case review calls with cohort",
+                  "Weekly 30-minute 1-on-1 supervision with Jeff",
+                  "Submit 1 recorded session per week for feedback",
+                  "Final case study presentation for certification"
+                ]
+              },
+              {
+                phase: "Phase 3",
+                title: "Residency (Months 7-12) - Optional",
+                icon: GraduationCap,
+                description: "Get paid to practice under the Love Wound brand. Jeff handles scheduling, billing, and marketing. You focus on coaching.",
+                includes: [
+                  "Take clients at $150/session (Teaching Clinic rate)",
+                  "You keep 70% ($105/session), Jeff takes 30% ($45)",
+                  "Jeff refers overflow clients to you",
+                  "2x monthly group supervision (90 min)",
+                  "1x monthly 1-on-1 with Jeff (30 min)",
+                  "Option to stay in network or go independent after residency"
+                ]
+              }
+            ].map((phase, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Card className="border-primary/20 hover:border-primary/40 transition-all duration-300 bg-gradient-to-br from-white to-[#F9F7F2]">
+                  <CardContent className="p-8 space-y-6">
+                    <div className="flex items-start gap-6">
+                      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <phase.icon className="w-8 h-8 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-sm font-medium text-primary/60 tracking-widest uppercase mb-2">{phase.phase}</div>
+                        <h3 className="text-2xl md:text-3xl font-serif text-primary mb-4">{phase.title}</h3>
+                        <p className="text-lg text-muted-foreground leading-relaxed mb-6">{phase.description}</p>
+                        
+                        <div>
+                          <h4 className="font-medium text-primary mb-3">What's Included:</h4>
+                          <ul className="space-y-2">
+                            {phase.includes.map((item, i) => (
+                              <li key={i} className="flex items-start gap-3 text-muted-foreground">
+                                <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* The Curriculum Section */}
       <section id="curriculum" className="py-16 md:py-24 bg-[#F9F7F2]">
         <div className="container max-w-5xl">
@@ -161,77 +261,92 @@ export default function Coaches() {
             className="text-center space-y-6 mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
-              What You'll Learn: 6 Modules Over 6 Months
+              The 6-Module Curriculum
             </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Each module builds on the last, taking you from foundational concepts to advanced practice. By the end, you'll be able to identify a Love Wound in one session and guide a client to transformation in 3-4 sessions.
+            </p>
           </motion.div>
 
           <div className="space-y-8">
             {[
               {
                 module: "Module 1",
-                title: "The Imprint - How Wounds Form Before Language",
+                weeks: "Weeks 1-4",
+                title: "How We Learn Love",
+                tagline: "The Download: Before language, before memory, you absorbed how love works.",
                 concepts: [
-                  "Child-centered vs. family-centered homes: the origin of learned helplessness",
-                  "How early experiences become unconscious vows (\"I'll never be vulnerable again\")",
-                  "The role of coercion in creating neurosis (A.S. Neill's insights)",
-                  "Identifying the primary wound in client intake sessions"
+                  "The 6 Love Wounds: Abandonment, Rejection, Invisibility, Control, Unworthiness, Betrayal",
+                  "The Imprint: How patterns form before you have words for them",
+                  "Child-centered vs. family-centered homes",
+                  "How to identify a client's primary wound in intake"
                 ],
-                practicum: "Conduct three supervised intake sessions where you identify the client's Love Wound and trace it to childhood imprinting."
+                practicum: "Identify your own Love Wound and trace it to childhood. Practice intake sessions with 3 volunteer clients."
               },
               {
                 module: "Module 2",
-                title: "The Pattern - How Wounds Become Relationship Blueprints",
+                weeks: "Weeks 5-8",
+                title: "The Overflow Cup",
+                tagline: "You can't give what you don't have. When your cup is empty, you're just shoulding all over yourself.",
                 concepts: [
-                  "The six Love Wounds and their relational signatures",
-                  "Bitter root judgments: how childhood conclusions shape adult attractions",
-                  "Generational transmission: why patterns repeat across family lines",
-                  "The difference between healing the wound and managing the symptom"
+                  "The Cup Framework: Full, Empty, Below Empty",
+                  "The Rejoicing Test: Can you rejoice when someone else gets what you want?",
+                  "Below Empty = Medication (food, alcohol, porn, work, control)",
+                  "The goal: Overflow (where you don't notice anymore)"
                 ],
-                practicum: "Map a client's relationship history and demonstrate how their Love Wound has been the invisible architect of every partnership."
+                practicum: "Track your own cup level for 30 days. Conduct Cup Assessments with 3 clients."
               },
               {
                 module: "Module 3",
-                title: "The Cup - Understanding Self-Betrayal and Resentment",
+                weeks: "Weeks 9-12",
+                title: "Pattern Hunting (Fruit to Root)",
+                tagline: "You know a tree by its fruit. The pattern repeats itself. More times than not, it's literally the same pattern.",
                 concepts: [
-                  "The Cup Framework: how every act of self-betrayal drains your capacity for authentic connection",
-                  "Elder Brother Syndrome: the epidemic of people who \"did everything right\" and are furious about it",
-                  "Why people medicate (sex, drugs, alcohol, toxic relationships) when the cup goes below empty",
-                  "Teaching clients to fill their own cup instead of waiting to be saved"
+                  "How to spot 'shoulding' in client language",
+                  "The Fruit: What they're doing that drains their cup",
+                  "The Pattern: The repetitive behavior across relationships",
+                  "The Root: The original wound/download"
                 ],
-                practicum: "Guide a client through a Cup Assessment—identifying where they've been draining themselves and creating a self-care protocol that refills the cup."
+                practicum: "Map a client's relationship history and demonstrate how their Love Wound has been the invisible architect."
               },
               {
                 module: "Module 4",
-                title: "The Mirror - The Art of Reflecting Patterns",
+                weeks: "Weeks 13-16",
+                title: "The Mirror Method",
+                tagline: "You can do the same thing, but you have to change the intent behind it.",
                 concepts: [
-                  "Why you can't coach someone out of a pattern they can't see",
-                  "How to conduct a Mirror Session: the questions, the timing, the silence",
-                  "The moment of \"seeing\" (Jung's making the unconscious conscious)",
-                  "Holding space for the client's resistance, grief, and awakening"
+                  "How to hold up the mirror without triggering defensiveness",
+                  "The difference between behavior and intent",
+                  "How to help clients see their pattern (awareness precedes change)",
+                  "What to do when clients resist the mirror"
                 ],
-                practicum: "Conduct three Mirror Sessions with real clients (recorded and reviewed with supervision) where you successfully reflect the pattern back and witness the client's breakthrough."
+                practicum: "Conduct 5 Mirror Sessions (recorded for feedback). Learn to recognize the moment of 'seeing.'"
               },
               {
                 module: "Module 5",
-                title: "The Choice - From Awareness to Action",
+                weeks: "Weeks 17-20",
+                title: "Changing the Story",
+                tagline: "Forgiveness is the fruit of awareness.",
                 concepts: [
-                  "Pattern interruption: how to help clients choose differently in real-time",
-                  "Nervous system rewiring: why intellectual insight isn't enough",
-                  "The practice phase: running new relational \"plays\" until they become automatic",
-                  "Supporting clients through the discomfort of breaking old patterns"
+                  "How to help clients rewrite their story",
+                  "The shift from 'They did this TO me' to 'This is what I learned about love'",
+                  "How to facilitate forgiveness (not forced, but natural)",
+                  "The difference between understanding and excusing"
                 ],
-                practicum: "Create a 90-day transformation plan for a client, including pattern interruption protocols, somatic practices, and accountability structures."
+                practicum: "Guide 3 clients through story revision. Document the transformation."
               },
               {
                 module: "Module 6",
-                title: "Integration - Living From Consciousness",
+                weeks: "Weeks 21-24",
+                title: "Filling the Cup",
+                tagline: "When you stop shoulding, the cup starts filling.",
                 concepts: [
-                  "Maintaining the overflow cup: self-care as a non-negotiable practice",
-                  "Recognizing pattern triggers before they hijack behavior",
-                  "The difference between relapse and refinement",
-                  "Long-term client support: when to graduate clients vs. when to continue"
+                  "How to help clients stop doing what they don't want to do",
+                  "The practice of 'want-based living' vs 'should-based living'",
+                  "How to recognize when the cup is filling (early signs)",
+                  "How to know when a client has reached overflow"
                 ],
-                practicum: "Present a case study of a client's full transformation journey—from wound identification to conscious living—demonstrating mastery of The Love Wound Method."
+                practicum: "Final case study presentation: client journey from wound to overflow."
               }
             ].map((module, index) => (
               <motion.div
@@ -244,8 +359,9 @@ export default function Coaches() {
                 <Card className="border-primary/10 hover:border-primary/20 transition-all duration-300 bg-white/80 backdrop-blur">
                   <CardContent className="p-8 space-y-6">
                     <div>
-                      <div className="text-sm font-medium text-primary/60 tracking-widest uppercase mb-2">{module.module}</div>
-                      <h3 className="text-2xl font-serif text-primary">{module.title}</h3>
+                      <div className="text-sm font-medium text-primary/60 tracking-widest uppercase mb-2">{module.module} • {module.weeks}</div>
+                      <h3 className="text-2xl font-serif text-primary mb-3">{module.title}</h3>
+                      <p className="text-lg font-serif italic text-primary/70">{module.tagline}</p>
                     </div>
                     
                     <div>
@@ -355,6 +471,15 @@ export default function Coaches() {
 
             <Card className="border-primary/10 bg-white">
               <CardContent className="p-10 space-y-8">
+                <div className="bg-primary/10 rounded-xl p-8 text-center space-y-4">
+                  <h3 className="text-3xl font-serif text-primary">Founding Cohort Special Pricing</h3>
+                  <div className="space-y-2">
+                    <p className="text-2xl text-muted-foreground"><span className="line-through">$15,000</span> <span className="text-4xl font-bold text-primary">$6,000</span></p>
+                    <p className="text-lg text-muted-foreground">Or 6 monthly payments of $1,000</p>
+                  </div>
+                  <p className="text-sm text-primary/70 italic">Limited to 10 coaches. Future cohorts will be $15,000.</p>
+                </div>
+
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <h3 className="text-xl font-serif text-primary mb-4">Program Details</h3>
@@ -365,15 +490,15 @@ export default function Coaches() {
                       </li>
                       <li className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground"><strong>Format:</strong> Monthly live training + weekly supervision + self-paced modules</span>
+                        <span className="text-muted-foreground"><strong>Format:</strong> Weekly group calls + weekly 1-on-1 coaching</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground"><strong>Cohort Size:</strong> Limited to 15 coaches</span>
+                        <span className="text-muted-foreground"><strong>Cohort Size:</strong> Limited to 10 coaches</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground"><strong>Investment:</strong> $12,000 (or 4 monthly payments of $3,250)</span>
+                        <span className="text-muted-foreground"><strong>Residency:</strong> Optional 6-month paid practice (Months 7-12)</span>
                       </li>
                     </ul>
                   </div>
@@ -383,15 +508,15 @@ export default function Coaches() {
                     <ul className="space-y-3">
                       <li className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-muted-foreground">24 weekly group training calls (90 min)</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-muted-foreground">24 weekly 1-on-1 coaching sessions with Jeff (30 min)</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                         <span className="text-muted-foreground">6 comprehensive training modules</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">18 hours of live training with Jeff</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">24 hours of small-group supervision</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
@@ -399,28 +524,17 @@ export default function Coaches() {
                       </li>
                       <li className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">Certificate + IP licensing rights</span>
+                        <span className="text-muted-foreground">Certified Love Wound Coach credential</span>
                       </li>
                     </ul>
                   </div>
                 </div>
 
                 <div className="bg-primary/5 rounded-lg p-6">
-                  <h3 className="text-xl font-serif text-primary mb-3">Bonuses</h3>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-3 text-muted-foreground">
-                      <ArrowRight className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Early access to Jeff's upcoming book: <em>The Love Wound: A Secular Guide to Inner Healing</em></span>
-                    </li>
-                    <li className="flex items-start gap-3 text-muted-foreground">
-                      <ArrowRight className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Guest expert sessions on somatic healing and trauma-informed coaching</span>
-                    </li>
-                    <li className="flex items-start gap-3 text-muted-foreground">
-                      <ArrowRight className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Marketing templates for positioning yourself as a Love Wound specialist</span>
-                    </li>
-                  </ul>
+                  <h3 className="text-xl font-serif text-primary mb-3">Why Founding Cohort Pricing?</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    You're getting $15K worth of training for $6K because you're helping me refine the curriculum. In exchange for the discount, I need your feedback, testimonials, and commitment to the full 6 months. This is a legitimate 60% discount—not a gimmick.
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -489,18 +603,18 @@ export default function Coaches() {
               Ready to Transform Your Practice?
             </h2>
             <p className="text-xl text-primary/70 font-serif italic">
-              Cohort 1 begins January 2025. Applications are now open.
+              Founding Cohort begins January 2025. Applications are now open.
             </p>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We're limiting enrollment to 15 coaches to ensure personalized attention. Applications close December 15, 2024, or when cohort fills (whichever comes first).
+              We're limiting enrollment to 10 coaches to ensure personalized attention. This is your chance to get in at the ground level of a framework that's about to explode.
             </p>
-            <a href="mailto:jeff@jeffbatton.com?subject=Application for Love Wound Coach Certification 2025">
+            <a href="mailto:jeff@jeffbatton.com?subject=Founding Cohort Application - Love Wound Certification">
               <Button 
                 size="lg" 
                 className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-12 py-7 h-auto rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl"
                 onClick={() => trackEvent('coach_cert_apply_footer')}
               >
-                Apply Now for 2025 Cohort
+                Apply for Founding Cohort
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </a>

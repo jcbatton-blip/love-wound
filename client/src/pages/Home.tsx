@@ -127,27 +127,27 @@ export default function Home() {
               I help individuals and couples break toxic relationship patterns and build lasting, healthy love through awareness-based coaching. Whether you're stuck in cycles of abandonment, rejection, betrayal, or other Love Wounds, my approach gets to the root—not just the symptoms.
             </p>
             <div className="grid md:grid-cols-3 gap-6 pt-6">
-              <div className="space-y-4 p-6 bg-white rounded-xl border border-primary/10">
-                <h3 className="text-xl font-serif text-primary">Singles</h3>
-                <p className="text-muted-foreground">Stuck in cycles of choosing the wrong person? Learn why—and how to stop.</p>
+              <div className="flex flex-col p-6 bg-white rounded-xl border border-primary/10">
+                <h3 className="text-xl font-serif text-primary mb-4">Singles</h3>
+                <p className="text-muted-foreground mb-4 flex-grow">Stuck in cycles of choosing the wrong person? Learn why—and how to stop.</p>
                 <Link href="/discovery" className="inline-block">
                   <Button variant="outline" size="sm" className="text-primary border-primary hover:bg-primary hover:text-white rounded-full">
                     Start Here <ArrowRight className="w-4 h-4 ml-1" />
                   </Button>
                 </Link>
               </div>
-              <div className="space-y-4 p-6 bg-white rounded-xl border border-primary/10">
-                <h3 className="text-xl font-serif text-primary">Couples</h3>
-                <p className="text-muted-foreground">Ready to transform your relationship? Heal patterns together and rebuild trust.</p>
+              <div className="flex flex-col p-6 bg-white rounded-xl border border-primary/10">
+                <h3 className="text-xl font-serif text-primary mb-4">Couples</h3>
+                <p className="text-muted-foreground mb-4 flex-grow">Ready to transform your relationship? Heal patterns together and rebuild trust.</p>
                 <Link href="/discovery" className="inline-block">
                   <Button variant="outline" size="sm" className="text-primary border-primary hover:bg-primary hover:text-white rounded-full">
                     Book Together <ArrowRight className="w-4 h-4 ml-1" />
                   </Button>
                 </Link>
               </div>
-              <div className="space-y-4 p-6 bg-white rounded-xl border border-primary/10">
-                <h3 className="text-xl font-serif text-primary">High-Performers</h3>
-                <p className="text-muted-foreground">Successful everywhere except love? Discover the pattern holding you back.</p>
+              <div className="flex flex-col p-6 bg-white rounded-xl border border-primary/10">
+                <h3 className="text-xl font-serif text-primary mb-4">High-Performers</h3>
+                <p className="text-muted-foreground mb-4 flex-grow">Successful everywhere except love? Discover the pattern holding you back.</p>
                 <Link href="/discovery" className="inline-block">
                   <Button variant="outline" size="sm" className="text-primary border-primary hover:bg-primary hover:text-white rounded-full">
                     Break The Pattern <ArrowRight className="w-4 h-4 ml-1" />
