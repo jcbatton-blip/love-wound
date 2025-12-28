@@ -295,3 +295,22 @@
 - [ ] Document Module 6: Filling the Cup (Weeks 21-24)
 - [ ] Create practicum supervision structure
 - [ ] Create residency onboarding materials
+
+## Founding Retreat Experience (Dec 28, 2025)
+
+### Services Page Updates
+- [ ] Add "Founding Retreat Experience" section with 50% discount pricing
+- [ ] Individual Retreat: $7,500 (normally $15K) - limited to first 3 clients
+- [ ] Couples Retreat: $11,250 (normally $22.5K) - limited to first 3 couples
+- [ ] Add "What You Get" details (4 days, luxury hotel, all meals, intensive work)
+- [ ] Add "What Jeff Gets" transparency (refine format, testimonials, documentation)
+
+### Email Marketing
+- [ ] Draft Founding Retreat announcement email
+- [ ] Create application/inquiry process for retreats
+- [ ] Add retreat testimonial collection plan
+
+### Future Retreat Infrastructure
+- [ ] Document retreat logistics (hotel selection, meal planning, session timing)
+- [ ] Create retreat curriculum outline (4-day intensive vs 12-week container)
+- [ ] Build retreat booking system (after first 3 are complete)

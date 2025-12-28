@@ -155,20 +155,39 @@ export default function Services() {
     }
   ];
 
-  const retreat = {
-    name: "The Bespoke Retreat",
-    price: "15,000",
-    description: "A private, immersive weekend for one couple. No distractions. Just deep conversation, reflection, and connection in a curated environment.",
-    features: [
-      "2.5 Days of Intensive Immersion",
-      "Hosted at a Private Destination",
-      "Curated Culinary Experiences",
-      "Post-Retreat Integration Support"
-    ],
-    cta: "Inquire for Availability",
-    id: "retreat",
-    popular: false,
-    delay: 0.4
+  const retreats = {
+    individual: {
+      name: "Individual Retreat",
+      normalPrice: "15,000",
+      foundingPrice: "7,500",
+      description: "4 days of intensive 1-on-1 work at a luxury destination. All meals included. No distractions. Just you, me, and the pattern.",
+      features: [
+        "4 Days of Intensive 1-on-1 Work",
+        "Luxury Hotel Accommodations",
+        "All Meals Included",
+        "Post-Retreat Integration Support (30 days)"
+      ],
+      cta: "Apply for Founding Experience",
+      id: "individual_retreat",
+      popular: false,
+      delay: 0.4
+    },
+    couples: {
+      name: "Couples Retreat",
+      normalPrice: "22,500",
+      foundingPrice: "11,250",
+      description: "4 days of intensive couples work at a luxury destination. All meals included. No distractions. Just you two, me, and the patterns you've been running.",
+      features: [
+        "4 Days of Intensive Couples Work",
+        "Luxury Hotel Accommodations",
+        "All Meals Included",
+        "Post-Retreat Integration Support (30 days)"
+      ],
+      cta: "Apply for Founding Experience",
+      id: "couples_retreat",
+      popular: true,
+      delay: 0.5
+    }
   };
 
   return (
@@ -359,67 +378,168 @@ export default function Services() {
           </div>
         </div>
 
-        {/* The Retreat Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="relative overflow-hidden rounded-3xl bg-[#1A2333] text-[#F9F7F2] p-8 md:p-16"
-        >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37] opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
-          
-          <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="inline-block px-4 py-1 rounded-full border border-[#D4AF37]/30 text-[#D4AF37] text-sm tracking-widest uppercase">
-                The Pinnacle Experience
-              </div>
-              <h2 className="text-4xl md:text-5xl font-serif text-white">
-                {retreat.name}
-              </h2>
-              <p className="text-lg text-white/80 font-light leading-relaxed">
-                {retreat.description}
-              </p>
-              <div className="pt-4">
-                <div className="text-3xl font-serif text-[#D4AF37] mb-1">Starting at ${retreat.price}</div>
-                <div className="text-sm text-white/60">All-inclusive (excluding travel)</div>
-              </div>
+        {/* The Retreat Section - Founding Experience */}
+        <div className="space-y-8">
+          <div className="text-center space-y-4 mb-12">
+            <div className="inline-block px-6 py-2 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-sm font-medium tracking-widest uppercase">
+              Founding Retreat Experience
             </div>
+            <h2 className="text-4xl md:text-5xl font-serif text-primary">
+              Work Out the Bugs With Me
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              I'm offering the first 3 individual retreats and first 3 couples retreats at <strong>50% off</strong>. You get the full luxury experience. I get to refine the format and gather testimonials. Once I've done these 6, the price goes back to normal.
+            </p>
+          </div>
 
-            <div className="space-y-8">
-              <ul className="grid gap-4">
-                {retreat.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-4 text-lg text-white/90">
-                    <div className="w-8 h-8 rounded-full bg-[#D4AF37]/20 flex items-center justify-center shrink-0">
-                      <Check className="w-4 h-4 text-[#D4AF37]" />
-                    </div>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Individual Retreat */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: retreats.individual.delay }}
+              className="relative overflow-hidden rounded-3xl bg-[#1A2333] text-[#F9F7F2] p-8"
+            >
+              <div className="absolute top-0 right-0 w-48 h-48 bg-[#D4AF37] opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
               
-              {/* Retreat Agenda */}
-              <div className="pt-6 border-t border-white/10">
-                <h3 className="text-xl font-serif text-[#D4AF37] mb-4">The Experience</h3>
-                <div className="space-y-3 text-sm text-white/70">
-                  <p><span className="text-white/90 font-medium">Thursday:</span> Arrive. Settle in. Nightcap (or three, no judgment).</p>
-                  <p><span className="text-white/90 font-medium">Friday:</span> Morning coffee while we ease into the hard stuff. Lunch break (you'll need it). Afternoon deep dive. Dinner that costs more than your first car.</p>
-                  <p><span className="text-white/90 font-medium">Saturday:</span> Breakfast. Sightseeing (because staring at your patterns all day is exhausting). Integration work. Celebration dinner at a restaurant with more forks than you know what to do with.</p>
-                  <p><span className="text-white/90 font-medium">Sunday:</span> Coffee, reflection, and the realization that the mirror was worth it. Departure.</p>
+              <div className="relative z-10 space-y-6">
+                <div>
+                  <h3 className="text-3xl font-serif text-white mb-2">
+                    {retreats.individual.name}
+                  </h3>
+                  <p className="text-base text-white/70 font-light leading-relaxed">
+                    {retreats.individual.description}
+                  </p>
+                </div>
+                
+                <div className="pt-4">
+                  <div className="flex items-baseline gap-3 mb-2">
+                    <span className="text-2xl text-white/40 line-through">${retreats.individual.normalPrice}</span>
+                    <span className="text-5xl font-serif text-[#D4AF37]">${retreats.individual.foundingPrice}</span>
+                  </div>
+                  <p className="text-sm text-white/60">Limited to first 3 clients</p>
+                </div>
+                
+                <ul className="space-y-3">
+                  {retreats.individual.features.map((feature: string, index: number) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
+                      <span className="text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <Button 
+                  className="w-full px-6 py-5 rounded-full font-serif text-base bg-[#D4AF37] text-[#1A2333] hover:bg-[#C49F27]"
+                  onClick={() => {
+                    trackBookingClick('retreat');
+                    window.location.href = "mailto:jeff@jeffbatton.com?subject=Founding Individual Retreat Application";
+                  }}
+                >
+                  {retreats.individual.cta} <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Couples Retreat */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: retreats.couples.delay }}
+              className="relative overflow-hidden rounded-3xl bg-[#1A2333] text-[#F9F7F2] p-8 border-2 border-[#D4AF37]/30"
+            >
+              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#D4AF37] text-[#1A2333] text-xs font-medium tracking-wider uppercase">
+                Most Popular
+              </div>
+              <div className="absolute top-0 right-0 w-48 h-48 bg-[#D4AF37] opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
+              
+              <div className="relative z-10 space-y-6">
+                <div>
+                  <h3 className="text-3xl font-serif text-white mb-2">
+                    {retreats.couples.name}
+                  </h3>
+                  <p className="text-base text-white/70 font-light leading-relaxed">
+                    {retreats.couples.description}
+                  </p>
+                </div>
+                
+                <div className="pt-4">
+                  <div className="flex items-baseline gap-3 mb-2">
+                    <span className="text-2xl text-white/40 line-through">${retreats.couples.normalPrice}</span>
+                    <span className="text-5xl font-serif text-[#D4AF37]">${retreats.couples.foundingPrice}</span>
+                  </div>
+                  <p className="text-sm text-white/60">Limited to first 3 couples</p>
+                </div>
+                
+                <ul className="space-y-3">
+                  {retreats.couples.features.map((feature: string, index: number) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
+                      <span className="text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <Button 
+                  className="w-full px-6 py-5 rounded-full font-serif text-base bg-[#D4AF37] text-[#1A2333] hover:bg-[#C49F27]"
+                  onClick={() => {
+                    trackBookingClick('retreat');
+                    window.location.href = "mailto:jeff@jeffbatton.com?subject=Founding Couples Retreat Application";
+                  }}
+                >
+                  {retreats.couples.cta} <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Retreat Details */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-2xl p-8 md:p-12 border border-primary/10"
+          >
+            <h3 className="text-2xl font-serif text-primary mb-6">What You Get (Individual & Couples)</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <h4 className="font-medium text-primary">The Experience:</h4>
+                <div className="space-y-3 text-sm text-muted-foreground">
+                  <p><span className="text-primary font-medium">Day 1 (Thursday):</span> Arrive. Settle into your luxury accommodations. Welcome dinner. We ease in.</p>
+                  <p><span className="text-primary font-medium">Day 2 (Friday):</span> Morning session (3 hours). Lunch break. Afternoon deep dive (3 hours). Dinner on your own.</p>
+                  <p><span className="text-primary font-medium">Day 3 (Saturday):</span> Morning session (3 hours). Free afternoon (sightseeing, rest, integration). Evening reflection session (2 hours). Celebration dinner.</p>
+                  <p><span className="text-primary font-medium">Day 4 (Sunday):</span> Morning coffee and final integration session (2 hours). Departure.</p>
                 </div>
               </div>
-              
-              <Button 
-                className="w-full md:w-auto px-8 py-6 rounded-full font-serif text-lg bg-[#D4AF37] text-[#1A2333] hover:bg-[#C49F27]"
-                onClick={() => {
-                  trackBookingClick('retreat');
-                  window.location.href = "mailto:jeff@jeffbatton.com?subject=Inquiry for Bespoke Retreat";
-                }}
-              >
-                {retreat.cta} <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+              <div className="space-y-4">
+                <h4 className="font-medium text-primary">What Jeff Gets:</h4>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Work out the logistics (hotel selection, meal timing, session flow)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Refine the curriculum (what works in 4 days vs. 12 weeks)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Gather testimonials and case studies</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Document the process for future retreats</span>
+                  </li>
+                </ul>
+                <p className="text-sm text-primary/70 italic pt-4">
+                  This is transparency, not charity. You're helping me build something. Once I've done these 6 retreats, the price goes back to $15K (individual) and $22.5K (couples).
+                </p>
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
         {/* FAQ / Objection Handling */}
         <div className="mt-32 max-w-3xl mx-auto space-y-12">
