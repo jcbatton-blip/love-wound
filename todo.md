@@ -327,3 +327,13 @@
 - [x] Add "If it resonates, come Wednesday" invitation
 - [x] Add ways to contribute (financially or volunteering)
 - [x] Keep essence: Unconditional love as practice (love enemies, do good to harm) without religious language
+
+## The Overflow Membership Launch (Dec 28-29, 2025)
+- [x] Create /membership page with $29/month offering
+- [x] Remove "6 Love Wounds" framework, use "How We Learn Love" process instead
+- [x] Feature weekly live group call as main value prop
+- [x] Add Founding Member pricing for legacy clients ($19/month)
+- [x] Add "MEMBERSHIP" to main navigation
+- [ ] Update homepage hero to include membership CTA
+- [ ] Create membership signup flow (payment integration)
+- [ ] Write Founding Member email for legacy clients
