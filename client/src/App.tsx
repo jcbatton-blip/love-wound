@@ -13,6 +13,7 @@ import About from "./pages/About";
 import Coaches from "./pages/Coaches";
 import Vision from "./pages/Vision";
 import Membership from "./pages/Membership";
+import MemberPortal from "./pages/MemberPortal";
 import Services from "./pages/Services";
 import ClientPortal from "./pages/ClientPortal";
 import DiscoverySession from "./pages/DiscoverySession";
@@ -32,6 +33,7 @@ function Router() {
         <Route path="/coaches" component={Coaches} />
         <Route path="/vision" component={Vision} />
         <Route path="/membership" component={Membership} />
+        <Route path="/member-portal" component={MemberPortal} />
         <Route path="/work-with-me" component={Services} />
         <Route path="/about" component={About} />
         <Route path="/pattern-revealed" component={PatternRevealed} />

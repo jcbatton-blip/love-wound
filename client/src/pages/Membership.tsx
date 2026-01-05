@@ -264,6 +264,42 @@ export default function Membership() {
         </div>
       </section>
 
+      {/* Share The Overflow */}
+      <section className="py-20">
+        <div className="container">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="font-serif text-4xl font-light text-slate-900">
+              Share The Overflow
+            </h2>
+            <p className="mt-6 text-xl leading-relaxed text-slate-600">
+              Know someone who keeps choosing the wrong person? Share this with them.
+            </p>
+            <div className="mt-12 rounded-2xl border-2 border-slate-200 bg-white p-8">
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-2xl font-semibold text-slate-900">
+                    Refer a Friend, Get a Month Free
+                  </h3>
+                  <p className="mt-2 text-slate-600">
+                    Your friend gets their first month at $19. You get 1 month free ($29 value).
+                  </p>
+                </div>
+                <div className="border-t border-slate-200 pt-6">
+                  <p className="text-sm text-slate-500">
+                    Refer 3 friends = 3 months free • Refer 12 friends = 1 year free
+                  </p>
+                </div>
+                <div className="pt-4">
+                  <p className="text-slate-600">
+                    Once you join, you'll get your unique referral link in the Member Portal. Share it with friends who are ready to stop repeating patterns and start living from overflow.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="bg-slate-50 py-20">
         <div className="container">

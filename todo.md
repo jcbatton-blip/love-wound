@@ -337,3 +337,27 @@
 - [ ] Update homepage hero to include membership CTA
 - [ ] Create membership signup flow (payment integration)
 - [ ] Write Founding Member email for legacy clients
+
+## Pre-Launch QA Checklist (Dec 29, 2025)
+- [ ] Test all links on Membership page (navigation, CTAs, email links)
+- [ ] Verify pricing display ($29/month standard, $19/month founding)
+- [ ] Check mobile responsiveness on Membership page
+- [ ] Set up Stripe subscription products (test mode first)
+- [ ] Integrate Stripe payment flow on Membership page
+- [ ] Test subscription signup flow end-to-end
+- [ ] Add membership CTA button to homepage hero
+- [ ] Create Founding Member email draft (DO NOT SEND)
+- [ ] Full site navigation test (all pages load correctly)
+- [ ] Cross-browser testing (Chrome, Safari, Firefox)
+- [ ] Spell check and grammar review on Membership page
+- [ ] Verify all email links use correct subject lines
+- [ ] Final checkpoint after all QA passes
+
+## Referral Program Build (Dec 29, 2025)
+- [ ] Add "Share The Overflow" section to Membership page (before FAQ)
+- [ ] Create Member Portal page (/member-portal) with referral link and credits dashboard
+- [ ] Build referral email template for members to send
+- [ ] Add Member Portal link to main navigation (for logged-in members)
+- [ ] Create referral tracking system (manual Google Sheet for Phase 1)
+- [ ] Document credit redemption process for 1:1 services
+- [ ] Test referral link generation and tracking
