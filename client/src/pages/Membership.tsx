@@ -17,7 +17,7 @@ export default function Membership() {
               A continuous practice of awareness, pattern recognition, and living from overflow—not depletion.
             </p>
             <p className="mt-4 text-lg text-slate-500">
-              2-4 group sessions/month on Zoom. Text access for daily support. Discounted 1-on-1 sessions at $250. A curated video library. A community of pattern breakers.
+              2 group sessions/month on Zoom (max 12 members). Text access for daily support. Discounted 1-on-1 sessions at $250. A curated video library.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button size="lg" className="min-w-[200px]" asChild>
@@ -89,10 +89,10 @@ export default function Membership() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-slate-900">
-                      2-4 Group Sessions Per Month
+                      2 Live Group Sessions Per Month
                     </h3>
                     <p className="mt-4 leading-relaxed text-slate-600">
-                      Live Zoom sessions on Tuesday at 5pm EST. Pattern hunting in real time with Jeff. Watch others get coached and see yourself in their patterns.
+                      1st & 3rd Tuesday at 5pm EST on Zoom. Max 12 members per group (when one fills, we start another). Pattern hunting in real time with Jeff. Everyone gets seen.
                     </p>
                   </div>
                 </div>

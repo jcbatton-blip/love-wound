@@ -452,3 +452,10 @@
 - [ ] Set up Stripe payment plan products for Individual Container ($1,350×4) and Couples Container ($2,000×4)
 - [ ] Update Mirror Session to credit $350 toward Container if purchased within 30 days
 - [ ] Test all checkout flows and promo codes
+
+## Inner Circle Group Session Structure (Jan 10, 2026)
+- 2 sessions per month (1st & 3rd Tuesday at 5pm EST)
+- Max 12 members per group
+- When Group A fills (12 members), start Group B (2nd & 4th Tuesday at 5pm EST)
+- Revenue: 12 members × $29 = $348/month per group
+- With 2 groups: 24 members = $696/month for 4 total sessions
