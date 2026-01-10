@@ -467,3 +467,12 @@
 - [ ] Customize INNER_CIRCLE_WELCOME_EMAIL.md with your Zoom link and Voxer username
 - [ ] Test welcome email flow
 - [ ] Create MEMBER250 Stripe promo code ($100 off Mirror Session = $250 total)
+
+## Services Page Fixes (Jan 10, 2026 - Afternoon)
+- [x] Change retreat title from "Work Out the Bugs With Me" to "The Retreat"
+- [x] Update retreat copy to emphasize "in my home" and "Frederick Stearns House Historic Inn"
+- [x] Remove "luxury hotel accommodations" and replace with "Stay at Frederick Stearns House Historic Inn"
+- [x] Fix double checkmarks (✓ ✓) in all feature lists
+- [x] Fix spacing/bleeding at top of retreat section
+- [x] Add "Speaking" link to main navigation
+- [x] Add testimonial section to Services page (4 featured testimonials)

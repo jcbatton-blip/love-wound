@@ -71,11 +71,11 @@ export default function Services() {
       id: "mirror_session",
       description: "One session to see the thorn you've been protecting. Most coaches help you build a better cage. I show you what doesn't need to be there.",
       features: [
-        "✓ 100% Private & Confidential",
-        "✓ 90-Minute Video Call",
-        "✓ Personalized Pattern Diagnosis",
-        "✓ No Observers, No Recording",
-        "✓ Full Attention on You"
+        "100% Private & Confidential",
+        "90-Minute Video Call",
+        "Personalized Pattern Diagnosis",
+        "No Observers, No Recording",
+        "Full Attention on You"
       ],
       cta: "Book A Session",
       popular: true,
@@ -126,12 +126,12 @@ export default function Services() {
     period: "/ month",
     description: "The foundation for pattern work. 2 live group sessions per month, text access for urgent support, and discounted 1-on-1 sessions. Max 12 members per group.",
     features: [
-      "✓ 2 Live Group Sessions/Month (1st & 3rd Tuesday, 90 min)",
-      "✓ Text Access via Voxer (Daily Support)",
-      "✓ Discounted 1-on-1 Sessions ($250 vs $350)",
-      "✓ Curated Video Library",
-      "✓ Max 12 Members Per Group",
-      "✓ Cancel Anytime"
+      "2 Live Group Sessions/Month (1st & 3rd Tuesday, 90 min)",
+      "Text Access via Voxer (Daily Support)",
+      "Discounted 1-on-1 Sessions ($250 vs $350)",
+      "Curated Video Library",
+      "Max 12 Members Per Group",
+      "Cancel Anytime"
     ],
     cta: "Join The Inner Circle",
     id: "inner_circle",
@@ -145,11 +145,12 @@ export default function Services() {
       name: "Individual Retreat",
       normalPrice: "15,000",
       foundingPrice: "7,500",
-      description: "4 days of intensive 1-on-1 work at a luxury destination. All meals included. No distractions. Just you, me, and the pattern.",
+      description: "4 days of intensive work in my home. You stay at Frederick Stearns House Historic Inn (8109 E Jefferson Ave). All meals coordinated. No distractions. Just you, me, and the pattern.",
       features: [
         "4 Days of Intensive 1-on-1 Work",
-        "Luxury Hotel Accommodations",
-        "All Meals Included",
+        "Sessions in My Home (Detroit)",
+        "Stay at Frederick Stearns House Historic Inn",
+        "All Meals Coordinated",
         "Post-Retreat Integration Support (30 days)"
       ],
       cta: "Apply for Founding Experience",
@@ -161,11 +162,12 @@ export default function Services() {
       name: "Couples Retreat",
       normalPrice: "22,500",
       foundingPrice: "11,250",
-      description: "4 days of intensive couples work at a luxury destination. All meals included. No distractions. Just you two, me, and the patterns you've been running.",
+      description: "4 days of intensive couples work in my home. You stay at Frederick Stearns House Historic Inn (8109 E Jefferson Ave). All meals coordinated. No distractions. Just you two, me, and the patterns you've been running.",
       features: [
         "4 Days of Intensive Couples Work",
-        "Luxury Hotel Accommodations",
-        "All Meals Included",
+        "Sessions in My Home (Detroit)",
+        "Stay at Frederick Stearns House Historic Inn",
+        "All Meals Coordinated",
         "Post-Retreat Integration Support (30 days)"
       ],
       cta: "Apply for Founding Experience",
@@ -251,6 +253,109 @@ export default function Services() {
             </div>
           </div>
         </motion.div>
+
+        {/* Testimonials Section */}
+        <div className="mt-32 mb-32">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-serif text-primary mb-4">What Clients Say</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Real transformations from people who've done the work.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Testimonial 1: Tyler */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white p-8 rounded-2xl border border-primary/10 shadow-sm"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-serif text-xl">
+                  T
+                </div>
+                <div>
+                  <h4 className="font-serif text-lg text-primary">Tyler</h4>
+                  <p className="text-sm text-muted-foreground">August 2023</p>
+                </div>
+              </div>
+              <h3 className="text-xl font-serif text-primary mb-3">Everyone needs a Jeff</h3>
+              <p className="text-muted-foreground font-light leading-relaxed">
+                Jeff's guidance has saved my life. I was in therapy for 17 years. I struggled with anxiety, depression and addiction. Jeff is not only a safe place for me but someone whose guidance I can trust. I could never imagine my life & headspace where they are today.
+              </p>
+            </motion.div>
+
+            {/* Testimonial 2: Dallas (Couples) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="bg-white p-8 rounded-2xl border border-primary/10 shadow-sm"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-serif text-xl">
+                  D
+                </div>
+                <div>
+                  <h4 className="font-serif text-lg text-primary">Dallas</h4>
+                  <p className="text-sm text-muted-foreground">July 2022</p>
+                </div>
+              </div>
+              <h3 className="text-xl font-serif text-primary mb-3">Godsend!</h3>
+              <p className="text-muted-foreground font-light leading-relaxed">
+                Jeff is an absolute godsend. So far we've had two counseling sessions and it has changed the dynamic of our marriage in so many positive ways. Before we started talking with Jeffrey our marriage was in shambles and on the way to divorce court.
+              </p>
+            </motion.div>
+
+            {/* Testimonial 3: Veronica (Lighthouse) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-white p-8 rounded-2xl border border-primary/10 shadow-sm"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-serif text-xl">
+                  V
+                </div>
+                <div>
+                  <h4 className="font-serif text-lg text-primary">Veronica</h4>
+                  <p className="text-sm text-muted-foreground">August 2024</p>
+                </div>
+              </div>
+              <h3 className="text-xl font-serif text-primary mb-3">Learning to see things in a different way</h3>
+              <p className="text-muted-foreground font-light leading-relaxed">
+                Jeff is like a lighthouse. He has helped me navigate through life's challenges and difficult times. Jeff provides a sense of direction, safety, and hope. His light, his smile, his compassion, his patience become the light that helps me find my way during darkness or uncertainty.
+              </p>
+            </motion.div>
+
+            {/* Testimonial 4: Jonathan */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="bg-white p-8 rounded-2xl border border-primary/10 shadow-sm"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-serif text-xl">
+                  J
+                </div>
+                <div>
+                  <h4 className="font-serif text-lg text-primary">Jonathan</h4>
+                  <p className="text-sm text-muted-foreground">July 2022</p>
+                </div>
+              </div>
+              <h3 className="text-xl font-serif text-primary mb-3">Gratitude</h3>
+              <p className="text-muted-foreground font-light leading-relaxed">
+                I've been coming to Jeff for counseling and coaching for many years now. I have also tried other therapists and counselors occasionally but Jeff's insight has most consistently had a profound and long term impact on my life and state of mind. I've introduced Jeff to literally a dozen or more of my close friends.
+              </p>
+            </motion.div>
+          </div>
+        </div>
 
         {/* Divider */}
         <div className="text-center mb-12">
@@ -368,16 +473,16 @@ export default function Services() {
 
 
         {/* The Retreat Section - Founding Experience */}
-        <div className="space-y-8">
+        <div className="space-y-8 mt-32">
           <div className="text-center space-y-4 mb-12">
             <div className="inline-block px-6 py-2 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-sm font-medium tracking-widest uppercase">
               Founding Retreat Experience
             </div>
             <h2 className="text-4xl md:text-5xl font-serif text-primary">
-              Work Out the Bugs With Me
+              The Retreat
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              I'm offering the first 3 individual retreats and first 3 couples retreats at <strong>50% off</strong>. You get the full luxury experience. I get to refine the format and gather testimonials. Once I've done these 6, the price goes back to normal.
+              I'm offering the first 3 individual retreats and first 3 couples retreats at <strong>50% off</strong>. You get the full experience. I get to refine the format and gather testimonials. Once I've done these 6, the price goes back to normal.
             </p>
           </div>
 
