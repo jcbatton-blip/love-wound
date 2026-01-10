@@ -540,3 +540,12 @@
 - [x] Reduce excessive spacing above Sarah's testimonial quote
 - [x] Rewrite patterns sentence to emphasize they are fruit of a deeper problem
 - [x] Fix discovery page scroll behavior (jumps to bottom instead of staying at top)
+
+## Testimonial Box Sizing Fix (Jan 10, 2026)
+- [x] Reduce size of Sarah's testimonial quote box on homepage
+- [x] Decrease excessive spacing around the testimonial box
+
+## Remove Six Love Wounds References (Jan 10, 2026)
+- [x] Find all references to "Six Love Wounds" across all pages
+- [x] Remove Six Love Wounds section from homepage
+- [x] Remove any other mentions throughout the site

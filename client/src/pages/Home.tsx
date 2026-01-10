@@ -80,8 +80,8 @@ export default function Home() {
       </section>
 
       {/* Testimonial Section */}
-      <section className="py-8 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]/30">
-        <div className="container max-w-3xl">
+      <section className="py-12 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]/30">
+        <div className="container max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -90,7 +90,7 @@ export default function Home() {
             className="relative"
           >
             <Card className="border-none shadow-xl bg-white/80 backdrop-blur">
-              <CardContent className="p-10 md:p-14">
+              <CardContent className="p-8 md:p-10">
                 <div className="text-6xl text-primary/20 font-serif leading-none mb-6">"</div>
                 <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed mb-8 italic">
                   I spent years in therapy talking about my patterns. Three sessions with Jeff, and I finally understood why I kept choosing the same type of person. More importantly, I learned how to stop.
@@ -278,70 +278,6 @@ export default function Home() {
                 </Button>
               </Link>
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* The Six Love Wounds */}
-      <section className="py-12 md:py-24 bg-[#F9F7F2]">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center space-y-6 mb-16"
-          >
-              <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
-              The Six Love Wounds
-            </h2>
-            <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto">
-              At the root of every relationship pattern is a Love Wound — a subconscious definition of how love works, formed in early childhood. This wound becomes the "code" that runs your adult relationships until you bring it into awareness and rewrite it. <Link href="/how-it-works" className="text-primary hover:underline font-medium">See how patterns work →</Link>
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              { icon: Heart, title: "Abandonment", description: "Fear of being left behind or forgotten. You cling, chase, or sabotage before they can leave first." },
-              { icon: Eye, title: "Rejection", description: "Fear of not being chosen. You dim your light, hide your truth, or perform to be accepted." },
-              { icon: X, title: "Betrayal", description: "Fear of being deceived. You test loyalty, withhold trust, or stay hypervigilant for signs of betrayal." },
-              { icon: Ghost, title: "Invisibility", description: "Fear of not mattering. You over-give, over-function, or disappear entirely to avoid being a burden." },
-              { icon: Lock, title: "Suffocation", description: "Fear of losing yourself. You pull away, create distance, or resist commitment to protect your autonomy." },
-              { icon: Frown, title: "Inadequacy", description: "Fear of not being enough. You overachieve, prove your worth, or stay small to avoid exposure." }
-            ].map((wound, index) => (
-              <motion.div
-                key={wound.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="h-full border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-lg bg-white/80 backdrop-blur">
-                  <CardContent className="p-8 space-y-4">
-                    <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
-                      <wound.icon className="w-7 h-7 text-primary" />
-                    </div>
-                    <h3 className="text-2xl font-serif text-primary">{wound.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {wound.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center pt-12"
-          >
-            <Link href="/discovery">
-              <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full shadow-lg">
-                Book Your Free Discovery Session
-              </Button>
-            </Link>
           </motion.div>
         </div>
       </section>
