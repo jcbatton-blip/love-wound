@@ -70,7 +70,7 @@ export default function Home() {
                 </Button>
               </Link>
               <Link href="/pattern-revealed" className="inline-block">
-                <Button size="lg" variant="outline" className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white font-serif text-base md:text-lg px-8 md:px-10 py-5 md:py-6 h-auto rounded-full transition-all duration-300">
+                <Button size="lg" className="bg-primary text-white hover:bg-white hover:text-primary hover:border-primary hover:border-2 font-serif text-base md:text-lg px-8 md:px-10 py-5 md:py-6 h-auto rounded-full transition-all duration-300 shadow-lg">
                   See How Patterns Work
                 </Button>
               </Link>

@@ -108,6 +108,12 @@ export default function HowItWorks() {
                     You don't have to be in a relationship to do relationship work. Because what triggers you in someone else is just showing you what's still unhealed in you.
                   </p>
                   <p>
+                    When you ask your partner to change—to stop triggering you—you're essentially asking them to do something different so <em>you</em> don't have to feel something. They're just a mirror showing you where a thorn is.
+                  </p>
+                  <p className="italic text-primary/70">
+                    You're just mad at the mirror cause your hair's messed up. Getting a new mirror won't fix your hair.
+                  </p>
+                  <p>
                     That's the work—not fixing the other person, but asking: <span className="text-primary font-medium italic">"Why does this matter?"</span>
                   </p>
                   <p>
@@ -147,6 +153,12 @@ export default function HowItWorks() {
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
               Iron Sharpens Iron
             </h2>
+            <p className="text-lg text-muted-foreground mb-6">
+              When you were born, the only thing you knew was love. Mom and dad showed you how to do it. Before you had language, before logic or memory, you absorbed how love works.
+            </p>
+            <p className="text-lg text-muted-foreground mb-6">
+              You think you're attracted to people because of how they look or how they act. But really, what draws you to one another are <strong className="text-primary">matching wounds</strong>. Those matching wounds are designed to bring each other's wounds to the surface—so you can become aware of them and ultimately heal from them.
+            </p>
             <p className="text-lg text-muted-foreground">
               Relationships are the friction that polishes the blade. We attract people who rub us the wrong way <em>on purpose</em>—so we can smooth out the rough edges of our own ego.
             </p>

@@ -596,3 +596,10 @@
 - [x] Add explanation after bullet points about matching wounds
 - [x] Explain that we think attraction is about looks/personality but it's really matching wounds
 - [x] Connect to "Iron sharpens iron" concept - wounds designed to bring each other's wounds up for healing
+
+## How It Works Page Enhancement (Jan 10, 2026)
+- [x] Add nuance about when we're born, the only thing we know is love (parents show us how)
+- [x] Add matching wounds concept (attraction is about matching wounds bringing each other's wounds up)
+- [x] Add mirror metaphor (you're mad at the mirror when your hair's messed up)
+- [x] Incorporate Iron sharpens iron concept more deeply
+- [x] Update mirror section buttons to both be black with white hover effect
