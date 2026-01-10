@@ -80,7 +80,7 @@ export default function Home() {
       </section>
 
       {/* Testimonial Section */}
-      <section className="py-12 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]/30">
+      <section className="py-8 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]/30">
         <div className="container max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -90,9 +90,8 @@ export default function Home() {
             className="relative"
           >
             <Card className="border-none shadow-xl bg-white/80 backdrop-blur">
-              <CardContent className="p-8 md:p-10">
-                <div className="text-6xl text-primary/20 font-serif leading-none mb-6">"</div>
-                <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed mb-8 italic">
+              <CardContent className="p-6 md:p-8">
+                <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed mb-6 italic">
                   I spent years in therapy talking about my patterns. Three sessions with Jeff, and I finally understood why I kept choosing the same type of person. More importantly, I learned how to stop.
                 </p>
                 <div className="flex items-center gap-4">

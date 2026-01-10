@@ -58,7 +58,7 @@ export default function DiscoverySession() {
           </div>
 
           {/* Calendly Iframe Embed */}
-          <div className="bg-white rounded-lg border border-primary/10 shadow-lg overflow-hidden relative">
+          <div className="bg-white rounded-lg border border-primary/10 shadow-lg overflow-hidden relative flex justify-center">
             {isLoading && (
               <div className="absolute inset-0 flex items-center justify-center bg-white z-10">
                 <Loader2 className="w-8 h-8 text-primary animate-spin" />

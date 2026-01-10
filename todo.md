@@ -571,3 +571,10 @@
 - [x] Change "I remove the thorn" to "I help you remove the thorn"
 - [x] Add concept that asking people to change is asking them to do something different so you don't feel something
 - [x] Incorporate mirror metaphor: "You're just mad at the mirror cause your hair's messed up. Getting a new mirror won't fix your hair!"
+
+## Testimonial Section Redesign (Jan 10, 2026)
+- [x] Remove floating quote mark from Sarah's testimonial
+- [x] Reduce excessive white space around testimonial card
+
+## Calendly Widget Centering (Jan 10, 2026)
+- [x] Center Calendly widget on Discovery Session page
