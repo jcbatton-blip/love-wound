@@ -80,7 +80,7 @@ export default function Home() {
       </section>
 
       {/* Testimonial Section */}
-      <section className="py-16 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]/30">
+      <section className="py-8 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]/30">
         <div className="container max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -218,7 +218,7 @@ export default function Home() {
               </li>
             </ul>
               <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
-              Patterns aren't the problem. They're the map back to the root — the imprint you absorbed long before you had words for it.
+              Patterns aren't the problem—they're the fruit of a deeper root. They're the map back to the imprint you absorbed long before you had words for it.
             </p>
             <div className="text-center pt-8">
               <Link href="/discovery">

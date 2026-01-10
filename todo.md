@@ -535,3 +535,8 @@
 - [x] Make Services page the full testimonials hub with all detailed stories
 - [x] Add "Read all client stories →" links from short quotes to Services page
 - [x] Ensure testimonials are pulling from database dynamically
+
+## Homepage Fixes (Jan 10, 2026)
+- [x] Reduce excessive spacing above Sarah's testimonial quote
+- [x] Rewrite patterns sentence to emphasize they are fruit of a deeper problem
+- [x] Fix discovery page scroll behavior (jumps to bottom instead of staying at top)
