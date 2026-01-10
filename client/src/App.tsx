@@ -21,6 +21,7 @@ import PatternRevealed from "./pages/PatternRevealed";
 import HowItWorks from "./pages/HowItWorks";
 import Success from "./pages/Success";
 import TenantPortal from "./pages/TenantPortal";
+import Speaking from "./pages/Speaking";
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
@@ -42,6 +43,7 @@ function Router() {
         <Route path="/discovery" component={DiscoverySession} />
         <Route path="/success" component={Success} />
         <Route path="/tenant-portal" component={TenantPortal} />
+        <Route path="/speaking" component={Speaking} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

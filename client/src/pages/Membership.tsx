@@ -11,13 +11,13 @@ export default function Membership() {
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="font-serif text-5xl font-light tracking-tight text-slate-900 sm:text-6xl">
-              The Overflow Membership
+              The Inner Circle
             </h1>
             <p className="mt-6 text-xl leading-relaxed text-slate-600">
               A continuous practice of awareness, pattern recognition, and living from overflow—not depletion.
             </p>
             <p className="mt-4 text-lg text-slate-500">
-              Weekly live calls with Jeff. Monthly workshops. A community of people doing the real work.
+              2-4 group sessions/month on Zoom. Text access for daily support. Discounted 1-on-1 sessions at $250. A curated video library. A community of pattern breakers.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button size="lg" className="min-w-[200px]" asChild>
@@ -25,9 +25,7 @@ export default function Membership() {
                   Join for $29/Month
                 </a>
               </Button>
-              <p className="text-sm text-slate-500">
-                Legacy clients: <Link href="/membership" className="underline">See Founding Member pricing</Link>
-              </p>
+
             </div>
           </div>
         </div>
@@ -81,12 +79,9 @@ export default function Membership() {
             <h2 className="text-center font-serif text-4xl font-light text-slate-900">
               What You Get for $29/Month
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-slate-600">
-              Total value: $7,200/year. Your price: $348/year ($29/month).
-            </p>
 
             <div className="mt-16 grid gap-8 md:grid-cols-2">
-              {/* Weekly Live Call */}
+              {/* Group Sessions */}
               <Card className="p-8">
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-900 text-white">
@@ -94,17 +89,16 @@ export default function Membership() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-slate-900">
-                      Weekly Live Group Call
+                      2-4 Group Sessions Per Month
                     </h3>
-                    <p className="mt-1 text-sm text-slate-500">$2,400/year value</p>
                     <p className="mt-4 leading-relaxed text-slate-600">
-                      Every Wednesday at 7pm ET. 90 minutes with Jeff. Pattern hunting in real time. Q&A and coaching. Watch others get coached and see yourself in their questions.
+                      Live Zoom sessions on Tuesday at 5pm EST. Pattern hunting in real time with Jeff. Watch others get coached and see yourself in their patterns.
                     </p>
                   </div>
                 </div>
               </Card>
 
-              {/* Foundation Course */}
+              {/* Text Access */}
               <Card className="p-8">
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-900 text-white">
@@ -112,17 +106,16 @@ export default function Membership() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-slate-900">
-                      The Foundation Course
+                      Text Access via Voxer
                     </h3>
-                    <p className="mt-1 text-sm text-slate-500">$1,500 value</p>
                     <p className="mt-4 leading-relaxed text-slate-600">
-                      Self-paced video modules: How We Learn Love, The Overflow Cup, Root vs. Fruit, The Mirror Method, Want vs. Should. The core framework you can revisit anytime.
+                      Need support between sessions? Text Jeff directly when you're stuck in a pattern. Get quick coaching when you need it most.
                     </p>
                   </div>
                 </div>
               </Card>
 
-              {/* Monthly Workshop */}
+              {/* Discounted 1-on-1s */}
               <Card className="p-8">
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-900 text-white">
@@ -130,17 +123,16 @@ export default function Membership() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-slate-900">
-                      Monthly Live Workshop
+                      Discounted 1-on-1 Sessions
                     </h3>
-                    <p className="mt-1 text-sm text-slate-500">$1,200/year value</p>
                     <p className="mt-4 leading-relaxed text-slate-600">
-                      Deep dives into specific topics: The Cup, Thorn vs. Cage, Forgiveness, Medication Behaviors, Shoulding. Live with Jeff, then recorded for replay.
+                      Members get Mirror Sessions at $250 (vs $350 regular price). When you need deeper work, you get priority access at a lower rate.
                     </p>
                   </div>
                 </div>
               </Card>
 
-              {/* Private Community */}
+              {/* Video Library */}
               <Card className="p-8">
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-900 text-white">
@@ -148,29 +140,10 @@ export default function Membership() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-slate-900">
-                      Private Member Community
+                      Curated Video Library
                     </h3>
-                    <p className="mt-1 text-sm text-slate-500">$600/year value</p>
                     <p className="mt-4 leading-relaxed text-slate-600">
-                      24/7 access to a community of people doing the work. Share wins, ask questions, find accountability partners. You're not doing this alone.
-                    </p>
-                  </div>
-                </div>
-              </Card>
-
-              {/* Bonus Content */}
-              <Card className="p-8 md:col-span-2">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-900 text-white">
-                    <Check className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-900">
-                      Bonus Content Library
-                    </h3>
-                    <p className="mt-1 text-sm text-slate-500">$1,500/year value</p>
-                    <p className="mt-4 leading-relaxed text-slate-600">
-                      Podcast episodes (early access), blog posts, teachings, guest interviews. New content added monthly. Your library keeps growing.
+                      Access to Jeff's YouTube channel "The Recovering Evangelical" plus exclusive member-only teachings. The framework at your fingertips anytime.
                     </p>
                   </div>
                 </div>
@@ -188,12 +161,12 @@ export default function Membership() {
               Simple, Transparent Pricing
             </h2>
 
-            <div className="mt-16 grid gap-8 md:grid-cols-2">
-              {/* Standard Membership */}
-              <Card className="relative overflow-hidden p-8">
+            <div className="mt-16 flex justify-center">
+              {/* Single Membership Option */}
+              <Card className="relative w-full max-w-md overflow-hidden p-8">
                 <div className="text-center">
                   <h3 className="text-2xl font-semibold text-slate-900">
-                    Standard Membership
+                    The Inner Circle
                   </h3>
                   <div className="mt-4">
                     <span className="text-5xl font-bold text-slate-900">$29</span>
@@ -203,32 +176,8 @@ export default function Membership() {
                     Billed monthly. Cancel anytime.
                   </p>
                   <Button size="lg" className="mt-8 w-full" asChild>
-                    <a href="mailto:jeff@jeffbatton.com?subject=Join%20The%20Overflow%20Membership%20-%20Standard">
+                    <a href="mailto:jeff@jeffbatton.com?subject=Join%20The%20Inner%20Circle">
                       Join Now
-                    </a>
-                  </Button>
-                </div>
-              </Card>
-
-              {/* Founding Member */}
-              <Card className="relative overflow-hidden border-2 border-slate-900 p-8">
-                <div className="absolute right-4 top-4 rounded-full bg-slate-900 px-3 py-1 text-xs font-semibold text-white">
-                  LEGACY CLIENTS
-                </div>
-                <div className="text-center">
-                  <h3 className="text-2xl font-semibold text-slate-900">
-                    Founding Member
-                  </h3>
-                  <div className="mt-4">
-                    <span className="text-5xl font-bold text-slate-900">$19</span>
-                    <span className="text-slate-600">/month</span>
-                  </div>
-                  <p className="mt-2 text-sm text-slate-500">
-                    Locked in for life. For past clients only.
-                  </p>
-                  <Button size="lg" className="mt-8 w-full" asChild>
-                    <a href="mailto:jeff@jeffbatton.com?subject=Join%20The%20Overflow%20Membership%20-%20Founding%20Member">
-                      Claim Your Rate
                     </a>
                   </Button>
                 </div>

@@ -440,3 +440,15 @@
 - [x] Fix button consistency across all service cards
 - [x] Fix text overflow issues
 - [x] Add payment plan pricing with premium clearly shown
+
+## Website Restructure - Phase 2 (Jan 10, 2026)
+- [x] Clean up Membership page - remove legacy client confusion, show only $29/month Inner Circle
+- [ ] Create MEMBER250 Stripe promo code for Inner Circle members ($250 sessions vs $350)
+- [x] Create Speaking page with "You Don't Need Fixing. You Need Remembering." message
+- [x] SEO optimize Speaking page for "recovering evangelical speaker", "church speaker", "deconstruction speaker"
+- [ ] Restructure Services page with membership-first model (Discovery → Inner Circle → Mirror Session → Containers)
+- [ ] Create Premium Experiences page for retreats and teaching clinic
+- [ ] Update navigation to include Speaking and Premium Experiences links
+- [ ] Set up Stripe payment plan products for Individual Container ($1,350×4) and Couples Container ($2,000×4)
+- [ ] Update Mirror Session to credit $350 toward Container if purchased within 30 days
+- [ ] Test all checkout flows and promo codes
