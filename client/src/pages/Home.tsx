@@ -184,9 +184,11 @@ export default function Home() {
             <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
               Your life isn't shaped by your choices — it's shaped by your imprint. Before you ever had language, before logic or memory, you absorbed one thing:
             </p>
-            <p className="text-2xl font-serif italic text-primary/80">
-              How love works.
-            </p>
+            <div className="py-8">
+              <p className="text-4xl md:text-5xl font-serif font-semibold text-primary">
+                How love works.
+              </p>
+            </div>
             <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
               Not because anyone taught you... but because you felt it.
             </p>
