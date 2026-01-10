@@ -137,19 +137,20 @@ export default function Services() {
       hasPaymentPlan: false
     },
     {
-      name: "The Group Container",
-      price: "350",
+      name: "The Inner Circle",
+      price: "29",
       period: "/ month",
-      description: "Healing happens in community. A weekly processing group for those ready to do the work alongside others on the path.",
+      description: "Ongoing support for those committed to breaking patterns. Direct access to Jeff, monthly group work, and discounted sessions.",
       features: [
-        "Weekly 90-Minute Group Calls",
-        "Hot-Seat Coaching Opportunities",
-        "Peer Witnessing & Support",
-        "Monthly Subscription (Cancel Anytime)"
+        "✓ Text Access for Urgent Support",
+        "✓ 2-4 Group Sessions per Month (90 min)",
+        "✓ Discounted 1-on-1 Sessions ($250 vs $350)",
+        "✓ Curated Video Library",
+        "✓ Cancel Anytime"
       ],
-      cta: "Join the Waitlist",
-      id: "group_container",
-      popular: false,
+      cta: "Join The Inner Circle",
+      id: "inner_circle",
+      popular: true,
       delay: 0.1,
       hasPaymentPlan: false
     }
@@ -365,9 +366,9 @@ export default function Services() {
                     if (option.id === "teaching_clinic") {
                       trackBookingClick('clinic');
                       window.open("https://calendly.com/jcbatton/let-s-talk", "_blank");
-                    } else if (option.id === "group_container") {
-                      trackBookingClick('group');
-                      window.location.href = "mailto:jeff@jeffbatton.com?subject=Waitlist for The Group Container";
+                    } else if (option.id === "inner_circle") {
+                      trackBookingClick('membership');
+                      window.location.href = "mailto:jeff@jeffbatton.com?subject=Join The Inner Circle Membership";
                     }
                   }}
                 >
@@ -457,7 +458,7 @@ export default function Services() {
               
               <div className="relative z-10 space-y-6">
                 <div>
-                  <h3 className="text-3xl font-serif text-white mb-2">
+                  <h3 className="text-3xl font-serif text-[#D4AF37] mb-2">
                     {retreats.couples.name}
                   </h3>
                   <p className="text-base text-white/70 font-light leading-relaxed">
