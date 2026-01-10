@@ -459,3 +459,11 @@
 - When Group A fills (12 members), start Group B (2nd & 4th Tuesday at 5pm EST)
 - Revenue: 12 members × $29 = $348/month per group
 - With 2 groups: 24 members = $696/month for 4 total sessions
+
+## Inner Circle Setup Tasks (Jan 10, 2026)
+- [ ] Create 2 recurring Google Calendar events (1st & 3rd Tuesday, 5pm EST, 90 min)
+- [ ] Add Zoom link to both calendar events
+- [ ] Set up recurring Zoom meeting (or use existing common link)
+- [ ] Customize INNER_CIRCLE_WELCOME_EMAIL.md with your Zoom link and Voxer username
+- [ ] Test welcome email flow
+- [ ] Create MEMBER250 Stripe promo code ($100 off Mirror Session = $250 total)
