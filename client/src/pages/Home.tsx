@@ -59,7 +59,7 @@ export default function Home() {
                 Awaken the Self You Already Are.
               </h2>
               <p className="text-base md:text-lg text-muted-foreground font-light max-w-xl mx-auto leading-relaxed">
-                You don't need fixing. You need remembering. Your patterns aren't problems—they're imprints from before you had words for them.
+                You don't need fixing. You need remembering. Your patterns aren't problems—they're Love Wounds from before you had words for them.
               </p>
             </motion.div>
             
@@ -182,7 +182,7 @@ export default function Home() {
               See the Pattern. Break its Spell. Rewrite Your Life.
             </h2>
             <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
-              When you were born, the only thing you knew was love. Mom and dad showed you how to do it. Before you had language, before logic or memory, you absorbed:
+              When you are born all you know is love. Mom and dad show you how to DO love. Before you had language, before you had logic, before you had memory, mom and dad showed you:
             </p>
             <div className="py-8">
               <p className="text-4xl md:text-5xl font-serif font-semibold text-primary">
@@ -190,7 +190,7 @@ export default function Home() {
               </p>
             </div>
             <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
-              Not because anyone taught you... but because you felt it. That's where imprinting comes in.
+              Not because anyone taught you... but because you felt it.
             </p>
           </motion.div>
 
@@ -202,7 +202,7 @@ export default function Home() {
             className="space-y-6 text-lg text-muted-foreground leading-relaxed"
           >
             <p>
-              Those early experiences became the <strong className="text-primary">Love Wound Imprint™</strong> — a subconscious pattern that still determines:
+              Those early experiences became your <strong className="text-primary">Love Wound</strong> — a subconscious pattern that still determines:
             </p>
             <ul className="space-y-3 pl-6">
               <li className="flex items-start gap-3">
@@ -228,7 +228,7 @@ export default function Home() {
             </p>
             
             <p className="text-2xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg mt-6">
-              Patterns aren't the problem—they're the fruit of a deeper root. They're the map back to the imprint you absorbed long before you had words for it.
+              Patterns aren't the problem—they're the fruit of a deeper root. They're the map back to the Love Wound you absorbed long before you had words for it.
             </p>
             <div className="text-center pt-8">
               <Link href="/discovery">

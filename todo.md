@@ -603,3 +603,11 @@
 - [x] Add mirror metaphor (you're mad at the mirror when your hair's messed up)
 - [x] Incorporate Iron sharpens iron concept more deeply
 - [x] Update mirror section buttons to both be black with white hover effect
+
+
+## Homepage Language Revision (Jan 10, 2026 - Cleaner Language)
+- [x] Change opening to: "When you are born all you know is love. Mom and dad show you how to DO love."
+- [x] Update to: "Before you had language, before you had logic, before you had memory, mom and dad showed you: How love works."
+- [x] Keep: "Not because anyone taught you... but because you felt it."
+- [x] Remove all "imprint" terminology - use only "Love Wound"
+- [x] Replace "Love Wound Imprint™" with just "Love Wound"
