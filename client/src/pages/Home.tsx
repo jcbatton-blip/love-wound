@@ -246,7 +246,7 @@ export default function Home() {
                 You're Not Broken. You Have a Thorn You're Protecting.
               </h2>
               <p className="text-2xl text-primary/70 font-serif italic">
-                Most coaches help you build a better cage. I remove the thorn.
+                Most coaches help you build a better cage. I help you remove the thorn.
               </p>
             </div>
 
@@ -255,13 +255,16 @@ export default function Home() {
                 Anthony de Mello tells a story about a thorn. Instead of removing it, we build a cage around it. We create rules: "Don't touch me there." We develop patterns: "I'll leave before you can hurt me." We demand our partner change: "You need to stop triggering me."
               </p>
               <p>
+                But here's what you're really asking: <em>Do something different so I don't have to feel this.</em> Your partner isn't the problem—they're just a mirror showing you where the thorn is. You're just mad at the mirror cause your hair's messed up. Getting a new mirror won't fix your hair.
+              </p>
+              <p>
                 <strong className="text-primary">But the thorn is still there.</strong>
               </p>
               <p>
                 Most coaches help you build a better cage. Better boundaries. Better communication. Better coping strategies. They teach you to manage the thorn, protect it, work around it.
               </p>
               <p className="text-2xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
-                I don't help you manage the cage. I remove the thorn.
+                I don't help you manage the cage. I help you remove the thorn.
               </p>
               <p>
                 The thorn is your Love Wound—the imprint formed in childhood that's been running your relationships ever since. The cage is the pattern you built to protect it. And the exhaustion you feel? That's from spending your whole life defending something that doesn't need to be there.
