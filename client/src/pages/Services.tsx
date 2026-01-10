@@ -36,7 +36,7 @@ export default function Services() {
   };
   const primaryTiers = [
     {
-      name: "Discovery Call",
+      name: "Discovery Session",
       price: "Free",
       description: "Not sure where to start? Let's talk. Let's see if we're a match.",
       features: [
@@ -45,7 +45,7 @@ export default function Services() {
         "No Pressure, No Pitch",
         "See If We're A Fit"
       ],
-      cta: "Book Discovery Call",
+      cta: "Book Discovery Session",
       id: "discovery",
       popular: false,
       delay: 0,

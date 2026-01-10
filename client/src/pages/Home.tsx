@@ -65,8 +65,8 @@ export default function Home() {
             
             <motion.div variants={fadeIn} className="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center pointer-events-auto">
               <Link href="/discovery" className="inline-block">
-                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-base md:text-lg px-8 md:px-10 py-5 md:py-6 h-auto rounded-full transition-all duration-300 shadow-lg">
-                  Book Free Discovery Call
+                <Button size="lg" className="bg-primary text-white hover:bg-white hover:text-primary hover:border-primary hover:border-2 font-serif text-base md:text-lg px-8 md:px-10 py-5 md:py-6 h-auto rounded-full transition-all duration-300 shadow-lg">
+                  Book Free Discovery Session
                 </Button>
               </Link>
               <Link href="/pattern-revealed" className="inline-block">

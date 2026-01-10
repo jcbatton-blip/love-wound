@@ -583,3 +583,7 @@
 - [x] Make "How love works" visually prominent with larger, bolder typography
 - [x] Add proper spacing and visual hierarchy to make it the centerpiece
 - [x] Ensure it stands out from surrounding text
+
+## Button Hover & Terminology Updates (Jan 10, 2026)
+- [x] Add white text hover effect to "Book Free Discovery Session" button
+- [x] Change all instances of "Discovery Call" to "Discovery Session" throughout the site

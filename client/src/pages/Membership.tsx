@@ -296,7 +296,7 @@ export default function Membership() {
                   Who is the Founding Member rate for?
                 </h3>
                 <p className="mt-2 leading-relaxed text-slate-600">
-                  Past clients who've already worked with Jeff (Discovery Call, Mirror Session, Container, Retreat, or Group). If you've worked with Jeff before, you get $19/month for life.
+                  Past clients who've already worked with Jeff (Discovery Session, Mirror Session, Container, Retreat, or Group). If you've worked with Jeff before, you get $19/month for life.
                 </p>
               </div>
 

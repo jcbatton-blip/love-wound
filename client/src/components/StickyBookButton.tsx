@@ -32,7 +32,7 @@ export default function StickyBookButton() {
           className="bg-primary text-primary-foreground hover:bg-primary/90 font-serif text-base px-6 py-6 h-auto rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 flex items-center gap-2"
         >
           <Calendar className="w-5 h-5" />
-          Book Discovery Call
+          Book Discovery Session
         </Button>
       </Link>
     </div>

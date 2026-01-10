@@ -129,7 +129,7 @@ export default function Patterns() {
               You can't fix what you can't see. Let's find the patterns together.
             </p>
             <Button size="lg" variant="secondary" className="font-serif rounded-full px-10 py-6 h-auto text-lg" asChild>
-              <a href="/discovery">Book Free Discovery Call</a>
+              <a href="/discovery">Book Free Discovery Session</a>
             </Button>
           </div>
           
