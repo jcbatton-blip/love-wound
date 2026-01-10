@@ -333,7 +333,10 @@ export default function Home() {
               <div className="bg-primary/5 rounded-xl p-8 mt-8">
                 <h3 className="text-2xl font-serif text-primary mb-4">The Rejoicing Test</h3>
                 <p className="mb-4">
-                  Scripture says, "Rejoice in all things." When your cup is in overflow, you <em>can</em> rejoice in all things—not because you're forcing it, but because nothing threatens you.
+                  Scripture says, <em>"Rejoice in all things"</em> (1 Thessalonians 5:16-18). The <strong>inability</strong> to rejoice is the diagnostic—it reveals you're looking at life from an unsurrendered place, where your well-being depends on circumstances going your way.
+                </p>
+                <p className="mb-4">
+                  When your cup overflows, you <em>can</em> rejoice in all things—not because you're forcing it, but because nothing threatens you. That's freedom.
                 </p>
                 <p className="font-medium text-primary">
                   Where are you NOT rejoicing? That's where your cup isn't full. That's where the wound lives.
