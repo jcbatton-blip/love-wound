@@ -179,32 +179,84 @@ export default function Services() {
     <div className="pt-32 pb-16 min-h-screen bg-[#F9F7F2]">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center space-y-6 mb-12">
-          <h1 className="text-5xl md:text-6xl font-serif text-primary">Work With Jeff</h1>
+          <h1 className="text-5xl md:text-6xl font-serif text-primary">Work With Jeff Batton</h1>
           <h2 className="text-2xl md:text-3xl font-serif text-primary/80">
             From Group Support to Deep 1-on-1 Work
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
             Start with The Inner Circle ($29/month). When you're ready for deeper work, we go 1-on-1. I don't sell advice—I sell awareness.
           </p>
-          <div className="mt-6 inline-block px-6 py-3 bg-primary/5 border border-primary/20 rounded-full">
-            <p className="text-sm text-primary/70 font-medium">
-              <span className="font-serif italic">Limited Availability:</span> I work with a maximum of 10 clients at a time to ensure deep, focused attention.
-            </p>
-          </div>
+
           
           {/* Pull Quote */}
           <div className="mt-12 max-w-3xl mx-auto">
             <blockquote className="relative py-8">
-              <div className="absolute left-0 top-0 text-6xl text-primary/10 font-serif leading-none">"</div>
-              <p className="text-2xl md:text-3xl font-serif italic text-primary text-center px-12">
+              <div className="absolute left-0 top-0 text-7xl text-primary/10 font-serif leading-none">"</div>
+              <p className="text-3xl md:text-4xl font-serif font-bold italic text-primary text-center px-12">
                 You can't plant enough tomato seeds to get corn.
               </p>
-              <div className="absolute right-0 bottom-0 text-6xl text-primary/10 font-serif leading-none">"</div>
+              <div className="absolute right-0 bottom-0 text-7xl text-primary/10 font-serif leading-none">"</div>
             </blockquote>
-            <p className="text-center text-muted-foreground text-sm mt-4">
+            <p className="text-center text-muted-foreground text-base font-medium mt-4">
               To change the harvest, we have to change the seed.
             </p>
           </div>
+        </div>
+
+        {/* Inner Circle Membership Section - START HERE */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="mb-16 relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8 md:p-12 border-2 border-slate-700"
+        >
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-slate-900 px-4 py-1 rounded-full text-sm font-medium tracking-wide">
+            START HERE
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-3xl md:text-4xl font-serif text-white mb-2">{membershipOption.name}</h3>
+                <p className="text-lg text-white/80 font-light leading-relaxed">
+                  {membershipOption.description}
+                </p>
+              </div>
+              
+              <div className="flex items-baseline gap-2">
+                <span className="text-5xl font-bold text-white">${membershipOption.price}</span>
+                <span className="text-xl text-white/70">{membershipOption.period}</span>
+              </div>
+              
+              <Button 
+                className="w-full md:w-auto px-8 py-6 rounded-full font-serif text-lg bg-white text-slate-900 hover:bg-white/90"
+                onClick={() => {
+                  trackBookingClick('membership');
+                  window.location.href = "mailto:jeff@jeffbatton.com?subject=Join%20The%20Inner%20Circle";
+                }}
+              >
+                {membershipOption.cta} <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            
+            <div>
+              <ul className="space-y-4">
+                {membershipOption.features.map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3 text-base text-white/90">
+                    <Check className="w-5 h-5 text-white shrink-0 mt-0.5" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Divider */}
+        <div className="text-center mb-12">
+          <p className="text-lg text-muted-foreground font-light">
+            Ready for deeper 1-on-1 work? Choose your level below.
+          </p>
         </div>
 
         {/* Payment Toggle */}
@@ -313,56 +365,7 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Inner Circle Membership Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: membershipOption.delay, duration: 0.5 }}
-          className="mb-16 relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8 md:p-12 border-2 border-slate-700"
-        >
-          {membershipOption.popular && (
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-slate-900 px-4 py-1 rounded-full text-sm font-medium tracking-wide">
-              BEST STARTING POINT
-            </div>
-          )}
-          
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-3xl md:text-4xl font-serif text-white mb-2">{membershipOption.name}</h3>
-                <p className="text-lg text-white/80 font-light leading-relaxed">
-                  {membershipOption.description}
-                </p>
-              </div>
-              
-              <div className="flex items-baseline gap-2">
-                <span className="text-5xl font-bold text-white">${membershipOption.price}</span>
-                <span className="text-xl text-white/70">{membershipOption.period}</span>
-              </div>
-              
-              <Button 
-                className="w-full md:w-auto px-8 py-6 rounded-full font-serif text-lg bg-white text-slate-900 hover:bg-white/90"
-                onClick={() => {
-                  trackBookingClick('membership');
-                  window.location.href = "mailto:jeff@jeffbatton.com?subject=Join%20The%20Inner%20Circle";
-                }}
-              >
-                {membershipOption.cta} <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </div>
-            
-            <div>
-              <ul className="space-y-4">
-                {membershipOption.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3 text-base text-white/90">
-                    <Check className="w-5 h-5 text-white shrink-0 mt-0.5" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </motion.div>
+
 
         {/* The Retreat Section - Founding Experience */}
         <div className="space-y-8">
