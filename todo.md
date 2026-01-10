@@ -512,3 +512,9 @@
 - [x] Add Gentle Parenting Hub research to How It Works page (toddlers learn by watching, not lectures)
 - [x] Create footnotes/references section on relevant pages
 - [x] Ensure citations are properly formatted with links
+
+## How It Works Simplification (Jan 10, 2026)
+- [x] Remove "Rewriting the Pattern" step from How It Works page
+- [x] Keep only 3 steps: Discovery Session, Pattern Assessment, Integration & Practice
+- [x] Reduce excessive white space between heading and first step
+- [x] Add Peter Crone attribution to the quote on The Wounds page

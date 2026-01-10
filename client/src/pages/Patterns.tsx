@@ -29,6 +29,7 @@ export default function Patterns() {
           {/* Life as Mirror Quote */}
           <blockquote className="text-lg text-muted-foreground italic border-l-4 border-primary/30 pl-6 mt-8 text-left max-w-2xl mx-auto">
             "Life will continue to bring you people and circumstances to show you where you are not free."
+            <footer className="text-sm text-primary/60 mt-2 not-italic">— Peter Crone</footer>
           </blockquote>
         </motion.div>
       </section>

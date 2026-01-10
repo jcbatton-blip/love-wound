@@ -23,12 +23,6 @@ export default function HowItWorks() {
       description: "Together, we identify your specific Love Wound—the early imprint that's been shaping your attractions and relationship choices. This is where the 'aha moments' happen."
     },
     {
-      icon: Lightbulb,
-      title: "Rewriting the Pattern",
-      duration: "Weeks 2-8",
-      description: "Through guided reflection and somatic practices, you'll learn to recognize the pattern as it arises and choose differently. This isn't talk therapy—it's nervous system reprogramming."
-    },
-    {
       icon: Repeat,
       title: "Integration & Practice",
       duration: "Ongoing",
@@ -66,7 +60,7 @@ export default function HowItWorks() {
   return (
     <div className="min-h-screen bg-[#F9F7F2]">
       {/* Hero Section */}
-      <section className="py-32 bg-gradient-to-b from-[#F0EBE0] to-[#F9F7F2]">
+      <section className="py-24 bg-gradient-to-b from-[#F0EBE0] to-[#F9F7F2]">
         <div className="container max-w-4xl">
           <motion.div
             initial="hidden"
@@ -88,7 +82,7 @@ export default function HowItWorks() {
       </section>
 
       {/* Steps Section */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="container max-w-5xl">
           <div className="space-y-16">
             {steps.map((step, index) => {
