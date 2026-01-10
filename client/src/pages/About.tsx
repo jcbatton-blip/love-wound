@@ -74,7 +74,10 @@ export default function About() {
               In my search for what was missing—never satisfied, always reaching for the next breakthrough—I found the work of A.S. Neill, John and Paula Sanford, Carl Jung, and Anthony de Mello. The deeper I went, the more I realized: this wasn't about following the rules better. The Bible wasn't a rulebook. It was a manual for how the universe works.
             </p>
             <p>
-              And somewhere in that journey, I realized something profound: everything I'd been searching for—peace, connection, wholeness—wouldn't come from trying harder. It would be the fruit of becoming a content, authentic Jeff.
+              And somewhere in that journey, I realized something profound: everything I'd been searching for—peace, connection, wholeness—wouldn't come from the rule-following, disciplined, self-denying Jeff the church had trained me to be. It would be the fruit of letting the real Jeff come to the surface. The authentic Jeff. The one who'd been buried under decades of performance.
+            </p>
+            <p>
+              And here's what shocked me: the real Jeff produced better results than the disciplined version ever could.
             </p>
             <p>
               God wasn't what I'd been taught. God was more. A lot more.
