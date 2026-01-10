@@ -179,7 +179,12 @@ export default function ClientPortal() {
                   Access your session materials and resources
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="space-y-3">
+                <Button className="w-full rounded-full" size="lg" variant="outline" asChild>
+                  <a href="/submit-testimonial">
+                    Share Your Experience
+                  </a>
+                </Button>
                 <Button className="w-full rounded-full" size="lg" variant="outline" onClick={() => toast.info("Resources coming soon!")}>
                   View Resources
                 </Button>

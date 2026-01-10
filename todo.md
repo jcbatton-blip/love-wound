@@ -485,3 +485,10 @@
 ## Speaking Page Updates (Jan 10, 2026)
 - [x] Update quote to "Religion is just politics in drag. What if God is bigger and deeper than all of that?"
 - [x] Add "dynamically explores topics" to speaking description
+
+## Testimonial Submission & Automation (Jan 10, 2026)
+- [x] Add "Share Your Experience" email link on Services page (after testimonials)
+- [x] Create public testimonial submission form at /submit-testimonial
+- [x] Set up automated welcome email via Stripe webhook for Inner Circle subscriptions
+- [x] Add testimonial submission links to Client Portal
+- [x] Add testimonial submission links to Member Portal

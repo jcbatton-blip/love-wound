@@ -292,6 +292,16 @@ export default function Services() {
               </motion.div>
             ))}
           </div>
+          
+          {/* Share Your Experience CTA */}
+          <div className="text-center mt-12">
+            <p className="text-muted-foreground mb-4">Worked with Jeff? Share your experience.</p>
+            <Button variant="outline" size="lg" asChild>
+              <a href="/submit-testimonial">
+                Share Your Experience
+              </a>
+            </Button>
+          </div>
         </div>
 
         {/* Divider */}

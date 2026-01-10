@@ -1,82 +1,80 @@
 # Inner Circle Welcome Email Template
 
-**Subject Line Options:**
-1. Welcome to The Inner Circle - Your First Session Details
-2. You're In: Inner Circle Group Session Info
-3. Welcome to The Inner Circle - Let's Get Started
+**Subject:** Welcome to The Inner Circle - First Session Details
 
 ---
 
 ## Email Body
 
-Hi [First Name],
+Hey there,
 
-Welcome to The Inner Circle. You're now part of a small group of people doing the real work—pattern hunting, cup filling, and living from overflow instead of depletion.
+Welcome to The Inner Circle. You just joined a small group of people who are done chasing fruit and ready to lay the axe at the root.
 
-### Here's What You Get
+**What you signed up for:**
 
-**2 Live Group Sessions Per Month**
-- 1st & 3rd Tuesday at 5:00 PM EST
-- 90 minutes on Zoom
-- Max 12 members per group (intimate, everyone gets seen)
+✓ 2 live group sessions per month (1st & 3rd Tuesday, 5pm EST, 90 min)
+✓ Text access via Voxer (daily support when you're stuck)
+✓ Discounted 1-on-1 sessions ($250 vs $350 regular price)
+✓ Curated video library (YouTube + exclusive content)
+✓ Max 12 members per group (intimate, everyone gets seen)
+
+**What to expect:**
+
+This isn't a support group where we validate each other's stories. This is pattern hunting in real time. I'll coach 3-4 people per session while the group witnesses. You'll see yourself in their patterns, and they'll see themselves in yours. That's how the mirror works in community.
+
+**What I expect from you:**
+
+• Show up consistently. The work compounds. Miss sessions, lose momentum.
+• Camera on. This is a container, not a podcast.
+• Stable WiFi, desktop/laptop, quiet space. No driving, no distractions.
+• Arrive 5 minutes early. **Meeting closes 5 minutes after start time.**
+• No advice-giving. No "you should" statements. We help people *see*, not tell them what to do.
+• What's shared in the group stays in the group (confidentiality matters).
 
 **Your Zoom Link:**
+
 [INSERT ZOOM LINK]
 
 Save this link—it's the same for every session.
 
-**Text Access via Voxer**
-Need support between sessions? Text me directly when you're stuck in a pattern.
+**Text Access via Voxer:**
+
 Download Voxer: [App Store / Google Play]
 Add me: [YOUR VOXER USERNAME]
 
-**Discounted 1-on-1 Sessions**
+Use it when you're stuck in a pattern. Don't wait until the next session to process something. Send it when it's hot.
+
+**Discounted 1-on-1 Sessions:**
+
 Members get Mirror Sessions at $250 (vs $350 regular price).
-Use code: MEMBER250 at checkout.
+Use code: **MEMBER250** at checkout.
 Book here: [LINK TO SERVICES PAGE]
 
-**Video Library**
-Access to my YouTube channel "The Recovering Evangelical" plus exclusive member-only teachings.
+**Video Library:**
+
+Access to "The Recovering Evangelical" YouTube channel plus exclusive member-only teachings.
 [LINK TO YOUTUBE CHANNEL]
 
----
+**First Session:**
 
-### Group Guidelines (Please Read Before First Session)
+📅 [1st or 3rd Tuesday of current/next month]
+⏰ 5:00 PM EST
+🔗 [INSERT ZOOM LINK]
 
-**Before Each Session:**
-✅ Join from a stable WiFi connection (not cellular data)
-✅ Use desktop or laptop (not phone, not while driving)
-✅ Find a quiet, private space where you can focus
-✅ Camera ON (builds connection and accountability)
-✅ Arrive 5 minutes early - **meeting closes 5 minutes after start time**
+Add it to your calendar now. I'll add you as a guest so you get reminders.
 
-**During the Session:**
-✅ This is a coaching space, not an advice-giving space
-✅ No "you should" statements - we help people see, not tell them what to do
-✅ What you hear stays in the group (confidentiality matters)
-✅ Mute when not speaking to minimize background noise
+**Questions?**
 
-**How It Works:**
-I'll coach 3-4 people per session in depth. Everyone else learns by watching—you'll see yourself in their patterns. If you need private coaching, book a discounted 1-on-1 at $250.
+Reply to this email or text me on Voxer.
 
----
+See you in the circle.
 
-### Your First Session
-
-**Date:** [1st or 3rd Tuesday of current/next month]
-**Time:** 5:00 PM EST
-**Zoom Link:** [INSERT ZOOM LINK]
-
-Add it to your calendar now. Google Calendar will send you reminders.
+With gratitude,
+Jeff Batton
+Jeff Batton Life Coaching
+jeff@jeffbatton.com | 404-503-2488
+Voxer: @jeffbatton
 
 ---
 
-### Questions?
-
-Reply to this email or text me on Voxer. Looking forward to seeing you on the call.
-
-— Jeff
-
----
-
-**P.S.** The pattern stops when the awareness begins. You're in the right place.
+**P.S.** You can't plant enough tomato seeds to get corn. To change the harvest, we have to change the seed. Let's find the root.

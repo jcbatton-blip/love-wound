@@ -223,8 +223,10 @@ export default function MemberPortal() {
             Connect with other members and access exclusive content.
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
-            <Button variant="outline" size="lg" disabled>
-              Join Private Community
+            <Button variant="outline" size="lg" asChild>
+              <a href="/submit-testimonial">
+                Share Your Experience
+              </a>
             </Button>
             <Button variant="outline" size="lg" disabled>
               View Past Recordings
