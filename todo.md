@@ -587,3 +587,7 @@
 ## Button Hover & Terminology Updates (Jan 10, 2026)
 - [x] Add white text hover effect to "Book Free Discovery Session" button
 - [x] Change all instances of "Discovery Call" to "Discovery Session" throughout the site
+
+## Imprinting Section Rewrite (Jan 10, 2026)
+- [x] Rewrite section to emphasize "When we're born, the only thing we know is love. Mom and dad show us how to do love."
+- [x] Make the connection between birth, love, and imprinting more visceral and immediate

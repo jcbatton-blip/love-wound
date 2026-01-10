@@ -182,7 +182,7 @@ export default function Home() {
               See the Pattern. Break its Spell. Rewrite Your Life.
             </h2>
             <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
-              Your life isn't shaped by your choices — it's shaped by your imprint. Before you ever had language, before logic or memory, you absorbed one thing:
+              When you were born, the only thing you knew was love. Mom and dad showed you how to do it. Before you had language, before logic or memory, you absorbed:
             </p>
             <div className="py-8">
               <p className="text-4xl md:text-5xl font-serif font-semibold text-primary">
@@ -190,7 +190,7 @@ export default function Home() {
               </p>
             </div>
             <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
-              Not because anyone taught you... but because you felt it.
+              Not because anyone taught you... but because you felt it. That's where imprinting comes in.
             </p>
           </motion.div>
 
