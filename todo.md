@@ -476,3 +476,12 @@
 - [x] Fix spacing/bleeding at top of retreat section
 - [x] Add "Speaking" link to main navigation
 - [x] Add testimonial section to Services page (4 featured testimonials)
+
+## Speaking Page & Testimonial Management (Jan 10, 2026 - Late Afternoon)
+- [x] Fix "Learn More About Jeff" button on Speaking page to link to /about (already correct)
+- [x] Create testimonial management admin panel (view, feature/unfeature, reorder, add new)
+- [x] Manual control over which testimonials appear on Services page
+
+## Speaking Page Updates (Jan 10, 2026)
+- [x] Update quote to "Religion is just politics in drag. What if God is bigger and deeper than all of that?"
+- [x] Add "dynamically explores topics" to speaking description

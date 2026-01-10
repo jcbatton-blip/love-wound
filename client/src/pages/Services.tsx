@@ -9,6 +9,9 @@ import { trpc } from "@/lib/trpc";
 export default function Services() {
   const [loading, setLoading] = useState<string | null>(null);
   const [isPaymentPlan, setIsPaymentPlan] = useState(false);
+  
+  // Fetch featured testimonials from database
+  const { data: featuredTestimonials = [] } = trpc.testimonials.featured.useQuery();
 
   const checkoutMutation = trpc.stripe.createCheckoutSession.useMutation({
     onSuccess: (data) => {
@@ -264,96 +267,30 @@ export default function Services() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Testimonial 1: Tyler */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-white p-8 rounded-2xl border border-primary/10 shadow-sm"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-serif text-xl">
-                  T
+            {featuredTestimonials.map((testimonial, index) => (
+              <motion.div
+                key={testimonial.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white p-8 rounded-2xl border border-primary/10 shadow-sm"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-serif text-xl">
+                    {testimonial.initial}
+                  </div>
+                  <div>
+                    <h4 className="font-serif text-lg text-primary">{testimonial.name}</h4>
+                    <p className="text-sm text-muted-foreground">{testimonial.date}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-serif text-lg text-primary">Tyler</h4>
-                  <p className="text-sm text-muted-foreground">August 2023</p>
-                </div>
-              </div>
-              <h3 className="text-xl font-serif text-primary mb-3">Everyone needs a Jeff</h3>
-              <p className="text-muted-foreground font-light leading-relaxed">
-                Jeff's guidance has saved my life. I was in therapy for 17 years. I struggled with anxiety, depression and addiction. Jeff is not only a safe place for me but someone whose guidance I can trust. I could never imagine my life & headspace where they are today.
-              </p>
-            </motion.div>
-
-            {/* Testimonial 2: Dallas (Couples) */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="bg-white p-8 rounded-2xl border border-primary/10 shadow-sm"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-serif text-xl">
-                  D
-                </div>
-                <div>
-                  <h4 className="font-serif text-lg text-primary">Dallas</h4>
-                  <p className="text-sm text-muted-foreground">July 2022</p>
-                </div>
-              </div>
-              <h3 className="text-xl font-serif text-primary mb-3">Godsend!</h3>
-              <p className="text-muted-foreground font-light leading-relaxed">
-                Jeff is an absolute godsend. So far we've had two counseling sessions and it has changed the dynamic of our marriage in so many positive ways. Before we started talking with Jeffrey our marriage was in shambles and on the way to divorce court.
-              </p>
-            </motion.div>
-
-            {/* Testimonial 3: Veronica (Lighthouse) */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-white p-8 rounded-2xl border border-primary/10 shadow-sm"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-serif text-xl">
-                  V
-                </div>
-                <div>
-                  <h4 className="font-serif text-lg text-primary">Veronica</h4>
-                  <p className="text-sm text-muted-foreground">August 2024</p>
-                </div>
-              </div>
-              <h3 className="text-xl font-serif text-primary mb-3">Learning to see things in a different way</h3>
-              <p className="text-muted-foreground font-light leading-relaxed">
-                Jeff is like a lighthouse. He has helped me navigate through life's challenges and difficult times. Jeff provides a sense of direction, safety, and hope. His light, his smile, his compassion, his patience become the light that helps me find my way during darkness or uncertainty.
-              </p>
-            </motion.div>
-
-            {/* Testimonial 4: Jonathan */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="bg-white p-8 rounded-2xl border border-primary/10 shadow-sm"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-serif text-xl">
-                  J
-                </div>
-                <div>
-                  <h4 className="font-serif text-lg text-primary">Jonathan</h4>
-                  <p className="text-sm text-muted-foreground">July 2022</p>
-                </div>
-              </div>
-              <h3 className="text-xl font-serif text-primary mb-3">Gratitude</h3>
-              <p className="text-muted-foreground font-light leading-relaxed">
-                I've been coming to Jeff for counseling and coaching for many years now. I have also tried other therapists and counselors occasionally but Jeff's insight has most consistently had a profound and long term impact on my life and state of mind. I've introduced Jeff to literally a dozen or more of my close friends.
-              </p>
-            </motion.div>
+                <h3 className="text-xl font-serif text-primary mb-3">{testimonial.title}</h3>
+                <p className="text-muted-foreground font-light leading-relaxed">
+                  {testimonial.text}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
 

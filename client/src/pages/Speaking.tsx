@@ -54,7 +54,7 @@ export default function Speaking() {
                 Whether your audience is deconstructing their faith, healing from religious trauma, or stuck in relationship patterns they can't break, I help them see the root—not just chase the fruit.
               </p>
               <p className="text-xl font-semibold italic text-slate-900">
-                "Religion is just politics in drag. What if God is bigger than what the church taught you?"
+                "Religion is just politics in drag. What if God is bigger and deeper than all of that?"
               </p>
             </div>
           </div>
@@ -69,7 +69,7 @@ export default function Speaking() {
               Speaking Topics
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-slate-600">
-              Each talk is tailored to your audience, but here are the core themes I explore.
+              Each talk is tailored to your audience and dynamically explores topics that emerge in real time. Here are the core themes:
             </p>
 
             <div className="mt-16 grid gap-8 md:grid-cols-2">

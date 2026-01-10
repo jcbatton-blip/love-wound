@@ -58,3 +58,23 @@ export const tenantResponses = mysqlTable("tenantResponses", {
 
 export type TenantResponse = typeof tenantResponses.$inferSelect;
 export type InsertTenantResponse = typeof tenantResponses.$inferInsert;
+
+/**
+ * Testimonials table for managing client reviews
+ */
+export const testimonials = mysqlTable("testimonials", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  initial: varchar("initial", { length: 10 }).notNull(),
+  date: varchar("date", { length: 100 }).notNull(),
+  title: varchar("title", { length: 500 }).notNull(),
+  text: text("text").notNull(),
+  featured: int("featured").default(0).notNull(), // 0 = not featured, 1 = featured on Services page
+  displayOrder: int("displayOrder").default(0).notNull(), // for manual ordering
+  category: varchar("category", { length: 50 }), // e.g., "personal", "couples", "transformation"
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Testimonial = typeof testimonials.$inferSelect;
+export type InsertTestimonial = typeof testimonials.$inferInsert;

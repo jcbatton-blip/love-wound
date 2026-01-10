@@ -115,6 +115,100 @@ export const appRouter = router({
         return { url: session.url };
       }),
   }),
+
+  testimonials: router({
+    list: publicProcedure.query(async () => {
+      const db = await getDb();
+      if (!db) throw new Error("Database not available");
+      
+      const { testimonials } = await import("../drizzle/schema");
+      const { desc } = await import("drizzle-orm");
+      
+      return await db.select().from(testimonials).orderBy(desc(testimonials.displayOrder));
+    }),
+
+    featured: publicProcedure.query(async () => {
+      const db = await getDb();
+      if (!db) throw new Error("Database not available");
+      
+      const { testimonials } = await import("../drizzle/schema");
+      const { eq, desc } = await import("drizzle-orm");
+      
+      return await db.select().from(testimonials)
+        .where(eq(testimonials.featured, 1))
+        .orderBy(desc(testimonials.displayOrder));
+    }),
+
+    toggleFeatured: publicProcedure
+      .input(z.object({ id: z.number(), featured: z.boolean() }))
+      .mutation(async ({ input, ctx }) => {
+        if (ctx.user?.role !== 'admin') {
+          throw new Error('Unauthorized');
+        }
+        
+        const db = await getDb();
+        if (!db) throw new Error("Database not available");
+        
+        const { testimonials } = await import("../drizzle/schema");
+        const { eq } = await import("drizzle-orm");
+        
+        await db.update(testimonials)
+          .set({ featured: input.featured ? 1 : 0 })
+          .where(eq(testimonials.id, input.id));
+        
+        return { success: true };
+      }),
+
+    add: publicProcedure
+      .input(z.object({
+        name: z.string(),
+        initial: z.string(),
+        date: z.string(),
+        title: z.string(),
+        text: z.string(),
+        category: z.string().optional(),
+      }))
+      .mutation(async ({ input, ctx }) => {
+        if (ctx.user?.role !== 'admin') {
+          throw new Error('Unauthorized');
+        }
+        
+        const db = await getDb();
+        if (!db) throw new Error("Database not available");
+        
+        const { testimonials } = await import("../drizzle/schema");
+        
+        // Get max displayOrder
+        const existing = await db.select().from(testimonials);
+        const maxOrder = Math.max(...existing.map(t => t.displayOrder), 0);
+        
+        await db.insert(testimonials).values({
+          ...input,
+          featured: 0,
+          displayOrder: maxOrder + 1,
+        });
+        
+        return { success: true };
+      }),
+
+    delete: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input, ctx }) => {
+        if (ctx.user?.role !== 'admin') {
+          throw new Error('Unauthorized');
+        }
+        
+        const db = await getDb();
+        if (!db) throw new Error("Database not available");
+        
+        const { testimonials } = await import("../drizzle/schema");
+        const { eq } = await import("drizzle-orm");
+        
+        await db.delete(testimonials).where(eq(testimonials.id, input.id));
+        
+        return { success: true };
+      }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;
