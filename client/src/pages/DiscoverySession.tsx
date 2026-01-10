@@ -62,13 +62,14 @@ export default function DiscoverySession() {
               </div>
             )}
             <iframe
-              src="https://calendly.com/jcbatton/phone?hide_gdpr_banner=1&background_color=f9f7f2&text_color=1e3a5f&primary_color=1e3a5f"
+              src="https://calendly.com/jcbatton/phone?hide_gdpr_banner=1&background_color=f9f7f2&text_color=1e3a5f&primary_color=1e3a5f&embed_domain=jeffbatton.com&embed_type=Inline"
               width="100%"
-              height="700"
+              height="800"
               frameBorder="0"
               title="Schedule a Discovery Session"
               onLoad={() => setIsLoading(false)}
-              style={{ border: 'none' }}
+              style={{ border: 'none', minHeight: '800px' }}
+              className="calendly-inline-widget"
             />
           </div>
 

@@ -423,3 +423,6 @@
 ## About Page - Ways to Work With Me Update (Jan 10, 2026)
 - [x] Replace Group Container ($350) with Inner Circle ($29) in "Ways to Work With Me" section
 - [ ] Fix About navigation link - goes to bottom of page instead of top
+
+## Discovery Page Calendly Fix (Jan 10, 2026)
+- [x] Fix Calendly calendar centering - remove gray sidebars
