@@ -170,7 +170,7 @@ export default function About() {
             <div className="w-24 h-0.5 bg-primary/20 mx-auto" />
 
             <div className="space-y-4">
-              <h3 className="text-2xl font-serif font-bold text-primary">You Can't Plant Tomatoes and Get Corn</h3>
+              <h3 className="text-2xl font-serif font-bold text-primary">You Can't Plant Enough Tomato Seeds to Get Corn</h3>
               <p className="text-lg text-muted-foreground">
                 If you keep planting the seeds of your childhood programming, you will keep harvesting the same relationships. To change the harvest, we have to change the seed.
               </p>

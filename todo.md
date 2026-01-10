@@ -397,3 +397,6 @@
 
 ## About Page Story Update (Jan 10, 2026)
 - [x] Rewrite "Recovering Evangelical" section to show accurate timeline: quest to fix self → found teachers → realized God was more → left church because found something deeper (not angry)
+
+## Copy Updates (Jan 10, 2026)
+- [x] Change "You Can't Plant Tomatoes and Get Corn" to "you can't plant enough tomato seeds to get corn"
