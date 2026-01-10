@@ -217,7 +217,7 @@ export default function Home() {
                 <span>what feels like "home," even when it hurts</span>
               </li>
             </ul>
-              <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
+              <p className="text-2xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
               Patterns aren't the problem—they're the fruit of a deeper root. They're the map back to the imprint you absorbed long before you had words for it.
             </p>
             <div className="text-center pt-8">
@@ -245,7 +245,7 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
                 You're Not Broken. You Have a Thorn You're Protecting.
               </h2>
-              <p className="text-xl text-primary/70 font-serif italic">
+              <p className="text-2xl text-primary/70 font-serif italic">
                 Most coaches help you build a better cage. I remove the thorn.
               </p>
             </div>
@@ -260,7 +260,7 @@ export default function Home() {
               <p>
                 Most coaches help you build a better cage. Better boundaries. Better communication. Better coping strategies. They teach you to manage the thorn, protect it, work around it.
               </p>
-              <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
+              <p className="text-2xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
                 I don't help you manage the cage. I remove the thorn.
               </p>
               <p>
@@ -296,7 +296,7 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
                 Stop Draining Your Cup. The Overflow Happens Naturally.
               </h2>
-              <p className="text-xl text-primary/70 font-serif italic">
+              <p className="text-2xl text-primary/70 font-serif italic">
                 When your cup is full, you don't notice the slights, the injustices, or the black-tie dress code. You're free.
               </p>
             </div>
@@ -308,7 +308,7 @@ export default function Home() {
               <p>
                 The result? Resentment. Exhaustion. Toxic relationships. Medicating the emptiness.
               </p>
-              <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
+              <p className="text-2xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
                 My work isn't about filling your cup. It's about helping you see how you're draining it.
               </p>
               <p>
@@ -353,7 +353,7 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
                 Stop Chasing the Fruit. Heal the Root.
               </h2>
-              <p className="text-xl text-primary/70 font-serif italic">
+              <p className="text-2xl text-primary/70 font-serif italic">
                 When you focus on the fruit, you're focused on lack.
               </p>
             </div>
@@ -368,7 +368,7 @@ export default function Home() {
               <p>
                 You think you want inner peace. What you actually need is to stop betraying yourself.
               </p>
-              <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
+              <p className="text-2xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
                 Most coaches help you chase the fruit. I help you heal the root. Once the root is healed, the fruit appears on its own.
               </p>
               <p>
@@ -401,7 +401,7 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
                 Your Partner Can't Fill Your Cup. And You Can't Fill Theirs.
               </h2>
-              <p className="text-xl text-primary/70 font-serif italic">
+              <p className="text-2xl text-primary/70 font-serif italic">
                 The goal is two overflow cups—not two people trying to complete each other.
               </p>
             </div>
@@ -427,7 +427,7 @@ export default function Home() {
                   <span>Blame ("If you really loved me, I wouldn't feel this empty")</span>
                 </li>
               </ul>
-              <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
+              <p className="text-2xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
                 Your partner can't fill your cup. Only you can. But here's the good news: Your partner shows you exactly where your cup isn't full. Every trigger, every fight, every moment of resentment—that's the mirror.
               </p>
               <p>
@@ -463,7 +463,7 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
                 How I Help You Break the Pattern
               </h2>
-              <p className="text-xl text-primary/70 font-serif italic">
+              <p className="text-2xl text-primary/70 font-serif italic">
                 You don't rise by trying harder — you rise by becoming aware.
               </p>
             </div>
@@ -479,7 +479,7 @@ export default function Home() {
                 Once you finally see it, you stop repeating it.<br />
                 And when the pattern breaks, your entire experience of love, identity, and abundance transforms.
               </p>
-              <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg mt-8">
+              <p className="text-2xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg mt-8">
                 Awareness is the doorway. I just hold up the mirror — you walk through it. <Link href="/work-with-me" className="text-primary hover:underline font-medium not-italic text-base block mt-4">See how we work together →</Link>
               </p>
             </div>
@@ -627,7 +627,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
               Ready to See What's In The Mirror?
             </h2>
-            <p className="text-xl text-primary/70 font-serif italic">
+            <p className="text-2xl text-primary/70 font-serif italic">
               The pattern stops when the awareness begins.
             </p>
             <Link href="/discovery">

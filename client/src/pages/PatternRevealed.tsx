@@ -40,7 +40,7 @@ export default function PatternRevealed() {
             
             {/* Opening Quote */}
             <div className="border-l-4 border-primary pl-8 py-6 bg-primary/5 rounded-r-lg mb-8">
-              <p className="text-xl font-serif italic text-primary mb-0">
+              <p className="text-2xl font-serif italic text-primary mb-0">
                 "I once worked with a woman who told me she was attracted to men who hit her."
               </p>
             </div>
@@ -88,7 +88,7 @@ export default function PatternRevealed() {
             </p>
 
             <div className="border-l-4 border-primary pl-8 py-6 bg-primary/5 rounded-r-lg my-8">
-              <p className="text-xl font-serif italic text-primary mb-0">
+              <p className="text-2xl font-serif italic text-primary mb-0">
                 We don't choose our partners. We choose our patterns.
               </p>
             </div>

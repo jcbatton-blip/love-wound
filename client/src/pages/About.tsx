@@ -158,7 +158,7 @@ export default function About() {
           </div>
 
           <div className="mt-12 text-center">
-            <p className="text-xl font-serif italic text-primary/80 bg-primary/5 rounded-xl p-8">
+            <p className="text-2xl font-serif italic text-primary/80 bg-primary/5 rounded-xl p-8">
               All four sources say the same thing: You've been programmed to live unconsciously. Society and family trained you to betray yourself. <strong>Awareness breaks the spell.</strong> Once you see it, you're free.
             </p>
           </div>

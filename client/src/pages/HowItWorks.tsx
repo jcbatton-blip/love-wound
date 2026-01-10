@@ -314,7 +314,7 @@ export default function HowItWorks() {
             <p>
               <strong>This work is worth it.</strong> When you break free from your Love Wound, you don't just change your relationships—you change your entire life. You stop seeking external validation. You stop settling for less than you deserve. You start choosing partners who actually see you.
             </p>
-            <p className="text-xl font-serif italic text-primary border-l-4 border-primary pl-8 py-4 bg-white/50 rounded-r-lg">
+            <p className="text-2xl font-serif italic text-primary border-l-4 border-primary pl-8 py-4 bg-white/50 rounded-r-lg">
               Most clients say the same thing: "I wish I'd done this years ago."
             </p>
           </div>
@@ -343,7 +343,7 @@ export default function HowItWorks() {
             <p>
               That's why the 12-week containers work. The people who see the most transformation are the people who show up consistently, week after week, running the new play until it replaces the old one.
             </p>
-            <p className="text-xl font-serif italic text-primary border-l-4 border-primary pl-8 py-4 bg-white/50 rounded-r-lg">
+            <p className="text-2xl font-serif italic text-primary border-l-4 border-primary pl-8 py-4 bg-white/50 rounded-r-lg">
               Consistency beats intensity. Every single time.
             </p>
           </div>

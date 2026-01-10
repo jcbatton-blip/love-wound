@@ -90,7 +90,7 @@ export default function Coaches() {
                   <span>Mindset affirmations that ring hollow because the unconscious pattern is still running</span>
                 </li>
               </ul>
-              <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
+              <p className="text-2xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
                 The result? Clients feel temporarily better, then repeat the same pattern with a different person. They blame themselves. They think they're broken. And coaches feel helpless, watching their clients cycle through the same pain.
               </p>
               <p>
@@ -124,7 +124,7 @@ export default function Coaches() {
               <p>
                 I've spent three decades <strong className="text-primary">secularizing their methodology</strong>, integrating insights from A.S. Neill's radical psychology, Carl Jung's depth work, and Anthony de Mello's teachings on awareness. The result is <strong className="text-primary">The Love Wound Method</strong>—a systematic approach to helping clients see the unconscious pattern, break its spell, and rewrite their relational lives.
               </p>
-              <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
+              <p className="text-2xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
                 This is not a weekend workshop. This is a 12-month Teaching Hospital program: 6 months of intensive training + 6 months of paid practice under supervision.
               </p>
             </div>
@@ -445,7 +445,7 @@ export default function Coaches() {
             </div>
 
             <div className="text-center pt-8">
-              <p className="text-xl font-serif italic text-primary/80 bg-primary/5 rounded-xl p-8">
+              <p className="text-2xl font-serif italic text-primary/80 bg-primary/5 rounded-xl p-8">
                 All four sources say the same thing: You've been programmed to live unconsciously. Society and family trained you to betray yourself. <strong>Awareness breaks the spell.</strong> Once you see it, you're free.
               </p>
             </div>
@@ -602,7 +602,7 @@ export default function Coaches() {
             <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
               Ready to Transform Your Practice?
             </h2>
-            <p className="text-xl text-primary/70 font-serif italic">
+            <p className="text-2xl text-primary/70 font-serif italic">
               Founding Cohort begins January 2025. Applications are now open.
             </p>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

@@ -125,7 +125,7 @@ export default function Framework() {
                 </div>
               </div>
               <div className="mt-8 pt-8 border-t border-primary/10 text-center">
-                <p className="text-xl font-serif text-primary italic">
+                <p className="text-2xl font-serif text-primary italic">
                   "It's not your fault. It's your programming."
                 </p>
               </div>
@@ -244,7 +244,7 @@ export default function Framework() {
           </div>
           
           <div className="mt-16 text-center">
-            <p className="text-xl font-serif text-primary italic">
+            <p className="text-2xl font-serif text-primary italic">
               The imprinting is that powerful. You don't just pick "someone with issues."
               <br />
               You pick the <strong>same</strong> pattern.

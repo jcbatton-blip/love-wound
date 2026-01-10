@@ -549,3 +549,8 @@
 - [x] Find all references to "Six Love Wounds" across all pages
 - [x] Remove Six Love Wounds section from homepage
 - [x] Remove any other mentions throughout the site
+
+## Subheading Size and Consistency (Jan 10, 2026)
+- [x] Review all subheadings across all pages
+- [x] Increase size of italic subheadings to make them more prominent
+- [x] Ensure consistent styling throughout the site

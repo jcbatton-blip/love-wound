@@ -64,7 +64,7 @@ export default function Book() {
             <h1 className="text-5xl md:text-6xl font-serif text-primary leading-tight">
               Grinnin' Like a Jackass Eatin' Briars
             </h1>
-            <p className="text-xl font-serif italic text-primary/60">
+            <p className="text-2xl font-serif italic text-primary/60">
               A Memoir of Insanity, Awareness, and Acceptance
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed font-light">
