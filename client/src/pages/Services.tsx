@@ -85,7 +85,8 @@ export default function Services() {
     {
       name: "The Individual Container",
       price: isPaymentPlan ? "1,350" : "5,000",
-      period: isPaymentPlan ? "/ month (4 payments)" : "/ total",
+      period: isPaymentPlan ? "/ month × 4" : "/ total",
+      totalPrice: isPaymentPlan ? "$5,400 total" : null,
       description: "We don't help you manage the cage. We remove the thorn. Then we fill your cup to overflow so the pattern can't run anymore.",
       features: [
         "12 Weekly Sessions (3 Months)",
@@ -102,7 +103,8 @@ export default function Services() {
     {
       name: "The Couples Container",
       price: isPaymentPlan ? "2,000" : "7,500",
-      period: isPaymentPlan ? "/ month (4 payments)" : "/ total",
+      period: isPaymentPlan ? "/ month × 4" : "/ total",
+      totalPrice: isPaymentPlan ? "$8,000 total" : null,
       description: "Most couples therapy teaches communication tactics. We help each partner fill their own cup to overflow. Two overflow cups = a relationship where nobody's keeping score.",
       features: [
         "12 Weekly 90-Minute Sessions (3 Months)",
@@ -118,43 +120,24 @@ export default function Services() {
     }
   ];
 
-  const otherOptions = [
-    {
-      name: "The Teaching Clinic",
-      price: "150",
-      description: "1:1 coaching with Jeff at 57% off. Your session is observed by 2-4 certification interns and recorded for training purposes.",
-      features: [
-        "⚠ Observed by Interns (2-4 people)",
-        "⚠ Session Recorded for Training",
-        "✓ 60-Minute Session with Jeff",
-        "✓ Full Love Wound Methodology",
-        "✓ Save $200 (57% Discount)"
-      ],
-      cta: "Book a Clinic Session",
-      id: "teaching_clinic",
-      popular: false,
-      delay: 0.05,
-      hasPaymentPlan: false
-    },
-    {
-      name: "The Inner Circle",
-      price: "29",
-      period: "/ month",
-      description: "Ongoing support for those committed to breaking patterns. Direct access to Jeff, monthly group work, and discounted sessions.",
-      features: [
-        "✓ Text Access for Urgent Support",
-        "✓ 2-4 Group Sessions per Month (90 min)",
-        "✓ Discounted 1-on-1 Sessions ($250 vs $350)",
-        "✓ Curated Video Library",
-        "✓ Cancel Anytime"
-      ],
-      cta: "Join The Inner Circle",
-      id: "inner_circle",
-      popular: true,
-      delay: 0.1,
-      hasPaymentPlan: false
-    }
-  ];
+  const membershipOption = {
+    name: "The Inner Circle",
+    price: "29",
+    period: "/ month",
+    description: "Ongoing support for those committed to breaking patterns. Direct access to Jeff, monthly group work, and discounted sessions.",
+    features: [
+      "✓ Text Access for Urgent Support",
+      "✓ 2-4 Group Sessions per Month (90 min)",
+      "✓ Discounted 1-on-1 Sessions ($250 vs $350)",
+      "✓ Curated Video Library",
+      "✓ Cancel Anytime"
+    ],
+    cta: "Join The Inner Circle",
+    id: "inner_circle",
+    popular: true,
+    delay: 0.1,
+    hasPaymentPlan: false
+  };
 
   const retreats = {
     individual: {
@@ -271,12 +254,17 @@ export default function Services() {
               
               <div className="mb-8 space-y-4">
                 <h3 className="text-2xl font-serif text-primary">{tier.name}</h3>
-                <div className="flex items-baseline gap-1 flex-wrap">
-                  <span className="text-4xl font-bold text-primary">${tier.price}</span>
-                  {tier.hasPaymentPlan ? (
-                    <span className="text-sm text-muted-foreground">{tier.period}</span>
-                  ) : (
-                    tier.name !== "The Kit" && <span className="text-muted-foreground">/ total</span>
+                <div className="space-y-1">
+                  <div className="flex items-baseline gap-1 flex-wrap">
+                    <span className="text-4xl font-bold text-primary">${tier.price}</span>
+                    {tier.hasPaymentPlan ? (
+                      <span className="text-sm text-muted-foreground">{tier.period}</span>
+                    ) : (
+                      tier.name !== "The Kit" && <span className="text-muted-foreground">/ total</span>
+                    )}
+                  </div>
+                  {tier.totalPrice && (
+                    <p className="text-xs text-muted-foreground">{tier.totalPrice}</p>
                   )}
                 </div>
                 <p className="text-muted-foreground font-light leading-relaxed">
@@ -287,14 +275,14 @@ export default function Services() {
               <ul className="space-y-4 mb-8 flex-grow">
                 {tier.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm text-primary/80">
-                    <Check className="w-5 h-5 text-primary shrink-0" />
-                    <span>{feature}</span>
+                    <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <span className="break-words">{feature}</span>
                   </li>
                 ))}
               </ul>
 
               <Button 
-                className={`w-full py-6 rounded-full font-serif text-lg ${tier.popular ? 'bg-primary text-white hover:bg-primary/90' : 'bg-[#F9F7F2] text-primary hover:bg-[#F0EBE0]'}`}
+                className="w-full py-6 rounded-full font-serif text-lg bg-primary text-white hover:bg-primary/90"
                 onClick={() => {
                   if (tier.id === "discovery") {
                     trackBookingClick('discovery');
@@ -324,60 +312,8 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Other Options Section */}
-        <div className="mt-24 mb-16">
-          <h2 className="text-3xl font-serif text-primary text-center mb-4">Other Options</h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Alternative ways to work with Jeff at different price points or formats.
-          </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            {otherOptions.map((option, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: option.delay, duration: 0.5 }}
-                className="p-8 bg-white border border-primary/10 shadow-sm rounded-2xl flex flex-col"
-              >
-                <div className="mb-8 space-y-4">
-                  <h3 className="text-2xl font-serif text-primary">{option.name}</h3>
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-bold text-primary">${option.price}</span>
-                    <span className="text-muted-foreground">{option.period || '/ session'}</span>
-                  </div>
-                  <p className="text-muted-foreground font-light leading-relaxed">
-                    {option.description}
-                  </p>
-                </div>
-
-                <ul className="space-y-4 mb-8 flex-grow">
-                  {option.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-primary/80">
-                      <Check className="w-5 h-5 text-primary shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Button 
-                  className="w-full py-6 rounded-full font-serif text-lg bg-[#F9F7F2] text-primary hover:bg-[#F0EBE0]"
-                  onClick={() => {
-                    if (option.id === "teaching_clinic") {
-                      trackBookingClick('clinic');
-                      window.open("https://calendly.com/jcbatton/let-s-talk", "_blank");
-                    } else if (option.id === "inner_circle") {
-                      trackBookingClick('membership');
-                      handleCheckout(option.id);
-                    }
-                  }}
-                >
-                  {option.cta} <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+        {/* Membership Section - Will be restructured in next phase */}
+        {/* Temporarily removed - being redesigned */}
 
         {/* The Retreat Section - Founding Experience */}
         <div className="space-y-8">

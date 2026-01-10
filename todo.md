@@ -426,3 +426,17 @@
 
 ## Discovery Page Calendly Fix (Jan 10, 2026)
 - [x] Fix Calendly calendar centering - remove gray sidebars
+
+## Services Page Simplification (Jan 10, 2026)
+- [ ] Restructure Services page to show only 5 core offerings:
+  - Discovery Call (free)
+  - The Inner Circle ($29/month) - in dedicated section
+  - The Mirror Session ($350)
+  - The Individual Container ($5,000 or payment plan)
+  - The Couples Container ($7,500 or payment plan)
+- [ ] Move Teaching Clinic and Retreats to new Premium Experiences page
+- [ ] Create Premium Experiences page with retreats and teaching clinic
+- [ ] Update navigation to include Premium Experiences link
+- [x] Fix button consistency across all service cards
+- [x] Fix text overflow issues
+- [x] Add payment plan pricing with premium clearly shown
