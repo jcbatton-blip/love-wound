@@ -428,7 +428,7 @@ export default function About() {
 
         {/* Group Container & Retreat */}
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {/* Group Container */}
+          {/* Inner Circle */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -437,31 +437,35 @@ export default function About() {
             className="bg-background border border-primary/10 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all"
           >
             <div className="mb-6">
-              <h4 className="text-2xl font-serif font-bold text-primary">The Group Container</h4>
+              <h4 className="text-2xl font-serif font-bold text-primary">The Inner Circle</h4>
               <div className="flex items-baseline gap-2 mt-2">
-                <span className="text-4xl font-bold text-primary">$350</span>
+                <span className="text-4xl font-bold text-primary">$29</span>
                 <span className="text-sm text-muted-foreground">/month</span>
               </div>
             </div>
             <p className="text-muted-foreground mb-6">
-              Healing happens in community. A weekly processing group for those ready to do the work alongside others on the path.
+              Ongoing support for those committed to breaking patterns. Direct access to Jeff, monthly group work, and discounted sessions.
             </p>
             <ul className="space-y-3 mb-8">
               <li className="flex items-start gap-2">
                 <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                <span>Weekly 90-Minute Group Calls</span>
+                <span>Text Access for Urgent Support</span>
               </li>
               <li className="flex items-start gap-2">
                 <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                <span>Hot-Seat Coaching Opportunities</span>
+                <span>2-4 Group Sessions per Month (90 min)</span>
               </li>
               <li className="flex items-start gap-2">
                 <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                <span>Peer Witnessing & Support</span>
+                <span>Discounted 1-on-1 Sessions ($250 vs $350)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <span>Curated Video Library</span>
               </li>
             </ul>
-            <Link href="/work-with-me">
-              <Button className="w-full font-serif">Join the Waitlist</Button>
+            <Link href="/services">
+              <Button className="w-full font-serif">Join The Inner Circle</Button>
             </Link>
           </motion.div>
 

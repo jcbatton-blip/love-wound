@@ -419,3 +419,7 @@
 ## About Page Nuance Addition (Jan 10, 2026)
 - [x] Add contrast: NOT rule-following disciplined denying Jeff → authentic real Jeff would produce BETTER results
 - [x] Emphasize: real Jeff would be the fruit of letting go of performance
+
+## About Page - Ways to Work With Me Update (Jan 10, 2026)
+- [x] Replace Group Container ($350) with Inner Circle ($29) in "Ways to Work With Me" section
+- [ ] Fix About navigation link - goes to bottom of page instead of top
