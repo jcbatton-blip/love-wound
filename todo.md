@@ -554,3 +554,6 @@
 - [x] Review all subheadings across all pages
 - [x] Increase size of italic subheadings to make them more prominent
 - [x] Ensure consistent styling throughout the site
+
+## Clarify Prodigal Son Reference (Jan 10, 2026)
+- [x] Rewrite "That's self-actualization. That's the father in the Prodigal Son. That's freedom." to be clearer for first-time readers

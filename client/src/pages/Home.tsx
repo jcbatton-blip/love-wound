@@ -315,7 +315,7 @@ export default function Home() {
                 Once you stop the drain (heal the wound, break the pattern, end the self-betrayal), the cup fills naturally. And when it overflows, you stop noticing. You stop keeping score. You stop defending yourself.
               </p>
               <p>
-                <strong className="text-primary">That's self-actualization. That's the father in the Prodigal Son. That's freedom.</strong>
+                <strong className="text-primary">That's self-actualization. That's what the father in the Prodigal Son had—a cup so full, he could rejoice when his son returned instead of keeping score of the betrayal. That's freedom.</strong>
               </p>
               <div className="bg-primary/5 rounded-xl p-8 mt-8">
                 <h3 className="text-2xl font-serif text-primary mb-4">The Rejoicing Test</h3>
