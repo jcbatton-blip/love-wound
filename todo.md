@@ -591,3 +591,8 @@
 ## Imprinting Section Rewrite (Jan 10, 2026)
 - [x] Rewrite section to emphasize "When we're born, the only thing we know is love. Mom and dad show us how to do love."
 - [x] Make the connection between birth, love, and imprinting more visceral and immediate
+
+## Matching Wounds Explanation (Jan 10, 2026)
+- [x] Add explanation after bullet points about matching wounds
+- [x] Explain that we think attraction is about looks/personality but it's really matching wounds
+- [x] Connect to "Iron sharpens iron" concept - wounds designed to bring each other's wounds up for healing
