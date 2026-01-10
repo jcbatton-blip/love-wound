@@ -124,18 +124,19 @@ export default function Services() {
     name: "The Inner Circle",
     price: "29",
     period: "/ month",
-    description: "Ongoing support for those committed to breaking patterns. Direct access to Jeff, monthly group work, and discounted sessions.",
+    description: "The foundation for pattern work. 2 live group sessions per month, text access for urgent support, and discounted 1-on-1 sessions. Max 12 members per group.",
     features: [
-      "✓ Text Access for Urgent Support",
-      "✓ 2-4 Group Sessions per Month (90 min)",
+      "✓ 2 Live Group Sessions/Month (1st & 3rd Tuesday, 90 min)",
+      "✓ Text Access via Voxer (Daily Support)",
       "✓ Discounted 1-on-1 Sessions ($250 vs $350)",
       "✓ Curated Video Library",
+      "✓ Max 12 Members Per Group",
       "✓ Cancel Anytime"
     ],
     cta: "Join The Inner Circle",
     id: "inner_circle",
     popular: true,
-    delay: 0.1,
+    delay: 0.05,
     hasPaymentPlan: false
   };
 
@@ -178,12 +179,12 @@ export default function Services() {
     <div className="pt-32 pb-16 min-h-screen bg-[#F9F7F2]">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center space-y-6 mb-12">
-          <h1 className="text-5xl md:text-6xl font-serif text-primary">One-on-One Relationship Coaching with Jeff Batton</h1>
+          <h1 className="text-5xl md:text-6xl font-serif text-primary">Work With Jeff</h1>
           <h2 className="text-2xl md:text-3xl font-serif text-primary/80">
-            Break Toxic Patterns & Build Lasting Love
+            From Group Support to Deep 1-on-1 Work
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
-            I don't sell "advice." I sell awareness. Choose the level of depth you're ready for.
+            Start with The Inner Circle ($29/month). When you're ready for deeper work, we go 1-on-1. I don't sell advice—I sell awareness.
           </p>
           <div className="mt-6 inline-block px-6 py-3 bg-primary/5 border border-primary/20 rounded-full">
             <p className="text-sm text-primary/70 font-medium">
@@ -312,8 +313,56 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Membership Section - Will be restructured in next phase */}
-        {/* Temporarily removed - being redesigned */}
+        {/* Inner Circle Membership Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: membershipOption.delay, duration: 0.5 }}
+          className="mb-16 relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8 md:p-12 border-2 border-slate-700"
+        >
+          {membershipOption.popular && (
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-slate-900 px-4 py-1 rounded-full text-sm font-medium tracking-wide">
+              BEST STARTING POINT
+            </div>
+          )}
+          
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-3xl md:text-4xl font-serif text-white mb-2">{membershipOption.name}</h3>
+                <p className="text-lg text-white/80 font-light leading-relaxed">
+                  {membershipOption.description}
+                </p>
+              </div>
+              
+              <div className="flex items-baseline gap-2">
+                <span className="text-5xl font-bold text-white">${membershipOption.price}</span>
+                <span className="text-xl text-white/70">{membershipOption.period}</span>
+              </div>
+              
+              <Button 
+                className="w-full md:w-auto px-8 py-6 rounded-full font-serif text-lg bg-white text-slate-900 hover:bg-white/90"
+                onClick={() => {
+                  trackBookingClick('membership');
+                  window.location.href = "mailto:jeff@jeffbatton.com?subject=Join%20The%20Inner%20Circle";
+                }}
+              >
+                {membershipOption.cta} <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            
+            <div>
+              <ul className="space-y-4">
+                {membershipOption.features.map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3 text-base text-white/90">
+                    <Check className="w-5 h-5 text-white shrink-0 mt-0.5" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </motion.div>
 
         {/* The Retreat Section - Founding Experience */}
         <div className="space-y-8">
