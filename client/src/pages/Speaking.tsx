@@ -14,7 +14,7 @@ export default function Speaking() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-slate-50 to-white py-20">
+      <section className="relative bg-gradient-to-b from-slate-50 to-white pt-24 pb-20">
         <div className="container">
           <div className="mx-auto max-w-4xl text-center">
             <div className="mb-6 inline-block rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white">

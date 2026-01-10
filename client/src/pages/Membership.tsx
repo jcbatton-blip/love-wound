@@ -7,7 +7,7 @@ export default function Membership() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-slate-50 to-white pt-12 pb-20">
+      <section className="relative bg-gradient-to-b from-slate-50 to-white pt-24 pb-20">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="font-serif text-5xl font-light tracking-tight text-slate-900 sm:text-6xl">

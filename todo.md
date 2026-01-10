@@ -498,3 +498,11 @@
 - [x] Add coaching methodology copy about repetition to About page
 - [x] Add coaching methodology copy about repetition to Services page (Container descriptions)
 - [x] Add coaching methodology copy about repetition to How It Works page
+
+## Research Integration & Testing (Jan 10, 2026)
+- [ ] Find research citations about childhood imprinting (toddler attachment, early relationship patterns)
+- [ ] Integrate research citations into The Wounds page
+- [ ] Integrate research citations into How It Works page
+- [ ] Test Inner Circle subscription flow end-to-end (purchase → welcome email → verify content)
+- [ ] Verify CALENDAR_SETUP_GUIDE.md is complete and accurate
+- [ ] Verify STRIPE_PROMO_CODE_SETUP.md is complete and accurate
