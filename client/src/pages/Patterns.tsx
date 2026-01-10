@@ -86,6 +86,9 @@ export default function Patterns() {
           <p className="text-lg text-muted-foreground">
             At the root of every relationship pattern is a Love Wound—a subconscious definition of how love works, formed in early childhood. This wound becomes the "code" that runs your adult relationships until you bring it into awareness and rewrite it.
           </p>
+          <p className="text-sm text-muted-foreground/70 mt-4 italic">
+            Research from a <a href="https://www.scientificamerican.com/article/how-childhood-relationships-affect-your-adult-attachment-style-according-to/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">large longitudinal study published in Scientific American</a> confirms: "People who felt closer to their mothers and had less conflict with their mothers in childhood tended to feel more secure in all of their relationships in adulthood." Early relationships with mothers predicted attachment styles across all primary relationships—with parents, friends, and romantic partners.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

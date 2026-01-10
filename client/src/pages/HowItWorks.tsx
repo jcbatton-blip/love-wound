@@ -156,6 +156,9 @@ export default function HowItWorks() {
             <p>
               <strong>This is what makes me a coach, not a therapist.</strong> We don't just talk about your pattern—we run the play over and over again until it becomes second nature.
             </p>
+            <p className="text-sm text-muted-foreground/70 italic">
+              Research on early childhood development confirms this approach: <a href="https://www.instagram.com/p/DTN37CvDIKA/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">"Kids do not learn from long talks and logical debates. They learn by watching what you do."</a> Toddlers absorb patterns through observation—facial expressions, tone of voice, body language—not through verbal instruction. This is why your Love Wound was imprinted before you had words for it, and why changing it requires repetition, not just awareness.
+            </p>
             <p>
               Think about learning any skill: shooting free throws, playing piano, speaking a new language. You don't get better by understanding the theory. You get better by practicing until your body knows what to do without thinking.
             </p>

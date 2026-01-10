@@ -506,3 +506,9 @@
 - [ ] Test Inner Circle subscription flow end-to-end (purchase → welcome email → verify content)
 - [ ] Verify CALENDAR_SETUP_GUIDE.md is complete and accurate
 - [ ] Verify STRIPE_PROMO_CODE_SETUP.md is complete and accurate
+
+## Research Citations Integration (Jan 10, 2026)
+- [x] Add Scientific American study citations to The Wounds page (maternal relationships predict attachment styles)
+- [x] Add Gentle Parenting Hub research to How It Works page (toddlers learn by watching, not lectures)
+- [x] Create footnotes/references section on relevant pages
+- [x] Ensure citations are properly formatted with links
