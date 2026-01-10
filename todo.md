@@ -561,3 +561,8 @@
 ## Scroll to Top on Navigation (Jan 10, 2026)
 - [x] Implement automatic scroll to top when clicking navigation links
 - [x] Test across all header navigation items
+
+## UX Enhancements (Jan 10, 2026)
+- [x] Add smooth scroll behavior to internal anchor links
+- [x] Create sticky "Book Discovery Call" button that follows users as they scroll
+- [x] Add subtle page transition animations (fade-in effects)
