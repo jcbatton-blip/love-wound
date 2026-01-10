@@ -296,7 +296,7 @@ export default function Home() {
               The Six Love Wounds
             </h2>
             <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto">
-              At the root of every relationship pattern is a Love Wound — a subconscious definition of how love works, formed in early childhood. This wound becomes the "code" that runs your adult relationships until you bring it into awareness and rewrite it. <Link href="/patterns" className="text-primary hover:underline font-medium">Learn more about each wound →</Link>
+              At the root of every relationship pattern is a Love Wound — a subconscious definition of how love works, formed in early childhood. This wound becomes the "code" that runs your adult relationships until you bring it into awareness and rewrite it. <Link href="/how-it-works" className="text-primary hover:underline font-medium">See how patterns work →</Link>
             </p>
           </motion.div>
 

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, Calendar, Search, Lightbulb, Repeat } from "lucide-react";
+import { ArrowRight, Calendar, Search, Repeat, AlertCircle, CheckCircle2 } from "lucide-react";
 
 export default function HowItWorks() {
   const fadeIn = {
@@ -69,21 +69,131 @@ export default function HowItWorks() {
             className="text-center space-y-8"
           >
             <div className="inline-block px-6 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium tracking-widest uppercase">
-              The Process
+              The Art of Self-Observation
             </div>
+            
+            {/* Carl Jung Quote */}
+            <blockquote className="text-lg md:text-xl text-muted-foreground italic border-l-4 border-primary/30 pl-6 my-8 text-left max-w-2xl mx-auto">
+              "Until you make the unconscious conscious, it will direct your life and you will call it fate."
+              <footer className="text-sm text-primary/60 mt-2 not-italic">— Carl Jung</footer>
+            </blockquote>
+            
             <h1 className="text-5xl md:text-6xl font-serif font-medium text-primary leading-tight">
-              How It Works
+              Where's Your Goat<br />Still Gettable?
             </h1>
             <p className="text-xl text-primary/70 font-light max-w-2xl mx-auto">
-              A clear path from pattern recognition to lasting change
+              Your triggers aren't obstacles. They are the map to your freedom. If it can rattle you, it owns you.
             </p>
+            
+            {/* Peter Crone Quote */}
+            <blockquote className="text-lg text-muted-foreground italic border-l-4 border-primary/30 pl-6 mt-8 text-left max-w-2xl mx-auto">
+              "Life will continue to bring you people and circumstances to show you where you are not free."
+              <footer className="text-sm text-primary/60 mt-2 not-italic">— Peter Crone</footer>
+            </blockquote>
           </motion.div>
         </div>
       </section>
 
-      {/* Steps Section */}
-      <section className="py-12">
+      {/* The Signal, Not the Problem */}
+      <section className="py-20">
         <div className="container max-w-5xl">
+          <div className="bg-muted/30 rounded-3xl p-8 md:p-16 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+            
+            <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
+              <div className="space-y-6">
+                <h2 className="text-3xl font-serif font-bold text-primary">The Signal, Not the Problem</h2>
+                <div className="space-y-4 text-lg text-muted-foreground">
+                  <p>
+                    You don't have to be in a relationship to do relationship work. Because what triggers you in someone else is just showing you what's still unhealed in you.
+                  </p>
+                  <p>
+                    That's the work—not fixing the other person, but asking: <span className="text-primary font-medium italic">"Why does this matter?"</span>
+                  </p>
+                  <p>
+                    If it didn't matter, it wouldn't shake you. Wouldn't rattle you. Wouldn't get your goat.
+                  </p>
+                  <p>
+                    But when it does? That's your signal. It's not the problem—it's the mirror.
+                  </p>
+                </div>
+              </div>
+              <div className="bg-background rounded-2xl p-8 shadow-xl border border-primary/10">
+                <h3 className="font-serif text-xl font-bold text-primary mb-6">The Pattern Hunter's Checklist</h3>
+                <ul className="space-y-4">
+                  {[
+                    "What specific behavior triggered me?",
+                    "What old feeling did this bring up?",
+                    "When was the first time I felt this?",
+                    "What belief about myself is being threatened?",
+                    "If this didn't matter, who would I be?"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <Search className="w-5 h-5 text-primary mt-1 shrink-0" />
+                      <span className="text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Iron Sharpens Iron */}
+      <section className="py-20 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]">
+        <div className="container max-w-5xl">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
+              Iron Sharpens Iron
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Relationships are the friction that polishes the blade. We attract people who rub us the wrong way <em>on purpose</em>—so we can smooth out the rough edges of our own ego.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-destructive/5 border border-destructive/10 rounded-2xl p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <AlertCircle className="w-8 h-8 text-destructive" />
+                <h3 className="text-2xl font-serif font-bold text-destructive">The Victim Trap</h3>
+              </div>
+              <p className="text-muted-foreground mb-4">
+                "Why does this keep happening to me? Why do I always find the narcissists/addicts/cheaters?"
+              </p>
+              <p className="text-sm font-medium text-destructive/80 uppercase tracking-wide">
+                Result: Repeating the Cycle
+              </p>
+            </div>
+
+            <div className="bg-primary/5 border border-primary/10 rounded-2xl p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <CheckCircle2 className="w-8 h-8 text-primary" />
+                <h3 className="text-2xl font-serif font-bold text-primary">The Pattern Hunter</h3>
+              </div>
+              <p className="text-muted-foreground mb-4">
+                "I see that I attracted this dynamic to show me where I still don't respect myself. Thank you for the lesson."
+              </p>
+              <p className="text-sm font-medium text-primary/80 uppercase tracking-wide">
+                Result: Breaking the Code
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Steps Section */}
+      <section className="py-20">
+        <div className="container max-w-5xl">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
+              How It Works
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              A clear path from pattern recognition to lasting change
+            </p>
+          </div>
+          
           <div className="space-y-16">
             {steps.map((step, index) => {
               const Icon = step.icon;
@@ -170,7 +280,7 @@ export default function HowItWorks() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]">
         <div className="container max-w-3xl">
           <h2 className="text-4xl font-serif text-primary text-center mb-16">
             Common Questions
@@ -197,28 +307,27 @@ export default function HowItWorks() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]">
-        <div className="container max-w-3xl">
-          <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-12 text-center space-y-6">
-            <h3 className="text-3xl font-serif text-primary">
-              Ready to Start?
-            </h3>
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-              Book a free discovery session. No commitment, no pressure—just an honest conversation about whether this work is right for you.
-            </p>
-            <Link href="/discovery">
-              <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full transition-all duration-300 shadow-lg">
-                Book Your Free Discovery Session
-                <ArrowRight className="ml-2 w-5 h-5" />
+      {/* CTA */}
+      <section className="py-20">
+        <div className="container max-w-4xl">
+          <div className="bg-primary text-primary-foreground rounded-3xl p-12 md:p-20 relative overflow-hidden">
+            <div className="relative z-10 space-y-8 text-center">
+              <h2 className="text-3xl md:text-5xl font-serif font-bold">
+                Ready to Start?
+              </h2>
+              <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto">
+                Book a free discovery session. No commitment, no pressure—just an honest conversation about whether this work is right for you.
+              </p>
+              <Button size="lg" variant="secondary" className="font-serif rounded-full px-10 py-6 h-auto text-lg" asChild>
+                <Link href="/discovery">Book Your Free Discovery Session</Link>
               </Button>
-            </Link>
+            </div>
+            
+            {/* Decorative background */}
+            <div className="absolute inset-0 bg-[url('/images/pattern-imprint.png')] opacity-10 mix-blend-overlay bg-cover bg-center" />
           </div>
         </div>
       </section>
-
-      {/* Bottom Spacer */}
-      <div className="h-20" />
     </div>
   );
 }

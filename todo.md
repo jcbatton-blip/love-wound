@@ -518,3 +518,12 @@
 - [x] Keep only 3 steps: Discovery Session, Pattern Assessment, Integration & Practice
 - [x] Reduce excessive white space between heading and first step
 - [x] Add Peter Crone attribution to the quote on The Wounds page
+
+## Merge How It Works and The Wounds Pages (Jan 10, 2026)
+- [x] Combine How It Works and The Wounds pages into one page
+- [x] Remove the 6 Love Wounds section entirely
+- [x] Keep "Where's Your Goat Still Gettable?" section
+- [x] Keep "The Signal, Not the Problem" section
+- [x] Keep "Iron Sharpens Iron" section
+- [x] Update navigation to remove "The Wounds" link
+- [x] Update all internal links pointing to /patterns
