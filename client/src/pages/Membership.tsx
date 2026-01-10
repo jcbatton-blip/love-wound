@@ -26,7 +26,7 @@ export default function Membership() {
                 </a>
               </Button>
               <p className="text-sm text-slate-500">
-                Legacy clients: <Link href="#founding" className="underline">See Founding Member pricing</Link>
+                Legacy clients: <Link href="/membership" className="underline">See Founding Member pricing</Link>
               </p>
             </div>
           </div>
@@ -211,7 +211,7 @@ export default function Membership() {
               </Card>
 
               {/* Founding Member */}
-              <Card id="founding" className="relative overflow-hidden border-2 border-slate-900 p-8">
+              <Card className="relative overflow-hidden border-2 border-slate-900 p-8">
                 <div className="absolute right-4 top-4 rounded-full bg-slate-900 px-3 py-1 text-xs font-semibold text-white">
                   LEGACY CLIENTS
                 </div>

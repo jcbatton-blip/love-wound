@@ -1,5 +1,11 @@
 # Love Wound Website - TODO
 
+## Pattern Revealed Page Fixes (Jan 10, 2026)
+- [x] Fix spacing issues on Pattern Revealed page (inconsistent gaps between sections)
+- [x] Update outdated content - remove "attracted to men who hit her" quote
+- [x] Fix navigation links to scroll to top of page instead of bottom
+- [x] Test all buttons and links on Pattern Revealed page
+
 ## Completed (Dec 15, 2025)
 - [x] Basic website structure and design
 - [x] Enhanced mirror motif on homepage
@@ -361,3 +367,20 @@
 - [ ] Create referral tracking system (manual Google Sheet for Phase 1)
 - [ ] Document credit redemption process for 1:1 services
 - [ ] Test referral link generation and tracking
+
+## Pattern Revealed Story Rewrite (Dec 29, 2025)
+- [ ] Rewrite newlyweds story with corrected language: "Love means hitting" (not "love = violence")
+- [ ] Add "If you DON'T hit me, you don't REALLY love me" unconscious logic
+- [ ] Emphasize "Love is core. How we DO love is imprinted from birth—and even before, from conception"
+- [ ] Remove "attracted to men who hit her" language (victim blaming)
+- [ ] Add video embed placeholder for future YouTube video
+
+## Research & Citations for Download Framework (Dec 29, 2025)
+- [ ] Research attachment theory (Bowlby, Ainsworth) for early bond formation
+- [ ] Research implicit memory formation (0-3 years, pre-verbal imprinting)
+- [ ] Research neuroplasticity in infancy (how brain wires for love)
+- [ ] Research intergenerational trauma (Yehuda, epigenetics)
+- [ ] Research The Gentle Parenting Hub toddler imprinting studies
+- [ ] Compile all citations into References section
+- [ ] Add inline citations to Pattern Revealed page
+- [ ] Add References section at bottom of Pattern Revealed page

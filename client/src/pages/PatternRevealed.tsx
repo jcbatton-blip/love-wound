@@ -12,13 +12,13 @@ export default function PatternRevealed() {
   return (
     <div className="min-h-screen bg-[#F9F7F2]">
       {/* Hero Section */}
-      <section className="py-32 bg-gradient-to-b from-[#F0EBE0] to-[#F9F7F2]">
+      <section className="pt-32 pb-20 bg-gradient-to-b from-[#F0EBE0] to-[#F9F7F2]">
         <div className="container max-w-4xl">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeIn}
-            className="text-center space-y-8"
+            className="text-center space-y-6"
           >
             <div className="inline-block px-6 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium tracking-widest uppercase">
               The Pattern Revealed
@@ -34,10 +34,12 @@ export default function PatternRevealed() {
       </section>
 
       {/* The Story */}
-      <section className="py-20">
+      <section className="py-16">
         <div className="container max-w-3xl">
-          <div className="prose prose-lg max-w-none space-y-8 text-muted-foreground leading-relaxed">
-            <div className="border-l-4 border-primary pl-8 py-6 bg-primary/5 rounded-r-lg">
+          <div className="prose prose-lg max-w-none space-y-6 text-muted-foreground leading-relaxed">
+            
+            {/* Opening Quote */}
+            <div className="border-l-4 border-primary pl-8 py-6 bg-primary/5 rounded-r-lg mb-8">
               <p className="text-xl font-serif italic text-primary mb-0">
                 "I once worked with a woman who told me she was attracted to men who hit her."
               </p>
@@ -63,9 +65,9 @@ export default function PatternRevealed() {
               She wasn't choosing abuse. She was following her imprint.
             </p>
 
-            <div className="h-px bg-primary/20 my-12" />
+            <div className="h-px bg-primary/20 my-10" />
 
-            <h2 className="text-3xl font-serif text-primary mt-16 mb-8">
+            <h2 className="text-3xl font-serif text-primary mt-12 mb-6">
               The Subtle Ones Run the Show
             </h2>
 
@@ -85,13 +87,15 @@ export default function PatternRevealed() {
               Maybe you were praised only when you performed, so now you're attracted to people who withhold approval until you prove yourself. You call it ambition. Your system calls it love.
             </p>
 
-            <p className="text-xl font-serif italic text-primary border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
-              We don't choose our partners. We choose our patterns.
-            </p>
+            <div className="border-l-4 border-primary pl-8 py-6 bg-primary/5 rounded-r-lg my-8">
+              <p className="text-xl font-serif italic text-primary mb-0">
+                We don't choose our partners. We choose our patterns.
+              </p>
+            </div>
 
-            <div className="h-px bg-primary/20 my-12" />
+            <div className="h-px bg-primary/20 my-10" />
 
-            <h2 className="text-3xl font-serif text-primary mt-16 mb-8">
+            <h2 className="text-3xl font-serif text-primary mt-12 mb-6">
               Your Subconscious Programming
             </h2>
 
@@ -111,7 +115,8 @@ export default function PatternRevealed() {
               But here's the good news: <strong>once you see the pattern, you can break its spell.</strong>
             </p>
 
-            <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-12 mt-16 text-center space-y-6">
+            {/* CTA Section */}
+            <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-10 mt-12 text-center space-y-6">
               <h3 className="text-2xl font-serif text-primary">
                 Ready to See Your Pattern?
               </h3>
@@ -133,7 +138,7 @@ export default function PatternRevealed() {
       </section>
 
       {/* Bottom Spacer */}
-      <div className="h-20" />
+      <div className="h-16" />
     </div>
   );
 }

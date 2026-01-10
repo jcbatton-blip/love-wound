@@ -42,7 +42,7 @@ export default function Coaches() {
                   Apply for Founding Cohort
                 </Button>
               </a>
-              <a href="#curriculum">
+              <a href="/coaches">
                 <Button 
                   size="lg" 
                   variant="outline" 
@@ -251,7 +251,7 @@ export default function Coaches() {
       </section>
 
       {/* The Curriculum Section */}
-      <section id="curriculum" className="py-16 md:py-24 bg-[#F9F7F2]">
+      <section className="py-16 md:py-24 bg-[#F9F7F2]">
         <div className="container max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
