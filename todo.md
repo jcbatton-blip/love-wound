@@ -557,3 +557,7 @@
 
 ## Clarify Prodigal Son Reference (Jan 10, 2026)
 - [x] Rewrite "That's self-actualization. That's the father in the Prodigal Son. That's freedom." to be clearer for first-time readers
+
+## Scroll to Top on Navigation (Jan 10, 2026)
+- [x] Implement automatic scroll to top when clicking navigation links
+- [x] Test across all header navigation items
