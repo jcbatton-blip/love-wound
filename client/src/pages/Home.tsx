@@ -223,9 +223,11 @@ export default function Home() {
               You think you're attracted to people because of how they look or how they act. But really, what draws you to one another are <strong className="text-primary">matching wounds</strong>. Those matching wounds are designed to bring each other's wounds to the surface—so you can become aware of them and ultimately heal from them.
             </p>
             
-            <p className="italic text-primary/70 mt-4">
-              Iron sharpens iron.
-            </p>
+            <div className="py-6 text-center">
+              <p className="text-3xl md:text-4xl font-serif font-semibold text-primary">
+                Iron sharpens iron.
+              </p>
+            </div>
             
             <p className="text-2xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg mt-6">
               Patterns aren't the problem—they're the fruit of a deeper root. They're the map back to the Love Wound you absorbed long before you had words for it.

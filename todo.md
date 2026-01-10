@@ -628,3 +628,9 @@
 - [x] Explain: inability to rejoice reveals you're looking from an unsurrendered place
 - [x] Clarify: when cup overflows, you CAN rejoice because nothing threatens you
 - [x] Connect to Prodigal Son father example (cup so full he could rejoice at betrayal)
+
+
+## Iron Sharpens Iron Visual Prominence (Jan 10, 2026)
+- [x] Center "Iron sharpens iron" text on homepage
+- [x] Make it bold and larger (similar to "How love works" treatment)
+- [x] Give it breathing room so it stands out as a key concept
