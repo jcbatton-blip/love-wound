@@ -227,6 +227,77 @@ export default function HowItWorks() {
         </div>
       </section>
 
+      {/* Client Testimonials - Short Quotes */}
+      <section className="py-20 bg-white">
+        <div className="container max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-serif text-primary mb-4">
+              What Clients Say
+            </h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-primary/5 rounded-2xl p-8 border border-primary/10"
+            >
+              <p className="text-lg text-muted-foreground italic mb-4">
+                "I spent years in therapy talking about my patterns. Three sessions with Jeff, and I finally understood why I kept choosing the same type of person."
+              </p>
+              <p className="text-sm font-medium text-primary">— Sarah M.</p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-primary/5 rounded-2xl p-8 border border-primary/10"
+            >
+              <p className="text-lg text-muted-foreground italic mb-4">
+                "Jeff taught me to be self sufficient. Before I would blame everyone around me instead of forgiving those that hurt me."
+              </p>
+              <p className="text-sm font-medium text-primary">— Yumi</p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-primary/5 rounded-2xl p-8 border border-primary/10"
+            >
+              <p className="text-lg text-muted-foreground italic mb-4">
+                "Jeff has a way about him to cut to the heart of the matter. It's not always easy but definitely worth it."
+              </p>
+              <p className="text-sm font-medium text-primary">— Barbara</p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-primary/5 rounded-2xl p-8 border border-primary/10"
+            >
+              <p className="text-lg text-muted-foreground italic mb-4">
+                "Looking back I can not tell you how much I have grown. Thanks to Jeff I understand that I am not just a mom, a wife, a daughter. I am on the path to love myself."
+              </p>
+              <p className="text-sm font-medium text-primary">— Rachael</p>
+            </motion.div>
+          </div>
+          
+          <div className="text-center mt-12">
+            <Link href="/work-with-me" className="text-primary hover:underline font-medium">
+              Read all client stories →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* What to Expect */}
       <section className="py-20 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]">
         <div className="container max-w-3xl">

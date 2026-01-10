@@ -253,6 +253,51 @@ export default function Framework() {
         </div>
       </section>
 
+      {/* Client Testimonials - Short Quotes */}
+      <section className="py-20 bg-white">
+        <div className="container max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-serif text-primary mb-4">
+              Transformation Stories
+            </h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-primary/5 rounded-2xl p-8 border border-primary/10"
+            >
+              <p className="text-lg text-muted-foreground italic mb-4">
+                "Jeff's guidance has saved my life. I was in therapy for 17 years. I could never imagine my life & headspace where they are today."
+              </p>
+              <p className="text-sm font-medium text-primary">— Tyler</p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-primary/5 rounded-2xl p-8 border border-primary/10"
+            >
+              <p className="text-lg text-muted-foreground italic mb-4">
+                "Jeff is like a lighthouse. He has helped me navigate through life's challenges and provides a sense of direction, safety, and hope."
+              </p>
+              <p className="text-sm font-medium text-primary">— Veronica</p>
+            </motion.div>
+          </div>
+          
+          <div className="text-center mt-12">
+            <a href="/work-with-me" className="text-primary hover:underline font-medium">
+              Read all client stories →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* The Mirror Concept */}
       <section className="container mb-24 text-center max-w-3xl mx-auto">
         <motion.div

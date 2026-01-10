@@ -259,10 +259,13 @@ export default function Services() {
 
         {/* Testimonials Section */}
         <div className="mt-32 mb-32">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-serif text-primary mb-4">What Clients Say</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-serif text-primary mb-6">Client Stories</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
               Real transformations from people who've done the work.
+            </p>
+            <p className="text-base text-muted-foreground/70 max-w-xl mx-auto">
+              These are the full stories. See what's possible when you break the pattern.
             </p>
           </div>
 
