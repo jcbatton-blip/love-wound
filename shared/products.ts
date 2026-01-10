@@ -34,10 +34,10 @@ export const PRODUCTS = [
     calendlyLink: CALENDLY_LINKS.coaching, // 60 min
   },
   {
-    id: "group_container",
-    name: "The Group Container",
-    description: "Weekly 90-minute group processing calls. Healing happens in community.",
-    price: 35000, // $350/month in cents
+    id: "inner_circle",
+    name: "The Inner Circle",
+    description: "Ongoing support for those committed to breaking patterns. Direct access to Jeff, monthly group work, and discounted sessions.",
+    price: 2900, // $29/month in cents
     currency: "usd",
     type: "subscription",
     interval: "month",

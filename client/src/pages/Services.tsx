@@ -368,7 +368,7 @@ export default function Services() {
                       window.open("https://calendly.com/jcbatton/let-s-talk", "_blank");
                     } else if (option.id === "inner_circle") {
                       trackBookingClick('membership');
-                      window.location.href = "mailto:jeff@jeffbatton.com?subject=Join The Inner Circle Membership";
+                      handleCheckout(option.id);
                     }
                   }}
                 >

@@ -53,6 +53,14 @@ describe("Stripe Products Configuration", () => {
     expect(product?.price).toBe(4700); // $47.00 in cents
   });
 
+  it("should find inner_circle product", () => {
+    const product = getProductById("inner_circle");
+    expect(product).toBeDefined();
+    expect(product?.name).toBe("The Inner Circle");
+    expect(product?.price).toBe(2900); // $29.00 in cents
+    expect(product?.type).toBe("subscription");
+  });
+
   it("should return undefined for non-existent product", () => {
     const product = getProductById("non_existent_product");
     expect(product).toBeUndefined();

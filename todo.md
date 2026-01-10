@@ -406,3 +406,8 @@
 - [x] Replace Group Container ($350) with new $29/month membership
 - [x] Add features: text access for crisis management, 2-4 group sessions/month, discounted 1-on-1s ($250 vs $350), curated video content
 - [x] Fix Couples Immersive Weekend title readability (white text on dark blue)
+
+## Stripe Setup for Inner Circle (Jan 10, 2026)
+- [x] Create Stripe product for The Inner Circle ($29/month)
+- [x] Update Services page with correct Stripe product ID
+- [x] Test checkout flow
