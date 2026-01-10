@@ -611,3 +611,12 @@
 - [x] Keep: "Not because anyone taught you... but because you felt it."
 - [x] Remove all "imprint" terminology - use only "Love Wound"
 - [x] Replace "Love Wound Imprint™" with just "Love Wound"
+
+
+## How It Works Page Rewrite (Jan 10, 2026 - Cleaner Language)
+- [x] Rewrite opening section with: "When you are born all you know is love. Mom and dad show you how to DO love."
+- [x] Add: "Before you had language, before you had logic, before you had memory, mom and dad showed you: How love works."
+- [x] Remove all "imprint" terminology - use only "Love Wound"
+- [x] Emphasize matching wounds concept more prominently
+- [x] Strengthen mirror metaphor section (already present)
+- [x] Keep Iron sharpens iron concept (already present)

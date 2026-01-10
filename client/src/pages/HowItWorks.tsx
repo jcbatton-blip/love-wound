@@ -20,7 +20,7 @@ export default function HowItWorks() {
       icon: Search,
       title: "Pattern Assessment",
       duration: "First 1-2 sessions",
-      description: "Together, we identify your specific Love Wound—the early imprint that's been shaping your attractions and relationship choices. This is where the 'aha moments' happen."
+      description: "Together, we identify your specific Love Wound—the subconscious pattern that's been shaping your attractions and relationship choices. This is where the 'aha moments' happen."
     },
     {
       icon: Repeat,
@@ -154,7 +154,13 @@ export default function HowItWorks() {
               Iron Sharpens Iron
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
-              When you were born, the only thing you knew was love. Mom and dad showed you how to do it. Before you had language, before logic or memory, you absorbed how love works.
+              When you are born all you know is love. Mom and dad show you how to DO love. Before you had language, before you had logic, before you had memory, mom and dad showed you:
+            </p>
+            <p className="text-3xl md:text-4xl font-serif font-semibold text-primary mb-6">
+              How love works.
+            </p>
+            <p className="text-lg text-muted-foreground mb-6">
+              Not because anyone taught you... but because you felt it.
             </p>
             <p className="text-lg text-muted-foreground mb-6">
               You think you're attracted to people because of how they look or how they act. But really, what draws you to one another are <strong className="text-primary">matching wounds</strong>. Those matching wounds are designed to bring each other's wounds to the surface—so you can become aware of them and ultimately heal from them.
