@@ -71,17 +71,27 @@ export default function About() {
               It took me 30 years to see that I wasn't being holy—I was being programmed. The church didn't teach me love; it taught me self-betrayal. So I went on a Don Quixote quest to "fix myself."
             </p>
             <p>
-              That's when I found the work of A.S. Neill, John and Paula Sanford, Carl Jung, and Anthony de Mello. Through them, I learned that transformation doesn't come from trying harder to be good—it comes from making the unconscious conscious. From seeing the pattern that's been running your life and choosing differently.
+              In my search for what was missing—never satisfied, always reaching for the next breakthrough—I found the work of A.S. Neill, John and Paula Sanford, Carl Jung, and Anthony de Mello. The deeper I went, the more I realized: this wasn't about following the rules better. The Bible wasn't a rulebook. It was a manual for how the universe works.
             </p>
             <p>
-              And somewhere in that journey, I realized something profound: God wasn't what I'd been taught. God was more. A lot more.
+              And somewhere in that journey, I realized something profound: everything I'd been searching for—peace, connection, wholeness—wouldn't come from trying harder. It would be the fruit of becoming a content, authentic Jeff.
+            </p>
+            <p>
+              God wasn't what I'd been taught. God was more. A lot more.
             </p>
             <p>
               I didn't leave the church angry. I left because I'd found something deeper.
             </p>
-            <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
-              Religion is just politics in drag. Let's strip away the costume and work with what's real.
-            </p>
+            
+            <div className="my-12 py-8 px-10 bg-gradient-to-br from-primary/10 to-primary/5 border-l-8 border-primary rounded-2xl shadow-lg">
+              <p className="text-3xl md:text-4xl font-serif font-bold text-primary leading-tight">
+                Religion is just politics in drag.
+              </p>
+              <p className="text-xl text-primary/70 mt-4 font-light italic">
+                Let's strip away the costume and work with what's real.
+              </p>
+            </div>
+
             <p>
               Now I help other recovering evangelicals (and anyone else programmed by coercion) do the same. Not by giving you a new set of rules, but by holding up a mirror so you can finally see what's been invisible.
             </p>

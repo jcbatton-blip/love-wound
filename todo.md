@@ -411,3 +411,7 @@
 - [x] Create Stripe product for The Inner Circle ($29/month)
 - [x] Update Services page with correct Stripe product ID
 - [x] Test checkout flow
+
+## About Page Story Update #2 (Jan 10, 2026)
+- [x] Make "Religion is just politics in drag" the main quote (bolder, more prominent)
+- [x] Rewrite discovery section: never satisfied → found teachers → realized not about rules → Bible as universe manual → fruit of authentic Jeff
