@@ -68,10 +68,16 @@ export default function About() {
               I grew up in a world where "dying to self" was the highest virtue, where questioning was sin, and where your worth was measured by how much you could endure without complaint.
             </p>
             <p>
-              It took me 30 years to see that I wasn't being holy—I was being programmed. The church didn't teach me love; it taught me self-betrayal. And when I finally left, I realized I'd been living someone else's life.
+              It took me 30 years to see that I wasn't being holy—I was being programmed. The church didn't teach me love; it taught me self-betrayal. So I went on a Don Quixote quest to "fix myself."
             </p>
             <p>
-              That's when I found the work of A.S. Neill, John and Paula Sanford, Carl Jung, and Anthony de Mello. I learned that transformation doesn't come from trying harder to be good—it comes from making the unconscious conscious. From seeing the pattern that's been running your life and choosing differently.
+              That's when I found the work of A.S. Neill, John and Paula Sanford, Carl Jung, and Anthony de Mello. Through them, I learned that transformation doesn't come from trying harder to be good—it comes from making the unconscious conscious. From seeing the pattern that's been running your life and choosing differently.
+            </p>
+            <p>
+              And somewhere in that journey, I realized something profound: God wasn't what I'd been taught. God was more. A lot more.
+            </p>
+            <p>
+              I didn't leave the church angry. I left because I'd found something deeper.
             </p>
             <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
               Religion is just politics in drag. Let's strip away the costume and work with what's real.

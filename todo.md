@@ -384,3 +384,16 @@
 - [ ] Compile all citations into References section
 - [ ] Add inline citations to Pattern Revealed page
 - [ ] Add References section at bottom of Pattern Revealed page
+
+## About Page Navigation Fix (Jan 10, 2026)
+- [ ] Fix About page navigation to scroll to top instead of middle
+- [ ] Remove any anchor IDs causing mid-page scrolling
+- [ ] Test About link from navigation menu
+
+## Email Setup (jeff@jeffbatton.com)
+- [ ] Set up email forwarding in GoDaddy (jeff@jeffbatton.com → Gmail)
+- [ ] Configure "Send As" in Gmail to reply from jeff@jeffbatton.com
+- [ ] Test sending and receiving emails
+
+## About Page Story Update (Jan 10, 2026)
+- [x] Rewrite "Recovering Evangelical" section to show accurate timeline: quest to fix self → found teachers → realized God was more → left church because found something deeper (not angry)
