@@ -492,3 +492,9 @@
 - [x] Set up automated welcome email via Stripe webhook for Inner Circle subscriptions
 - [x] Add testimonial submission links to Client Portal
 - [x] Add testimonial submission links to Member Portal
+
+## Membership Page & Coaching Methodology (Jan 10, 2026)
+- [x] Fix title spacing on Membership page (too much space above "The Inner Circle")
+- [x] Add coaching methodology copy about repetition to About page
+- [x] Add coaching methodology copy about repetition to Services page (Container descriptions)
+- [x] Add coaching methodology copy about repetition to How It Works page

@@ -7,7 +7,7 @@ export default function Membership() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-slate-50 to-white py-20">
+      <section className="relative bg-gradient-to-b from-slate-50 to-white pt-12 pb-20">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="font-serif text-5xl font-light tracking-tight text-slate-900 sm:text-6xl">
@@ -48,6 +48,9 @@ export default function Membership() {
               <p>
                 <strong className="text-slate-900">This isn't about more information. It's about ongoing awareness.</strong>
               </p>
+              <p>
+                What makes this coaching—not just teaching—is that we run the plays over and over again until they become second nature. Just like learning a play in sports. That's how we rewire the subconscious.
+              </p>
             </div>
           </div>
         </div>
@@ -62,7 +65,10 @@ export default function Membership() {
             </h2>
             <div className="mt-8 space-y-4 text-lg leading-relaxed text-slate-600">
               <p>
-                The Overflow Membership isn't a course you complete. It's a practice you continue. Every week, you show up to the live call. You hear other people's patterns and see your own. You track your cup level. You notice when you're shoulding. You catch yourself before you medicate.
+                The Inner Circle isn't a course you complete. It's a practice you continue. Twice a month, you show up to the live call. You witness other people's patterns and see your own. You catch yourself before you medicate. You practice the plays between sessions.
+              </p>
+              <p>
+                Awareness is the doorway. But repetition is how you walk through it.
               </p>
               <p>
                 Over time, something shifts. The pattern loses its power. Your cup starts filling. You stop doing what you don't want to do. You live from overflow—not depletion.

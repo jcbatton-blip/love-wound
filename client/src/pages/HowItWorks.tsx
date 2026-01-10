@@ -32,7 +32,7 @@ export default function HowItWorks() {
       icon: Repeat,
       title: "Integration & Practice",
       duration: "Ongoing",
-      description: "Real change happens through repetition. We'll work together until the new pattern feels natural, not forced. Most clients experience significant shifts within 3-4 months."
+      description: "Real change happens through repetition. We run the plays over and over again until they become second nature—just like learning a play in sports. That's how we rewire the subconscious. Most clients experience significant shifts within 3-4 months."
     }
   ];
 

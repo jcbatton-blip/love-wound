@@ -197,6 +197,18 @@ export default function About() {
                 "If you're ready to listen and if you're ready to be challenged, then the most important thing of all becomes self-observation." — Anthony De Mello
               </p>
             </div>
+
+            <div className="w-24 h-0.5 bg-primary/20 mx-auto" />
+
+            <div className="space-y-4">
+              <h3 className="text-2xl font-serif font-bold text-primary">What Makes Me a Coach</h3>
+              <p className="text-lg text-muted-foreground">
+                I don't just show you the pattern. We run the plays over and over again until they become second nature—just like learning a play in sports. That's how we rewire the subconscious.
+              </p>
+              <p className="text-lg text-muted-foreground">
+                Awareness is the doorway. But repetition is how you walk through it.
+              </p>
+            </div>
           </div>
         </div>
       </section>
