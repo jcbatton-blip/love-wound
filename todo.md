@@ -689,3 +689,12 @@
 - [x] Aggressive pruning: Cut redundant sections, shorten paragraphs
 - [x] Fix ALL duration references: 30 min application calls (already done)
 - [ ] Ask about pricing for 12-month Root-Work Mentorship program
+
+
+## AGGRESSIVE PRUNING ROUND 2 (Jan 10, 2026)
+- [x] Update Root-Work Mentorship pricing: $12,000 for 12 months ($1,000/month payment plan)
+- [x] Cut SEO section from homepage entirely
+- [x] Shorten Mirror → Practice section to 3 sentences max
+- [x] Remove PatternRevealed page from site/navigation
+- [x] Update The Method page with repositioning treatment (remove session language, add practice focus)
+- [x] Tighten all paragraph copy by 40% across homepage, services, about

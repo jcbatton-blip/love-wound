@@ -19,7 +19,7 @@ export default function Framework() {
           variants={fadeIn}
           className="text-4xl md:text-6xl font-serif text-primary mb-8"
         >
-          The Anatomy of the <span className="italic">Imprint</span>
+          The Mirror Method™
         </motion.h1>
         <motion.p 
           initial="hidden"
@@ -27,7 +27,7 @@ export default function Framework() {
           variants={fadeIn}
           className="text-xl text-muted-foreground leading-relaxed font-light"
         >
-          We call it a wound, but it's actually a code. A set of instructions downloaded in childhood that dictates who you love and how you love.
+          A year-long, weekly practice for people who are done managing symptoms and ready to change at the root.
         </motion.p>
       </section>
 

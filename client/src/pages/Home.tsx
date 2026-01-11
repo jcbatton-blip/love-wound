@@ -115,65 +115,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What I Do - SEO Section */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center space-y-8"
-          >
-            <h2 className="text-3xl md:text-4xl font-serif font-medium text-primary">
-              Relationship Life Coaching for Pattern Healing & Lasting Love
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              I help individuals and couples break toxic relationship patterns and build lasting, healthy love through awareness-based coaching. Whether you're stuck in cycles of abandonment, rejection, betrayal, or other Love Wounds, my approach gets to the root—not just the symptoms.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6 pt-6">
-              <div className="flex flex-col p-6 bg-white rounded-xl border border-primary/10">
-                <h3 className="text-xl font-serif text-primary mb-4">Singles</h3>
-                <p className="text-muted-foreground mb-4 flex-grow">Stuck in cycles of choosing the wrong person? Learn why—and how to stop.</p>
-                <Link href="/discovery" className="inline-block">
-                  <Button variant="outline" size="sm" className="text-primary border-primary hover:bg-primary hover:text-white rounded-full">
-                    Start Here <ArrowRight className="w-4 h-4 ml-1" />
-                  </Button>
-                </Link>
-              </div>
-              <div className="flex flex-col p-6 bg-white rounded-xl border border-primary/10">
-                <h3 className="text-xl font-serif text-primary mb-4">Couples</h3>
-                <p className="text-muted-foreground mb-4 flex-grow">Ready to transform your relationship? Heal patterns together and rebuild trust.</p>
-                <Link href="/discovery" className="inline-block">
-                  <Button variant="outline" size="sm" className="text-primary border-primary hover:bg-primary hover:text-white rounded-full">
-                    Book Together <ArrowRight className="w-4 h-4 ml-1" />
-                  </Button>
-                </Link>
-              </div>
-              <div className="flex flex-col p-6 bg-white rounded-xl border border-primary/10">
-                <h3 className="text-xl font-serif text-primary mb-4">High-Performers</h3>
-                <p className="text-muted-foreground mb-4 flex-grow">Successful everywhere except love? Discover the pattern holding you back.</p>
-                <Link href="/discovery" className="inline-block">
-                  <Button variant="outline" size="sm" className="text-primary border-primary hover:bg-primary hover:text-white rounded-full">
-                    Break The Pattern <ArrowRight className="w-4 h-4 ml-1" />
-                  </Button>
-                </Link>
-              </div>
-            </div>
-            <div className="pt-6">
-              <Link href="/discovery">
-                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full">
-                  Apply for Root-Work Mentorship
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Mirror → Practice Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-[#F0EBE0]/30">
-        <div className="container max-w-4xl">
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -185,17 +129,9 @@ export default function Home() {
               A Mirror Is Where It Starts.<br />
               Practice Is Where It Changes.
             </h2>
-            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              <p>
-                Most people don't stay stuck because they lack awareness. They stay stuck because their nervous system is trained for performance, self-denial, and survival.
-              </p>
-              <p className="text-2xl font-serif italic text-primary/80">
-                Awareness brings relief. Practice brings freedom.
-              </p>
-              <p>
-                That's why my work is structured as a <strong className="text-primary">year-long, weekly coaching relationship</strong> — not one-off sessions or quick breakthroughs.
-              </p>
-            </div>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Awareness brings relief. Practice brings freedom. That's why this work is structured as a <strong className="text-primary">year-long, weekly coaching relationship</strong> — not one-off sessions or quick breakthroughs.
+            </p>
             <div className="pt-6">
               <Link href="/discovery">
                 <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full">

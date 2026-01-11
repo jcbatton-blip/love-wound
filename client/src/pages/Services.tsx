@@ -37,11 +37,12 @@ export default function Services() {
   const primaryTiers = [
     {
       name: "Root-Work Mentorship",
-      price: "TBD",
-      period: "/ 12 months",
+      price: isPaymentPlan ? "1,000" : "12,000",
+      period: isPaymentPlan ? "/ month × 12" : "/ year",
+      totalPrice: isPaymentPlan ? "$12,000 total" : null,
       description: "A year-long, weekly coaching relationship for people who are done managing symptoms and ready to change at the root. We don't chase behavior. We don't fix fruit. We work with the system underneath it all.",
       features: [
-        "Weekly one-on-one sessions",
+        "Weekly one-on-one sessions (52 sessions)",
         "Long-term relational depth",
         "Root-pattern identification and reframing",
         "Integration into real life and relationships",
@@ -51,7 +52,7 @@ export default function Services() {
       id: "root_work_mentorship",
       popular: true,
       delay: 0,
-      hasPaymentPlan: false
+      hasPaymentPlan: true
     },
     // TEMPORARILY DISABLED - The Kit will be re-enabled once digital files are ready
     // {

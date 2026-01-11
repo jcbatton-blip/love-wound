@@ -18,7 +18,7 @@ import MemberPortal from "./pages/MemberPortal";
 import Services from "./pages/Services";
 import ClientPortal from "./pages/ClientPortal";
 import DiscoverySession from "./pages/DiscoverySession";
-import PatternRevealed from "./pages/PatternRevealed";
+// import PatternRevealed from "./pages/PatternRevealed";
 import HowItWorks from "./pages/HowItWorks";
 import Success from "./pages/Success";
 import TenantPortal from "./pages/TenantPortal";
@@ -59,7 +59,7 @@ function Router() {
         <Route path="/member-portal" component={MemberPortal} />
         <Route path="/work-with-me" component={Services} />
         <Route path="/about" component={About} />
-        <Route path="/pattern-revealed" component={PatternRevealed} />
+        {/* <Route path="/pattern-revealed" component={PatternRevealed} /> */}
         <Route path="/how-it-works" component={HowItWorks} />
         <Route path="/client-portal" component={ClientPortal} />
         <Route path="/discovery" component={DiscoverySession} />
