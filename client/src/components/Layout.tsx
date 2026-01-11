@@ -39,8 +39,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen flex flex-col font-sans bg-[#F9F7F2]">
+      {/* Skip to main content - Accessibility */}
+      <a href="#main-content" className="skip-to-main">
+        Skip to main content
+      </a>
+      
       {/* Navigation - Editorial Style */}
       <header
+        role="banner"
+        aria-label="Main navigation"
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out",
           isScrolled
@@ -54,7 +61,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8 xl:gap-12 ml-16">
+          <nav className="hidden md:flex items-center gap-8 xl:gap-12 ml-16 self-center">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -120,7 +127,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 pt-0">
+      <main id="main-content" role="main" className="flex-1 pt-0">
         {children}
       </main>
 

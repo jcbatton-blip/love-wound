@@ -788,3 +788,58 @@
 
 ## UI Cleanup (Jan 10, 2026)
 - [x] Remove sticky "Book Discovery Session" button from bottom right
+
+
+## Visual Bug Fixes (Jan 11, 2026)
+- [x] Fix black vertical line appearing on left side of homepage hero mirror section
+- [x] Fix header navigation vertical alignment (nav items not centered with logo and Apply button)
+
+## Award-Worthy Design Improvements (Jan 11, 2026)
+
+### 1. Visual Design Polish
+- [x] Establish disciplined typography scale (6 sizes max)
+- [x] Refine spacing system (8px base unit)
+- [x] Enhance color palette with refined shades
+- [ ] Audit and fix typography hierarchy site-wide
+- [ ] Standardize button styles and sizes
+- [x] Polish card designs and shadows
+
+### 2. Motion Design
+- [x] Add scroll-triggered fade-in animations
+- [x] Implement parallax effect on mirror graphic
+- [x] Add micro-interactions to buttons (hover, active states)
+- [ ] Smooth page transitions
+- [x] Animate testimonial cards on scroll
+- [x] Add subtle entrance animations to sections
+
+### 3. Mirror Graphic Enhancement
+- [x] Add dimensional depth with layered shadows
+- [x] Implement subtle rotation/scale on scroll
+- [ ] Add gradient overlay for depth
+- [x] Animate mirror rings on page load
+- [x] Add subtle glow effect
+
+### 4. Mobile Optimization
+- [x] Increase touch target sizes (min 44px)
+- [x] Refine mobile typography scale
+- [x] Optimize mobile spacing
+- [ ] Test on actual mobile devices
+- [ ] Fix any mobile-specific layout issues
+- [x] Ensure thumb-friendly navigation
+
+### 5. Performance Optimization
+- [ ] Optimize images (WebP format, lazy loading)
+- [ ] Implement code splitting
+- [ ] Minimize bundle size
+- [ ] Add resource hints (preload, prefetch)
+- [ ] Optimize font loading
+- [ ] Measure and improve Core Web Vitals
+
+### 6. Accessibility Audit
+- [x] WCAG AA compliance check
+- [x] Keyboard navigation testing
+- [ ] Screen reader testing
+- [x] Color contrast verification
+- [x] Focus state visibility
+- [x] ARIA labels where needed
+- [x] Skip navigation links

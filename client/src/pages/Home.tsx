@@ -2,9 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Heart, Eye, X, Ghost, Lock, Frown } from "lucide-react";
 import { Link } from "wouter";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Home() {
+  const { scrollY } = useScroll();
+  const mirrorY = useTransform(scrollY, [0, 500], [0, 150]);
+  const mirrorScale = useTransform(scrollY, [0, 500], [1, 1.05]);
+  const mirrorOpacity = useTransform(scrollY, [0, 300], [0.6, 0.3]);
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -28,12 +32,31 @@ export default function Home() {
         {/* Subtle Background Texture */}
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
         
-        {/* Central Mirror Frame Graphic - Now contains the content */}
-        <div className="mirror-graphic absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[700px] h-[900px] border-[3px] border-primary rounded-[50%] shadow-[0_0_100px_rgba(0,0,0,0.2)] opacity-60" />
-          <div className="absolute w-[680px] h-[880px] border-[2px] border-primary/80 rounded-[50%]" />
-          <div className="absolute w-[660px] h-[860px] border-[1px] border-primary/50 rounded-[50%]" />
-        </div>
+        {/* Central Mirror Frame Graphic - Enhanced with parallax */}
+        <motion.div 
+          className="mirror-graphic absolute inset-0 flex items-center justify-center pointer-events-none"
+          style={{ y: mirrorY, scale: mirrorScale }}
+        >
+          <motion.div 
+            className="w-[700px] h-[900px] border-[3px] border-primary rounded-[50%] shadow-[0_0_100px_rgba(0,0,0,0.2),0_0_50px_rgba(0,0,0,0.1)]"
+            style={{ opacity: mirrorOpacity }}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 0.6 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+          />
+          <motion.div 
+            className="absolute w-[680px] h-[880px] border-[2px] border-primary/80 rounded-[50%]"
+            initial={{ scale: 0.85, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.2, delay: 0.1, ease: "easeOut" }}
+          />
+          <motion.div 
+            className="absolute w-[660px] h-[860px] border-[1px] border-primary/50 rounded-[50%]"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+          />
+        </motion.div>
 
         {/* Content Container - Centered within mirror */}
         <div className="container relative z-10">
@@ -67,21 +90,25 @@ export default function Home() {
               <p className="text-base md:text-lg text-muted-foreground font-light max-w-xl mx-auto leading-relaxed">
                 Lasting change comes from practice. From meeting weekly. From being mirrored honestly. From staying long enough to find the tap roots — and let them loosen naturally.
               </p>
-              <p className="text-base md:text-lg text-primary font-medium max-w-xl mx-auto leading-relaxed mt-6 border-l-4 border-primary pl-6 bg-primary/5 py-4 rounded-r-lg">
+              <p className="text-base md:text-lg text-primary font-medium max-w-xl mx-auto leading-relaxed mt-6 bg-primary/5 px-6 py-4 rounded-lg">
                 This work is designed as a long-term, weekly practice — because roots don't change in a single season.
               </p>
             </motion.div>
             
             <motion.div variants={fadeIn} className="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center pointer-events-auto">
               <Link href="/discovery" className="inline-block">
-                <Button size="lg" className="bg-primary text-white hover:bg-white hover:text-primary hover:border-primary hover:border-2 font-serif text-base md:text-lg px-8 md:px-10 py-5 md:py-6 h-auto rounded-full transition-all duration-300 shadow-lg">
-                  Apply for Root-Work Mentorship
-                </Button>
+                <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
+                  <Button size="lg" className="bg-primary text-white hover:bg-white hover:text-primary hover:border-primary hover:border-2 font-serif text-base md:text-lg px-8 md:px-10 py-5 md:py-6 h-auto rounded-full transition-all duration-300 shadow-lg hover:shadow-2xl">
+                    Apply for Root-Work Mentorship
+                  </Button>
+                </motion.div>
               </Link>
               <Link href="/the-practice" className="inline-block">
-                <Button size="lg" className="bg-primary text-white hover:bg-white hover:text-primary hover:border-primary hover:border-2 font-serif text-base md:text-lg px-8 md:px-10 py-5 md:py-6 h-auto rounded-full transition-all duration-300 shadow-lg">
-                  Learn How Root-Work Works
-                </Button>
+                <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
+                  <Button size="lg" className="bg-primary text-white hover:bg-white hover:text-primary hover:border-primary hover:border-2 font-serif text-base md:text-lg px-8 md:px-10 py-5 md:py-6 h-auto rounded-full transition-all duration-300 shadow-lg hover:shadow-2xl">
+                    Learn How Root-Work Works
+                  </Button>
+                </motion.div>
               </Link>
             </motion.div>
           </motion.div>
@@ -137,9 +164,11 @@ export default function Home() {
             </p>
             <div className="pt-6">
               <Link href="/discovery">
-                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full">
-                  Apply for Root-Work Mentorship
-                </Button>
+                <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
+                  <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full shadow-lg hover:shadow-2xl transition-all duration-300">
+                    Apply for Root-Work Mentorship
+                  </Button>
+                </motion.div>
               </Link>
             </div>
           </motion.div>
