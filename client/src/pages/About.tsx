@@ -18,7 +18,7 @@ export default function About() {
             <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl bg-muted">
               <img 
                 src="/images/jeff-batton-headshot-enhanced.png" 
-                alt="Jeff Batton - Life Coach specializing in relationship patterns, love wounds, and The Mirror Method" 
+                alt="Jeff Batton - Root-Work Mentor | Relational Practice Guide | Inner Transformation Specialist" 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -176,7 +176,7 @@ export default function About() {
             <div className="space-y-4">
               <h3 className="text-2xl font-serif font-bold text-primary">You Are Not Broken</h3>
               <p className="text-lg text-muted-foreground">
-                You're just repeating what you were taught. And when those same painful patterns keep showing up—in your relationships, your work, your inner world—it's not because something's wrong with you. It's just time to plant something different.
+                You're just repeating what you were taught. And when those same painful patterns keep showing up—in your relationships, your work, your sense of self, your life direction—it's not because something's wrong with you. This work goes deeper than fixing relationship outcomes. It rewires how you relate to yourself, which changes everything: your partnerships, your purpose, your peace.
               </p>
             </div>
 

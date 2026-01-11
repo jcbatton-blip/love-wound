@@ -21,7 +21,7 @@ export default function DiscoverySession() {
               Apply for Root-Work Mentorship
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
-              A 30-minute conversation to explore your relationship patterns and see if year-long Root-Work practice is right for you. No pressure, no sales pitch—just clarity about whether we're a good fit.
+              Want to explore if you're ready for a root-work journey? Start with an application call. A 30-minute conversation to see if year-long Root-Work practice is right for you. No pressure, no sales pitch—just clarity about whether we're a good fit.
             </p>
           </div>
 
@@ -102,7 +102,7 @@ export default function DiscoverySession() {
 
           <div className="mt-12 text-center">
             <p className="text-sm text-muted-foreground mb-4 font-light">
-              Not ready to schedule? Have questions first?
+              Not ready to apply? Have questions first?
             </p>
             <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-white rounded-full font-serif" asChild>
               <a href="mailto:jeff@jeffbatton.com">Send me an email</a>

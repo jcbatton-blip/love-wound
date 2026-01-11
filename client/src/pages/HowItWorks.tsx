@@ -58,6 +58,10 @@ export default function HowItWorks() {
     {
       question: "Is this covered by insurance?",
       answer: "No. This is coaching, not therapy, so it's not covered by insurance. However, I offer payment plans and a monthly subscription option to make the work accessible."
+    },
+    {
+      question: "Is there anything beyond the 12-month mentorship?",
+      answer: "For a select few who've completed Root-Work Mentorship and want to go deeper—there's an apprenticeship path. It's not advertised. It's by invitation only. If you're curious, ask during your application call."
     }
   ];
 

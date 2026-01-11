@@ -628,6 +628,12 @@ export default function Services() {
                 Just like in sports, the way you change is running the play over and over again until it becomes second nature. We don't just talk about the pattern—we practice new responses until they're automatic.
               </p>
             </div>
+            <div className="space-y-2">
+              <h3 className="text-xl font-serif text-primary">Is there anything beyond the 12-month mentorship?</h3>
+              <p className="text-muted-foreground font-light">
+                For a select few who've completed Root-Work Mentorship and want to go deeper—there's an apprenticeship path. It's not advertised. It's by invitation only. If you're curious, ask during your application call.
+              </p>
+            </div>
           </div>
         </div>
       </div>

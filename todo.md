@@ -698,3 +698,12 @@
 - [x] Remove PatternRevealed page from site/navigation
 - [x] Update The Method page with repositioning treatment (remove session language, add practice focus)
 - [x] Tighten all paragraph copy by 40% across homepage, services, about
+
+
+## CRITIQUE IMPLEMENTATION (Jan 10, 2026 - External Analysis)
+- [x] About page: Update labels from "Life Coach / Relationship Counseling" to "Root-Work Mentor | Relational Practice Guide | Inner Transformation Specialist"
+- [x] About page: Broaden framing beyond "relationship coaching" to "self-relationship transformation applies to every domain"
+- [x] Services page: Add subtle apprenticeship allusion (footnote or end section)
+- [x] FAQ: Add apprenticeship curiosity-kindling line
+- [x] DiscoverySession page: Replace "schedule a Discovery Session" with "explore if you're ready for a root-work journey? Start with an Application Call"
+- [ ] Testimonials: Upgrade format to show Before/After with practice-based outcomes (future task - need client stories)
