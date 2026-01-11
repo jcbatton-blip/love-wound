@@ -634,3 +634,10 @@
 - [x] Center "Iron sharpens iron" text on homepage
 - [x] Make it bold and larger (similar to "How love works" treatment)
 - [x] Give it breathing room so it stands out as a key concept
+
+
+## Title Spacing & Navigation Cleanup (Jan 10, 2026)
+- [x] Fix title spacing on Submit Testimonial page (overlapping with nav)
+- [x] Check and fix title spacing on all pages for consistency
+- [x] Remove "Submit Testimonial" from main navigation (already not in nav)
+- [x] Keep Submit Testimonial page live but not in nav (for private sharing)

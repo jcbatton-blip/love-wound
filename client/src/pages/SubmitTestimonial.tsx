@@ -66,7 +66,7 @@ export default function SubmitTestimonial() {
   }
 
   return (
-    <div className="min-h-screen bg-background py-12 px-4">
+    <div className="min-h-screen bg-background pt-24 pb-12 px-4">
       <div className="container max-w-3xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-serif text-primary mb-4">
