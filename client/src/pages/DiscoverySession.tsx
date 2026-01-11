@@ -46,13 +46,16 @@ export default function DiscoverySession() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium tracking-widest uppercase mb-6">
-              Application Call
+              Application Conversation
             </div>
             <h1 className="text-5xl font-serif font-medium text-primary tracking-tight mb-4">
               Apply for Root-Work Mentorship
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
-              Want to explore if you're ready for a root-work journey? Start with an application call. A 30-minute conversation to see if year-long Root-Work practice is right for you. No pressure, no sales pitch—just clarity about whether we're a good fit.
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light mb-6">
+              This application begins a conversation — not a commitment.
+            </p>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
+              Root-work requires readiness, honesty, and willingness to stay with the work. If that resonates, you're welcome to apply.
             </p>
           </div>
 
@@ -71,7 +74,7 @@ export default function DiscoverySession() {
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                 <Video className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-serif text-lg text-primary mb-2">Video Call</h3>
+              <h3 className="font-serif text-lg text-primary mb-2">Video Conversation</h3>
               <p className="text-sm text-muted-foreground font-light">
                 Connect via Zoom from anywhere in the world
               </p>
@@ -134,7 +137,7 @@ export default function DiscoverySession() {
                 </div>
                 <div className="text-center pt-4">
                   <Button type="submit" size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-12 py-6 h-auto rounded-full">
-                    Submit Application & Schedule Call
+                    Submit Application & Schedule Conversation
                   </Button>
                 </div>
               </form>
@@ -153,7 +156,7 @@ export default function DiscoverySession() {
               width="100%"
               height="800"
               frameBorder="0"
-              title="Schedule an Application Call"
+              title="Schedule an Application Conversation"
               onLoad={() => setIsLoading(false)}
               style={{ border: 'none', minHeight: '800px' }}
               className="calendly-inline-widget"
@@ -163,7 +166,7 @@ export default function DiscoverySession() {
 
           {/* What to Expect Section */}
           <div className="mt-12 bg-primary/5 rounded-2xl p-8 border border-primary/10">
-            <h3 className="text-2xl font-serif text-primary text-center mb-6">What to Expect on This Call</h3>
+            <h3 className="text-2xl font-serif text-primary text-center mb-6">What to Expect in This Conversation</h3>
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
                 <p className="text-primary font-medium mb-2">We'll Explore Your Patterns</p>

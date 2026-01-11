@@ -84,14 +84,11 @@ export default function Home() {
               <p className="text-base md:text-lg text-muted-foreground font-light max-w-xl mx-auto leading-relaxed">
                 You don't need fixing. You need remembering. Your patterns aren't problems — they're Love Wounds formed before you had words.
               </p>
-              <p className="text-base md:text-lg text-muted-foreground font-light max-w-xl mx-auto leading-relaxed mt-4">
-                But insight alone doesn't change a life.
-              </p>
               <p className="text-base md:text-lg text-muted-foreground font-light max-w-xl mx-auto leading-relaxed">
                 Lasting change comes from practice. From meeting weekly. From being mirrored honestly. From staying long enough to find the tap roots — and let them loosen naturally.
               </p>
               <p className="text-base md:text-lg text-primary font-medium max-w-xl mx-auto leading-relaxed mt-6 bg-primary/5 px-6 py-4 rounded-lg">
-                This work is designed as a long-term, weekly practice — because roots don't change in a single season.
+                This work is designed for people willing to stay — because roots only change through time and relationship.
               </p>
             </motion.div>
             
@@ -160,7 +157,7 @@ export default function Home() {
               Practice Is Where It Changes.
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Awareness brings relief. Practice brings freedom. That's why this work is structured as a <strong className="text-primary">year-long, weekly coaching relationship</strong> — not one-off sessions or quick breakthroughs.
+              This work is structured as a <strong className="text-primary">year-long, weekly coaching relationship</strong> — not one-off sessions or quick breakthroughs.
             </p>
             <div className="pt-6">
               <Link href="/discovery">
@@ -252,25 +249,22 @@ export default function Home() {
           >
             <div className="text-center space-y-6">
               <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
-                You're Not Broken. You Have a Thorn You're Protecting.
+                You Already Know Something Isn't Working.
               </h2>
               <p className="text-2xl text-primary/70 font-serif italic">
-                Most coaches help you build a better cage. I help you remove the thorn.
+                This isn't about learning more. It's about stopping the war with yourself.
               </p>
             </div>
 
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                Anthony de Mello tells a story about a thorn. Instead of removing it, we build a cage around it. We create rules: "Don't touch me there." We develop patterns: "I'll leave before you can hurt me." We demand our partner change: "You need to stop triggering me."
+                Anthony de Mello tells a story about a thorn. Instead of removing it, you build a cage around it. You create rules: "Don't touch me there." You develop patterns: "I'll leave before you can hurt me." You demand your partner change: "You need to stop triggering me."
               </p>
               <p>
-                But here's what you're really asking: <em>Do something different so I don't have to feel this.</em> Your partner isn't the problem—they're just a mirror showing you where the thorn is. You're just mad at the mirror cause your hair's messed up. Getting a new mirror won't fix your hair.
+                But here's what you're really asking: <em>Do something different so I don't have to feel this.</em> Your partner isn't the problem—they're just a mirror showing you where the thorn is.
               </p>
               <p>
                 <strong className="text-primary">But the thorn is still there.</strong>
-              </p>
-              <p>
-                Most coaches help you build a better cage. Better boundaries. Better communication. Better coping strategies. They teach you to manage the thorn, protect it, work around it.
               </p>
               <p className="text-2xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
                 I don't help you manage the cage. I help you remove the thorn.

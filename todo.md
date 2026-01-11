@@ -843,3 +843,30 @@
 - [x] Focus state visibility
 - [x] ARIA labels where needed
 - [x] Skip navigation links
+
+## Precision Polish Pass - Final Authority (Jan 11, 2026)
+
+### 1. Global Pruning (15-20% copy reduction)
+- [x] Remove repeated explanations of fruit vs root
+- [x] Remove repeated explanations of fixing vs remembering
+- [x] Remove repeated explanations of insight vs practice
+- [ ] Remove philosophical justifications that sound like persuasion
+- [x] Cut any place Jeff explains why this works more than once
+
+### 2. Commitment & Voice Shifts
+- [x] Add commitment-anchoring sentence (verbatim): "This work is designed for people willing to stay — because roots only change through time and relationship."
+- [x] Shift one key section from "I" to "You" voice
+- [x] Include language: "You already know something isn't working. This isn't about learning more. It's about stopping the war with yourself."
+
+### 3. Application Page Tuning
+- [x] Remove all urgency language
+- [x] Remove all scarcity language
+- [x] Remove "limited spots" or "enrollment cycles" language
+- [x] Add calm framing: "This application begins a conversation — not a commitment."
+- [x] Change any "strategy call" to "Application Conversation" or "Readiness Conversation"
+
+### 4. Final Authority Check
+- [x] Confirm "Apply" is the only primary CTA
+- [ ] Remove any "Book," "Free," or "Call" language
+- [x] Ensure site filters rather than persuades
+- [x] Verify calm, grounded, confident tone throughout
