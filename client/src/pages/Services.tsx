@@ -86,42 +86,6 @@ export default function Services() {
       popular: false,
       delay: 0.1,
       hasPaymentPlan: false
-    },
-    {
-      name: "The Individual Container",
-      price: isPaymentPlan ? "1,350" : "5,000",
-      period: isPaymentPlan ? "/ month × 4" : "/ total",
-      totalPrice: isPaymentPlan ? "$5,400 total" : null,
-      description: "We don't help you manage the cage. We remove the thorn. Then we run the plays over and over until they become second nature. That's how we rewire the subconscious.",
-      features: [
-        "12 Weekly Sessions (3 Months)",
-        "Direct Access (Voxer Support)",
-        "Customized 'Homework' Protocols",
-        "Lifetime Access to The Kit"
-      ],
-      cta: "Apply for Individual Work",
-      id: "individual_container",
-      popular: true,
-      delay: 0.2,
-      hasPaymentPlan: true
-    },
-    {
-      name: "The Couples Container",
-      price: isPaymentPlan ? "2,000" : "7,500",
-      period: isPaymentPlan ? "/ month × 4" : "/ total",
-      totalPrice: isPaymentPlan ? "$8,000 total" : null,
-      description: "Most couples therapy teaches communication tactics. We help each partner see their pattern, then practice new plays until they're second nature. Two overflow cups = a relationship where nobody's keeping score.",
-      features: [
-        "12 Weekly 90-Minute Sessions (3 Months)",
-        "Flexibility for Individual Breakout Sessions",
-        "Joint & Individual Voxer Support",
-        "Conflict Protocol Training"
-      ],
-      cta: "Apply for Couples Work",
-      id: "couples_container",
-      popular: false,
-      delay: 0.3,
-      hasPaymentPlan: true
     }
   ];
 
@@ -373,9 +337,9 @@ export default function Services() {
                       tier.name !== "The Kit" && <span className="text-muted-foreground">/ total</span>
                     )}
                   </div>
-                  {tier.totalPrice && (
-                    <p className="text-xs text-muted-foreground">{tier.totalPrice}</p>
-                  )}
+                  {('totalPrice' in tier && tier.totalPrice) ? (
+                    <p className="text-xs text-muted-foreground">{String(tier.totalPrice)}</p>
+                  ) : null}
                 </div>
                 <p className="text-muted-foreground font-light leading-relaxed">
                   {tier.description}

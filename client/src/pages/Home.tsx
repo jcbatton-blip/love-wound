@@ -207,79 +207,66 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Mirror Method Section */}
-      <section className="py-12 md:py-24 bg-gradient-to-b from-[#F0EBE0]/30 to-[#F9F7F2]">
+      {/* Who This Is For - Filter Section */}
+      <section className="py-16 md:py-20 bg-white">
         <div className="container max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center space-y-8 mb-16"
+            className="space-y-12"
           >
-            <div className="inline-block px-6 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium tracking-widest uppercase">
-              The Mirror Method™
-            </div>
-            <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
-              See the Pattern. Break its Spell. Rewrite Your Life.
+            <h2 className="text-3xl md:text-4xl font-serif font-medium text-primary text-center">
+              Who This Is For
             </h2>
-            <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
-              When you are born all you know is love. Mom and dad show you how to DO love. Before you had language, before you had logic, before you had memory, mom and dad showed you:
-            </p>
-            <div className="py-8">
-              <p className="text-4xl md:text-5xl font-serif font-semibold text-primary">
-                How love works.
-              </p>
-            </div>
-            <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
-              Not because anyone taught you... but because you felt it.
-            </p>
-          </motion.div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* This work IS for */}
+              <div className="bg-primary/5 border border-primary/20 rounded-2xl p-8">
+                <h3 className="text-2xl font-serif font-bold text-primary mb-6">
+                  This work is for people who:
+                </h3>
+                <ul className="space-y-4 text-muted-foreground">
+                  <li className="flex items-start gap-3">
+                    <span className="text-primary mt-1">•</span>
+                    <span>Are exhausted from "doing the right thing" and still feeling empty</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-primary mt-1">•</span>
+                    <span>Keep repeating the same patterns in relationships, work, or self-talk</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-primary mt-1">•</span>
+                    <span>Are ready to stop managing symptoms and deal with the root</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-primary mt-1">•</span>
+                    <span>Will commit to a real practice</span>
+                  </li>
+                </ul>
+              </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="space-y-6 text-lg text-muted-foreground leading-relaxed"
-          >
-            <p>
-              Those early experiences became your <strong className="text-primary">Love Wound</strong> — a subconscious pattern that still determines:
-            </p>
-            <ul className="space-y-3 pl-6">
-              <li className="flex items-start gap-3">
-                <span className="text-primary mt-1">—</span>
-                <span>who you're drawn to</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-primary mt-1">—</span>
-                <span>how you react</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-primary mt-1">—</span>
-                <span>what feels like "home," even when it hurts</span>
-              </li>
-            </ul>
-            
-            <p className="mt-6">
-              You think you're attracted to people because of how they look or how they act. But really, what draws you to one another are <strong className="text-primary">matching wounds</strong>. Those matching wounds are designed to bring each other's wounds to the surface—so you can become aware of them and ultimately heal from them.
-            </p>
-            
-            <div className="py-6 text-center">
-              <p className="text-3xl md:text-4xl font-serif font-semibold text-primary">
-                Iron sharpens iron.
-              </p>
-            </div>
-            
-            <p className="text-2xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg mt-6">
-              Patterns aren't the problem—they're the fruit of a deeper root. They're the map back to the Love Wound you absorbed long before you had words for it.
-            </p>
-            <div className="text-center pt-8">
-              <Link href="/discovery">
-                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full">
-                  Apply for Root-Work Mentorship
-                </Button>
-              </Link>
+              {/* This work is NOT for */}
+              <div className="bg-muted/30 border border-muted rounded-2xl p-8">
+                <h3 className="text-2xl font-serif font-bold text-muted-foreground mb-6">
+                  This is not for people who:
+                </h3>
+                <ul className="space-y-4 text-muted-foreground">
+                  <li className="flex items-start gap-3">
+                    <span className="text-muted-foreground/50 mt-1">•</span>
+                    <span>Want a quick fix</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-muted-foreground/50 mt-1">•</span>
+                    <span>Want validation without responsibility</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-muted-foreground/50 mt-1">•</span>
+                    <span>Aren't willing to question their story</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -617,7 +604,7 @@ export default function Home() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 quote: "Jeff's guidance has saved my life. I was in therapy for 17 years. I struggled with anxiety, depression and addiction. Jeff is not only a safe place for me but someone whose guidance I can trust. I could never imagine my life & headspace where they are today.",
@@ -630,24 +617,9 @@ export default function Home() {
                 tagline: "\"Life is Forever Changed\""
               },
               {
-                quote: "Jeff is amazing!! I struggle with anxiety and depression.. when I started with Jeff it was hard to comprehend what was real vs what my ego is telling me, but in one session right before my eyes the negative assumptions changed and I saw the positive outcome.",
-                name: "Denitra",
-                tagline: "\"Jeff is the real deal\""
-              },
-              {
                 quote: "Jeff taught me to be self sufficient. Before I would blame everyone around me instead of forgiving one's that have hurt me. It is hard to put into words how much he has done for me in just little over a year. He is the kindest, sensitive and engaging specialist I have ever met.",
                 name: "Yumi",
                 tagline: "\"A Road to Self-Empowerment\""
-              },
-              {
-                quote: "Jeff is like a lighthouse. Metaphorically speaking, he has helped me navigate through life's challenges and difficult times. Jeff provides a sense of direction, safety, and hope. And just like a lighthouse, Jeff helps me see when I'm off course.",
-                name: "Veronica",
-                tagline: "\"Learning to see things differently\""
-              },
-              {
-                quote: "I started working with Jeff since Feb 2023 and looking back I can not tell you how much I have grown, and finally seeing life for what it is. BEAUTIFUL! Thanks to Jeff I understand that I am not just a mom, a wife, a daughter, and a friend. I am on the path to love myself.",
-                name: "Rachael",
-                tagline: "\"Empowering Transformation\""
               }
             ].map((testimonial, index) => (
               <motion.div

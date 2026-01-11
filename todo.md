@@ -680,3 +680,12 @@
 - [x] Shorten paragraphs where possible
 - [x] Remove repeated metaphors that don't advance the offer
 - [x] Fewer words, more gravity
+
+
+## FIXES: Complete the Repositioning (Jan 10, 2026)
+- [x] Services page: Remove 3-month Individual Container and Couples Container (competing with 12-month)
+- [x] Services page: Make Root-Work Mentorship the ONLY primary individual offer
+- [x] Homepage: Add "Who This Is For" filter section (from upgrade doc)
+- [x] Aggressive pruning: Cut redundant sections, shorten paragraphs
+- [x] Fix ALL duration references: 30 min application calls (already done)
+- [ ] Ask about pricing for 12-month Root-Work Mentorship program
