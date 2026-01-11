@@ -4,6 +4,8 @@ import Stripe from "stripe";
 import { PRODUCTS, getProductById } from "../shared/products";
 import { getWelcomeEmail } from "./welcome-emails";
 import { sendEmail } from "./email-service";
+import { registerSubmitApplicationRoute } from "./routes/submit-application";
+import { registerGetApplicationsRoute } from "./routes/get-applications";
 
 // Initialize Stripe with the secret key from environment variables
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
@@ -11,6 +13,9 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
 });
 
 export function registerRoutes(app: Express): Server {
+  // Register application routes
+  registerSubmitApplicationRoute(app);
+  registerGetApplicationsRoute(app);
   // API route to create a checkout session
   app.post("/api/create-checkout-session", async (req, res) => {
     try {

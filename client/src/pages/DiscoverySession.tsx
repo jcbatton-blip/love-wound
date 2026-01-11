@@ -15,9 +15,29 @@ export default function DiscoverySession() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setShowCalendar(true);
+    
+    try {
+      // Save application to database
+      const response = await fetch("/api/submit-application", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit application");
+      }
+
+      // Show Calendly after successful submission
+      setShowCalendar(true);
+    } catch (error) {
+      console.error("Error submitting application:", error);
+      alert("There was an error submitting your application. Please try again.");
+    }
   };
 
   return (
@@ -138,7 +158,7 @@ export default function DiscoverySession() {
               style={{ border: 'none', minHeight: '800px' }}
               className="calendly-inline-widget"
             />
-          </div>
+            </div>
           )}
 
           {/* What to Expect Section */}

@@ -408,7 +408,7 @@ export default function HowItWorks() {
           </div>
           
           <div className="text-center mt-12">
-            <Link href="/work-with-me" className="text-primary hover:underline font-medium">
+            <Link href="/the-practice" className="text-primary hover:underline font-medium">
               Read all client stories →
             </Link>
           </div>

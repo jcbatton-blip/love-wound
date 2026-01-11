@@ -78,7 +78,7 @@ export default function Home() {
                   Apply for Root-Work Mentorship
                 </Button>
               </Link>
-              <Link href="/how-it-works" className="inline-block">
+              <Link href="/the-practice" className="inline-block">
                 <Button size="lg" className="bg-primary text-white hover:bg-white hover:text-primary hover:border-primary hover:border-2 font-serif text-base md:text-lg px-8 md:px-10 py-5 md:py-6 h-auto rounded-full transition-all duration-300 shadow-lg">
                   Learn How Root-Work Works
                 </Button>
@@ -459,14 +459,14 @@ export default function Home() {
                 My work isn't about diagnosing you, fixing you, or giving you a list of strategies you'll forget by next Tuesday.
               </p>
               <p>
-                It's about helping you <strong className="text-primary">see the pattern</strong> that's been running your life — the same way a mirror shows you what you can't see on your own. <Link href="/framework" className="text-primary hover:underline font-medium">Discover The Mirror Method →</Link>
+                It's about helping you <strong className="text-primary">see the pattern</strong> that's been running your life — the same way a mirror shows you what you can't see on your own. <Link href="/the-practice" className="text-primary hover:underline font-medium">Discover The Mirror Method →</Link>
               </p>
               <p>
                 Once you finally see it, you stop repeating it.<br />
                 And when the pattern breaks, your entire experience of love, identity, and abundance transforms.
               </p>
               <p className="text-2xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg mt-8">
-                Awareness is the doorway. I just hold up the mirror — you walk through it. <Link href="/work-with-me" className="text-primary hover:underline font-medium not-italic text-base block mt-4">See how we work together →</Link>
+                Awareness is the doorway. I just hold up the mirror — you walk through it. <Link href="/the-practice" className="text-primary hover:underline font-medium not-italic text-base block mt-4">See how we work together →</Link>
               </p>
             </div>
           </motion.div>

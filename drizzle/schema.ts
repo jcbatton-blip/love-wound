@@ -78,3 +78,28 @@ export const testimonials = mysqlTable("testimonials", {
 
 export type Testimonial = typeof testimonials.$inferSelect;
 export type InsertTestimonial = typeof testimonials.$inferInsert;
+
+/**
+ * Application responses for Root-Work Mentorship
+ */
+export const applications = mysqlTable("applications", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 255 }),
+  email: varchar("email", { length: 320 }),
+  phone: varchar("phone", { length: 50 }),
+  
+  // Application questions
+  whyNow: text("whyNow").notNull(),
+  whatTried: text("whatTried").notNull(),
+  readyForCommitment: text("readyForCommitment").notNull(),
+  
+  // Status tracking
+  status: mysqlEnum("status", ["pending", "reviewed", "scheduled", "accepted", "declined"]).default("pending").notNull(),
+  notes: text("notes"), // Admin notes about the applicant
+  
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Application = typeof applications.$inferSelect;
+export type InsertApplication = typeof applications.$inferInsert;

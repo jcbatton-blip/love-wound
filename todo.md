@@ -753,3 +753,34 @@
 - [x] Confirm commitment clearly named
 - [x] Confirm navigation simplified
 - [x] Confirm no mixed signals
+
+
+## CRITICAL FIXES (Jan 10, 2026 - Post-Execution Issues)
+### Database & Backend
+- [ ] Create database table for application responses (applications table)
+- [ ] Update application form to save responses to database before showing Calendly
+- [ ] Create admin view to review applications (/admin/applications)
+- [ ] Add API endpoint to submit application responses
+
+### Redirects & Links
+- [ ] Add redirects: /framework → /the-practice
+- [ ] Add redirects: /how-it-works → /the-practice
+- [ ] Add redirects: /work-with-me → /the-practice
+- [ ] Update all internal links pointing to old URLs
+- [ ] Update footer links to point to /the-practice
+
+### Testing
+- [ ] Test complete application flow: form → save → Calendly
+- [ ] Test all redirects work correctly
+- [ ] Verify no broken internal links
+- [ ] Check admin view displays applications correctly
+
+
+## CRITICAL FIXES (Jan 10, 2026 - Post-Execution)
+- [x] Add database table for application responses
+- [x] Save form data to database before showing Calendly
+- [x] Create admin view to review applications at /admin/applications
+- [x] Add redirects from old URLs (/framework, /how-it-works, /work-with-me) to /the-practice
+- [x] Update ALL internal links site-wide to point to /the-practice
+- [x] Fix syntax error in DiscoverySession.tsx
+- [ ] Test complete user journey: form submission → database save → Calendly display

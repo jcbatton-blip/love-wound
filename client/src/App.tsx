@@ -26,6 +26,9 @@ import TenantPortal from "./pages/TenantPortal";
 import Speaking from "./pages/Speaking";
 import AdminTestimonials from "./pages/AdminTestimonials";
 import SubmitTestimonial from "./pages/SubmitTestimonial";
+import AdminApplications from "./pages/AdminApplications";
+import { Redirect } from "wouter";
+
 function Router() {
   const [location] = useLocation();
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -51,17 +54,24 @@ function Router() {
       >
       <Switch>
         <Route path="/" component={Home} />
-        <Route path="/framework" component={Framework} />
+        {/* Redirects from old URLs to /the-practice */}
+        <Route path="/framework">
+          <Redirect to="/the-practice" />
+        </Route>
+        <Route path="/how-it-works">
+          <Redirect to="/the-practice" />
+        </Route>
+        <Route path="/work-with-me">
+          <Redirect to="/the-practice" />
+        </Route>
         <Route path="/patterns" component={Patterns} />
         <Route path="/book" component={Book} />
         <Route path="/coaches" component={Coaches} />
         <Route path="/vision" component={Vision} />
         <Route path="/membership" component={Membership} />
         <Route path="/member-portal" component={MemberPortal} />
-        <Route path="/work-with-me" component={Services} />
         <Route path="/about" component={About} />
         {/* <Route path="/pattern-revealed" component={PatternRevealed} /> */}
-        <Route path="/how-it-works" component={HowItWorks} />
         <Route path="/the-practice" component={ThePractice} />
         <Route path="/client-portal" component={ClientPortal} />
         <Route path="/discovery" component={DiscoverySession} />
@@ -70,6 +80,7 @@ function Router() {
         <Route path="/speaking" component={Speaking} />
         <Route path="/admin/testimonials" component={AdminTestimonials} />
         <Route path="/submit-testimonial" component={SubmitTestimonial} />
+        <Route path="/admin/applications" component={AdminApplications} />
         <Route component={NotFound} />
       </Switch>
       </div>

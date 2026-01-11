@@ -259,7 +259,7 @@ export default function About() {
                   <span>Pattern Hunter Journal Prompts</span>
                 </li>
               </ul>
-              <Link href="/work-with-me">
+              <Link href="/the-practice">
                 <Button className="w-full font-serif">Get The Kit</Button>
               </Link>
             </motion.div>
@@ -299,7 +299,7 @@ export default function About() {
                     <span>No Observers, No Recording</span>
                   </li>
                 </ul>
-                <Link href="/work-with-me">
+                <Link href="/the-practice">
                   <Button className="w-full font-serif">Book A Session</Button>
                 </Link>
               </div>
@@ -337,7 +337,7 @@ export default function About() {
                   <span>60-Minute Session with Jeff</span>
                 </li>
               </ul>
-              <Link href="/work-with-me">
+              <Link href="/the-practice">
                 <Button className="w-full font-serif">Book Clinic Session</Button>
               </Link>
             </motion.div>
@@ -384,7 +384,7 @@ export default function About() {
                   <span>Lifetime Access to The Kit</span>
                 </li>
               </ul>
-              <Link href="/work-with-me">
+              <Link href="/the-practice">
                 <Button className="w-full font-serif text-base sm:text-lg py-6">
                   Apply for Individual Work
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -428,7 +428,7 @@ export default function About() {
                   <span>Conflict Protocol Training</span>
                 </li>
               </ul>
-              <Link href="/work-with-me">
+              <Link href="/the-practice">
                 <Button className="w-full font-serif text-base sm:text-lg py-6">
                   Apply for Couples Work
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -513,7 +513,7 @@ export default function About() {
                   <span>Curated Culinary Experiences</span>
                 </li>
               </ul>
-              <Link href="/work-with-me">
+              <Link href="/the-practice">
                 <Button className="w-full font-serif">Inquire for Availability</Button>
               </Link>
             </div>
