@@ -200,6 +200,97 @@ export default function HowItWorks() {
         </div>
       </section>
 
+      {/* Common Love Wound Patterns */}
+      <section className="py-20 bg-white">
+        <div className="container max-w-5xl">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
+              Common Love Wound Patterns
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              These are the most common matching wounds. See if you recognize yourself.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Pattern 1: Anxious + Avoidant */}
+            <div className="bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 rounded-2xl p-8">
+              <h3 className="text-2xl font-serif font-bold text-primary mb-4">
+                The Anxious + The Avoidant
+              </h3>
+              <p className="text-muted-foreground mb-4">
+                <strong className="text-primary">The Dynamic:</strong> One person craves closeness and reassurance, the other needs space and independence. The more one pursues, the more the other withdraws.
+              </p>
+              <p className="text-muted-foreground mb-4">
+                <strong className="text-primary">The Wound:</strong> The anxious partner learned love means fear of abandonment. The avoidant partner learned love means losing yourself.
+              </p>
+              <p className="text-sm text-primary/70 italic">
+                What it teaches: The anxious learns to self-soothe. The avoidant learns to stay present.
+              </p>
+            </div>
+
+            {/* Pattern 2: Abandoner + Abandoned */}
+            <div className="bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 rounded-2xl p-8">
+              <h3 className="text-2xl font-serif font-bold text-primary mb-4">
+                The Abandoner + The Abandoned
+              </h3>
+              <p className="text-muted-foreground mb-4">
+                <strong className="text-primary">The Dynamic:</strong> One person fears being trapped and leaves before they can be left. The other fears being left and clings tighter, which triggers the abandoner to run.
+              </p>
+              <p className="text-muted-foreground mb-4">
+                <strong className="text-primary">The Wound:</strong> The abandoner learned love equals suffocation. The abandoned learned love equals loss.
+              </p>
+              <p className="text-sm text-primary/70 italic">
+                What it teaches: The abandoner learns commitment doesn't mean death. The abandoned learns they're whole without someone else.
+              </p>
+            </div>
+
+            {/* Pattern 3: Perfectionist + Rebel */}
+            <div className="bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 rounded-2xl p-8">
+              <h3 className="text-2xl font-serif font-bold text-primary mb-4">
+                The Perfectionist + The Rebel
+              </h3>
+              <p className="text-muted-foreground mb-4">
+                <strong className="text-primary">The Dynamic:</strong> One person needs order, control, and "doing things right." The other resists rules and structure. The perfectionist tries to fix the rebel; the rebel resists being controlled.
+              </p>
+              <p className="text-muted-foreground mb-4">
+                <strong className="text-primary">The Wound:</strong> The perfectionist learned love means earning approval through performance. The rebel learned love means losing freedom.
+              </p>
+              <p className="text-sm text-primary/70 italic">
+                What it teaches: The perfectionist learns to let go. The rebel learns structure isn't prison.
+              </p>
+            </div>
+
+            {/* Pattern 4: Rescuer + Victim */}
+            <div className="bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 rounded-2xl p-8">
+              <h3 className="text-2xl font-serif font-bold text-primary mb-4">
+                The Rescuer + The Victim
+              </h3>
+              <p className="text-muted-foreground mb-4">
+                <strong className="text-primary">The Dynamic:</strong> One person needs to be needed and fixes/saves the other. The other needs to be saved and stays helpless. Both are terrified of being alone.
+              </p>
+              <p className="text-muted-foreground mb-4">
+                <strong className="text-primary">The Wound:</strong> The rescuer learned love means being useful. The victim learned love means being taken care of.
+              </p>
+              <p className="text-sm text-primary/70 italic">
+                What it teaches: The rescuer learns they're lovable without fixing anyone. The victim learns they're capable without being saved.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-lg text-muted-foreground mb-8">
+              These patterns aren't accidents. They're your subconscious trying to heal what was wounded in childhood. The question is: <strong className="text-primary">Will you stay unconscious and repeat the cycle, or will you wake up and break it?</strong>
+            </p>
+            <Link href="/discovery">
+              <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full">
+                Break Your Pattern
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Steps Section */}
       <section className="py-20">
         <div className="container max-w-5xl">

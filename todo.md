@@ -641,3 +641,10 @@
 - [x] Check and fix title spacing on all pages for consistency
 - [x] Remove "Submit Testimonial" from main navigation (already not in nav)
 - [x] Keep Submit Testimonial page live but not in nav (for private sharing)
+
+
+## Common Love Wound Patterns Section (Jan 10, 2026)
+- [x] Add new section to How It Works page after Iron Sharpens Iron
+- [x] Include 4 real pattern examples: Anxious + Avoidant, Abandoner + Abandoned, Perfectionist + Rebel, Rescuer + Victim
+- [x] Show how matching wounds bring each other's wounds to surface for healing
+- [x] Design with visual cards or grid layout for easy scanning
