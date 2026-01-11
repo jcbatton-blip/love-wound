@@ -784,3 +784,7 @@
 - [x] Update ALL internal links site-wide to point to /the-practice
 - [x] Fix syntax error in DiscoverySession.tsx
 - [ ] Test complete user journey: form submission → database save → Calendly display
+
+
+## UI Cleanup (Jan 10, 2026)
+- [x] Remove sticky "Book Discovery Session" button from bottom right

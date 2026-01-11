@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import StickyBookButton from "@/components/StickyBookButton";
+
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -124,8 +124,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
 
-      {/* Sticky Book Button */}
-      <StickyBookButton />
+
 
       {/* Footer - Minimalist Editorial */}
       <footer className="bg-[#F0EBE0] py-20 border-t border-primary/5">
