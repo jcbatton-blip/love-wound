@@ -648,3 +648,35 @@
 - [x] Include 4 real pattern examples: Anxious + Avoidant, Abandoner + Abandoned, Perfectionist + Rebel, Rescuer + Victim
 - [x] Show how matching wounds bring each other's wounds to surface for healing
 - [x] Design with visual cards or grid layout for easy scanning
+
+
+## SITE REPOSITIONING: Session-Based → Root-Work Practice (Jan 10, 2026)
+
+### Homepage Updates
+- [x] Update hero subheadline to: "Awaken the self you already are — through a disciplined, relational practice that changes life at the root."
+- [x] Update hero body copy with practice-focused language
+- [x] Add new "Mirror → Practice" section
+- [x] Replace all "Free Discovery Session" CTAs with "Apply for Root-Work Mentorship"
+- [x] Add secondary CTA: "Learn How Root-Work Works"
+
+### Services Page Overhaul
+- [x] Reorder: Root-Work Mentorship (12-month) as PRIMARY offer at top
+- [x] Demote single sessions to bottom as "by application only"
+- [x] Update all copy to emphasize weekly practice over one-off sessions
+- [x] Change CTAs to "Apply for Root-Work Mentorship"
+
+### Site-Wide Language Cleanup
+- [x] Remove ALL "Free Discovery Session" language
+- [x] Remove "Book a Session", "Quick breakthrough", "One session can change everything"
+- [x] Standardize: Apply, Practice, Root-Work, Weekly, Long-term, Relational
+- [x] Add required sentence to all major pages: "Lasting change doesn't come from one-off sessions — it comes from a weekly practice that rewires how you relate to yourself."
+
+### FAQ Updates
+- [x] Add question: "Why do you require long-term commitment?"
+- [x] Remove any language about "quick breakthroughs" or "even one session"
+- [x] Emphasize practice, time, repetition, weekly work
+
+### Pruning
+- [x] Shorten paragraphs where possible
+- [x] Remove repeated metaphors that don't advance the offer
+- [x] Fewer words, more gravity

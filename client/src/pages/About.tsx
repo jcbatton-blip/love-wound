@@ -539,7 +539,7 @@ export default function About() {
           </p>
           <Link href="/discovery">
             <Button size="lg" className="font-serif text-lg px-8 py-6 h-auto">
-              Book Free Discovery Session
+              Apply for Root-Work Mentorship
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </Link>

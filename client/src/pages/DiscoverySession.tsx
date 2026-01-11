@@ -15,13 +15,13 @@ export default function DiscoverySession() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium tracking-widest uppercase mb-6">
-              Free Discovery Session
+              Application Call
             </div>
             <h1 className="text-5xl font-serif font-medium text-primary tracking-tight mb-4">
-              Let's Talk
+              Apply for Root-Work Mentorship
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
-              A 60-minute conversation to explore how the Mirror Method can transform your relationships. No pressure, no sales pitch—just clarity.
+              A 30-minute conversation to explore your relationship patterns and see if year-long Root-Work practice is right for you. No pressure, no sales pitch—just clarity about whether we're a good fit.
             </p>
           </div>
 
@@ -30,9 +30,9 @@ export default function DiscoverySession() {
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                 <Clock className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-serif text-lg text-primary mb-2">60 Minutes</h3>
+              <h3 className="font-serif text-lg text-primary mb-2">30 Minutes</h3>
               <p className="text-sm text-muted-foreground font-light">
-                Focused conversation about your specific relationship challenge
+                Focused conversation about your patterns and readiness for long-term practice
               </p>
             </div>
 
@@ -70,7 +70,7 @@ export default function DiscoverySession() {
               width="100%"
               height="800"
               frameBorder="0"
-              title="Schedule a Discovery Session"
+              title="Schedule an Application Call"
               onLoad={() => setIsLoading(false)}
               style={{ border: 'none', minHeight: '800px' }}
               className="calendly-inline-widget"

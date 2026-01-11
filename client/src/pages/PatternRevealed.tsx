@@ -118,19 +118,19 @@ export default function PatternRevealed() {
             {/* CTA Section */}
             <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-10 mt-12 text-center space-y-6">
               <h3 className="text-2xl font-serif text-primary">
-                Ready to See Your Pattern?
+                Ready to Break Your Pattern?
               </h3>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                In a free 30-minute discovery session, I'll help you identify the specific imprint that's been running your relationships—and show you how to rewrite it.
+                My year-long Root-Work Mentorship helps you identify the specific Love Wound running your relationships—and rewire it through consistent weekly practice.
               </p>
               <Link href="/discovery">
                 <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full transition-all duration-300 shadow-lg">
-                  Book Your Free Discovery Session
+                  Apply for Root-Work Mentorship
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
               <p className="text-sm text-muted-foreground">
-                No pressure. No sales pitch. Just clarity.
+                Lasting change doesn't come from one-off sessions — it comes from a weekly practice that rewires how you relate to yourself.
               </p>
             </div>
           </div>

@@ -36,18 +36,20 @@ export default function Services() {
   };
   const primaryTiers = [
     {
-      name: "Discovery Session",
-      price: "Free",
-      description: "Not sure where to start? Let's talk. Let's see if we're a match.",
+      name: "Root-Work Mentorship",
+      price: "TBD",
+      period: "/ 12 months",
+      description: "A year-long, weekly coaching relationship for people who are done managing symptoms and ready to change at the root. We don't chase behavior. We don't fix fruit. We work with the system underneath it all.",
       features: [
-        "60-Minute Video Call",
-        "Explore Your Pattern",
-        "No Pressure, No Pitch",
-        "See If We're A Fit"
+        "Weekly one-on-one sessions",
+        "Long-term relational depth",
+        "Root-pattern identification and reframing",
+        "Integration into real life and relationships",
+        "Optional intensives when deeper insertion is needed"
       ],
-      cta: "Book Discovery Session",
-      id: "discovery",
-      popular: false,
+      cta: "Apply for Root-Work Mentorship",
+      id: "root_work_mentorship",
+      popular: true,
       delay: 0,
       hasPaymentPlan: false
     },
@@ -69,10 +71,10 @@ export default function Services() {
     //   hasPaymentPlan: false
     // },
     {
-      name: "The Mirror Session",
+      name: "Root-Work Session",
       price: "350",
       id: "mirror_session",
-      description: "One session to see the thorn you've been protecting. Most coaches help you build a better cage. I show you what doesn't need to be there.",
+      description: "By Application Only. Single sessions are available on a limited basis for existing clients or as part of the application process. They can offer clarity and relief — but lasting change requires practice over time. This option is not the primary path.",
       features: [
         "100% Private & Confidential",
         "90-Minute Video Call",
@@ -80,8 +82,8 @@ export default function Services() {
         "No Observers, No Recording",
         "Full Attention on You"
       ],
-      cta: "Book A Session",
-      popular: true,
+      cta: "Request an Application Call",
+      popular: false,
       delay: 0.1,
       hasPaymentPlan: false
     },
@@ -186,10 +188,10 @@ export default function Services() {
         <div className="text-center space-y-6 mb-12">
           <h1 className="text-5xl md:text-6xl font-serif text-primary">Work With Jeff Batton</h1>
           <h2 className="text-2xl md:text-3xl font-serif text-primary/80">
-            From Group Support to Deep 1-on-1 Work
+            Year-Long Root-Work Practice
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
-            Start with The Inner Circle ($29/month). When you're ready for deeper work, we go 1-on-1. I don't sell advice—I sell awareness.
+            Lasting change doesn't come from one-off sessions — it comes from a weekly practice that rewires how you relate to yourself.
           </p>
 
           

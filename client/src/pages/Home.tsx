@@ -56,22 +56,28 @@ export default function Home() {
             
             <motion.div variants={fadeIn} className="space-y-5">
               <h2 className="text-xl md:text-2xl lg:text-3xl font-serif text-primary/80">
-                Awaken the Self You Already Are.
+                Awaken the self you already are — through a disciplined, relational practice that changes life at the root.
               </h2>
               <p className="text-base md:text-lg text-muted-foreground font-light max-w-xl mx-auto leading-relaxed">
-                You don't need fixing. You need remembering. Your patterns aren't problems—they're Love Wounds from before you had words for them.
+                You don't need fixing. You need remembering. Your patterns aren't problems — they're Love Wounds formed before you had words.
+              </p>
+              <p className="text-base md:text-lg text-muted-foreground font-light max-w-xl mx-auto leading-relaxed mt-4">
+                But insight alone doesn't change a life.
+              </p>
+              <p className="text-base md:text-lg text-muted-foreground font-light max-w-xl mx-auto leading-relaxed">
+                Lasting change comes from practice. From meeting weekly. From being mirrored honestly. From staying long enough to find the tap roots — and let them loosen naturally.
               </p>
             </motion.div>
             
             <motion.div variants={fadeIn} className="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center pointer-events-auto">
               <Link href="/discovery" className="inline-block">
                 <Button size="lg" className="bg-primary text-white hover:bg-white hover:text-primary hover:border-primary hover:border-2 font-serif text-base md:text-lg px-8 md:px-10 py-5 md:py-6 h-auto rounded-full transition-all duration-300 shadow-lg">
-                  Book Free Discovery Session
+                  Apply for Root-Work Mentorship
                 </Button>
               </Link>
-              <Link href="/pattern-revealed" className="inline-block">
+              <Link href="/how-it-works" className="inline-block">
                 <Button size="lg" className="bg-primary text-white hover:bg-white hover:text-primary hover:border-primary hover:border-2 font-serif text-base md:text-lg px-8 md:px-10 py-5 md:py-6 h-auto rounded-full transition-all duration-300 shadow-lg">
-                  See How Patterns Work
+                  Learn How Root-Work Works
                 </Button>
               </Link>
             </motion.div>
@@ -157,7 +163,43 @@ export default function Home() {
             <div className="pt-6">
               <Link href="/discovery">
                 <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full">
-                  Book Your Free Discovery Session
+                  Apply for Root-Work Mentorship
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Mirror → Practice Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-[#F0EBE0]/30">
+        <div className="container max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center space-y-8"
+          >
+            <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
+              A Mirror Is Where It Starts.<br />
+              Practice Is Where It Changes.
+            </h2>
+            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+              <p>
+                Most people don't stay stuck because they lack awareness. They stay stuck because their nervous system is trained for performance, self-denial, and survival.
+              </p>
+              <p className="text-2xl font-serif italic text-primary/80">
+                Awareness brings relief. Practice brings freedom.
+              </p>
+              <p>
+                That's why my work is structured as a <strong className="text-primary">year-long, weekly coaching relationship</strong> — not one-off sessions or quick breakthroughs.
+              </p>
+            </div>
+            <div className="pt-6">
+              <Link href="/discovery">
+                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full">
+                  Apply for Root-Work Mentorship
                 </Button>
               </Link>
             </div>
@@ -235,7 +277,7 @@ export default function Home() {
             <div className="text-center pt-8">
               <Link href="/discovery">
                 <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full">
-                  Book Your Free Discovery Session
+                  Apply for Root-Work Mentorship
                 </Button>
               </Link>
             </div>

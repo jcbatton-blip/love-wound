@@ -12,8 +12,8 @@ export default function HowItWorks() {
   const steps = [
     {
       icon: Calendar,
-      title: "Discovery Session",
-      duration: "60 minutes · Free",
+      title: "Application Call",
+      duration: "30 minutes",
       description: "We'll explore your relationship patterns and see if this work resonates with you. No pressure, no sales pitch—just clarity about whether we're a good fit."
     },
     {
@@ -32,6 +32,10 @@ export default function HowItWorks() {
 
   const faqs = [
     {
+      question: "Why do you require long-term commitment?",
+      answer: "Because your patterns were built over decades — and real change happens through repetition, not insight alone. Awareness is fast. Integration takes time. Lasting change doesn't come from one-off sessions — it comes from a weekly practice that rewires how you relate to yourself."
+    },
+    {
       question: "How is this different from therapy?",
       answer: "Therapy often focuses on understanding your past. This work focuses on changing your future. We're not just talking about patterns—we're interrupting them at the nervous system level. Think of it as therapy + coaching + somatic work."
     },
@@ -45,7 +49,7 @@ export default function HowItWorks() {
     },
     {
       question: "How long does this take?",
-      answer: "Most clients experience noticeable shifts within 3-4 sessions. Deep, lasting change typically happens over 3-6 months of consistent work. The timeline depends on how ingrained your pattern is and how ready you are to change it."
+      answer: "Most clients experience noticeable shifts within the first few months. Deep, lasting change typically happens over a year of consistent weekly practice. The timeline depends on how ingrained your pattern is and how ready you are to change it. This is Root-Work, not a quick fix."
     },
     {
       question: "What if my partner won't participate?",
@@ -499,7 +503,7 @@ export default function HowItWorks() {
                 Book a free discovery session. No commitment, no pressure—just an honest conversation about whether this work is right for you.
               </p>
               <Button size="lg" variant="secondary" className="font-serif rounded-full px-10 py-6 h-auto text-lg" asChild>
-                <Link href="/discovery">Book Your Free Discovery Session</Link>
+                <Link href="/discovery">Apply for Root-Work Mentorship</Link>
               </Button>
             </div>
             
