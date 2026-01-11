@@ -20,6 +20,7 @@ import ClientPortal from "./pages/ClientPortal";
 import DiscoverySession from "./pages/DiscoverySession";
 // import PatternRevealed from "./pages/PatternRevealed";
 import HowItWorks from "./pages/HowItWorks";
+import ThePractice from "./pages/ThePractice";
 import Success from "./pages/Success";
 import TenantPortal from "./pages/TenantPortal";
 import Speaking from "./pages/Speaking";
@@ -61,6 +62,7 @@ function Router() {
         <Route path="/about" component={About} />
         {/* <Route path="/pattern-revealed" component={PatternRevealed} /> */}
         <Route path="/how-it-works" component={HowItWorks} />
+        <Route path="/the-practice" component={ThePractice} />
         <Route path="/client-portal" component={ClientPortal} />
         <Route path="/discovery" component={DiscoverySession} />
         <Route path="/success" component={Success} />

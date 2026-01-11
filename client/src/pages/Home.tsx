@@ -67,6 +67,9 @@ export default function Home() {
               <p className="text-base md:text-lg text-muted-foreground font-light max-w-xl mx-auto leading-relaxed">
                 Lasting change comes from practice. From meeting weekly. From being mirrored honestly. From staying long enough to find the tap roots — and let them loosen naturally.
               </p>
+              <p className="text-base md:text-lg text-primary font-medium max-w-xl mx-auto leading-relaxed mt-6 border-l-4 border-primary pl-6 bg-primary/5 py-4 rounded-r-lg">
+                This work is designed as a long-term, weekly practice — because roots don't change in a single season.
+              </p>
             </motion.div>
             
             <motion.div variants={fadeIn} className="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center pointer-events-auto">

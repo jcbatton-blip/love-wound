@@ -25,11 +25,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/framework", label: "The Method" },
-    { href: "/how-it-works", label: "How It Works" },
-    { href: "/work-with-me", label: "Services" },
+    { href: "/the-practice", label: "The Practice" },
     { href: "/speaking", label: "Speaking" },
-    { href: "/membership", label: "Membership" },
     { href: "/vision", label: "Vision" },
   ];
 
@@ -79,7 +76,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               className="font-serif bg-primary text-white hover:bg-primary/90 rounded-full px-6"
             >
               <Link href="/discovery">
-                Book Free Call
+                Apply
               </Link>
             </Button>
           </nav>
@@ -115,7 +112,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               className="w-full font-serif mt-4 bg-primary text-white rounded-full py-6"
             >
               <Link href="/discovery">
-                Book Free Call
+                Apply
               </Link>
             </Button>
           </div>

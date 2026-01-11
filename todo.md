@@ -707,3 +707,49 @@
 - [x] FAQ: Add apprenticeship curiosity-kindling line
 - [x] DiscoverySession page: Replace "schedule a Discovery Session" with "explore if you're ready for a root-work journey? Start with an Application Call"
 - [ ] Testimonials: Upgrade format to show Before/After with practice-based outcomes (future task - need client stories)
+
+
+## FINAL EXECUTION BRIEF (Jan 10, 2026 - Landing It)
+### 1. Navigation Changes
+- [x] Replace "Book Free Call" button with "Apply" button in header
+- [x] Simplify nav structure to: Home, About, The Practice, Speaking, Vision, [Apply]
+- [x] Remove redundant navigation items (The Method, How It Works, Services, Membership)
+
+### 2. Page Consolidation
+- [x] Create new "The Practice" page
+- [x] Merge The Method + How It Works + Services content into The Practice
+- [x] Structure: What This Is → How It Works → Who This Is For → Commitment → CTA
+- [x] Update all internal links to point to /the-practice
+
+### 3. Language Cleanup (Site-Wide)
+- [x] Remove ALL instances of: "Book Free Call", "Discovery Call", "Free Session", "Breakthrough Session"
+- [x] Replace with: "Apply", "Application", "Application Conversation", "Readiness Conversation"
+
+### 4. Hero Section Addition
+- [x] Add mandatory line: "This work is designed as a long-term, weekly practice — because roots don't change in a single season."
+
+### 5. Application Page Overhaul
+- [x] Add pre-qualifier form before Calendly (3 questions: Why now? What tried? Ready for commitment?)
+- [x] Update title to "Apply for Root-Work Mentorship"
+- [x] Add required framing: "This application begins a conversation — not a commitment."
+- [x] Button: "Submit Application & Schedule Call" (then show Calendly)
+
+### 6. FAQ Cleanup
+- [x] Remove/rewrite any FAQ implying "one session can help" or "quick breakthroughs"
+- [x] Add required FAQ: "Why is this a long-term practice?"
+
+### 7. Apprenticeship Allusion (Optional)
+- [x] Add quiet apprenticeship paragraph at bottom of The Practice page
+
+### 8. Final Pruning
+- [x] Delete repeated philosophy explanations
+- [x] Delete redundant metaphors (removed entire SEO section, shortened Mirror → Practice)
+- [x] Cut anything that doesn't clarify practice or filter for readiness
+
+### 9. QA Checklist
+- [x] Confirm no "Free Call" language anywhere
+- [x] Confirm "Apply" is primary CTA
+- [x] Confirm services reframed as practice
+- [x] Confirm commitment clearly named
+- [x] Confirm navigation simplified
+- [x] Confirm no mixed signals

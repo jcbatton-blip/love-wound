@@ -504,7 +504,7 @@ export default function HowItWorks() {
                 Ready to Start?
               </h2>
               <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto">
-                Book a free discovery session. No commitment, no pressure—just an honest conversation about whether this work is right for you.
+                This application begins a conversation—not a commitment. Root-work requires readiness, honesty, and willingness to stay with the work. If that resonates, you're welcome to apply.
               </p>
               <Button size="lg" variant="secondary" className="font-serif rounded-full px-10 py-6 h-auto text-lg" asChild>
                 <Link href="/discovery">Apply for Root-Work Mentorship</Link>
