@@ -882,3 +882,6 @@
 
 ## Mobile Hero Spacing (Jan 13, 2026)
 - [x] Reduce mobile top padding - adjusted from pt-32 to pt-20 (desktop pt-28)
+
+## Copy Refinement (Jan 13, 2026)
+- [x] Change "A mirror" to "The mirror" for more authoritative branding

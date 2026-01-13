@@ -150,7 +150,7 @@ export default function Home() {
             className="text-center space-y-8"
           >
             <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
-              A Mirror Is Where It Starts.<br />
+              The Mirror Is Where It Starts.<br />
               Practice Is Where It Changes.
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
