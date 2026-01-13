@@ -66,7 +66,7 @@ export default function Sanctuary() {
               </div>
               <h3 className="text-2xl font-serif text-primary mb-4">Every Wednesday Night</h3>
               <p className="text-muted-foreground">
-                7:00 PM Central Time via Zoom. One hour. Drop in whenever you can—no RSVP required.
+                6:00 PM EST via Zoom. One hour. Drop in whenever you can—no RSVP required.
               </p>
             </div>
 
@@ -139,7 +139,7 @@ export default function Sanctuary() {
               </p>
               <div className="space-y-4">
                 <p className="text-lg text-primary-foreground/90">
-                  <strong>When:</strong> Every Wednesday at 7:00 PM Central<br />
+                  <strong>When:</strong> Every Wednesday at 6:00 PM EST<br />
                   <strong>Where:</strong> Zoom (link sent after registration)
                 </p>
                 <Button size="lg" variant="secondary" className="font-serif rounded-full px-10 py-6 h-auto text-lg" asChild>
