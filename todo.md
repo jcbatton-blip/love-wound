@@ -885,3 +885,6 @@
 
 ## Copy Refinement (Jan 13, 2026)
 - [x] Change "A mirror" to "The mirror" for more authoritative branding
+
+## Visual Refinement (Jan 13, 2026)
+- [x] Remove grey box background from commitment-anchoring text in hero mirror
