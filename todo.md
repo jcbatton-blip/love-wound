@@ -888,3 +888,6 @@
 
 ## Visual Refinement (Jan 13, 2026)
 - [x] Remove grey box background from commitment-anchoring text in hero mirror
+
+## Final Typography & Spacing Refinement (Jan 13, 2026)
+- [x] Adjust commitment text font size and spacing to prevent mirror frame overlap
