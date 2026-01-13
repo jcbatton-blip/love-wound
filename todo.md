@@ -873,3 +873,6 @@
 
 ## Homepage Copy Reduction (Jan 12, 2026)
 - [x] Remove "Lasting change" paragraph from hero section to reduce wordiness
+
+## Header Navigation Alignment (Jan 12, 2026)
+- [x] Adjust navigation spacing for better visual balance (reduced ml-16 to ml-12)
