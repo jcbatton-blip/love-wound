@@ -891,3 +891,23 @@
 
 ## Final Typography & Spacing Refinement (Jan 13, 2026)
 - [x] Adjust commitment text font size and spacing to prevent mirror frame overlap
+
+## Fine-Tuning Pass (Jan 13, 2026)
+- [ ] Fix "You're free" line break - keep together on one line
+- [ ] Check and adjust spacing in "A Relational Practice" section
+- [ ] Reduce padding in dark blue CTA box
+- [ ] Remove "The Kit" ($47) from About/Ways to Work With Me page
+- [ ] Add Recovering Evangelical YouTube link to footer
+- [ ] Add JBLC Instagram link to footer
+- [ ] Add LinkedIn link to footer
+- [ ] Review and correct footer navigation structure
+
+## New Offerings Structure Implementation (Jan 13, 2026)
+- [x] Update The Practice page with couples pricing ($18K/year or $1,800/month)
+- [x] Update The Practice page with monthly premium pricing (solo $1,200/month, couples $1,800/month)
+- [x] Add note that Sanctuary community access is included in mentorship
+- [x] Create new Sanctuary page (free Wednesday night community)
+- [x] Remove "Ways to Work With Me" section from About page
+- [x] Add THE SANCTUARY to header navigation
+- [x] Add social media links (YouTube, Instagram, LinkedIn) to footer
+- [x] Review and verify footer navigation links

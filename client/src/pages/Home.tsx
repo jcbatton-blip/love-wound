@@ -300,7 +300,7 @@ export default function Home() {
                 Stop Draining Your Cup. The Overflow Happens Naturally.
               </h2>
               <p className="text-2xl text-primary/70 font-serif italic">
-                When your cup is full, you don't notice the slights, the injustices, or the black-tie dress code. You're free.
+                When your cup is full, you don't notice the slights, the injustices, or the black-tie dress code. You're free.
               </p>
             </div>
 

@@ -7,8 +7,8 @@ export default function ThePractice() {
   return (
     <div className="min-h-screen bg-[#F9F7F2]">
       {/* Hero */}
-      <section className="py-24 bg-gradient-to-b from-[#F0EBE0] to-[#F9F7F2]">
-        <div className="container max-w-4xl text-center space-y-8">
+      <section className="py-20 bg-gradient-to-b from-[#F0EBE0] to-[#F9F7F2]">
+        <div className="container max-w-4xl text-center space-y-6">
           <div className="inline-block px-6 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium tracking-widest uppercase">
             Root-Work Mentorship
           </div>
@@ -169,10 +169,22 @@ export default function ThePractice() {
             <p className="text-lg text-muted-foreground leading-relaxed">
               You'll need to show up weekly, be willing to see your pattern, and practice new responses until they become automatic. Most clients say the same thing: "I wish I'd done this years ago."
             </p>
-            <div className="pt-6">
+            <div className="pt-6 space-y-6">
               <p className="text-2xl font-serif text-primary mb-4">Investment</p>
-              <p className="text-4xl font-serif text-primary mb-2">$12,000</p>
-              <p className="text-sm text-muted-foreground">12 months of weekly practice ($1,000/month payment plan available)</p>
+              
+              <div className="space-y-4">
+                <div>
+                  <p className="text-3xl font-serif text-primary mb-1">Solo Practice</p>
+                  <p className="text-lg text-muted-foreground">$12,000/year (paid in full) or $1,200/month</p>
+                </div>
+                
+                <div>
+                  <p className="text-3xl font-serif text-primary mb-1">Couples Practice</p>
+                  <p className="text-lg text-muted-foreground">$18,000/year (paid in full) or $1,800/month</p>
+                </div>
+              </div>
+              
+              <p className="text-sm text-primary/60 italic pt-2">Both include weekly sessions + Sanctuary community access</p>
             </div>
           </div>
         </div>
@@ -198,7 +210,7 @@ export default function ThePractice() {
       {/* CTA */}
       <section className="py-20 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]">
         <div className="container max-w-4xl">
-          <div className="bg-primary text-primary-foreground rounded-3xl p-12 md:p-20 relative overflow-hidden">
+          <div className="bg-primary text-primary-foreground rounded-3xl p-8 md:p-12 relative overflow-hidden">
             <div className="relative z-10 space-y-8 text-center">
               <h2 className="text-3xl md:text-5xl font-serif font-bold">
                 Ready to Begin?
