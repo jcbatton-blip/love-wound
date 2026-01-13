@@ -84,9 +84,6 @@ export default function Home() {
               <p className="text-base md:text-lg text-muted-foreground font-light max-w-xl mx-auto leading-relaxed">
                 You don't need fixing. You need remembering. Your patterns aren't problems — they're Love Wounds formed before you had words.
               </p>
-              <p className="text-base md:text-lg text-muted-foreground font-light max-w-xl mx-auto leading-relaxed">
-                Lasting change comes from practice. From meeting weekly. From being mirrored honestly. From staying long enough to find the tap roots — and let them loosen naturally.
-              </p>
               <p className="text-base md:text-lg text-primary font-medium max-w-xl mx-auto leading-relaxed mt-6 bg-primary/5 px-6 py-4 rounded-lg">
                 This work is designed for people willing to stay — because roots only change through time and relationship.
               </p>

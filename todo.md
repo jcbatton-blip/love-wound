@@ -870,3 +870,6 @@
 - [ ] Remove any "Book," "Free," or "Call" language
 - [x] Ensure site filters rather than persuades
 - [x] Verify calm, grounded, confident tone throughout
+
+## Homepage Copy Reduction (Jan 12, 2026)
+- [x] Remove "Lasting change" paragraph from hero section to reduce wordiness
