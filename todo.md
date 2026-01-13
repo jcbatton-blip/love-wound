@@ -876,3 +876,6 @@
 
 ## Header Navigation Alignment (Jan 12, 2026)
 - [x] Adjust navigation spacing for better visual balance (reduced ml-16 to ml-12)
+
+## Hero Section Positioning (Jan 13, 2026)
+- [x] Move mirror down - added pt-32 md:pt-24 to hero section
