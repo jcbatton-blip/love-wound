@@ -27,7 +27,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     { href: "/about", label: "About" },
     { href: "/the-practice", label: "The Practice" },
     { href: "/sanctuary", label: "The Sanctuary" },
-    { href: "/speaking", label: "Speaking" },
   ];
 
 
@@ -181,22 +180,22 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           <div className="space-y-6">
-            <h4 className="font-serif text-lg text-primary">Client Portal</h4>
+            <h4 className="font-serif text-lg text-primary">More</h4>
             <ul className="space-y-3">
+              <li>
+                <Link href="/speaking" className="text-primary/60 hover:text-primary transition-colors font-light">
+                  Speaking
+                </Link>
+              </li>
               <li>
                 <a 
                   href="https://us02web.zoom.us/j/6811699428" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-primary/60 hover:text-primary transition-colors font-light flex items-center gap-2 justify-center md:justify-start"
+                  className="text-primary/60 hover:text-primary transition-colors font-light"
                 >
                   Join Session (Zoom)
                 </a>
-              </li>
-              <li>
-                <span className="text-primary/40 font-light text-sm italic">
-                  More tools coming soon...
-                </span>
               </li>
             </ul>
           </div>

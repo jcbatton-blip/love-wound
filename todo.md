@@ -922,3 +922,12 @@
 - [x] Update navigation to show single link
 - [x] Update all internal links pointing to either page
 - [x] Add redirect from unused route to primary route
+
+## Three-Tier Practice Architecture Implementation (Jan 15, 2026)
+- [x] Add Practice Circle section to The Practice page ($250/month, 2 group + 1 private session)
+- [x] Add Apprenticeship section to The Practice page (narrative only, no CTA)
+- [x] Prune all transactional "sessions for sale" language
+- [x] Update all CTAs to "Apply" (remove "Book" or "Schedule")
+- [x] Move Speaking to footer (Vision already merged with Sanctuary)
+- [ ] Verify canonical domain (non-www) - needs DNS check
+- [x] Remove any legacy "free call" or "booking" language from discovery page

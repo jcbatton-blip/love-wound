@@ -137,7 +137,7 @@ export default function DiscoverySession() {
                 </div>
                 <div className="text-center pt-4">
                   <Button type="submit" size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-12 py-6 h-auto rounded-full">
-                    Submit Application & Schedule Conversation
+                    Submit Application
                   </Button>
                 </div>
               </form>
