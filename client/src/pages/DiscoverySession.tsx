@@ -6,6 +6,7 @@ export default function DiscoverySession() {
   const [isLoading, setIsLoading] = useState(true);
   const [showCalendar, setShowCalendar] = useState(false);
   const [formData, setFormData] = useState({
+    offering: '', // 'mentorship' or 'practice-circle'
     whyNow: '',
     whatTried: '',
     readyForCommitment: '',
@@ -99,6 +100,43 @@ export default function DiscoverySession() {
                 These questions help us both determine if this work is a good fit. Please answer honestly—there are no "right" answers.
               </p>
               <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-primary font-medium mb-3">
+                    Which offering are you applying for?
+                  </label>
+                  <div className="space-y-3">
+                    <label className="flex items-start gap-3 p-4 border border-primary/20 rounded-lg cursor-pointer hover:bg-primary/5 transition-colors">
+                      <input
+                        type="radio"
+                        name="offering"
+                        value="mentorship"
+                        required
+                        checked={formData.offering === 'mentorship'}
+                        onChange={(e) => setFormData({ ...formData, offering: e.target.value })}
+                        className="mt-1"
+                      />
+                      <div>
+                        <p className="font-medium text-primary">Root-Work Mentorship</p>
+                        <p className="text-sm text-muted-foreground">Year-long weekly 1:1 practice ($12K/$18K annually)</p>
+                      </div>
+                    </label>
+                    <label className="flex items-start gap-3 p-4 border border-primary/20 rounded-lg cursor-pointer hover:bg-primary/5 transition-colors">
+                      <input
+                        type="radio"
+                        name="offering"
+                        value="practice-circle"
+                        required
+                        checked={formData.offering === 'practice-circle'}
+                        onChange={(e) => setFormData({ ...formData, offering: e.target.value })}
+                        className="mt-1"
+                      />
+                      <div>
+                        <p className="font-medium text-primary">Practice Circle</p>
+                        <p className="text-sm text-muted-foreground">Monthly practice: 2 group sessions + 1 private session ($250/month)</p>
+                      </div>
+                    </label>
+                  </div>
+                </div>
                 <div>
                   <label className="block text-primary font-medium mb-2">
                     Why now? What's happening in your life that makes you ready for this work?

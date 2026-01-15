@@ -91,6 +91,16 @@ export const PRODUCTS = [
     currency: "usd",
     type: "one_time",
     calendlyLink: null, // Custom scheduling for retreats
+  },
+  {
+    id: "practice_circle",
+    name: "Practice Circle",
+    description: "Monthly relational practice: 2 group sessions + 1 private session. Ongoing awareness work.",
+    price: 25000, // $250/month in cents
+    currency: "usd",
+    type: "subscription",
+    interval: "month",
+    calendlyLink: null, // Scheduled after acceptance
   }
 ];
 

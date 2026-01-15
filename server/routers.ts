@@ -78,22 +78,43 @@ export const appRouter = router({
 
         const origin = ctx.req.headers.origin || ctx.req.headers.referer?.replace(/\/$/, '') || 'https://lovewound.com';
 
+        // Determine mode based on product type
+        const isSubscription = product.type === 'subscription';
+        const mode = isSubscription ? 'subscription' : 'payment';
+
+        const lineItemConfig: any = {
+          quantity: 1,
+        };
+
+        if (isSubscription) {
+          // For subscriptions, use price_data with recurring
+          lineItemConfig.price_data = {
+            currency: product.currency,
+            product_data: {
+              name: product.name,
+              description: product.description,
+            },
+            unit_amount: product.price,
+            recurring: {
+              interval: product.interval || 'month',
+            },
+          };
+        } else {
+          // For one-time payments
+          lineItemConfig.price_data = {
+            currency: product.currency,
+            product_data: {
+              name: product.name,
+              description: product.description,
+            },
+            unit_amount: product.price,
+          };
+        }
+
         const session = await stripe.checkout.sessions.create({
           payment_method_types: ["card"],
-          line_items: [
-            {
-              price_data: {
-                currency: product.currency,
-                product_data: {
-                  name: product.name,
-                  description: product.description,
-                },
-                unit_amount: product.price,
-              },
-              quantity: 1,
-            },
-          ],
-          mode: "payment",
+          line_items: [lineItemConfig],
+          mode,
           success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}&product_id=${input.productId}`,
           cancel_url: `${origin}/services`,
           allow_promotion_codes: true,

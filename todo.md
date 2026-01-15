@@ -931,3 +931,16 @@
 - [x] Move Speaking to footer (Vision already merged with Sanctuary)
 - [ ] Verify canonical domain (non-www) - needs DNS check
 - [x] Remove any legacy "free call" or "booking" language from discovery page
+
+## Practice Circle Application & Billing (Jan 15, 2026)
+- [x] Create separate Practice Circle application form (different questions than Root-Work Mentorship)
+- [x] Set up $250/month recurring Stripe billing for Practice Circle
+- [x] Add Practice Circle product/price to Stripe
+- [x] Create Practice Circle checkout flow
+- [x] Update application form to route to correct offering
+
+## Speaking Page Development (Jan 15, 2026)
+- [x] Build Speaking page with overview of unique approach
+- [x] Explain what Jeff talks about and why
+- [x] Highlight what makes Jeff's speaking unique
+- [x] Add booking/inquiry CTA
