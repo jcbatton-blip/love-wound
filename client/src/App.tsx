@@ -68,7 +68,9 @@ function Router() {
         <Route path="/patterns" component={Patterns} />
         <Route path="/book" component={Book} />
         <Route path="/coaches" component={Coaches} />
-        <Route path="/vision" component={Vision} />
+        <Route path="/vision">
+          <Redirect to="/sanctuary" />
+        </Route>
         <Route path="/membership" component={Membership} />
         <Route path="/member-portal" component={MemberPortal} />
         <Route path="/about" component={About} />

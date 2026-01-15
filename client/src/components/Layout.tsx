@@ -28,7 +28,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     { href: "/the-practice", label: "The Practice" },
     { href: "/sanctuary", label: "The Sanctuary" },
     { href: "/speaking", label: "Speaking" },
-    { href: "/vision", label: "Vision" },
   ];
 
 

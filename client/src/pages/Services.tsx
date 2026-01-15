@@ -588,7 +588,7 @@ export default function Services() {
                 asChild
                 className="px-8 py-6 rounded-full font-serif text-lg bg-[#D4AF37] text-[#1A2333] hover:bg-[#C49F27]"
               >
-                <a href="/vision">
+                <a href="/sanctuary">
                   See the Vision <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </Button>

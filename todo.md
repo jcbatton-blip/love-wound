@@ -913,5 +913,12 @@
 - [x] Review and verify footer navigation links
 
 ## Mobile Spacing Refinement (Jan 14, 2026 - Round 2)
-- [ ] Reduce mobile hero top padding from pt-12 to pt-6 for tighter premium spacing
+- [x] Reduce mobile hero top padding from pt-12 to pt-6 for tighter premium spacing
 - [ ] Test on mobile after publish to verify improved spacing
+
+## Vision & Sanctuary Page Merge (Jan 14, 2026)
+- [x] Merge Vision and Sanctuary pages into single page
+- [x] Decide which route to keep (/vision or /sanctuary)
+- [x] Update navigation to show single link
+- [x] Update all internal links pointing to either page
+- [x] Add redirect from unused route to primary route
