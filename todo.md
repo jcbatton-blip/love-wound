@@ -911,3 +911,7 @@
 - [x] Add THE SANCTUARY to header navigation
 - [x] Add social media links (YouTube, Instagram, LinkedIn) to footer
 - [x] Review and verify footer navigation links
+
+## Mobile Spacing Refinement (Jan 14, 2026 - Round 2)
+- [ ] Reduce mobile hero top padding from pt-12 to pt-6 for tighter premium spacing
+- [ ] Test on mobile after publish to verify improved spacing
