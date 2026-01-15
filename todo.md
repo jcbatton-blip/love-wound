@@ -944,3 +944,10 @@
 - [x] Explain what Jeff talks about and why
 - [x] Highlight what makes Jeff's speaking unique
 - [x] Add booking/inquiry CTA
+
+## Practice Circle Payment Flow (Jan 15, 2026)
+- [x] Create Practice Circle checkout page
+- [x] Add route for Practice Circle payment
+- [x] Implement Stripe checkout integration for Practice Circle subscription
+- [ ] Add success page handling for Practice Circle - uses existing /success page
+- [ ] Test end-to-end flow: application → acceptance → payment - needs manual testing

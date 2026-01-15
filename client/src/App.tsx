@@ -25,6 +25,7 @@ import Success from "./pages/Success";
 import TenantPortal from "./pages/TenantPortal";
 import Speaking from "./pages/Speaking";
 import Sanctuary from "./pages/Sanctuary";
+import PracticeCircleCheckout from "./pages/PracticeCircleCheckout";
 import AdminTestimonials from "./pages/AdminTestimonials";
 import SubmitTestimonial from "./pages/SubmitTestimonial";
 import AdminApplications from "./pages/AdminApplications";
@@ -82,6 +83,7 @@ function Router() {
         <Route path="/tenant-portal" component={TenantPortal} />
         <Route path="/speaking" component={Speaking} />
         <Route path="/sanctuary" component={Sanctuary} />
+        <Route path="/practice-circle/checkout" component={PracticeCircleCheckout} />
         <Route path="/admin/testimonials" component={AdminTestimonials} />
         <Route path="/submit-testimonial" component={SubmitTestimonial} />
         <Route path="/admin/applications" component={AdminApplications} />
