@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <div className="overflow-hidden bg-background">
       {/* Hero Section - Content Centered in Mirror */}
-      <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-[#F9F7F2] pt-20 md:pt-28">
+      <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-[#F9F7F2] pt-12 md:pt-28">
         {/* Subtle Background Texture */}
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
         
@@ -64,27 +64,27 @@ export default function Home() {
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="max-w-2xl mx-auto text-center space-y-8 px-4"
+            className="max-w-2xl mx-auto text-center space-y-6 md:space-y-8 px-6 md:px-4 py-8 md:py-0"
           >
             <motion.div variants={fadeIn}>
-              <span className="font-serif italic text-lg md:text-xl text-primary/70 tracking-wide">
+              <span className="font-serif italic text-base md:text-xl text-primary/70 tracking-wide">
                 The Love Wound Mirror™
               </span>
             </motion.div>
             
-            <motion.h1 variants={fadeIn} className="text-4xl md:text-6xl lg:text-7xl font-serif font-medium text-primary leading-tight">
+            <motion.h1 variants={fadeIn} className="text-3xl md:text-6xl lg:text-7xl font-serif font-medium text-primary leading-tight">
               You Don't Need A Guru.<br />
               <span className="italic">You Need A Mirror.</span>
             </motion.h1>
             
-            <motion.div variants={fadeIn} className="space-y-5">
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-serif text-primary/80">
+            <motion.div variants={fadeIn} className="space-y-4 md:space-y-5">
+              <h2 className="text-lg md:text-2xl lg:text-3xl font-serif text-primary/80">
                 Awaken the self you already are — through a disciplined, relational practice that changes life at the root.
               </h2>
-              <p className="text-base md:text-lg text-muted-foreground font-light max-w-xl mx-auto leading-relaxed">
+              <p className="text-sm md:text-lg text-muted-foreground font-light max-w-xl mx-auto leading-relaxed px-2">
                 You don't need fixing. You need remembering. Your patterns aren't problems — they're Love Wounds formed before you had words.
               </p>
-              <p className="text-sm md:text-base text-primary font-medium max-w-lg mx-auto leading-relaxed mt-6 mb-8">
+              <p className="text-sm md:text-base text-primary font-medium max-w-lg mx-auto leading-relaxed mt-4 mb-6 md:mt-6 md:mb-8 px-2">
                 This work is designed for people willing to stay — because roots only change through time and relationship.
               </p>
             </motion.div>
