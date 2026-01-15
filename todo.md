@@ -951,3 +951,11 @@
 - [x] Implement Stripe checkout integration for Practice Circle subscription
 - [ ] Add success page handling for Practice Circle - uses existing /success page
 - [ ] Test end-to-end flow: application → acceptance → payment - needs manual testing
+
+## Automated Welcome Letters (Jan 15, 2026)
+- [x] Draft Practice Circle welcome letter content (expectations, guidelines, what to expect)
+- [x] Draft Root-Work Mentorship welcome letter content (expectations, guidelines, what to expect)
+- [x] Implement automated email sending after Stripe payment confirmation
+- [x] Add welcome letter templates to codebase
+- [ ] Test welcome letter delivery for both offerings - needs manual testing
+- [x] Include: stable internet requirement, 24-hour cancellation notice, notification-free environment, session logistics
