@@ -959,3 +959,29 @@
 - [x] Add welcome letter templates to codebase
 - [ ] Test welcome letter delivery for both offerings - needs manual testing
 - [x] Include: stable internet requirement, 24-hour cancellation notice, notification-free environment, session logistics
+
+## ChatGPT Critique Implementation (Jan 15, 2026)
+### A) Practice Page Functional QA
+- [x] Test all "Apply" buttons on The Practice page (desktop + mobile) - ensure correct destination
+- [ ] Test application form end-to-end (submit test, verify confirmation, check inbox/CRM receipt) - needs manual testing
+- [ ] Mobile layout audit for Practice Circle and Apprenticeship sections (no overlap, proper spacing, visible buttons) - needs manual testing
+- [ ] Test anchor/scroll behavior for jump links - needs manual testing
+
+### B) Site Coherence
+- [x] Search and remove all "free discovery" / "book now" / "discovery call" language sitewide
+- [x] Confirm navigation points only to current pages (no legacy Syllabus, old Services, old booking pages)
+- [x] Update meta description to remove "Book a free discovery session"
+
+### C) Canonical Domain & Legacy URL Redirects
+- [x] Force single canonical domain (jeffbatton.com vs www.jeffbatton.com) with 301 redirects
+- [x] Add canonical tags to all pages
+- [x] Implement 301 redirects for legacy URLs: /service, /faq, /thesyllabus, /myapproach, /service-page/*
+- [x] Update sitemap.xml with current pages only
+- [ ] Submit sitemap to Google Search Console - requires manual GSC access
+- [ ] Request indexing for Home, The Practice, Apply pages - requires manual GSC access
+- [ ] Request removal of legacy URLs in Google Search Console - requires manual GSC access
+
+### D) Coaches Page Decision
+- [x] Audit /coaches page content and positioning
+- [x] Decide: remove from nav + noindex (chosen approach)
+- [x] Implement noindex meta tag on /coaches page

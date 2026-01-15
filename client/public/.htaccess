@@ -1,0 +1,24 @@
+# Canonical Domain Enforcement
+# Force www to non-www (jeffbatton.com as canonical)
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.jeffbatton\.com$ [NC]
+RewriteRule ^(.*)$ https://jeffbatton.com/$1 [R=301,L]
+
+# Legacy URL Redirects (Wix-era pages)
+# Redirect /service to The Practice page
+RewriteRule ^service/?$ /the-practice [R=301,L]
+RewriteRule ^service-page/(.*)$ /the-practice [R=301,L]
+
+# Redirect /faq (remove or redirect to homepage)
+RewriteRule ^faq/?$ / [R=301,L]
+
+# Redirect /thesyllabus (remove)
+RewriteRule ^thesyllabus/?$ / [R=301,L]
+
+# Redirect /myapproach to About page
+RewriteRule ^myapproach/?$ /about [R=301,L]
+
+# Redirect old booking/discovery pages to application
+RewriteRule ^book-online/?$ /discovery [R=301,L]
+RewriteRule ^discovery-call/?$ /discovery [R=301,L]
+RewriteRule ^schedule/?$ /discovery [R=301,L]

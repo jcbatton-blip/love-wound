@@ -4,8 +4,21 @@ import { ArrowRight, Check, Users, BookOpen, Award, Heart, Target, Lightbulb, Gr
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { trackEvent } from "@/lib/analytics";
+import { useEffect } from "react";
 
 export default function Coaches() {
+  // Set noindex for this page until certification program launches
+  useEffect(() => {
+    const metaRobots = document.createElement('meta');
+    metaRobots.name = 'robots';
+    metaRobots.content = 'noindex, nofollow';
+    document.head.appendChild(metaRobots);
+    
+    return () => {
+      document.head.removeChild(metaRobots);
+    };
+  }, []);
+  
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
