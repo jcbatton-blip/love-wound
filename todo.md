@@ -993,3 +993,6 @@
 - [x] Add comparison table for Root-Work vs Practice Circle
 - [ ] Test visual hierarchy and scannability - needs manual testing
 - [ ] Verify mobile layout for Practice Circle section - needs manual testing
+
+## Comparison Table Update (Jan 16, 2026)
+- [x] Change "Sanctuary Access" row to "Weekly Sessions" in comparison table

@@ -228,7 +228,7 @@ export default function ThePractice() {
                     <td className="p-6 text-center text-muted-foreground">Ongoing awareness practice</td>
                   </tr>
                   <tr className="bg-primary/5">
-                    <td className="p-6 font-medium text-muted-foreground">Sanctuary Access</td>
+                    <td className="p-6 font-medium text-muted-foreground">Weekly Sessions</td>
                     <td className="p-6 text-center"><Check className="w-6 h-6 text-primary mx-auto" /></td>
                     <td className="p-6 text-center"><Check className="w-6 h-6 text-primary mx-auto" /></td>
                   </tr>
