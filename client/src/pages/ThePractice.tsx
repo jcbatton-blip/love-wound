@@ -107,84 +107,139 @@ export default function ThePractice() {
         </div>
       </section>
 
-      {/* SECTION 2: PRACTICE CIRCLE */}
-      <section className="py-20 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]">
+      {/* SECTION 2: PRACTICE CIRCLE - WITH VISUAL SEPARATION */}
+      <section className="py-20 bg-[#EDE8DC]">
         <div className="container max-w-3xl">
-          <h2 className="text-4xl font-serif text-primary text-center mb-12">
-            The Root-Work Practice Circle
-          </h2>
-          
-          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-            <p>
-              A monthly, relational practice for people who are done trying to fix themselves and ready to stay with what's real.
-            </p>
-            <p>
-              This is not traditional coaching.
-            </p>
-            <p>
-              It's not problem-solving.
-            </p>
-            <p>
-              And it's not about self-improvement.
-            </p>
-            <p>
-              The Practice Circle exists for those who want to practice awareness over time—together—so insight doesn't disappear the moment life gets uncomfortable.
-            </p>
-          </div>
-
-          {/* What's Included */}
-          <div className="bg-white rounded-2xl p-8 border border-primary/10 mt-12">
-            <h3 className="text-2xl font-serif text-primary mb-6">What's Included</h3>
-            <ul className="space-y-4 text-muted-foreground">
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                <span>Two live group practice sessions per month</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                <span>One private session per month, held within the practice</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                <span>Continuity, rhythm, and relationship</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* What It Is Not */}
-          <div className="bg-gradient-to-br from-muted/30 to-muted/50 rounded-2xl p-8 border border-muted mt-8">
-            <h3 className="text-2xl font-serif text-primary mb-6">What It Is Not</h3>
-            <ul className="space-y-4 text-muted-foreground">
-              <li className="flex items-start gap-3">
-                <X className="w-5 h-5 text-muted-foreground/50 mt-0.5 flex-shrink-0" />
-                <span>Not therapy</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <X className="w-5 h-5 text-muted-foreground/50 mt-0.5 flex-shrink-0" />
-                <span>Not crisis support</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <X className="w-5 h-5 text-muted-foreground/50 mt-0.5 flex-shrink-0" />
-                <span>Not drop-in coaching</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <X className="w-5 h-5 text-muted-foreground/50 mt-0.5 flex-shrink-0" />
-                <span>Not a substitute for Root-Work Mentorship</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Investment */}
-          <div className="bg-white rounded-2xl p-12 border border-primary/10 text-center space-y-6 mt-12">
-            <p className="text-2xl font-serif text-primary mb-4">Investment</p>
-            <p className="text-3xl font-serif text-primary">$250/month</p>
+          <div className="bg-[#F5F2EA] rounded-3xl p-12 border-2 border-primary/20 shadow-lg">
+            <h2 className="text-4xl font-serif text-primary text-center mb-12">
+              The Root-Work Practice Circle
+            </h2>
             
-            <div className="pt-6">
-              <Button size="lg" className="font-serif rounded-full px-10 py-6 h-auto text-lg bg-primary text-white hover:bg-primary/90" asChild>
-                <Link href="/discovery">Apply to the Practice Circle <ArrowRight className="w-5 h-5 ml-2" /></Link>
-              </Button>
+            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+              <p>
+                A monthly, relational practice for people who are done trying to fix themselves and ready to stay with what's real.
+              </p>
+              <p>
+                This is not traditional coaching. It's not problem-solving. And it's not about self-improvement.
+              </p>
+              <p>
+                The Practice Circle exists for those who want to practice awareness over time—together—so insight doesn't disappear the moment life gets uncomfortable.
+              </p>
+            </div>
+
+            {/* What's Included */}
+            <div className="bg-white rounded-2xl p-8 border border-primary/10 mt-12">
+              <h3 className="text-2xl font-serif text-primary mb-6">What's Included</h3>
+              <ul className="space-y-4 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Two live group practice sessions per month</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span>One private session per month, held within the practice</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Continuity, rhythm, and relationship</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* What It Is Not */}
+            <div className="bg-gradient-to-br from-muted/30 to-muted/50 rounded-2xl p-8 border border-muted mt-8">
+              <h3 className="text-2xl font-serif text-primary mb-6">What It Is Not</h3>
+              <ul className="space-y-4 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <X className="w-5 h-5 text-muted-foreground/50 mt-0.5 flex-shrink-0" />
+                  <span>Not therapy</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <X className="w-5 h-5 text-muted-foreground/50 mt-0.5 flex-shrink-0" />
+                  <span>Not crisis support</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <X className="w-5 h-5 text-muted-foreground/50 mt-0.5 flex-shrink-0" />
+                  <span>Not drop-in coaching</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <X className="w-5 h-5 text-muted-foreground/50 mt-0.5 flex-shrink-0" />
+                  <span>Not a substitute for Root-Work Mentorship</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Investment */}
+            <div className="bg-white rounded-2xl p-12 border border-primary/10 text-center space-y-6 mt-12">
+              <p className="text-2xl font-serif text-primary mb-4">Investment</p>
+              <p className="text-3xl font-serif text-primary">$250/month</p>
+              
+              <div className="pt-6">
+                <Button size="lg" className="font-serif rounded-full px-10 py-6 h-auto text-lg bg-primary text-white hover:bg-primary/90" asChild>
+                  <Link href="/discovery">Apply to the Practice Circle <ArrowRight className="w-5 h-5 ml-2" /></Link>
+                </Button>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* COMPARISON TABLE */}
+      <section className="py-20 bg-[#F9F7F2]">
+        <div className="container max-w-5xl">
+          <h2 className="text-4xl font-serif text-primary text-center mb-12">
+            Which Practice Is Right for You?
+          </h2>
+          
+          <div className="bg-white rounded-2xl border border-primary/10 overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-primary/5">
+                    <th className="text-left p-6 font-serif text-xl text-primary">Feature</th>
+                    <th className="text-center p-6 font-serif text-xl text-primary">Root-Work Mentorship</th>
+                    <th className="text-center p-6 font-serif text-xl text-primary">Practice Circle</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-primary/10">
+                  <tr>
+                    <td className="p-6 font-medium text-muted-foreground">Frequency</td>
+                    <td className="p-6 text-center text-muted-foreground">Weekly (52 sessions/year)</td>
+                    <td className="p-6 text-center text-muted-foreground">Monthly (3 sessions/month)</td>
+                  </tr>
+                  <tr className="bg-primary/5">
+                    <td className="p-6 font-medium text-muted-foreground">Format</td>
+                    <td className="p-6 text-center text-muted-foreground">Private 1-on-1</td>
+                    <td className="p-6 text-center text-muted-foreground">2 group + 1 private</td>
+                  </tr>
+                  <tr>
+                    <td className="p-6 font-medium text-muted-foreground">Commitment</td>
+                    <td className="p-6 text-center text-muted-foreground">12 months</td>
+                    <td className="p-6 text-center text-muted-foreground">Month-to-month</td>
+                  </tr>
+                  <tr className="bg-primary/5">
+                    <td className="p-6 font-medium text-muted-foreground">Investment</td>
+                    <td className="p-6 text-center text-muted-foreground">$12K-$18K/year</td>
+                    <td className="p-6 text-center text-muted-foreground">$250/month</td>
+                  </tr>
+                  <tr>
+                    <td className="p-6 font-medium text-muted-foreground">Best For</td>
+                    <td className="p-6 text-center text-muted-foreground">Deep root-level pattern work</td>
+                    <td className="p-6 text-center text-muted-foreground">Ongoing awareness practice</td>
+                  </tr>
+                  <tr className="bg-primary/5">
+                    <td className="p-6 font-medium text-muted-foreground">Sanctuary Access</td>
+                    <td className="p-6 text-center"><Check className="w-6 h-6 text-primary mx-auto" /></td>
+                    <td className="p-6 text-center"><Check className="w-6 h-6 text-primary mx-auto" /></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <p className="text-center text-muted-foreground mt-8 text-lg">
+            Not sure which is right for you? <Link href="/discovery" className="text-primary underline hover:no-underline">Apply here</Link> and we'll figure it out together.
+          </p>
         </div>
       </section>
 

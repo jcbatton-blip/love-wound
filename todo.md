@@ -985,3 +985,11 @@
 - [x] Audit /coaches page content and positioning
 - [x] Decide: remove from nav + noindex (chosen approach)
 - [x] Implement noindex meta tag on /coaches page
+
+## Practice Circle Positioning Redesign (Jan 15, 2026)
+- [x] Determine strategic positioning: accessible alternative for those who can't afford Root-Work
+- [x] Choose redesign approach: visual separation + comparison table
+- [x] Implement Practice Circle visual separation (distinct background, styling)
+- [x] Add comparison table for Root-Work vs Practice Circle
+- [ ] Test visual hierarchy and scannability - needs manual testing
+- [ ] Verify mobile layout for Practice Circle section - needs manual testing
