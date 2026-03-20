@@ -710,6 +710,62 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Email Capture Section */}
+      <section className="py-16 md:py-24 bg-primary">
+        <div className="container max-w-2xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center space-y-8"
+          >
+            <h2 className="text-4xl md:text-5xl font-serif font-medium text-white">
+              Ready to See Yourself Clearly?
+            </h2>
+            <p className="text-xl text-white/80 font-light leading-relaxed">
+              Book a free discovery call and find out what's really holding you back in relationships.
+            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto"
+            >
+              <input
+                type="text"
+                placeholder="First Name"
+                className="flex-1 px-5 py-4 rounded-full bg-white/10 border border-white/30 text-white placeholder:text-white/50 focus:outline-none focus:border-white/70 font-light text-base"
+              />
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="flex-1 px-5 py-4 rounded-full bg-white/10 border border-white/30 text-white placeholder:text-white/50 focus:outline-none focus:border-white/70 font-light text-base"
+              />
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <a
+                href="https://calendly.com/jcbatton/letstalk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <Button
+                  size="lg"
+                  className="bg-white text-primary hover:bg-white/90 font-serif text-lg px-12 py-6 h-auto rounded-full shadow-xl hover:shadow-2xl transition-all duration-300"
+                >
+                  Book My Free Call
+                </Button>
+              </a>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-12 md:py-24 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]">
         <div className="container max-w-3xl">
