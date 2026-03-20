@@ -78,15 +78,9 @@ export default function Home() {
             </motion.h1>
             
             <motion.div variants={fadeIn} className="space-y-4 md:space-y-5">
-              <h2 className="text-lg md:text-2xl lg:text-3xl font-serif text-primary/80">
-                Awaken the self you already are — through a disciplined, relational practice that changes life at the root.
+              <h2 className="text-lg md:text-2xl lg:text-3xl font-serif text-primary/80 leading-relaxed">
+                For people who've done the work, read the books, and changed everything externally — and still end up in the same place. Jeff Batton helps you find the pattern beneath the pattern and change it for good.
               </h2>
-              <p className="text-sm md:text-lg text-muted-foreground font-light max-w-xl mx-auto leading-relaxed px-2">
-                You don't need fixing. You need remembering. Your patterns aren't problems — they're Love Wounds formed before you had words.
-              </p>
-              <p className="text-sm md:text-base text-primary font-medium max-w-lg mx-auto leading-relaxed mt-4 mb-6 md:mt-6 md:mb-8 px-2">
-                This work is designed for people willing to stay — because roots only change through time and relationship.
-              </p>
             </motion.div>
             
             <motion.div variants={fadeIn} className="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center pointer-events-auto">
