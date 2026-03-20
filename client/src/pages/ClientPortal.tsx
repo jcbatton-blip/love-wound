@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, CreditCard, FileText, User, ExternalLink, AlertCircle, Play, Youtube } from 'lucide-react';
@@ -6,6 +6,14 @@ import { toast } from 'sonner';
 import { CALENDLY_LINKS } from '@shared/products';
 
 export default function ClientPortal() {
+  useEffect(() => {
+    const meta = document.createElement('meta');
+    meta.name = 'robots';
+    meta.content = 'noindex, nofollow';
+    document.head.appendChild(meta);
+    return () => { document.head.removeChild(meta); };
+  }, []);
+
   const [email, setEmail] = useState('');
   const [showEmailInput, setShowEmailInput] = useState(false);
   const [loading, setLoading] = useState(false);
