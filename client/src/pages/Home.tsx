@@ -104,6 +104,57 @@ export default function Home() {
       </section>
 
 
+      {/* Who This Is For - Three Audience Cards */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-14"
+          >
+            <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
+              Who This Is For
+            </h2>
+          </motion.div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                question: "Stuck in the same relationship patterns?",
+              },
+              {
+                question: "Dating the same wrong person again?",
+              },
+              {
+                question: "Successful but feeling empty inside?",
+              },
+            ].map((card, index) => (
+              <motion.div
+                key={card.question}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                viewport={{ once: true }}
+              >
+                <Link href="/discovery" className="block h-full">
+                  <Card className="h-full border-primary/20 hover:border-primary/40 hover:shadow-xl transition-all duration-300 bg-white cursor-pointer group">
+                    <CardContent className="p-8 flex flex-col items-center justify-center text-center min-h-[200px]">
+                      <h3 className="text-xl md:text-2xl font-serif font-medium text-primary group-hover:text-primary/80 transition-colors leading-snug">
+                        {card.question}
+                      </h3>
+                      <span className="mt-6 text-sm font-medium tracking-widest uppercase text-primary/50 group-hover:text-primary transition-colors">
+                        Book a Call →
+                      </span>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section className="py-16 md:py-24 bg-[#F9F7F2]">
         <div className="container max-w-5xl">
