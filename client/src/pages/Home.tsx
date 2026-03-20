@@ -155,6 +155,46 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About Jeff Section */}
+      <section className="py-16 md:py-24 bg-[#F9F7F2]">
+        <div className="container max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center space-y-8"
+          >
+            <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
+              Coach of What Not to Do
+            </h2>
+            <div className="text-lg md:text-xl text-muted-foreground leading-relaxed space-y-6 text-left">
+              <p>
+                I've been a husband, an ex-husband, a father, a preacher, a missionary, a flight attendant, an author, and a coach for over 25 years. My resume reads like a wild sitcom script.
+              </p>
+              <p>
+                I've made every mistake in the book — in relationships, in business, in life. That's not a disclaimer. That's my qualification.
+              </p>
+              <p className="text-xl font-serif italic text-primary/80 border-l-4 border-primary pl-8 py-4 bg-primary/5 rounded-r-lg">
+                I don't coach from a textbook. I coach from the mirror.
+              </p>
+            </div>
+            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }} className="pt-4">
+              <a
+                href="https://calendly.com/jcbatton/letstalk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 font-serif text-lg px-10 py-6 h-auto rounded-full shadow-lg hover:shadow-2xl transition-all duration-300">
+                  Book a Free Discovery Call
+                </Button>
+              </a>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section className="py-16 md:py-24 bg-[#F9F7F2]">
         <div className="container max-w-5xl">
