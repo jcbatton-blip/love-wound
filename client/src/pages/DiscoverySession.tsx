@@ -192,11 +192,11 @@ export default function DiscoverySession() {
               <iframe
                 src="https://calendly.com/jcbatton/phone?hide_gdpr_banner=1&background_color=f9f7f2&text_color=1e3a5f&primary_color=1e3a5f&embed_domain=jeffbatton.com&embed_type=Inline"
                 width="100%"
-                height="800"
+                height="700"
                 frameBorder="0"
                 title="Schedule an Application Conversation"
                 onLoad={() => setIsLoading(false)}
-                style={{ border: 'none', minHeight: '800px' }}
+                style={{ border: 'none', minHeight: '700px' }}
                 className="calendly-inline-widget"
               />
             </div>
