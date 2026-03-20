@@ -109,6 +109,111 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* Pricing Section */}
+      <section className="py-16 md:py-24 bg-[#F9F7F2]">
+        <div className="container max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center space-y-4 mb-14"
+          >
+            <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
+              Work With Jeff
+            </h2>
+            <p className="text-lg text-muted-foreground font-light max-w-xl mx-auto">
+              Choose the path that meets you where you are.
+            </p>
+          </motion.div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Free Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full border-primary/20 hover:border-primary/40 transition-all duration-300 bg-white/80 backdrop-blur flex flex-col">
+                <CardContent className="p-8 flex flex-col flex-1 space-y-6">
+                  <div className="space-y-2">
+                    <p className="text-sm font-medium tracking-widest uppercase text-primary/60">Free</p>
+                    <div className="text-4xl font-serif font-medium text-primary">$0</div>
+                    <p className="text-xl font-serif text-primary">Discovery Call</p>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed font-light flex-1">
+                    A 30-minute conversation to explore your patterns and see if this work is the right fit. No pressure, no pitch — just a mirror.
+                  </p>
+                  <Link href="/discovery" className="block">
+                    <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.98 }}>
+                      <Button className="w-full bg-primary/10 text-primary hover:bg-primary hover:text-white font-serif rounded-full py-5 h-auto transition-all duration-300">
+                        Book Your Call
+                      </Button>
+                    </motion.div>
+                  </Link>
+                </CardContent>
+              </Card>
+            </motion.div>
+            {/* $250 Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full border-primary/40 hover:border-primary/60 transition-all duration-300 bg-white shadow-xl flex flex-col relative">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-primary rounded-t-lg" />
+                <CardContent className="p-8 flex flex-col flex-1 space-y-6">
+                  <div className="space-y-2">
+                    <p className="text-sm font-medium tracking-widest uppercase text-primary/60">Single Session</p>
+                    <div className="text-4xl font-serif font-medium text-primary">$250</div>
+                    <p className="text-xl font-serif text-primary">Mirror Session</p>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed font-light flex-1">
+                    One deep, focused session. We identify the pattern, trace it to the root, and you leave with an awareness that changes how you see everything.
+                  </p>
+                  <Link href="/discovery" className="block">
+                    <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.98 }}>
+                      <Button className="w-full bg-primary text-white hover:bg-primary/90 font-serif rounded-full py-5 h-auto transition-all duration-300 shadow-lg">
+                        Book a Session
+                      </Button>
+                    </motion.div>
+                  </Link>
+                </CardContent>
+              </Card>
+            </motion.div>
+            {/* $850 Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full border-primary/20 hover:border-primary/40 transition-all duration-300 bg-white/80 backdrop-blur flex flex-col">
+                <CardContent className="p-8 flex flex-col flex-1 space-y-6">
+                  <div className="space-y-2">
+                    <p className="text-sm font-medium tracking-widest uppercase text-primary/60">Best Value</p>
+                    <div className="text-4xl font-serif font-medium text-primary">$850</div>
+                    <p className="text-xl font-serif text-primary">4-Session Package</p>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed font-light flex-1">
+                    Four weekly sessions to go deeper than a single session allows. This is where real pattern-breaking begins — with continuity, reflection, and root-level change.
+                  </p>
+                  <Link href="/discovery" className="block">
+                    <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.98 }}>
+                      <Button className="w-full bg-primary/10 text-primary hover:bg-primary hover:text-white font-serif rounded-full py-5 h-auto transition-all duration-300">
+                        Get the Package
+                      </Button>
+                    </motion.div>
+                  </Link>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonial Section */}
       <section className="py-8 bg-gradient-to-b from-[#F9F7F2] to-[#F0EBE0]/30">
         <div className="container max-w-2xl">
