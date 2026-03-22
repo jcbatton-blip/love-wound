@@ -347,12 +347,12 @@ export default function Home() {
                 text: "Jeff is like a lighthouse. He helps me see when I'm off course. When I find myself in the middle of the ocean alone and afraid, his light, his smile, his compassion become the light that helps me find my way.",
               },
               {
-                name: "Barbara",
+                name: "Barbara B.",
                 initial: "B",
                 text: "Having awareness is the first step to transformation and with Jeff this becomes the roadmap of your life. A life filled with joy, peace and love in a way I had never experienced before. I like to call it The Unlearning of Barbara B.",
               },
               {
-                name: "Mike Barnett",
+                name: "Mike B.",
                 initial: "M",
                 text: "Jeff is about freedom — freedom from our pasts that don't serve us. I'm living proof of what he told me was possible.",
               },
