@@ -195,7 +195,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-16 md:py-24 bg-[#F9F7F2]">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -212,7 +212,8 @@ export default function Home() {
             </p>
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Free Card */}
+
+            {/* Card 1 — Mirror Session */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -222,24 +223,31 @@ export default function Home() {
               <Card className="h-full border-primary/20 hover:border-primary/40 transition-all duration-300 bg-white/80 backdrop-blur flex flex-col">
                 <CardContent className="p-8 flex flex-col flex-1 space-y-6">
                   <div className="space-y-2">
-                    <p className="text-sm font-medium tracking-widest uppercase text-primary/60">Free</p>
-                    <div className="text-4xl font-serif font-medium text-primary">$0</div>
-                    <p className="text-xl font-serif text-primary">Discovery Call</p>
+                    <p className="text-sm font-medium tracking-widest uppercase text-primary/60">Single Session</p>
+                    <div className="text-4xl font-serif font-medium text-primary">$250</div>
+                    <p className="text-sm text-muted-foreground font-light">/ 60 min</p>
+                    <p className="text-xl font-serif text-primary">Mirror Session</p>
                   </div>
                   <p className="text-muted-foreground leading-relaxed font-light flex-1">
-                    A 30-minute conversation to explore your patterns and see if this work is the right fit. No pressure, no pitch — just a mirror.
+                    A single session. Just you and your mirror.
                   </p>
-                  <Link href="/discovery" className="block">
+                  <a
+                    href="https://calendly.com/d/cxkw-gzv-8kv"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
                     <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.98 }}>
                       <Button className="w-full bg-primary/10 text-primary hover:bg-primary hover:text-white font-serif rounded-full py-5 h-auto transition-all duration-300">
-                        Book Your Call
+                        Book Now
                       </Button>
                     </motion.div>
-                  </Link>
+                  </a>
                 </CardContent>
               </Card>
             </motion.div>
-            {/* $250 Card */}
+
+            {/* Card 2 — 4-Session Package */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -250,24 +258,31 @@ export default function Home() {
                 <div className="absolute top-0 left-0 right-0 h-1 bg-primary rounded-t-lg" />
                 <CardContent className="p-8 flex flex-col flex-1 space-y-6">
                   <div className="space-y-2">
-                    <p className="text-sm font-medium tracking-widest uppercase text-primary/60">Single Session</p>
-                    <div className="text-4xl font-serif font-medium text-primary">$250</div>
-                    <p className="text-xl font-serif text-primary">Mirror Session</p>
+                    <p className="text-sm font-medium tracking-widest uppercase text-primary/60">Best Value</p>
+                    <div className="text-4xl font-serif font-medium text-primary">$850</div>
+                    <p className="text-sm text-muted-foreground font-light">/ 4 x 60 min</p>
+                    <p className="text-xl font-serif text-primary">4-Session Package</p>
                   </div>
                   <p className="text-muted-foreground leading-relaxed font-light flex-1">
-                    One deep, focused session. We identify the pattern, trace it to the root, and you leave with an awareness that changes how you see everything.
+                    Deep root work. This is where the real shift happens.
                   </p>
-                  <Link href="/discovery" className="block">
+                  <a
+                    href="https://calendly.com/d/cxkw-gzv-8kv"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
                     <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.98 }}>
                       <Button className="w-full bg-primary text-white hover:bg-primary/90 font-serif rounded-full py-5 h-auto transition-all duration-300 shadow-lg">
-                        Book a Session
+                        Book Now
                       </Button>
                     </motion.div>
-                  </Link>
+                  </a>
                 </CardContent>
               </Card>
             </motion.div>
-            {/* $850 Card */}
+
+            {/* Card 3 — Root Work */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -277,23 +292,30 @@ export default function Home() {
               <Card className="h-full border-primary/20 hover:border-primary/40 transition-all duration-300 bg-white/80 backdrop-blur flex flex-col">
                 <CardContent className="p-8 flex flex-col flex-1 space-y-6">
                   <div className="space-y-2">
-                    <p className="text-sm font-medium tracking-widest uppercase text-primary/60">Best Value</p>
-                    <div className="text-4xl font-serif font-medium text-primary">$850</div>
-                    <p className="text-xl font-serif text-primary">4-Session Package</p>
+                    <p className="text-sm font-medium tracking-widest uppercase text-primary/60">Full Engagement</p>
+                    <div className="text-4xl font-serif font-medium text-primary">$12,000</div>
+                    <p className="text-sm text-muted-foreground font-light">Starting at</p>
+                    <p className="text-xl font-serif text-primary">Root Work</p>
                   </div>
                   <p className="text-muted-foreground leading-relaxed font-light flex-1">
-                    Four weekly sessions to go deeper than a single session allows. This is where real pattern-breaking begins — with continuity, reflection, and root-level change.
+                    Full engagement. Application required. Not for everyone — and that's the point.
                   </p>
-                  <Link href="/discovery" className="block">
+                  <a
+                    href="https://calendly.com/jcbatton/letstalk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
                     <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.98 }}>
                       <Button className="w-full bg-primary/10 text-primary hover:bg-primary hover:text-white font-serif rounded-full py-5 h-auto transition-all duration-300">
-                        Get the Package
+                        Apply Now
                       </Button>
                     </motion.div>
-                  </Link>
+                  </a>
                 </CardContent>
               </Card>
             </motion.div>
+
           </div>
         </div>
       </section>
