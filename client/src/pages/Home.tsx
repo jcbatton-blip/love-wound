@@ -320,7 +320,70 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Email Capture Section */}
+            {/* Featured Testimonials Section */}
+      <section className="py-16 md:py-24 bg-[#F9F7F2]">
+        <div className="container max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-14"
+          >
+            <h2 className="text-4xl md:text-5xl font-serif font-medium text-primary">
+              What People Are Saying
+            </h2>
+          </motion.div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                name: "Tyler",
+                initial: "T",
+                text: "Jeff's guidance has saved my life. I was in therapy for 17 years. I struggled with anxiety, depression and addiction. I could never imagine my life & headspace where they are today. Everybody needs a Jeff in their life.",
+              },
+              {
+                name: "Veronica",
+                initial: "V",
+                text: "Jeff is like a lighthouse. He helps me see when I'm off course. When I find myself in the middle of the ocean alone and afraid, his light, his smile, his compassion become the light that helps me find my way.",
+              },
+              {
+                name: "Barbara",
+                initial: "B",
+                text: "Having awareness is the first step to transformation and with Jeff this becomes the roadmap of your life. A life filled with joy, peace and love in a way I had never experienced before. I like to call it The Unlearning of Barbara B.",
+              },
+              {
+                name: "Mike Barnett",
+                initial: "M",
+                text: "Jeff is about freedom — freedom from our pasts that don't serve us. I'm living proof of what he told me was possible.",
+              },
+            ].map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                viewport={{ once: true }}
+              >
+                <Card className="h-full border-primary/20 hover:border-primary/40 hover:shadow-xl transition-all duration-300 bg-white">
+                  <CardContent className="p-8 flex flex-col space-y-6">
+                    <p className="text-lg md:text-xl font-serif italic text-primary/80 leading-relaxed flex-1">
+                      &ldquo;{testimonial.text}&rdquo;
+                    </p>
+                    <div className="flex items-center gap-4 pt-2 border-t border-primary/10">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <span className="font-serif font-medium text-primary text-lg">{testimonial.initial}</span>
+                      </div>
+                      <span className="font-serif text-primary font-medium">— {testimonial.name}</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+{/* Email Capture Section */}
       <section className="py-16 md:py-24 bg-primary">
         <div className="container max-w-2xl">
           <motion.div
