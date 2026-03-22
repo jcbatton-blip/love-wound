@@ -194,6 +194,46 @@ export default function Home() {
         </div>
       </section>
 
+      {/* The Love Wound Section */}
+      <section className="py-20 md:py-32 bg-[#F9F7F2]">
+        <div className="container max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9 }}
+            viewport={{ once: true }}
+            className="text-center space-y-10"
+          >
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-6xl font-serif font-medium text-primary">
+                The Love Wound
+              </h2>
+              <p className="text-xl md:text-2xl font-serif italic text-primary/70">
+                You didn't learn how to love in a classroom.
+              </p>
+            </div>
+            <div className="text-left space-y-6 text-lg md:text-xl text-primary/80 leading-relaxed font-serif">
+              <p>You were born whole. Pure love. No conditions, no filters, no fear. That's not a metaphor — that's your factory setting.</p>
+              <p>But somewhere between birth and seven years old, while you were still wide open — still in that hypnotic state where everything downloads as truth — you learned what love looks like. Not from a book. Not from a teacher. From watching the two people who were supposed to show you.</p>
+              <p>And whatever they did — that became love.</p>
+              <p>Not because it was right. Not because it was healthy. But because you were too young to know the difference between what love is and what love does in this house.</p>
+              <p>That download became your program. And your program has been running the show ever since.</p>
+              <p>So you didn't keep choosing the wrong people. Your subconscious kept choosing the right ones — the ones who matched the program. The ones who made love feel familiar. Because familiar feels like home, even when home was the problem.</p>
+              <p>And the cruelest part? You'd leave one. Find another. Same story, different face. Because you weren't pulling weeds.</p>
+              <p className="font-serif italic text-primary/90 text-xl md:text-2xl border-l-4 border-primary pl-6 py-2">
+                You were pulling fruit off a tree and wondering why it kept growing back.
+              </p>
+              <p>The Love Wound isn't a flaw in your character. It's a root. And roots don't respond to willpower or good intentions or another self-help book.</p>
+              <p>There's a line that says "the axe is laid at the root." Not chopping. Not forcing. Just — awareness. Light on the thing that's been running in the dark.</p>
+              <p>That's the moment everything changes.</p>
+            </div>
+            <p className="text-xl md:text-2xl font-serif font-medium text-primary pt-4">
+              That's what we do here. We don't pull fruit. We find the root.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container max-w-5xl">
