@@ -17,7 +17,7 @@ export default function About() {
           >
             <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl bg-muted">
               <img 
-                src="https://i.imgur.com/Q5JZ03o.png"
+                            src="/images/headshot.jpg"
                 alt="Jeff Batton - Root-Work Mentor | Relational Practice Guide | Inner Transformation Specialist" 
                 className="w-full h-full object-cover"
               />
