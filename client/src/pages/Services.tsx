@@ -1,94 +1,65 @@
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight, Loader2 } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { toast } from "sonner";
 import { trackBookingClick } from "@/lib/analytics";
 import { trpc } from "@/lib/trpc";
 
+const pricingTiers = [
+  {
+    name: "Let's Talk",
+    price: "FREE",
+    duration: "30 min Discovery Call",
+    description: "Not sure if this is the right fit? Let's find out together. No pressure, no pitch — just an honest conversation about where you are and what you need.",
+    features: [
+      "30-Minute Video or Phone Call",
+      "No Obligation",
+      "Honest Assessment of Fit",
+      "Free"
+    ],
+    cta: "Book Now",
+    href: "https://calendly.com/jcbatton/letstalk",
+    id: "discovery",
+    popular: false,
+    delay: 0,
+  },
+  {
+    name: "Mirror Session",
+    price: "$250",
+    duration: "60 min Individual Session",
+    description: "A single deep-dive session. We look at the pattern, name it, and begin to understand where it came from. Most people see more in 60 minutes than in years of traditional work.",
+    features: [
+      "60-Minute 1-on-1 Video Session",
+      "Pattern Identification",
+      "100% Private & Confidential",
+      "Personalized Insight"
+    ],
+    cta: "Book Now",
+    href: "https://calendly.com/d/cxkw-gzv-8kv",
+    id: "mirror_session",
+    popular: true,
+    delay: 0.1,
+  },
+  {
+    name: "4-Session Package",
+    price: "$850",
+    duration: "4 × 60 min Deep Root Work",
+    description: "Four sessions to go deeper. Identify the root pattern, understand the code it wrote, and begin rewiring your responses. This is where real change starts to happen.",
+    features: [
+      "Four 60-Minute 1-on-1 Sessions",
+      "Deep Pattern Work",
+      "Root-Cause Identification",
+      "Integration Between Sessions"
+    ],
+    cta: "Book Now",
+    href: "https://calendly.com/d/cxkw-gzv-8kv",
+    id: "package_4session",
+    popular: false,
+    delay: 0.2,
+  },
+];
+
 export default function Services() {
-  const [loading, setLoading] = useState<string | null>(null);
-  const [isPaymentPlan, setIsPaymentPlan] = useState(false);
-  
-  // Fetch featured testimonials from database
   const { data: featuredTestimonials = [] } = trpc.testimonials.featured.useQuery();
-
-  const checkoutMutation = trpc.stripe.createCheckoutSession.useMutation({
-    onSuccess: (data) => {
-      if (data.url) {
-        window.location.href = data.url;
-      }
-    },
-    onError: (error) => {
-      console.error("Checkout error:", error);
-      toast.error("Failed to start checkout. Please try again.");
-    },
-    onSettled: () => {
-      setLoading(null);
-    },
-  });
-
-  const handleCheckout = (productId: string) => {
-    setLoading(productId);
-    // Store product ID for success page to show correct booking link
-    localStorage.setItem('last_product_id', productId);
-    checkoutMutation.mutate({ productId });
-  };
-  const primaryTiers = [
-    {
-      name: "Root-Work Mentorship",
-      price: isPaymentPlan ? "1,000" : "12,000",
-      period: isPaymentPlan ? "/ month × 12" : "/ year",
-      totalPrice: isPaymentPlan ? "$12,000 total" : null,
-      description: "A year-long, weekly coaching relationship for people who are done managing symptoms and ready to change at the root. We don't chase behavior. We don't fix fruit. We work with the system underneath it all.",
-      features: [
-        "Weekly one-on-one sessions (52 sessions)",
-        "Long-term relational depth",
-        "Root-pattern identification and reframing",
-        "Integration into real life and relationships",
-        "Optional intensives when deeper insertion is needed"
-      ],
-      cta: "Apply for Root-Work Mentorship",
-      id: "root_work_mentorship",
-      popular: true,
-      delay: 0,
-      hasPaymentPlan: true
-    },
-    // TEMPORARILY DISABLED - The Kit will be re-enabled once digital files are ready
-    // {
-    //   name: "The Kit",
-    //   price: "47",
-    //   description: "The self-paced foundation. Understand the 6 Love Wounds and identify your primary pattern.",
-    //   features: [
-    //     "The 6 Love Wounds Digital Guide",
-    //     "Audio Walkthrough of the 'Wound -> Code -> Pattern' Framework",
-    //     "The 'Pattern Hunter' Journal Prompts",
-    //     "Immediate Access"
-    //   ],
-    //   cta: "Get The Kit",
-    //   id: "kit",
-    //   popular: false,
-    //   delay: 0,
-    //   hasPaymentPlan: false
-    // },
-    {
-      name: "Root-Work Session",
-      price: "350",
-      id: "mirror_session",
-      description: "By Application Only. Single sessions are available on a limited basis for existing clients or as part of the application process. They can offer clarity and relief — but lasting change requires practice over time. This option is not the primary path.",
-      features: [
-        "100% Private & Confidential",
-        "90-Minute Video Call",
-        "Personalized Pattern Diagnosis",
-        "No Observers, No Recording",
-        "Full Attention on You"
-      ],
-      cta: "Request an Application Call",
-      popular: false,
-      delay: 0.1,
-      hasPaymentPlan: false
-    }
-  ];
 
   const membershipOption = {
     name: "The Inner Circle",
@@ -105,9 +76,6 @@ export default function Services() {
     ],
     cta: "Join The Inner Circle",
     id: "inner_circle",
-    popular: true,
-    delay: 0.05,
-    hasPaymentPlan: false
   };
 
   const retreats = {
@@ -125,7 +93,6 @@ export default function Services() {
       ],
       cta: "Apply for Founding Experience",
       id: "individual_retreat",
-      popular: false,
       delay: 0.4
     },
     couples: {
@@ -142,7 +109,6 @@ export default function Services() {
       ],
       cta: "Apply for Founding Experience",
       id: "couples_retreat",
-      popular: true,
       delay: 0.5
     }
   };
@@ -153,13 +119,11 @@ export default function Services() {
         <div className="text-center space-y-6 mb-12">
           <h1 className="text-5xl md:text-6xl font-serif text-primary">Work With Jeff Batton</h1>
           <h2 className="text-2xl md:text-3xl font-serif text-primary/80">
-            Year-Long Root-Work Practice
+            Choose Your Starting Point
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
-            Lasting change doesn't come from one-off sessions — it comes from a weekly practice that rewires how you relate to yourself.
+            Every path starts with a conversation. Begin wherever feels right.
           </p>
-
-          
           {/* Pull Quote */}
           <div className="mt-12 max-w-3xl mx-auto">
             <blockquote className="relative py-8">
@@ -175,7 +139,58 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Inner Circle Membership Section - START HERE */}
+        {/* Pricing Cards — Three Tiers */}
+        <div className="grid md:grid-cols-3 gap-8 mb-24">
+          {pricingTiers.map((tier, index) => (
+            <motion.div
+              key={tier.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: tier.delay, duration: 0.5 }}
+              className={`relative p-8 bg-white border shadow-sm rounded-2xl flex flex-col h-full ${
+                tier.popular
+                  ? "border-primary shadow-md"
+                  : "border-primary/10"
+              }`}
+            >
+              {tier.popular && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium tracking-wide whitespace-nowrap">
+                  MOST POPULAR
+                </div>
+              )}
+              <div className="mb-8 space-y-3">
+                <h3 className="text-2xl font-serif text-primary">{tier.name}</h3>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold text-primary">{tier.price}</span>
+                </div>
+                <p className="text-sm text-muted-foreground font-medium">{tier.duration}</p>
+                <p className="text-muted-foreground font-light leading-relaxed text-sm">
+                  {tier.description}
+                </p>
+              </div>
+              <ul className="space-y-3 mb-8 flex-grow">
+                {tier.features.map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm text-primary/80">
+                    <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button
+                className="w-full py-6 rounded-full font-serif text-lg bg-primary text-white hover:bg-primary/90"
+                onClick={() => {
+                  trackBookingClick(tier.id);
+                  window.open(tier.href, "_blank");
+                }}
+              >
+                {tier.cta}
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Inner Circle Membership Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -183,9 +198,8 @@ export default function Services() {
           className="mb-16 relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8 md:p-12 border-2 border-slate-700"
         >
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-slate-900 px-4 py-1 rounded-full text-sm font-medium tracking-wide">
-            START HERE
+            ONGOING COMMUNITY
           </div>
-          
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
               <div>
@@ -194,23 +208,21 @@ export default function Services() {
                   {membershipOption.description}
                 </p>
               </div>
-              
               <div className="flex items-baseline gap-2">
                 <span className="text-5xl font-bold text-white">${membershipOption.price}</span>
                 <span className="text-xl text-white/70">{membershipOption.period}</span>
               </div>
-              
-              <Button 
+              <Button
                 className="w-full md:w-auto px-8 py-6 rounded-full font-serif text-lg bg-white text-slate-900 hover:bg-white/90"
                 onClick={() => {
                   trackBookingClick('membership');
                   window.location.href = "mailto:jeff@jeffbatton.com?subject=Join%20The%20Inner%20Circle";
                 }}
               >
-                {membershipOption.cta} <ArrowRight className="w-4 h-4 ml-2" />
+                {membershipOption.cta}
+                <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
-            
             <div>
               <ul className="space-y-4">
                 {membershipOption.features.map((feature, i) => (
@@ -235,7 +247,6 @@ export default function Services() {
               These are the full stories. See what's possible when you break the pattern.
             </p>
           </div>
-
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {featuredTestimonials.map((testimonial, index) => (
               <motion.div
@@ -262,8 +273,6 @@ export default function Services() {
               </motion.div>
             ))}
           </div>
-          
-          {/* Share Your Experience CTA */}
           <div className="text-center mt-12">
             <p className="text-muted-foreground mb-4">Worked with Jeff? Share your experience.</p>
             <Button variant="outline" size="lg" asChild>
@@ -274,122 +283,7 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="text-center mb-12">
-          <p className="text-lg text-muted-foreground font-light">
-            Ready for deeper 1-on-1 work? Choose your level below.
-          </p>
-        </div>
-
-        {/* Payment Toggle */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-white p-1 rounded-full border border-primary/10 inline-flex relative">
-            <motion.div
-              className="absolute top-1 bottom-1 bg-primary rounded-full"
-              initial={false}
-              animate={{
-                x: isPaymentPlan ? "100%" : "0%",
-                width: "50%"
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            />
-            <button
-              onClick={() => setIsPaymentPlan(false)}
-              className={`relative z-10 px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
-                !isPaymentPlan ? "text-white" : "text-primary hover:text-primary/80"
-              }`}
-            >
-              Pay in Full
-            </button>
-            <button
-              onClick={() => setIsPaymentPlan(true)}
-              className={`relative z-10 px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
-                isPaymentPlan ? "text-white" : "text-primary hover:text-primary/80"
-              }`}
-            >
-              Payment Plan
-            </button>
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start mb-16">
-          {primaryTiers.map((tier, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: tier.delay, duration: 0.5 }}
-              className="relative p-8 bg-white border border-primary/10 shadow-sm rounded-2xl flex flex-col h-full"
-            >
-              {tier.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium tracking-wide">
-                  MOST POPULAR
-                </div>
-              )}
-              
-              <div className="mb-8 space-y-4">
-                <h3 className="text-2xl font-serif text-primary">{tier.name}</h3>
-                <div className="space-y-1">
-                  <div className="flex items-baseline gap-1 flex-wrap">
-                    <span className="text-4xl font-bold text-primary">${tier.price}</span>
-                    {tier.hasPaymentPlan ? (
-                      <span className="text-sm text-muted-foreground">{tier.period}</span>
-                    ) : (
-                      tier.name !== "The Kit" && <span className="text-muted-foreground">/ total</span>
-                    )}
-                  </div>
-                  {('totalPrice' in tier && tier.totalPrice) ? (
-                    <p className="text-xs text-muted-foreground">{String(tier.totalPrice)}</p>
-                  ) : null}
-                </div>
-                <p className="text-muted-foreground font-light leading-relaxed">
-                  {tier.description}
-                </p>
-              </div>
-
-              <ul className="space-y-4 mb-8 flex-grow">
-                {tier.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-primary/80">
-                    <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <span className="break-words">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <Button 
-                className="w-full py-6 rounded-full font-serif text-lg bg-primary text-white hover:bg-primary/90"
-                onClick={() => {
-                  if (tier.id === "discovery") {
-                    trackBookingClick('discovery');
-                    window.open("https://calendly.com/jcbatton/let-s-talk", "_blank");
-                  } else if (tier.id === "teaching_clinic" || tier.id === "mirror_session") {
-                    trackBookingClick(tier.id === "teaching_clinic" ? 'clinic' : 'mirror');
-                    window.open("https://calendly.com/jcbatton/let-s-talk", "_blank");
-                  } else if (tier.id === "group_container") {
-                    trackBookingClick('group');
-                    window.location.href = "mailto:jeff@jeffbatton.com?subject=Waitlist for The Group Container";
-                  } else if (tier.id === "individual_container") {
-                    trackBookingClick('individual');
-                    window.open("https://calendly.com/jcbatton/let-s-talk", "_blank");
-                  } else if (tier.id === "couples_container") {
-                    trackBookingClick('couples');
-                    window.open("https://calendly.com/jcbatton/let-s-talk", "_blank");
-                  } else {
-                    handleCheckout(tier.id);
-                  }
-                }}
-                disabled={loading === tier.id}
-              >
-                {loading === tier.id ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-                {tier.cta} <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </motion.div>
-          ))}
-        </div>
-
-
-
-        {/* The Retreat Section - Founding Experience */}
+        {/* The Retreat Section */}
         <div className="space-y-8 mt-32">
           <div className="text-center space-y-4 mb-12">
             <div className="inline-block px-6 py-2 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-sm font-medium tracking-widest uppercase">
@@ -402,10 +296,9 @@ export default function Services() {
               I'm offering the first 3 individual retreats and first 3 couples retreats at <strong>50% off</strong>. You get the full experience. I get to refine the format and gather testimonials. Once I've done these 6, the price goes back to normal.
             </p>
           </div>
-
           <div className="grid md:grid-cols-2 gap-8">
             {/* Individual Retreat */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -413,7 +306,6 @@ export default function Services() {
               className="relative overflow-hidden rounded-3xl bg-[#1A2333] text-[#F9F7F2] p-8"
             >
               <div className="absolute top-0 right-0 w-48 h-48 bg-[#D4AF37] opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
-              
               <div className="relative z-10 space-y-6">
                 <div>
                   <h3 className="text-3xl font-serif text-white mb-2">
@@ -423,7 +315,6 @@ export default function Services() {
                     {retreats.individual.description}
                   </p>
                 </div>
-                
                 <div className="pt-4">
                   <div className="flex items-baseline gap-3 mb-2">
                     <span className="text-2xl text-white/40 line-through">${retreats.individual.normalPrice}</span>
@@ -431,7 +322,6 @@ export default function Services() {
                   </div>
                   <p className="text-sm text-white/60">Limited to first 3 clients</p>
                 </div>
-                
                 <ul className="space-y-3">
                   {retreats.individual.features.map((feature: string, index: number) => (
                     <li key={index} className="flex items-start gap-3">
@@ -440,21 +330,20 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                
-                <Button 
+                <Button
                   className="w-full px-6 py-5 rounded-full font-serif text-base bg-[#D4AF37] text-[#1A2333] hover:bg-[#C49F27]"
                   onClick={() => {
                     trackBookingClick('retreat');
                     window.location.href = "mailto:jeff@jeffbatton.com?subject=Founding Individual Retreat Application";
                   }}
                 >
-                  {retreats.individual.cta} <ArrowRight className="w-4 h-4 ml-2" />
+                  {retreats.individual.cta}
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </div>
             </motion.div>
-
             {/* Couples Retreat */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -465,7 +354,6 @@ export default function Services() {
                 Most Popular
               </div>
               <div className="absolute top-0 right-0 w-48 h-48 bg-[#D4AF37] opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
-              
               <div className="relative z-10 space-y-6">
                 <div>
                   <h3 className="text-3xl font-serif text-[#D4AF37] mb-2">
@@ -475,7 +363,6 @@ export default function Services() {
                     {retreats.couples.description}
                   </p>
                 </div>
-                
                 <div className="pt-4">
                   <div className="flex items-baseline gap-3 mb-2">
                     <span className="text-2xl text-white/40 line-through">${retreats.couples.normalPrice}</span>
@@ -483,7 +370,6 @@ export default function Services() {
                   </div>
                   <p className="text-sm text-white/60">Limited to first 3 couples</p>
                 </div>
-                
                 <ul className="space-y-3">
                   {retreats.couples.features.map((feature: string, index: number) => (
                     <li key={index} className="flex items-start gap-3">
@@ -492,20 +378,19 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                
-                <Button 
+                <Button
                   className="w-full px-6 py-5 rounded-full font-serif text-base bg-[#D4AF37] text-[#1A2333] hover:bg-[#C49F27]"
                   onClick={() => {
                     trackBookingClick('retreat');
                     window.location.href = "mailto:jeff@jeffbatton.com?subject=Founding Couples Retreat Application";
                   }}
                 >
-                  {retreats.couples.cta} <ArrowRight className="w-4 h-4 ml-2" />
+                  {retreats.couples.cta}
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </div>
             </motion.div>
           </div>
-
           {/* Retreat Details */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -561,46 +446,37 @@ export default function Services() {
         >
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37] opacity-5 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#D4AF37] opacity-5 rounded-full blur-3xl" />
-          
           <div className="relative z-10 max-w-3xl mx-auto text-center space-y-8">
             <div className="inline-block px-4 py-1 rounded-full border border-[#D4AF37]/30 text-[#D4AF37] text-sm tracking-widest uppercase">
               Beyond Individual Work
             </div>
-            
             <h2 className="text-4xl md:text-5xl font-serif text-white">
               The Sanctuary
             </h2>
-            
             <p className="text-xl text-white/80 font-light leading-relaxed italic">
               A Conscious Living Community
             </p>
-            
             <p className="text-lg text-white/70 font-light leading-relaxed max-w-2xl mx-auto">
               Individual work removes your thorn and fills your cup. But what happens after? <strong className="text-white">The Sanctuary</strong> is where you come home. A physical and digital community built on one principle: <strong className="text-white">Unconditional Love</strong>.
             </p>
-            
             <p className="text-base text-white/60 font-light leading-relaxed max-w-xl mx-auto">
               Weekly gatherings. Guest teachers. Live music. A refurbished church in Detroit reimagined as a space where healing becomes community.
             </p>
-            
             <div className="pt-4">
-              <Button 
-                asChild
-                className="px-8 py-6 rounded-full font-serif text-lg bg-[#D4AF37] text-[#1A2333] hover:bg-[#C49F27]"
-              >
+              <Button asChild className="px-8 py-6 rounded-full font-serif text-lg bg-[#D4AF37] text-[#1A2333] hover:bg-[#C49F27]">
                 <a href="/sanctuary">
-                  See the Vision <ArrowRight className="w-4 h-4 ml-2" />
+                  See the Vision
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </Button>
             </div>
-            
             <p className="text-sm text-white/40 italic pt-4">
               "Come here to find out what unconditional love really means."
             </p>
           </div>
         </motion.div>
 
-        {/* FAQ / Objection Handling */}
+        {/* FAQ */}
         <div className="mt-32 max-w-3xl mx-auto space-y-12">
           <h2 className="text-3xl font-serif text-center text-primary">Common Questions</h2>
           <div className="space-y-8">
@@ -619,7 +495,7 @@ export default function Services() {
             <div className="space-y-2">
               <h3 className="text-xl font-serif text-primary">What if I'm not ready for the full container?</h3>
               <p className="text-muted-foreground font-light">
-                Start with the Mirror Session. It's a low-risk way to experience the method. Most people see more in 90 minutes than they have in years of traditional work.
+                Start with the Mirror Session. It's a low-risk way to experience the method. Most people see more in 60 minutes than they have in years of traditional work.
               </p>
             </div>
             <div className="space-y-2">
@@ -629,9 +505,9 @@ export default function Services() {
               </p>
             </div>
             <div className="space-y-2">
-              <h3 className="text-xl font-serif text-primary">Is there anything beyond the 12-month mentorship?</h3>
+              <h3 className="text-xl font-serif text-primary">Is there anything beyond the sessions?</h3>
               <p className="text-muted-foreground font-light">
-                For a select few who've completed Root-Work Mentorship and want to go deeper—there's an apprenticeship path. It's not advertised. It's by invitation only. If you're curious, ask during your application call.
+                For a select few who've done deep work and want to go further—there's an apprenticeship path. It's not advertised. It's by invitation only. If you're curious, ask during your discovery call.
               </p>
             </div>
           </div>
