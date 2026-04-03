@@ -16,7 +16,7 @@ const pricingTiers = [
       "Honest Assessment of Fit",
       "Free"
     ],
-    cta: "Book Now",
+    cta: "Let's Talk",
     href: "https://calendly.com/jcbatton/letstalk",
     id: "discovery",
     popular: false,
@@ -55,6 +55,40 @@ const pricingTiers = [
     id: "package_4session",
     popular: false,
     delay: 0.2,
+  },
+  {
+    name: "Apply for Root Work",
+    price: "$12,000",
+    duration: "$12K upfront / $14K payment plan",
+    description: "Full engagement. Application required. This is deep, sustained root work — not for everyone, and that's the point. If you're ready to change the pattern for good, this is where it happens.",
+    features: [
+      "Application Required",
+      "Deep Sustained Root Work",
+      "Full Engagement Container",
+      "Payment Plan Available ($14,000)"
+    ],
+    cta: "Apply Now",
+    href: "",
+    id: "root_work",
+    popular: false,
+    delay: 0.3,
+  },
+  {
+    name: "Couples Retreat",
+    price: "$4,500",
+    duration: "3 days all-inclusive / per couple",
+    description: "Three days of intensive in-person couples work. All-inclusive. No distractions — just you two, Jeff, and the patterns you've been running.",
+    features: [
+      "3-Day In-Person Retreat",
+      "All-Inclusive Experience",
+      "Intensive Couples Work",
+      "Per Couple Pricing"
+    ],
+    cta: "Let's Talk",
+    href: "https://calendly.com/jcbatton/letstalk",
+    id: "couples_retreat",
+    popular: false,
+    delay: 0.4,
   },
 ];
 
@@ -139,7 +173,7 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Pricing Cards — Three Tiers */}
+        {/* Pricing Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-24">
           {pricingTiers.map((tier, index) => (
             <motion.div
@@ -180,7 +214,11 @@ export default function Services() {
                 className="w-full py-6 rounded-full font-serif text-lg bg-primary text-white hover:bg-primary/90"
                 onClick={() => {
                   trackBookingClick(tier.id);
-                  window.open(tier.href, "_blank");
+                  if (tier.href) {
+                    window.open(tier.href, "_blank");
+                  } else {
+                    window.location.href = "/discovery";
+                  }
                 }}
               >
                 {tier.cta}

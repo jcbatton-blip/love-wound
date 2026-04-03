@@ -209,7 +209,7 @@ export default function Home() {
                 The Love Wound
               </h2>
               <p className="text-xl md:text-2xl font-serif italic text-primary/70">
-                You didn't learn how to love in a classroom.
+                "You can't kill a tree by pulling the fruit off of it."
               </p>
             </div>
             <div className="text-left space-y-6 text-lg md:text-xl text-primary/80 leading-relaxed font-serif">
@@ -253,11 +253,45 @@ export default function Home() {
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8">
 
-            {/* Card 1 — Mirror Session */}
+            {/* Card 1 — Discovery Call */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full border-primary/20 hover:border-primary/40 transition-all duration-300 bg-white/80 backdrop-blur flex flex-col">
+                <CardContent className="p-8 flex flex-col flex-1 space-y-6">
+                  <div className="space-y-2">
+                    <p className="text-sm font-medium tracking-widest uppercase text-primary/60">Entry Point</p>
+                    <div className="text-4xl font-serif font-medium text-primary">FREE</div>
+                    <p className="text-sm text-muted-foreground font-light">/ 30 min</p>
+                    <p className="text-xl font-serif text-primary">Discovery Call</p>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed font-light flex-1">
+                    No pressure, no pitch — just an honest conversation about where you are.
+                  </p>
+                  <a
+                    href="https://calendly.com/jcbatton/letstalk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.98 }}>
+                      <Button className="w-full bg-primary/10 text-primary hover:bg-primary hover:text-white font-serif rounded-full py-5 h-auto transition-all duration-300">
+                        Let's Talk
+                      </Button>
+                    </motion.div>
+                  </a>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Card 2 — Mirror Session */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
               <Card className="h-full border-primary/20 hover:border-primary/40 transition-all duration-300 bg-white/80 backdrop-blur flex flex-col">
@@ -287,11 +321,11 @@ export default function Home() {
               </Card>
             </motion.div>
 
-            {/* Card 2 — 4-Session Package */}
+            {/* Card 3 — 4-Session Package */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.15 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
               <Card className="h-full border-primary/40 hover:border-primary/60 transition-all duration-300 bg-white shadow-xl flex flex-col relative">
@@ -322,7 +356,7 @@ export default function Home() {
               </Card>
             </motion.div>
 
-            {/* Card 3 — Root Work */}
+            {/* Card 4 — Apply for Root Work */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -334,11 +368,40 @@ export default function Home() {
                   <div className="space-y-2">
                     <p className="text-sm font-medium tracking-widest uppercase text-primary/60">Full Engagement</p>
                     <div className="text-4xl font-serif font-medium text-primary">$12,000</div>
-                    <p className="text-sm text-muted-foreground font-light">Starting at</p>
-                    <p className="text-xl font-serif text-primary">Root Work</p>
+                    <p className="text-sm text-muted-foreground font-light">upfront / $14,000 payment plan</p>
+                    <p className="text-xl font-serif text-primary">Apply for Root Work</p>
                   </div>
                   <p className="text-muted-foreground leading-relaxed font-light flex-1">
-                    Full engagement. Application required. Not for everyone — and that's the point.
+                    Application required. Not for everyone — and that's the point.
+                  </p>
+                  <Link href="/discovery" className="block">
+                    <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.98 }}>
+                      <Button className="w-full bg-primary/10 text-primary hover:bg-primary hover:text-white font-serif rounded-full py-5 h-auto transition-all duration-300">
+                        Apply Now
+                      </Button>
+                    </motion.div>
+                  </Link>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Card 5 — Couples Retreat */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full border-primary/20 hover:border-primary/40 transition-all duration-300 bg-white/80 backdrop-blur flex flex-col">
+                <CardContent className="p-8 flex flex-col flex-1 space-y-6">
+                  <div className="space-y-2">
+                    <p className="text-sm font-medium tracking-widest uppercase text-primary/60">In-Person</p>
+                    <div className="text-4xl font-serif font-medium text-primary">$4,500</div>
+                    <p className="text-sm text-muted-foreground font-light">/ couple · 3 days all-inclusive</p>
+                    <p className="text-xl font-serif text-primary">Couples Retreat</p>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed font-light flex-1">
+                    Three days of intensive in-person couples work. All-inclusive.
                   </p>
                   <a
                     href="https://calendly.com/jcbatton/letstalk"
@@ -348,7 +411,7 @@ export default function Home() {
                   >
                     <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.98 }}>
                       <Button className="w-full bg-primary/10 text-primary hover:bg-primary hover:text-white font-serif rounded-full py-5 h-auto transition-all duration-300">
-                        Apply Now
+                        Let's Talk
                       </Button>
                     </motion.div>
                   </a>

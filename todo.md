@@ -70,8 +70,8 @@
 - [x] Hero section: Update CTA to "Begin the Mirror Method"
 - [ ] Hero section: Adjust spacing (80-100px desktop, 50-60px mobile)
 - [ ] Mirror Method section: Typography cleanup, break long paragraphs
-- [ ] Five Love Wounds section: Add micro-descriptions under each wound
-- [ ] Five Love Wounds section: Add subtle background contrast
+- [ ] The Love Wound section: Add micro-descriptions under each wound
+- [ ] The Love Wound section: Add subtle background contrast
 - [ ] "What Working With Me Feels Like": Tighten copy, add visual elevation
 - [x] Meet Jeffrey section: Add authority reinforcement line
 - [x] CTA consistency: Outcome-based language, button consistency
