@@ -1,5 +1,5 @@
 [build]
-  command = "mkdir -p dist && cp index.html dist/ && cp -r images dist/images && cp _redirects dist/ 2>/dev/null; echo 'Build complete'"
+  command = "mkdir -p dist && cp index.html dist/ && cp client-portal.html dist/ && cp -r images dist/images && cp _redirects dist/ 2>/dev/null; echo 'Build complete'"
   publish = "dist"
 
 [[redirects]]

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Client Portal — Jeff Batton Life Coaching</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-deep: #1a1410;
+      --bg-mid: #241e17;
+      --bg-light: #f5f0e8;
+      --text-cream: #f5f0e8;
+      --text-dark: #1a1410;
+      --gold: #c9a84c;
+      --gold-hover: #e8c56a;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-deep);
+      color: var(--text-cream);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    .back-link {
+      display: inline-block;
+      font-size: 14px;
+      color: var(--gold);
+      text-decoration: none;
+      padding: 24px 0 0 32px;
+      transition: color 0.3s;
+    }
+    .back-link:hover { color: var(--gold-hover); }
+
+    .portal-header {
+      text-align: center;
+      padding: 60px 24px 40px;
+    }
+    .portal-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 400;
+      color: var(--text-cream);
+      margin-bottom: 12px;
+    }
+    .portal-header p {
+      font-size: 17px;
+      color: rgba(245,240,232,0.6);
+    }
+
+    /* Policy banner */
+    .policy {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      padding: 16px 24px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 4px;
+      font-size: 14px;
+      color: rgba(245,240,232,0.8);
+      text-align: center;
+    }
+    .policy strong { color: var(--gold); }
+
+    /* Card grid */
+    .grid {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .card {
+      background: var(--bg-mid);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-top: 3px solid var(--gold);
+      border-radius: 0 0 4px 4px;
+      padding: 32px 28px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .card-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+    .card h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text-cream);
+      margin-bottom: 8px;
+    }
+    .card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(245,240,232,0.6);
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+      width: 100%;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--text-dark);
+    }
+    .btn-gold:hover {
+      background: var(--gold-hover);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+    }
+    .btn-outline:hover {
+      background: rgba(201,168,76,0.1);
+    }
+
+    /* Help section */
+    .help {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+      text-align: center;
+    }
+    .help p {
+      font-size: 15px;
+      color: rgba(245,240,232,0.5);
+      margin-bottom: 16px;
+    }
+    .help a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .help a:hover { color: var(--gold-hover); }
+
+    .card.full-width { grid-column: 1 / -1; }
+
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: 1fr; }
+      .card.full-width { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-link">&larr; Back to jeffbatton.com</a>
+
+  <div class="portal-header">
+    <h1>Client Portal</h1>
+    <p>Manage your sessions, payments, and resources</p>
+  </div>
+
+  <div class="policy">
+    <strong>24-Hour Cancellation Policy:</strong> Sessions may be rescheduled up to 24 hours before your appointment. Cancellations within 24 hours are non-refundable.
+  </div>
+
+  <div class="grid">
+    <!-- Book a Session -->
+    <div class="card">
+      <div class="card-icon">&#128197;</div>
+      <h2>Book a Session</h2>
+      <p>Schedule your next coaching session at a time that works for you.</p>
+      <a href="https://calendly.com/d/cxkw-gzv-8kv" target="_blank" rel="noopener" class="btn btn-gold" style="margin-bottom:10px;">60-Min Mirror Session</a>
+      <a href="https://calendly.com/jcbatton/letstalk" target="_blank" rel="noopener" class="btn btn-outline">30-Min Check-In</a>
+    </div>
+
+    <!-- Manage Payments -->
+    <div class="card">
+      <div class="card-icon">&#128179;</div>
+      <h2>Manage Payments</h2>
+      <p>View invoices, payment history, and manage your billing through Stripe.</p>
+      <a href="mailto:jcbatton@gmail.com?subject=Billing%20Inquiry&body=Hi%20Jeffrey%2C%20I%20have%20a%20question%20about%20my%20billing." class="btn btn-gold">Request Billing Info</a>
+    </div>
+
+    <!-- Join Session -->
+    <div class="card">
+      <div class="card-icon">&#127909;</div>
+      <h2>Join Your Session</h2>
+      <p>Click here when it's time for your scheduled session.</p>
+      <a href="https://us02web.zoom.us/j/6811699428" target="_blank" rel="noopener" class="btn btn-gold">Join Zoom Session</a>
+    </div>
+
+    <!-- Apply Discount -->
+    <div class="card">
+      <div class="card-icon">&#127919;</div>
+      <h2>Apply Discount Code</h2>
+      <p>Have a legacy or referral discount code? Contact Jeffrey to apply it to your next booking.</p>
+      <a href="mailto:jcbatton@gmail.com?subject=Discount%20Code&body=Hi%20Jeffrey%2C%20I%20have%20a%20discount%20code%20to%20apply." class="btn btn-outline">Send Discount Code</a>
+    </div>
+
+    <!-- Recurring / Package -->
+    <div class="card">
+      <div class="card-icon">&#128260;</div>
+      <h2>Set Up Recurring Sessions</h2>
+      <p>Want to book a standing weekly or biweekly session? Contact Jeffrey to set up a recurring schedule.</p>
+      <a href="mailto:jcbatton@gmail.com?subject=Recurring%20Sessions&body=Hi%20Jeffrey%2C%20I'd%20like%20to%20set%20up%20recurring%20sessions." class="btn btn-outline">Set Up Recurring</a>
+    </div>
+
+    <!-- Reschedule -->
+    <div class="card">
+      <div class="card-icon">&#128336;</div>
+      <h2>Reschedule or Cancel</h2>
+      <p>Need to move your session? Use the link in your Calendly confirmation email, or contact Jeffrey directly.</p>
+      <a href="mailto:jcbatton@gmail.com?subject=Reschedule%20Request&body=Hi%20Jeffrey%2C%20I%20need%20to%20reschedule%20my%20upcoming%20session." class="btn btn-outline">Request Reschedule</a>
+    </div>
+  </div>
+
+  <div class="help">
+    <p>Need help with anything else?</p>
+    <a href="mailto:jcbatton@gmail.com">Contact Jeffrey directly: jcbatton@gmail.com</a>
+  </div>
+
+</body>
+</html>
