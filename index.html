@@ -312,6 +312,59 @@
     }
 
     /* ═══════════════════════════════════════════
+       SECTION 3.5: HOW IT WORKS
+    ═══════════════════════════════════════════ */
+    .how-it-works {
+      background: var(--bg-mid);
+      padding: 120px 80px;
+      border-top: 1px solid rgba(201,168,76,0.2);
+    }
+    .how-it-works .label { margin-bottom: 24px; text-align: center; }
+    .how-it-works h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      color: var(--text-cream);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .how-it-works .section-subhead {
+      font-size: 17px;
+      color: rgba(245,240,232,0.55);
+      text-align: center;
+      margin-bottom: 72px;
+    }
+    .work-columns {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+    .work-step {}
+    .step-number {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.6;
+      display: block;
+      margin-bottom: 16px;
+    }
+    .work-step h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--text-cream);
+      margin-bottom: 16px;
+    }
+    .work-step p {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.9;
+      color: rgba(245,240,232,0.65);
+    }
+
+    /* ═══════════════════════════════════════════
        SECTION 4: THE OFFERS
     ═══════════════════════════════════════════ */
     .offers {
@@ -412,6 +465,63 @@
       vertical-align: middle;
       font-family: var(--font-body);
       font-weight: 500;
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTION 4.5: TESTIMONIALS
+    ═══════════════════════════════════════════ */
+    .testimonials {
+      background: var(--bg-deep);
+      padding: 140px 60px;
+    }
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .testimonials-header .label { margin-bottom: 20px; }
+    .testimonials-header h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      color: var(--text-cream);
+    }
+    .testimonials-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .testimonial-card {
+      background: var(--bg-mid);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 40px 36px;
+    }
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+    .testimonial-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.9;
+      color: var(--text-cream);
+      margin-top: 16px;
+    }
+    .testimonial-name {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--gold);
+      margin-top: 24px;
+    }
+    .testimonial-desc {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(245,240,232,0.5);
+      margin-top: 4px;
     }
 
     /* ═══════════════════════════════════════════
@@ -650,6 +760,13 @@
         grid-template-columns: 1fr;
       }
 
+      /* How It Works */
+      .how-it-works { padding: 80px 24px; }
+      .work-columns { grid-template-columns: 1fr; gap: 48px; }
+
+      /* Testimonials */
+      .testimonials-grid { grid-template-columns: 1fr; }
+
       /* Footer */
       .footer-inner {
         flex-direction: column;
@@ -677,8 +794,8 @@
     <div class="hero-content">
       <div class="hero-text">
         <span class="label reveal">Jeff Batton Life Coaching</span>
-        <h1 class="hero-headline reveal reveal-delay-1">The relationship that's been<br>breaking your heart<br>is the one you have<br>with yourself.</h1>
-        <p class="hero-sub reveal reveal-delay-2">You don't need a guru. You need a mirror.</p>
+        <h1 class="hero-headline reveal reveal-delay-1">You don't need a guru.<br>You need a mirror.</h1>
+        <p class="hero-sub reveal reveal-delay-2">The relationship that's been breaking your heart is the one you have with yourself.</p>
         <div class="hero-cta reveal reveal-delay-3">
           <a href="https://calendly.com/jcbatton/letstalk" target="_blank" rel="noopener" class="btn btn-gold">Book a Free Discovery Call</a>
         </div>
@@ -731,6 +848,30 @@
         <p class="reveal">I've spent over a decade holding a mirror for people — not to fix them, but to help them finally see what's actually running the show.</p>
         <p class="reveal">You already know something needs to change. You just haven't seen the root yet.</p>
         <p class="reveal">That's what we do here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SECTION 3.5: HOW IT WORKS ═══════════ -->
+  <section class="how-it-works">
+    <span class="label reveal">The Work</span>
+    <h2 class="reveal">What actually happens here.</h2>
+    <p class="section-subhead reveal">This is not therapy. This is not motivation. This is something different.</p>
+    <div class="work-columns">
+      <div class="work-step reveal">
+        <span class="step-number">01</span>
+        <h3>You name the pattern.</h3>
+        <p>Most people know something is wrong. They just can't see the shape of it. In the first session we name it clearly — no jargon, no diagnosis. Just the truth of what keeps happening and why.</p>
+      </div>
+      <div class="work-step reveal reveal-delay-1">
+        <span class="step-number">02</span>
+        <h3>We find the root.</h3>
+        <p>The pattern isn't the problem. It's the fruit. Under every repeated behavior, every broken relationship, every version of yourself you've tried to leave behind — there is a root. We go there.</p>
+      </div>
+      <div class="work-step reveal reveal-delay-2">
+        <span class="step-number">03</span>
+        <h3>Awareness does the work.</h3>
+        <p>You don't have to fix yourself. You have to see yourself clearly. Awareness is the axe at the root. The rest follows naturally — and permanently.</p>
       </div>
     </div>
   </section>
@@ -798,6 +939,46 @@
 
   </section>
 
+  <!-- ═══════════ SECTION 4.5: TESTIMONIALS ═══════════ -->
+  <section class="testimonials noise-bg">
+    <div class="testimonials-header">
+      <span class="label reveal">What People Say</span>
+      <h2 class="reveal">Words from the mirror.</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-quote">"Jeff's guidance has saved my life. I was in therapy for 17 years. I struggled with anxiety, depression and addiction. I could never imagine my life and headspace where they are today. Everybody needs a Jeff in their life."</p>
+        <div class="testimonial-name">Tyler</div>
+        <div class="testimonial-desc">Mirror Session client</div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-quote">"Jeff is like a lighthouse. He has helped me navigate through life's challenges and difficult times. When I find myself in the middle of the ocean alone and afraid, his light, his smile, his compassion become the light that helps me find my way."</p>
+        <div class="testimonial-name">Veronica</div>
+        <div class="testimonial-desc">Coaching client</div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-quote">"Jeff is about freedom from our pasts that don't serve us. When I think back to what he told me would be possible — a large part of me felt it might be a fantasy. It was not a fantasy. I'm living proof of what he told me was possible."</p>
+        <div class="testimonial-name">Mike B.</div>
+        <div class="testimonial-desc">Root Work client</div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-quote">"Life coaching has been far more transformative for me than counseling. I feel like I'm out here spreading the gospel, telling all my friends to call him. If you're wondering if it's worth it — I promise you, it's worth every penny."</p>
+        <div class="testimonial-name">Emily</div>
+        <div class="testimonial-desc">Coaching client</div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-quote">"Two sessions changed the dynamic of our marriage in so many positive ways. Before we started talking with Jeffrey, our marriage was in shambles and on the way to divorce court."</p>
+        <div class="testimonial-name">Dallas</div>
+        <div class="testimonial-desc">Couples client</div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════ SECTION 5: CLIENT PORTAL ═══════════ -->
   <section class="portal">
     <div class="portal-inner">
@@ -835,7 +1016,7 @@
     <div class="capture-inner">
       <h2 class="reveal">Start with one chapter.</h2>
       <p class="capture-body reveal"><em>Grinnin' Like a Jackass Eatin' Briars</em> is the story of what got Jeffrey here.<br><br>Not a self-help book. Not a program. A man's honest account of his own pig pen — and what it took to finally get up and go home.<br><br>Chapter 4 is where it starts to make sense.<br><br>Leave your email. I'll send it to you.</p>
-      <form class="capture-form reveal" action="mailto:jcbatton@gmail.com" method="post" enctype="text/plain">
+      <form class="capture-form reveal" id="chapter4-form" onsubmit="return false;">
         <input type="email" name="email" class="capture-input" placeholder="your@email.com" required aria-label="Email address">
         <button type="submit" class="btn btn-gold">Send Me Chapter 4</button>
       </form>
@@ -881,6 +1062,20 @@
         });
       }, { threshold: 0.15 });
       els.forEach(function(el) { observer.observe(el); });
+    })();
+
+    // Chapter 4 email form — mailto handler
+    (function() {
+      var form = document.getElementById('chapter4-form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var email = form.querySelector('input[type="email"]').value;
+          if (email) {
+            window.location.href = 'mailto:jcbatton@gmail.com?subject=Chapter%204%20Request&body=Please%20send%20me%20Chapter%204.%20My%20email%20is%3A%20' + encodeURIComponent(email);
+          }
+        });
+      }
     })();
   </script>
 </body>
