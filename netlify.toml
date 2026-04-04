@@ -1,4 +1,8 @@
 [build]
-  command = "pnpm run build"
-    publish = "dist/public"
-    
+  command = "mkdir -p dist && cp index.html dist/ && cp -r images dist/images && cp _redirects dist/ 2>/dev/null; echo 'Build complete'"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
