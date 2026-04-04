@@ -187,7 +187,14 @@
       position: relative;
       overflow: hidden;
     }
-    .hero-image img {
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .hero-photo-fallback {
+      display: none;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -286,15 +293,6 @@
       display: block;
       border-radius: 4px;
     }
-    .mirror-photo::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 4px;
-      background: linear-gradient(to right, var(--bg-mid) 0%, transparent 30%);
-      pointer-events: none;
-    }
-    .mirror-photo { position: relative; }
     .mirror-copy {
       flex: 1;
     }
@@ -631,6 +629,8 @@
         max-height: 400px;
       }
       .hero-image::before { display: none; }
+      .hero-video { display: none; }
+      .hero-photo-fallback { display: block; }
       .hero-rule { margin: 0 auto; }
       .hero-cta { width: 100%; }
       .hero-cta .btn { width: 100%; display: block; }
@@ -686,7 +686,10 @@
         <div class="hero-rule reveal reveal-delay-4"></div>
       </div>
       <div class="hero-image">
-        <img src="images/jeffrey-batton-hero.jpeg" alt="Jeffrey Batton — Life Coach" width="720" height="960">
+        <video autoplay muted loop playsinline class="hero-video">
+          <source src="images/jeffrey-chair.mp4" type="video/mp4">
+        </video>
+        <img src="images/jeffrey-batton-hero.jpeg" alt="Jeffrey Batton — Life Coach" class="hero-photo-fallback" width="720" height="960">
       </div>
     </div>
   </section>
@@ -719,7 +722,7 @@
   <section class="mirror">
     <div class="mirror-inner">
       <div class="mirror-photo reveal">
-        <img src="images/jeffrey-batton-hero.jpeg" alt="Jeffrey Batton" loading="lazy" width="720" height="960">
+        <img src="images/jeffrey-crowd.jpeg" alt="Jeffrey Batton" loading="lazy" width="720" height="960">
       </div>
       <div class="mirror-copy">
         <p class="reveal">I'm Jeffrey Batton.</p>
