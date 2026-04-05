@@ -211,6 +211,34 @@
     }
 
     /* ═══════════════════════════════════════════
+       SECTION 1.5: THIS IS FOR YOU
+    ═══════════════════════════════════════════ */
+    .for-you {
+      background: var(--bg-deep);
+      padding: 80px 60px;
+    }
+    .for-you-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .for-you .label { margin-bottom: 40px; }
+    .for-you-item {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 24px;
+      line-height: 2;
+      color: var(--text-cream);
+      margin-bottom: 32px;
+    }
+    .for-you-hook {
+      font-family: var(--font-body);
+      font-size: 18px;
+      color: var(--gold);
+      margin: 48px 0 32px;
+    }
+
+    /* ═══════════════════════════════════════════
        SECTION 2: THE WOUND
     ═══════════════════════════════════════════ */
     .wound {
@@ -524,6 +552,89 @@
       margin-top: 4px;
     }
 
+    /* ── Mini testimonials below offer cards ── */
+    .mini-testimonial {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 16px;
+      color: rgba(245,240,232,0.55);
+      line-height: 1.7;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+    .mini-testimonial .mini-name {
+      font-family: var(--font-body);
+      font-style: normal;
+      font-size: 13px;
+      color: rgba(245,240,232,0.4);
+      margin-top: 8px;
+    }
+    .mini-testimonial .mini-name em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* ═══════════════════════════════════════════
+       FAQ SECTION
+    ═══════════════════════════════════════════ */
+    .faq {
+      background: var(--bg-mid);
+      padding: 120px 80px;
+    }
+    .faq-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      color: var(--text-cream);
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      padding: 28px 0;
+    }
+    .faq-item:first-of-type {
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+    .faq-q {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--text-cream);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-q::after {
+      content: '+';
+      font-family: var(--font-body);
+      font-size: 24px;
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-q::after {
+      content: '−';
+    }
+    .faq-a {
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.9;
+      color: rgba(245,240,232,0.7);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      padding-top: 0;
+    }
+    .faq-item.open .faq-a {
+      max-height: 400px;
+      padding-top: 20px;
+    }
+
     /* ═══════════════════════════════════════════
        SECTION 5: CLIENT PORTAL
     ═══════════════════════════════════════════ */
@@ -760,12 +871,19 @@
         grid-template-columns: 1fr;
       }
 
+      /* This Is For You */
+      .for-you { padding: 60px 24px; }
+      .for-you-item { font-size: 20px; }
+
       /* How It Works */
       .how-it-works { padding: 80px 24px; }
       .work-columns { grid-template-columns: 1fr; gap: 48px; }
 
       /* Testimonials */
       .testimonials-grid { grid-template-columns: 1fr; }
+
+      /* FAQ */
+      .faq { padding: 80px 24px; }
 
       /* Footer */
       .footer-inner {
@@ -808,6 +926,18 @@
         </video>
         <img src="/images/jeffrey-batton-hero.jpeg" alt="Jeffrey Batton — Life Coach" class="hero-photo-fallback" width="720" height="960">
       </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SECTION 1.5: THIS IS FOR YOU ═══════════ -->
+  <section class="for-you">
+    <div class="for-you-inner">
+      <span class="label reveal">This Is For You If...</span>
+      <p class="for-you-item reveal">You keep choosing the same person<br>with a different face.</p>
+      <p class="for-you-item reveal reveal-delay-1">You understand your pattern<br>but still can't stop repeating it.</p>
+      <p class="for-you-item reveal reveal-delay-2">You've done the therapy.<br>Read the books. And something<br>is still running the show.</p>
+      <p class="for-you-hook reveal">That something has a name.</p>
+      <a href="https://calendly.com/jcbatton/letstalk" target="_blank" rel="noopener" class="btn btn-gold reveal">Find Out What It Is</a>
     </div>
   </section>
 
@@ -902,6 +1032,7 @@
         <div class="offer-duration">60 minutes</div>
         <p class="offer-body">One wound. One mirror. One session. We go straight to the root. You leave with clarity you didn't walk in with.</p>
         <a href="https://calendly.com/d/cxkw-gzv-8kv" target="_blank" rel="noopener" class="btn btn-gold">Book a Mirror Session</a>
+        <div class="mini-testimonial">"I could never imagine my life and headspace where they are today."<div class="mini-name"><em>—</em> Tyler, Mirror Session client</div></div>
       </div>
 
       <!-- Card 3 — 4-Session Package -->
@@ -924,6 +1055,7 @@
         <div class="offer-duration">3 days, all-inclusive</div>
         <p class="offer-body">Two people. Two wounds. One relationship caught in the middle.<br><br>This three-day immersive experience is designed for couples who are done repeating the same fight and ready to find the root — together.<br><br>All-inclusive. In-person. Transformative.</p>
         <a href="mailto:jcbatton@gmail.com?subject=Couples%20Retreat%20Application&body=I%20am%20interested%20in%20the%20Couples%20Intensive%20Retreat." target="_blank" class="btn btn-outline">Apply for the Couples Retreat</a>
+        <div class="mini-testimonial">"Two sessions changed the dynamic of our marriage in ways we never imagined."<div class="mini-name"><em>—</em> Dallas, Couples client</div></div>
       </div>
 
       <!-- Card 5 — Root Work -->
@@ -934,6 +1066,7 @@
         <div class="offer-duration">Full year engagement</div>
         <p class="offer-body">Some wounds don't respond to a session. They've been running too long. They're too woven into the fabric of who you think you are.<br><br>Root Work is for the person who has tried everything. The therapy. The self-help. The conversations. And the pattern is still there — older, quieter, but still there.<br><br>This is a full year. One coach. One framework. The kind of depth that actually changes the program — not just the behavior on top of it.<br><br>Not everyone is accepted. Because not everyone is ready.<br><br>If you are — you already know it.</p>
         <a href="mailto:jcbatton@gmail.com?subject=Root%20Work%20Application&body=I%20am%20ready%20to%20apply%20for%20Root%20Work." target="_blank" class="btn btn-gold" style="font-size:17px;padding:20px 40px;">Apply for Root Work</a>
+        <div class="mini-testimonial">"It was not a fantasy. I'm living proof of what he told me was possible."<div class="mini-name"><em>—</em> Mike B., Root Work client</div></div>
       </div>
     </div>
 
@@ -985,16 +1118,6 @@
     </div>
   </section>
 
-  <!-- ═══════════ SECTION 5: CLIENT PORTAL ═══════════ -->
-  <section class="portal">
-    <div class="portal-inner">
-      <div class="portal-icon reveal">&#129526;</div>
-      <h2 class="reveal">Your client profile</h2>
-      <p class="reveal">Once you begin working with Jeffrey, you'll have your own private space — to manage sessions, stay connected, and continue the work between conversations.</p>
-      <a href="client-portal.html" class="btn btn-outline reveal">Access Your Profile</a>
-    </div>
-  </section>
-
   <!-- ═══════════ SECTION 6: A WORD ═══════════ -->
   <section class="word">
     <div class="word-inner">
@@ -1029,6 +1152,33 @@
     </div>
   </section>
 
+  <!-- ═══════════ FAQ ═══════════ -->
+  <section class="faq">
+    <div class="faq-inner">
+      <h2 class="reveal">Questions people ask before they call.</h2>
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-q">How is this different from therapy?</div>
+        <div class="faq-a">Therapy often focuses on processing what happened. This focuses on the program that's still running because of what happened. We're not looking backward to heal — we're looking at what's operating right now and why. Most people find they move faster here than they ever did in traditional therapy.</div>
+      </div>
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-q">What actually happens in a session?</div>
+        <div class="faq-a">We talk. But not the way you expect. Jeffrey isn't here to give you advice or tell you what to do. He's here to show you what you can't see yet — the pattern, the root, the moment it all started making sense. Most people leave a session saying they've never thought about themselves that way before.</div>
+      </div>
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Is this for singles, couples, or both?</div>
+        <div class="faq-a">Both. The Love Wound shows up differently in each — but it shows up everywhere. Singles often come to understand why they keep choosing the same relationship. Couples come to understand why they keep having the same fight.</div>
+      </div>
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Do I need to be in crisis to come?</div>
+        <div class="faq-a">No. Some people come in crisis. Others come because something quiet is off and they can't name it. The only requirement is that you're ready to look honestly.</div>
+      </div>
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-q">What kind of results do people get?</div>
+        <div class="faq-a">Read the testimonials on this page. Those are real people, real words. The common thread: they stopped repeating the pattern. Not because they tried harder — because they finally saw the root.</div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════ SECTION 8: FOOTER ═══════════ -->
   <footer class="footer">
     <div class="footer-inner">
@@ -1039,10 +1189,13 @@
       <div class="footer-quote">
         "You don't need a guru.<br>You need a mirror."
       </div>
-      <div class="footer-social">
-        <a href="https://www.instagram.com/jeffbattoncoaching/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-        <a href="https://www.linkedin.com/in/jeffreybatton/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
-        <a href="https://www.facebook.com/jeffrey.batton" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+      <div class="footer-right">
+        <div class="footer-social">
+          <a href="https://www.instagram.com/jeffbattoncoaching/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+          <a href="https://www.linkedin.com/in/jeffreybatton/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+          <a href="https://www.facebook.com/jeffrey.batton" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+        </div>
+        <div style="margin-top:12px;font-size:13px;color:rgba(245,240,232,0.3);">Existing clients: <a href="client-portal.html" style="color:#c9a84c;text-decoration:none;font-size:13px;">Access your profile &rarr;</a></div>
       </div>
     </div>
     <div class="footer-bottom">
