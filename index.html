@@ -673,9 +673,10 @@
        SECTION 6: A WORD
     ═══════════════════════════════════════════ */
     .word {
-      background: var(--bg-light);
-      color: var(--text-dark);
+      background: #1e1812;
+      color: var(--text-cream);
       padding: 120px 24px;
+      border-top: 1px solid rgba(201,168,76,0.2);
     }
     .word-inner {
       max-width: 700px;
@@ -688,7 +689,7 @@
       font-style: italic;
       font-size: clamp(22px, 3vw, 30px);
       line-height: 1.7;
-      color: var(--text-dark);
+      color: var(--text-cream);
       margin-bottom: 56px;
     }
     .word-text strong {
@@ -697,7 +698,7 @@
     }
     .word-footer {
       font-size: 17px;
-      color: rgba(26,20,16,0.65);
+      color: rgba(245,240,232,0.6);
       margin-top: 48px;
       margin-bottom: 16px;
     }
@@ -710,7 +711,7 @@
       transition: color 0.3s;
     }
     .word-link:hover { color: var(--gold-hover); }
-    .word .gold-rule { background: rgba(201,168,76,0.5); }
+    .word .gold-rule { background: var(--gold); }
 
     /* ═══════════════════════════════════════════
        SECTION 7: EMAIL CAPTURE
@@ -1135,7 +1136,7 @@
       </div>
       <hr class="gold-rule reveal">
       <p class="word-footer reveal">The Library — books, texts, and teachings that have helped people come home.</p>
-      <a href="#library" class="word-link reveal">Browse The Library &rarr;</a>
+      <a href="library.html" class="word-link reveal">Browse The Library &rarr;</a>
     </div>
   </section>
 

@@ -1,5 +1,5 @@
 [build]
-  command = "echo '=== SOURCE FILES ===' && ls -la images/ && mkdir -p dist/images && cp index.html dist/ && cp client-portal.html dist/ && cp images/jeffrey-batton-hero.jpeg dist/images/ && cp images/jeffrey-crowd.jpeg dist/images/ && cp images/jeffrey-chair.mp4 dist/images/ && cp images/headshot.jpg dist/images/ && echo '=== DIST OUTPUT ===' && ls -la dist/ && ls -la dist/images/ && echo 'Build complete'"
+  command = "mkdir -p dist/images && cp index.html dist/ && cp client-portal.html dist/ && cp library.html dist/ && cp images/jeffrey-batton-hero.jpeg dist/images/ && cp images/jeffrey-crowd.jpeg dist/images/ && cp images/jeffrey-chair.mp4 dist/images/ && cp images/headshot.jpg dist/images/ && echo 'Build complete'"
   publish = "dist"
 
 [build.environment]
