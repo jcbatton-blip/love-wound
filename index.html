@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -653,6 +655,33 @@
       padding-top: 20px;
     }
 
+    /* ── Calendly Embed ── */
+    .calendly-section {
+      background: var(--bg-deep);
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .calendly-section h2 {
+      font-family: var(--font-display);
+      font-size: 36px;
+      color: var(--text-cream);
+      margin-bottom: 12px;
+    }
+    .calendly-section .calendly-sub {
+      font-family: var(--font-body);
+      font-size: 18px;
+      color: rgba(245,240,232,0.6);
+      margin-bottom: 40px;
+    }
+    .calendly-embed-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      min-height: 700px;
+    }
+    .calendly-embed-wrap .calendly-inline-widget {
+      min-height: 700px;
+    }
+
     /* ═══════════════════════════════════════════
        SECTION 5: CLIENT PORTAL
     ═══════════════════════════════════════════ */
@@ -1200,6 +1229,15 @@
         <div class="faq-q">What kind of results do people get?</div>
         <div class="faq-a">Read the testimonials on this page. Those are real people, real words. The common thread: they stopped repeating the pattern. Not because they tried harder — because they finally saw the root.</div>
       </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CALENDLY EMBED ═══════════ -->
+  <section class="calendly-section">
+    <h2 class="reveal">Book Your Free Discovery Call</h2>
+    <p class="calendly-sub reveal">30 minutes. No pitch. No pressure.</p>
+    <div class="calendly-embed-wrap reveal">
+      <div class="calendly-inline-widget" data-url="https://calendly.com/jcbatton/letstalk?hide_gdpr_banner=1&background_color=1a1410&text_color=f5f0e8&primary_color=c9a84c" style="min-height:700px;width:100%;"></div>
     </div>
   </section>
 
