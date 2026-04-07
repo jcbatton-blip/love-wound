@@ -52,13 +52,17 @@
 
     /* ── Scroll reveal ── */
     .reveal {
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.pre-animate {
       opacity: 0;
       transform: translateY(32px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
     }
     .reveal.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
     .reveal-delay-1 { transition-delay: 0.12s; }
     .reveal-delay-2 { transition-delay: 0.24s; }
@@ -1231,15 +1235,27 @@
         els.forEach(function(el) { el.classList.add('visible'); });
         return;
       }
+      // Mark all elements for animation (visible by default if JS fails)
+      els.forEach(function(el) { el.classList.add('pre-animate'); });
+
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
+            entry.target.classList.remove('pre-animate');
             entry.target.classList.add('visible');
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.15 });
+      }, { threshold: 0.05, rootMargin: '0px 0px -50px 0px' });
       els.forEach(function(el) { observer.observe(el); });
+
+      // Safety fallback: force all visible after 3s
+      setTimeout(function() {
+        els.forEach(function(el) {
+          el.classList.remove('pre-animate');
+          el.classList.add('visible');
+        });
+      }, 3000);
     })();
 
     // Chapter 4 email form — mailto handler
