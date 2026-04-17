@@ -324,6 +324,64 @@
       color: var(--text-cream);
     }
 
+    /* ── Wound tree/root visual ── */
+    .wound-tree-figure {
+      margin: 56px auto 64px;
+      max-width: 300px;
+      width: 100%;
+      opacity: 0.92;
+    }
+    .wound-tree {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .wound-tree-ground {
+      stroke: var(--gold);
+      stroke-width: 1;
+      stroke-dasharray: 4 4;
+      opacity: 0.35;
+    }
+    .wound-tree-above path,
+    .wound-tree-below path {
+      fill: none;
+      stroke: var(--gold);
+      stroke-width: 1.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .wound-tree-above path { opacity: 0.78; }
+    .wound-tree-below path { opacity: 0.55; }
+    .wound-tree-fruit circle {
+      fill: var(--gold);
+      opacity: 0.4;
+    }
+    /* Draw-in animation when .reveal becomes .visible */
+    .wound-tree-above path,
+    .wound-tree-below path {
+      stroke-dasharray: 320;
+      stroke-dashoffset: 320;
+      transition: stroke-dashoffset 1.8s ease-out;
+    }
+    .wound-tree-figure.visible .wound-tree-above path,
+    .wound-tree-figure.visible .wound-tree-below path {
+      stroke-dashoffset: 0;
+    }
+    .wound-tree-fruit circle {
+      transition: opacity 0.6s ease-out 1.4s;
+    }
+    .wound-tree-figure.pre-animate .wound-tree-fruit circle {
+      opacity: 0;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wound-tree-above path,
+      .wound-tree-below path,
+      .wound-tree-fruit circle {
+        transition: none;
+        stroke-dashoffset: 0;
+      }
+    }
+
     /* ═══════════════════════════════════════════
        SECTION 3: THE MIRROR
     ═══════════════════════════════════════════ */
@@ -1016,6 +1074,42 @@
         It all grows from the same root.<br><br>
         That root has a name.
       </div>
+      <figure class="wound-tree-figure reveal" aria-hidden="false">
+        <svg viewBox="0 0 400 520" class="wound-tree" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A tree with visible fruit above and deep roots below ground. The wound is the root; awareness is the axe.">
+          <title>The wound is the root.</title>
+          <!-- Ground line -->
+          <line x1="40" y1="270" x2="360" y2="270" class="wound-tree-ground"/>
+          <!-- Trunk + branches (above ground) -->
+          <g class="wound-tree-above">
+            <path d="M200,270 L 200,90"/>
+            <path d="M200,190 Q 170,170 130,130"/>
+            <path d="M200,190 Q 230,170 270,130"/>
+            <path d="M200,140 Q 180,125 155,105"/>
+            <path d="M200,140 Q 220,125 245,105"/>
+            <path d="M200,100 Q 195,88 185,78"/>
+            <path d="M200,100 Q 205,88 215,78"/>
+          </g>
+          <!-- Fruit at branch tips -->
+          <g class="wound-tree-fruit">
+            <circle cx="130" cy="130" r="4"/>
+            <circle cx="270" cy="130" r="4"/>
+            <circle cx="155" cy="105" r="3"/>
+            <circle cx="245" cy="105" r="3"/>
+            <circle cx="185" cy="78" r="3"/>
+            <circle cx="215" cy="78" r="3"/>
+          </g>
+          <!-- Roots (below ground) -->
+          <g class="wound-tree-below">
+            <path d="M200,270 L 200,470"/>
+            <path d="M200,290 Q 175,330 140,380"/>
+            <path d="M200,290 Q 225,330 260,380"/>
+            <path d="M200,340 Q 185,390 165,450"/>
+            <path d="M200,340 Q 215,390 235,450"/>
+            <path d="M200,390 Q 195,440 195,490"/>
+            <path d="M200,390 Q 205,440 205,490"/>
+          </g>
+        </svg>
+      </figure>
       <h2 class="wound-title reveal">The Love Wound.</h2>
       <div class="wound-explain reveal">
         You were born as pure love. In your first seven years, you watched mom and dad — and you downloaded their behavior as love's definition. That became your subconscious program.<br><br>
@@ -1067,6 +1161,15 @@
     </div>
   </section>
 
+  <!-- ═══════════ SECTION 3.75: BOOK THE CALL ═══════════ -->
+  <section class="calendly-section">
+    <h2 class="reveal">Book Your Free Discovery Call</h2>
+    <p class="calendly-sub reveal">30 minutes. No pitch. No pressure.</p>
+    <div class="calendly-embed-wrap reveal">
+      <div class="calendly-inline-widget" data-url="https://calendly.com/jcbatton/letstalk?hide_gdpr_banner=1&background_color=1a1410&text_color=f5f0e8&primary_color=c9a84c" style="min-height:700px;width:100%;"></div>
+    </div>
+  </section>
+
   <!-- ═══════════ SECTION 4: THE OFFERS ═══════════ -->
   <section class="offers noise-bg">
     <div class="offers-header">
@@ -1082,7 +1185,7 @@
         <div class="offer-price">Free</div>
         <div class="offer-duration">30 minutes</div>
         <p class="offer-body">You feel it. You just can't name it yet. 30 minutes. No pitch. No pressure. Just a real conversation to find out if this mirror is the right one for you.</p>
-        <a href="https://calendly.com/jcbatton/letstalk" target="_blank" rel="noopener" class="btn btn-outline">Book Your Free Call</a>
+        <a href="https://calendly.com/jcbatton/letstalk" target="_blank" rel="noopener" class="btn btn-outline">Let's Talk</a>
       </div>
 
       <!-- Card 2 — Mirror Session -->
@@ -1092,7 +1195,7 @@
         <div class="offer-price">$250</div>
         <div class="offer-duration">60 minutes</div>
         <p class="offer-body">One wound. One mirror. One session. We go straight to the root. You leave with clarity you didn't walk in with.</p>
-        <a href="https://calendly.com/d/cxkw-gzv-8kv" target="_blank" rel="noopener" class="btn btn-gold">Book a Mirror Session</a>
+        <a href="https://calendly.com/d/cxkw-gzv-8kv" target="_blank" rel="noopener" class="btn btn-gold">Book Now</a>
         <div class="mini-testimonial">"I could never imagine my life and headspace where they are today."<div class="mini-name"><em>—</em> Tyler, Mirror Session client</div></div>
       </div>
 
@@ -1103,7 +1206,7 @@
         <div class="offer-price">$850</div>
         <div class="offer-duration">4 &times; 60 minutes</div>
         <p class="offer-body">For the person who knows one session won't be enough. Four sessions. One root. Complete excavation. This is where real change lives.</p>
-        <a href="mailto:jcbatton@gmail.com?subject=4-Session%20Package%20%E2%80%94%20%24850&body=I%20am%20interested%20in%20booking%20the%204-Session%20Package%20at%20%24850." class="btn btn-gold">Book 4 Sessions — $850</a>
+        <a href="https://calendly.com/d/cxkw-gzv-8kv" target="_blank" rel="noopener" class="btn btn-gold">Go Deeper</a>
       </div>
     </div>
 
@@ -1126,7 +1229,7 @@
         <div class="offer-price">$12,000 <span style="font-size:14px;color:rgba(245,240,232,0.5)">or $14,000 payment plan</span></div>
         <div class="offer-duration">Full year engagement</div>
         <p class="offer-body">Some wounds don't respond to a session. They've been running too long. They're too woven into the fabric of who you think you are.<br><br>Root Work is for the person who has tried everything. The therapy. The self-help. The conversations. And the pattern is still there — older, quieter, but still there.<br><br>This is a full year. One coach. One framework. The kind of depth that actually changes the program — not just the behavior on top of it.<br><br>Not everyone is accepted. Because not everyone is ready.<br><br>If you are — you already know it.</p>
-        <a href="mailto:jcbatton@gmail.com?subject=Root%20Work%20Application&body=I%20am%20ready%20to%20apply%20for%20Root%20Work." target="_blank" class="btn btn-gold" style="font-size:17px;padding:20px 40px;">Apply for Root Work</a>
+        <a href="mailto:jcbatton@gmail.com?subject=Root%20Work%20Application&body=I%20am%20ready%20to%20apply%20for%20Root%20Work." target="_blank" class="btn btn-gold" style="font-size:17px;padding:20px 40px;">Apply Now</a>
         <div class="mini-testimonial">"It was not a fantasy. I'm living proof of what he told me was possible."<div class="mini-name"><em>—</em> Mike B., Root Work client</div></div>
       </div>
     </div>
@@ -1203,9 +1306,11 @@
   <!-- ═══════════ SECTION 7: EMAIL CAPTURE ═══════════ -->
   <section class="capture noise-bg">
     <div class="capture-inner">
-      <h2 class="reveal">Start with one chapter.</h2>
-      <p class="capture-body reveal"><em>Grinnin' Like a Jackass Eatin' Briars</em> is the story of what got Jeffrey here.<br><br>Not a self-help book. Not a program. A man's honest account of his own pig pen — and what it took to finally get up and go home.<br><br>Chapter 4 is where it starts to make sense.<br><br>Leave your email. I'll send it to you.</p>
-      <form class="capture-form reveal" id="chapter4-form" onsubmit="return false;">
+      <h2 class="reveal">Get Chapter 4 Free</h2>
+      <p class="capture-body reveal">The chapter that changes everything.</p>
+      <!-- TODO: Replace action="INSERT_KIT_FORM_URL" with the real Kit/ConvertKit form action URL before marketing launch. Submissions will not deliver until this is swapped. -->
+      <form class="capture-form reveal" id="chapter4-form" action="INSERT_KIT_FORM_URL" method="post">
+        <input type="text" name="first_name" class="capture-input" placeholder="Your first name" required aria-label="First name">
         <input type="email" name="email" class="capture-input" placeholder="your@email.com" required aria-label="Email address">
         <button type="submit" class="btn btn-gold">Send Me Chapter 4</button>
       </form>
@@ -1237,15 +1342,6 @@
         <div class="faq-q">What kind of results do people get?</div>
         <div class="faq-a">Read the testimonials on this page. Those are real people, real words. The common thread: they stopped repeating the pattern. Not because they tried harder — because they finally saw the root.</div>
       </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ CALENDLY EMBED ═══════════ -->
-  <section class="calendly-section">
-    <h2 class="reveal">Book Your Free Discovery Call</h2>
-    <p class="calendly-sub reveal">30 minutes. No pitch. No pressure.</p>
-    <div class="calendly-embed-wrap reveal">
-      <div class="calendly-inline-widget" data-url="https://calendly.com/jcbatton/letstalk?hide_gdpr_banner=1&background_color=1a1410&text_color=f5f0e8&primary_color=c9a84c" style="min-height:700px;width:100%;"></div>
     </div>
   </section>
 
@@ -1304,19 +1400,6 @@
       }, 3000);
     })();
 
-    // Chapter 4 email form — mailto handler
-    (function() {
-      var form = document.getElementById('chapter4-form');
-      if (form) {
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          var email = form.querySelector('input[type="email"]').value;
-          if (email) {
-            window.location.href = 'mailto:jcbatton@gmail.com?subject=Chapter%204%20Request&body=Please%20send%20me%20Chapter%204.%20My%20email%20is%3A%20' + encodeURIComponent(email);
-          }
-        });
-      }
-    })();
   </script>
 </body>
 </html>
