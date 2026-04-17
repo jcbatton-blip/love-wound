@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Library — Jeff Batton Life Coaching</title>
+  <meta name="description" content="Books that have shaped The Love Wound framework. Not a reading list — a lineage.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-deep: #1a1410;
+      --bg-mid: #241e17;
+      --text-cream: #f5f0e8;
+      --text-dark: #1a1410;
+      --gold: #c9a84c;
+      --gold-hover: #e8c56a;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-deep);
+      color: var(--text-cream);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .lib-header {
+      padding: 32px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .lib-brand {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-cream);
+      text-decoration: none;
+    }
+    .lib-back {
+      font-size: 14px;
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .lib-back:hover { color: var(--gold-hover); }
+
+    /* Hero */
+    .lib-hero {
+      text-align: center;
+      padding: 100px 24px 80px;
+    }
+    .lib-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      display: block;
+    }
+    .lib-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--text-cream);
+      margin-bottom: 20px;
+    }
+    .lib-hero p {
+      font-size: 18px;
+      color: rgba(245,240,232,0.6);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Grid */
+    .lib-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px 100px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    .book-card {
+      background: var(--bg-mid);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .book-card:hover {
+      border-color: rgba(201,168,76,0.4);
+      transform: translateY(-3px);
+    }
+    .book-card.featured {
+      border-color: var(--gold);
+      border-width: 2px;
+    }
+    .book-cover {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, #2a2219 0%, #1a1410 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      position: relative;
+    }
+    .book-cover-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--gold);
+      line-height: 1.4;
+    }
+    .book-cover-author {
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: rgba(245,240,232,0.4);
+      position: absolute;
+      bottom: 16px;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+    .featured .book-cover {
+      background: linear-gradient(135deg, #33291c 0%, #1a1410 100%);
+      border-bottom: 2px solid var(--gold);
+    }
+    .featured-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--text-dark);
+      padding: 4px 10px;
+      border-radius: 3px;
+    }
+    .book-info {
+      padding: 20px;
+    }
+    .book-title {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--text-cream);
+      margin-bottom: 4px;
+    }
+    .book-author {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: rgba(245,240,232,0.5);
+      margin-bottom: 12px;
+    }
+    .book-desc {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-style: italic;
+      color: rgba(245,240,232,0.65);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .book-link {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .book-link:hover { color: var(--gold-hover); }
+    .btn-buy {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 12px 20px;
+      background: var(--gold);
+      color: var(--text-dark);
+      border-radius: 4px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .btn-buy:hover { background: var(--gold-hover); }
+
+    /* Footer */
+    .lib-footer {
+      background: #0f0b08;
+      border-top: 1px solid rgba(201,168,76,0.2);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .lib-footer p {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 15px;
+      color: rgba(245,240,232,0.4);
+      margin-bottom: 16px;
+    }
+    .lib-footer small {
+      font-size: 12px;
+      color: rgba(245,240,232,0.2);
+    }
+
+    @media (max-width: 768px) {
+      .lib-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 24px 80px;
+        gap: 20px;
+      }
+      .lib-header { padding: 24px; }
+    }
+    @media (max-width: 480px) {
+      .lib-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="lib-header">
+    <a href="index.html" class="lib-brand">Jeff Batton Life Coaching</a>
+    <a href="index.html" class="lib-back">&larr; Back to site</a>
+  </header>
+
+  <section class="lib-hero">
+    <span class="lib-label">The Library</span>
+    <h1>Books that have helped people come home.</h1>
+    <p>These are the texts that have shaped the work. Not a reading list — a lineage.</p>
+  </section>
+
+  <div class="lib-grid">
+
+    <!-- Jeffrey's Book — Featured -->
+    <div class="book-card featured">
+      <div class="book-cover">
+        <span class="featured-badge">Jeffrey's Book</span>
+        <span class="book-cover-title">Grinnin' Like a Jackass Eatin' Briars</span>
+        <span class="book-cover-author">Jeffrey Batton</span>
+      </div>
+      <div class="book-info">
+        <div class="book-title">Grinnin' Like a Jackass Eatin' Briars</div>
+        <div class="book-author">Jeffrey Batton</div>
+        <div class="book-desc">The story of what got him here.</div>
+        <a href="mailto:jcbatton@gmail.com?subject=Book%20Order" class="btn-buy">Buy the Book</a>
+      </div>
+    </div>
+
+    <!-- A Return to Love -->
+    <div class="book-card">
+      <div class="book-cover">
+        <span class="book-cover-title">A Return to Love</span>
+        <span class="book-cover-author">Marianne Williamson</span>
+      </div>
+      <div class="book-info">
+        <div class="book-title">A Return to Love</div>
+        <div class="book-author">Marianne Williamson</div>
+        <div class="book-desc">Love as the only real answer.</div>
+        <a href="#" class="book-link">Get the book &rarr;</a>
+      </div>
+    </div>
+
+    <!-- The Body Keeps the Score -->
+    <div class="book-card">
+      <div class="book-cover">
+        <span class="book-cover-title">The Body Keeps the Score</span>
+        <span class="book-cover-author">Bessel van der Kolk</span>
+      </div>
+      <div class="book-info">
+        <div class="book-title">The Body Keeps the Score</div>
+        <div class="book-author">Bessel van der Kolk</div>
+        <div class="book-desc">How the past lives in the body.</div>
+        <a href="#" class="book-link">Get the book &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Awareness -->
+    <div class="book-card">
+      <div class="book-cover">
+        <span class="book-cover-title">Awareness</span>
+        <span class="book-cover-author">Anthony de Mello</span>
+      </div>
+      <div class="book-info">
+        <div class="book-title">Awareness</div>
+        <div class="book-author">Anthony de Mello</div>
+        <div class="book-desc">The axe at every root.</div>
+        <a href="#" class="book-link">Get the book &rarr;</a>
+      </div>
+    </div>
+
+    <!-- The Surrender Experiment -->
+    <div class="book-card">
+      <div class="book-cover">
+        <span class="book-cover-title">The Surrender Experiment</span>
+        <span class="book-cover-author">Michael A. Singer</span>
+      </div>
+      <div class="book-info">
+        <div class="book-title">The Surrender Experiment</div>
+        <div class="book-author">Michael A. Singer</div>
+        <div class="book-desc">What happens when you stop resisting.</div>
+        <a href="#" class="book-link">Get the book &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Meditations for Mortals -->
+    <div class="book-card">
+      <div class="book-cover">
+        <span class="book-cover-title">Meditations for Mortals</span>
+        <span class="book-cover-author">Oliver Burkeman</span>
+      </div>
+      <div class="book-info">
+        <div class="book-title">Meditations for Mortals</div>
+        <div class="book-author">Oliver Burkeman</div>
+        <div class="book-desc">On doing what actually matters.</div>
+        <a href="#" class="book-link">Get the book &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Iron John -->
+    <div class="book-card">
+      <div class="book-cover">
+        <span class="book-cover-title">Iron John</span>
+        <span class="book-cover-author">Robert Bly</span>
+      </div>
+      <div class="book-info">
+        <div class="book-title">Iron John</div>
+        <div class="book-author">Robert Bly</div>
+        <div class="book-desc">The wound beneath the wound in men.</div>
+        <a href="#" class="book-link">Get the book &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Summerhill -->
+    <div class="book-card">
+      <div class="book-cover">
+        <span class="book-cover-title">Summerhill</span>
+        <span class="book-cover-author">A.S. Neill</span>
+      </div>
+      <div class="book-info">
+        <div class="book-title">Summerhill</div>
+        <div class="book-author">A.S. Neill</div>
+        <div class="book-desc">What children need to become whole.</div>
+        <a href="#" class="book-link">Get the book &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="lib-footer">
+    <p>"You don't need a guru. You need a mirror."</p>
+    <small>&copy; 2026 Jeff Batton Life Coaching LLC. All rights reserved.</small>
+  </footer>
+
+</body>
+</html>

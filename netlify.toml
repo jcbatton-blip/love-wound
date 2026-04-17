@@ -1,18 +1,26 @@
 [build]
-  command = "mkdir -p dist/images && cp index.html dist/ && cp client-portal.html dist/ && cp library.html dist/ && cp images/jeffrey-batton-hero.jpeg dist/images/ && cp images/jeffrey-crowd.jpeg dist/images/ && cp images/jeffrey-chair.mp4 dist/images/ && cp images/headshot.jpg dist/images/ && echo 'Build complete'"
-  publish = "dist"
+  command = "pnpm install --no-frozen-lockfile && pnpm exec vite build"
+  publish = "dist/public"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
+  PNPM_VERSION = "10.4.1"
 
+# Canonical domain: www → apex
 [[redirects]]
   from = "https://www.jeffbatton.com/*"
   to = "https://jeffbatton.com/:splat"
   status = 301
   force = true
 
+# Preserve legacy client portal
+[[redirects]]
+  from = "/client-portal"
+  to = "/client-portal.html"
+  status = 200
+
+# SPA fallback — any unknown route serves index.html so the React app renders
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = false
