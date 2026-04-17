@@ -1,40 +1,29 @@
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 /*
   Jeff Batton Life Coaching — Home
   Aesthetic: warm, dimly lit room with a fireplace and a mirror.
-  Palette (sacred, directive-locked):
-    --bg-deep   #0d0d0d  midnight
-    --bg-warm   #1a1a1a  charcoal
-    --bg-rise   #221912  warm copper-black
-    --amber     #d4a853  candlelight
-    --amber-hi  #e8c56a  candlelight, lifted
-    --cream     #f5e6c8  text on dark
-    --copper    #b87333  dividers, subtle borders
-  Type: Playfair Display (display), Lora (body).
-  Motion: ease [0.25, 0.4, 0.25, 1], duration 0.7s. Respect prefers-reduced-motion.
+  Palette: #0d0d0d midnight · #1a1a1a charcoal · #221912 copper-black
+           #d4a853 amber · #e8c56a amber-hi · #f5e6c8 cream · #b87333 copper
+  Type:    Playfair Display (display) + Lora (body)
+  Motion:  ease [0.25, 0.4, 0.25, 1], 0.7s, respects prefers-reduced-motion
 */
 
 const EASE = [0.25, 0.4, 0.25, 1] as const;
 const DUR = 0.7;
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: DUR, ease: EASE } },
-};
-
-const stagger = (delay = 0) => ({
-  visible: { transition: { staggerChildren: 0.12, delayChildren: delay } },
-});
-
 const CALENDLY_URL = "https://calendly.com/jcbatton/letstalk";
 const MIRROR_URL = "https://calendly.com/d/cxkw-gzv-8kv";
 
+/* --------------------------------------------------------------------------
+   Reveal — whileInView fade+rise, SSR-safe (no initial opacity in static HTML
+   thanks to the prerender style scrubber)
+-------------------------------------------------------------------------- */
 function Reveal({
   children,
   delay = 0,
-  y = 40,
+  y = 32,
   className,
 }: {
   children: React.ReactNode;
@@ -48,7 +37,7 @@ function Reveal({
       className={className}
       initial={reduced ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, amount: 0.05 }}
       transition={{ duration: DUR, ease: EASE, delay }}
     >
       {children}
@@ -56,17 +45,11 @@ function Reveal({
   );
 }
 
+/* --------------------------------------------------------------------------
+   Page
+-------------------------------------------------------------------------- */
 export default function Home() {
-  const reduced = useReducedMotion();
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", reduced ? "0%" : "22%"]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.4]);
-
-  // Calendly popup script — keeps the site aesthetic clean (no inline white iframe)
+  // Calendly popup script loader
   useEffect(() => {
     const id = "calendly-widget-script";
     if (document.getElementById(id)) return;
@@ -82,7 +65,9 @@ export default function Home() {
   }, []);
 
   const openCalendly = (e: React.MouseEvent, url = CALENDLY_URL) => {
-    const w = (window as unknown as { Calendly?: { initPopupWidget: (o: { url: string }) => void } }).Calendly;
+    const w = (window as unknown as {
+      Calendly?: { initPopupWidget: (o: { url: string }) => void };
+    }).Calendly;
     if (w?.initPopupWidget) {
       e.preventDefault();
       w.initPopupWidget({ url });
@@ -90,66 +75,57 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0d0d0d] text-[#f5e6c8] font-body overflow-x-hidden antialiased">
-      {/* ══════════════════════════════════════
-          HERO
-      ══════════════════════════════════════ */}
-      <section
-        ref={heroRef}
-        className="relative flex min-h-screen items-stretch overflow-hidden bg-[#1a1a1a]"
-      >
-        {/* Atmospheric warm glow — top-left firelight */}
+    <div className="min-h-screen bg-[#0d0d0d] font-body text-[#f5e6c8] antialiased overflow-x-hidden">
+      {/* ═══════════════════════════════════════════════════════════════
+          HERO — transformation-first headline, single CTA
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="relative flex min-h-screen items-stretch overflow-hidden bg-[#1a1a1a]">
+        {/* warm firelight — top-left glow */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 z-0"
           style={{
             background:
-              "radial-gradient(ellipse at 15% 20%, rgba(212,168,83,0.14) 0%, rgba(212,168,83,0.05) 30%, transparent 60%), radial-gradient(ellipse at 85% 90%, rgba(184,115,51,0.10) 0%, transparent 50%)",
+              "radial-gradient(ellipse at 15% 20%, rgba(212,168,83,0.16) 0%, rgba(212,168,83,0.06) 30%, transparent 60%), radial-gradient(ellipse at 85% 92%, rgba(184,115,51,0.12) 0%, transparent 50%)",
           }}
         />
-        {/* Subtle noise */}
+        {/* vignette */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 z-0 opacity-[0.035]"
+          className="pointer-events-none absolute inset-0 z-0"
           style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-            backgroundSize: "256px",
+            background:
+              "radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.55) 100%)",
           }}
         />
+        {/* noise */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 z-0 opacity-[0.04] [background-image:var(--noise)]" />
 
         <div className="relative z-10 flex w-full flex-col md:flex-row">
           {/* Text column */}
           <div className="flex w-full flex-col justify-center px-6 py-24 md:w-[60%] md:py-0 md:pl-[6vw] md:pr-12">
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={stagger()}
-              className="max-w-[640px]"
-            >
-              <motion.span
-                variants={fadeUp}
-                className="mb-8 block font-body text-[13px] font-medium uppercase tracking-[0.18em] text-[#d4a853]"
-              >
-                Jeff Batton Life Coaching
-              </motion.span>
-              <motion.h1
-                variants={fadeUp}
-                className="mb-7 font-display text-[clamp(38px,5vw,66px)] font-normal leading-[1.08] tracking-[-0.02em] text-white"
-              >
-                You don't need a guru.
-                <br />
-                You need a mirror.
-              </motion.h1>
-              <motion.p
-                variants={fadeUp}
-                className="mb-10 max-w-[520px] font-body text-[18px] italic leading-[1.6] text-[#f5e6c8]/75 md:text-[20px]"
-              >
-                The relationship that's been breaking your heart is the one you have with yourself.
-              </motion.p>
-              <motion.div variants={fadeUp} className="mb-4">
+            <div className="max-w-[640px]">
+              <Reveal y={18}>
+                <span className="mb-7 block font-body text-[13px] font-medium uppercase tracking-[0.22em] text-[#d4a853]">
+                  Jeff Batton · Life Coach
+                </span>
+              </Reveal>
+              <Reveal delay={0.08} y={24}>
+                <h1 className="mb-6 font-display text-[clamp(36px,5vw,62px)] font-normal leading-[1.08] tracking-[-0.02em] text-white">
+                  The same relationship keeps finding you.
+                  <br />
+                  <span className="text-[#f5e6c8]/80">Different face. Same ending.</span>
+                </h1>
+              </Reveal>
+              <Reveal delay={0.16} y={20}>
+                <p className="mb-10 max-w-[540px] font-display text-[20px] italic leading-[1.55] text-[#d4a853] md:text-[22px]">
+                  You don't need a guru. You need a mirror.
+                </p>
+              </Reveal>
+              <Reveal delay={0.24} y={16}>
                 <a
                   href={CALENDLY_URL}
+                  onClick={(e) => openCalendly(e)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-3 rounded-[3px] bg-[#d4a853] px-10 py-[18px] font-body text-[16px] font-medium tracking-[0.03em] text-[#0d0d0d] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#e8c56a] hover:shadow-[0_14px_40px_-8px_rgba(212,168,83,0.45)]"
@@ -159,25 +135,33 @@ export default function Home() {
                     →
                   </span>
                 </a>
-              </motion.div>
-              <motion.p
-                variants={fadeUp}
-                className="mb-12 font-body text-[14px] tracking-wide text-[#f5e6c8]/50"
-              >
-                30 minutes. No pitch. No pressure.
-              </motion.p>
-              <motion.div
-                variants={fadeUp}
-                className="h-px w-full max-w-[420px] bg-[#d4a853]/40"
-              />
-            </motion.div>
+              </Reveal>
+              <Reveal delay={0.3} y={10}>
+                <p className="mb-10 font-body text-[14px] tracking-wide text-[#f5e6c8]/50">
+                  30 minutes. No pitch. No pressure.
+                </p>
+              </Reveal>
+              <Reveal delay={0.36} y={8}>
+                <div className="h-px w-full max-w-[420px] bg-[#d4a853]/35" />
+              </Reveal>
+              {/* Trust strip */}
+              <Reveal delay={0.44} y={8}>
+                <p className="mt-7 max-w-[540px] font-body text-[13.5px] leading-[1.75] text-[#f5e6c8]/55 md:text-[14px]">
+                  A decade holding the mirror
+                  <span className="mx-3 text-[#d4a853]/45">·</span>
+                  Author,{" "}
+                  <em className="not-italic font-medium text-[#f5e6c8]/75">
+                    Grinnin' Like a Jackass Eatin' Briars
+                  </em>
+                  <span className="mx-3 text-[#d4a853]/45">·</span>
+                  Still learning every day
+                </p>
+              </Reveal>
+            </div>
           </div>
 
-          {/* Image column with parallax */}
-          <motion.div
-            style={{ y: heroY, opacity: heroOpacity }}
-            className="relative w-full md:w-[40%]"
-          >
+          {/* Image column */}
+          <div className="relative w-full md:w-[40%]">
             <div className="relative h-[60vw] max-h-[500px] w-full md:h-full md:max-h-none">
               <video
                 autoPlay
@@ -191,65 +175,67 @@ export default function Home() {
               </video>
               <img
                 src="/images/jeffrey-batton-hero.jpeg"
-                alt="Jeffrey Batton — Life Coach"
+                alt="Jeffrey Batton — life coach"
                 className="h-full w-full object-cover object-[center_top] md:hidden"
                 width={720}
                 height={960}
               />
-              {/* Left fade into charcoal */}
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-y-0 left-0 hidden w-[160px] bg-gradient-to-r from-[#1a1a1a] to-transparent md:block"
+                className="pointer-events-none absolute inset-y-0 left-0 hidden w-[180px] bg-gradient-to-r from-[#1a1a1a] to-transparent md:block"
               />
-              {/* Bottom fade for mobile */}
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#1a1a1a] to-transparent md:hidden"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#1a1a1a] to-transparent md:hidden"
               />
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          ANCHOR COPY
-      ══════════════════════════════════════ */}
-      <section className="bg-[#1a1a1a] px-6 py-10">
+      {/* ═══════════════════════════════════════════════════════════════
+          LIGHTHOUSE PULL QUOTE — trust bridge between hero and patterns
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="relative bg-[#1a1a1a] px-6 py-14">
         <Reveal>
-          <p className="mx-auto max-w-[720px] text-center font-body text-[17px] leading-[1.75] text-[#f5e6c8] md:text-[18px]">
-            If you've done the therapy, read the books, and still keep repeating the same patterns
-            with different people — you're in the right place. This is one-on-one coaching that
-            goes to the root.
-          </p>
+          <figure className="mx-auto max-w-[820px] text-center">
+            <blockquote className="font-display text-[20px] italic leading-[1.55] text-[#f5e6c8]/85 md:text-[24px]">
+              "Jeff is like a lighthouse. When I find myself in the middle of the ocean
+              alone and afraid, his light helps me find my way."
+            </blockquote>
+            <figcaption className="mt-4 font-body text-[13px] tracking-[0.12em] uppercase text-[#d4a853]">
+              Veronica · Coaching client
+            </figcaption>
+          </figure>
         </Reveal>
       </section>
 
-      {/* ══════════════════════════════════════
+      {/* ═══════════════════════════════════════════════════════════════
           THIS IS FOR YOU IF...
-      ══════════════════════════════════════ */}
-      <section className="bg-[#1a1a1a] px-6 py-24 md:py-28">
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="border-t border-[#b87333]/15 bg-[#1a1a1a] px-6 py-24 md:py-28">
         <div className="mx-auto max-w-[720px] text-center">
           <Reveal>
-            <span className="mb-12 inline-block font-body text-[13px] font-medium uppercase tracking-[0.18em] text-[#d4a853]">
+            <span className="mb-12 inline-block font-body text-[13px] font-medium uppercase tracking-[0.22em] text-[#d4a853]">
               This Is For You If...
             </span>
           </Reveal>
           <Reveal delay={0.05}>
-            <p className="mb-10 font-display text-[22px] italic leading-[1.8] text-[#f5e6c8] md:text-[26px]">
+            <p className="mb-10 font-display text-[22px] italic leading-[1.7] text-[#f5e6c8] md:text-[26px]">
               You keep choosing the same person
               <br />
               with a different face.
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="mb-10 font-display text-[22px] italic leading-[1.8] text-[#f5e6c8] md:text-[26px]">
+            <p className="mb-10 font-display text-[22px] italic leading-[1.7] text-[#f5e6c8] md:text-[26px]">
               You understand your pattern
               <br />
               but still can't stop repeating it.
             </p>
           </Reveal>
           <Reveal delay={0.15}>
-            <p className="mb-14 font-display text-[22px] italic leading-[1.8] text-[#f5e6c8] md:text-[26px]">
+            <p className="mb-14 font-display text-[22px] italic leading-[1.7] text-[#f5e6c8] md:text-[26px]">
               You've done the therapy.
               <br />
               Read the books. And something
@@ -258,16 +244,17 @@ export default function Home() {
             </p>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="mb-10 font-display text-[20px] text-[#d4a853] md:text-[22px]">
+            <p className="mb-9 font-display text-[20px] text-[#d4a853] md:text-[22px]">
               That something has a name.
             </p>
           </Reveal>
           <Reveal delay={0.25}>
             <a
               href={CALENDLY_URL}
+              onClick={(e) => openCalendly(e)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 rounded-[3px] bg-[#d4a853] px-9 py-[17px] font-body text-[15px] font-medium tracking-[0.03em] text-[#0d0d0d] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#e8c56a] hover:shadow-[0_14px_40px_-8px_rgba(212,168,83,0.45)]"
+              className="inline-flex items-center gap-3 rounded-[3px] border border-[#d4a853] bg-transparent px-9 py-[15px] font-body text-[15px] font-medium tracking-[0.03em] text-[#d4a853] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#d4a853]/10"
             >
               Find Out What It Is →
             </a>
@@ -275,22 +262,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          THE LOVE WOUND
-      ══════════════════════════════════════ */}
+      {/* ═══════════════════════════════════════════════════════════════
+          THE LOVE WOUND — narrative + tree moment + definition
+      ═══════════════════════════════════════════════════════════════ */}
       <section className="relative overflow-hidden bg-[#0d0d0d] px-6 py-28 md:py-36">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.04]"
+          className="pointer-events-none absolute inset-0 opacity-[0.05] [background-image:var(--noise)]"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
           style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-            backgroundSize: "256px",
+            background:
+              "radial-gradient(ellipse at 50% 55%, rgba(212,168,83,0.06) 0%, transparent 55%)",
           }}
         />
         <div className="relative mx-auto max-w-[780px] text-center">
           <Reveal>
-            <p className="mb-10 font-display text-[26px] italic leading-[1.55] text-[#f5e6c8] md:text-[36px]">
+            <p className="mb-10 font-display text-[26px] italic leading-[1.5] text-[#f5e6c8] md:text-[36px]">
               You've done the work.
               <br />
               You've read the books.
@@ -299,7 +289,7 @@ export default function Home() {
             </p>
           </Reveal>
           <Reveal delay={0.08}>
-            <p className="mb-12 font-display text-[26px] italic leading-[1.55] text-[#f5e6c8] md:text-[36px]">
+            <p className="mb-12 font-display text-[26px] italic leading-[1.5] text-[#f5e6c8] md:text-[36px]">
               And you still end up
               <br />
               in the same place.
@@ -309,7 +299,7 @@ export default function Home() {
             <div className="mx-auto mb-16 h-px w-16 bg-[#d4a853]" />
           </Reveal>
           <Reveal delay={0.2}>
-            <div className="mx-auto mb-16 max-w-[620px] font-body text-[17px] leading-[1.95] text-[#f5e6c8]/80 md:text-[19px]">
+            <div className="mx-auto mb-4 max-w-[620px] font-body text-[17px] leading-[1.9] text-[#f5e6c8]/80 md:text-[19px]">
               <p className="mb-6">Every pattern you keep repeating.</p>
               <p className="mb-6">Every relationship that ends the same way.</p>
               <p className="mb-8">Every version of yourself you've tried to outrun.</p>
@@ -317,11 +307,14 @@ export default function Home() {
               <p className="text-[#f5e6c8]">That root has a name.</p>
             </div>
           </Reveal>
+        </div>
 
-          <Tree />
+        {/* THE TREE MOMENT — full-width, large, animated */}
+        <Tree />
 
+        <div className="relative mx-auto max-w-[780px] text-center">
           <Reveal delay={0.1}>
-            <h2 className="mb-14 font-display text-[clamp(48px,8vw,80px)] font-normal leading-[1] tracking-[-0.02em] text-[#d4a853]">
+            <h2 className="mb-14 font-display text-[clamp(52px,9vw,90px)] font-normal leading-[1] tracking-[-0.02em] text-[#d4a853]">
               The Love Wound.
             </h2>
           </Reveal>
@@ -348,9 +341,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          ABOUT JEFFREY
-      ══════════════════════════════════════ */}
+      {/* ═══════════════════════════════════════════════════════════════
+          ABOUT JEFFREY — portrait + story + a wink
+      ═══════════════════════════════════════════════════════════════ */}
       <section className="bg-[#1a1a1a] px-6 py-24 md:py-28">
         <div className="mx-auto grid max-w-[1100px] items-center gap-14 md:grid-cols-[2fr_3fr] md:gap-16">
           <Reveal>
@@ -362,7 +355,7 @@ export default function Home() {
               <div className="relative overflow-hidden rounded-[3px]">
                 <img
                   src="/images/jeff-batton-headshot-enhanced.png"
-                  alt="Jeffrey Batton"
+                  alt="Jeffrey Batton, Detroit-based life coach, warm portrait"
                   loading="lazy"
                   width={720}
                   height={960}
@@ -370,9 +363,9 @@ export default function Home() {
                 />
                 <div
                   aria-hidden
-                  className="absolute inset-0"
+                  className="pointer-events-none absolute inset-0"
                   style={{
-                    boxShadow: "inset 0 -120px 80px -40px rgba(13,13,13,0.6)",
+                    boxShadow: "inset 0 -140px 100px -40px rgba(13,13,13,0.7)",
                   }}
                 />
               </div>
@@ -380,7 +373,7 @@ export default function Home() {
           </Reveal>
           <div className="space-y-6">
             <Reveal>
-              <span className="mb-2 inline-block font-body text-[13px] font-medium uppercase tracking-[0.18em] text-[#d4a853]">
+              <span className="mb-2 inline-block font-body text-[13px] font-medium uppercase tracking-[0.22em] text-[#d4a853]">
                 The Coach
               </span>
             </Reveal>
@@ -392,6 +385,7 @@ export default function Home() {
             {[
               "I'm not going to tell you I have all the answers. I don't believe in gurus — and I'd be the last one to call myself one.",
               "What I am is a Southern storyteller who has sat in his own pig pen, woke up to what got me there, and got up and went home.… to myself.",
+              "I've made just about every mistake you can make in a relationship — which is convenient, because it means I tend to recognize yours about three sentences in.",
               "I've spent over a decade holding a mirror for people — not to fix them, but to help them finally see what's actually running the show.",
               "You already know something needs to change. You just haven't seen the root yet.",
               "That's what we do here.",
@@ -406,14 +400,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          THE WORK — three steps
-      ══════════════════════════════════════ */}
+      {/* ═══════════════════════════════════════════════════════════════
+          THE WORK — 3 steps
+      ═══════════════════════════════════════════════════════════════ */}
       <section className="border-t border-[#b87333]/20 bg-[#1a1a1a] px-6 py-28 md:py-32">
         <div className="mx-auto max-w-[1100px]">
           <div className="mb-16 text-center">
             <Reveal>
-              <span className="mb-5 inline-block font-body text-[13px] font-medium uppercase tracking-[0.18em] text-[#d4a853]">
+              <span className="mb-5 inline-block font-body text-[13px] font-medium uppercase tracking-[0.22em] text-[#d4a853]">
                 The Work
               </span>
             </Reveal>
@@ -460,21 +454,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          BOOK THE CALL — CTA block (Calendly popup)
-      ══════════════════════════════════════ */}
+      {/* ═══════════════════════════════════════════════════════════════
+          BOOK THE CALL — dark CTA
+      ═══════════════════════════════════════════════════════════════ */}
       <section className="relative overflow-hidden bg-[#0d0d0d] px-6 py-28 text-center md:py-36">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at 50% 50%, rgba(212,168,83,0.08) 0%, transparent 55%)",
+              "radial-gradient(ellipse at 50% 50%, rgba(212,168,83,0.09) 0%, transparent 55%)",
           }}
         />
         <div className="relative mx-auto max-w-[680px]">
           <Reveal>
-            <span className="mb-6 inline-block font-body text-[13px] font-medium uppercase tracking-[0.18em] text-[#d4a853]">
+            <span className="mb-6 inline-block font-body text-[13px] font-medium uppercase tracking-[0.22em] text-[#d4a853]">
               Begin
             </span>
           </Reveal>
@@ -507,150 +501,251 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          OFFERS / PRICING
-      ══════════════════════════════════════ */}
-      <section className="relative bg-[#1a1a1a] px-6 py-24 md:py-28">
+      {/* ═══════════════════════════════════════════════════════════════
+          PRICING — 3 tiers with visual hierarchy
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="relative bg-[#1a1a1a] px-6 py-28 md:py-32">
         <div className="mx-auto max-w-[1180px]">
           <div className="mb-14 text-center">
             <Reveal>
-              <h2 className="mb-4 font-display text-[clamp(30px,4vw,48px)] leading-[1.1] text-white">
-                Where would you like to start?
-              </h2>
+              <span className="mb-5 inline-block font-body text-[13px] font-medium uppercase tracking-[0.22em] text-[#d4a853]">
+                Where To Start
+              </span>
             </Reveal>
             <Reveal delay={0.05}>
+              <h2 className="mb-4 font-display text-[clamp(30px,4vw,48px)] leading-[1.1] text-white">
+                Three doors. One of them is free.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
               <p className="font-body text-[17px] text-[#f5e6c8]/55">
                 Every journey begins with one honest conversation.
               </p>
             </Reveal>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            <OfferCard
-              label="Discovery Call"
-              title="Let's Talk"
-              price="Free"
-              duration="30 minutes"
-              body="You feel it. You just can't name it yet. 30 minutes. No pitch. No pressure. Just a real conversation to find out if this mirror is the right one for you."
-              cta="Let's Talk"
-              href={CALENDLY_URL}
-              variant="outline"
-              delay={0}
-            />
+
+          {/* TIER 1 — START HERE (flagship free offer) */}
+          <Reveal>
+            <div className="mx-auto mb-12 max-w-[760px]">
+              <div className="relative overflow-hidden rounded-[4px] border border-[#d4a853] bg-gradient-to-br from-[#221912] to-[#1a1a1a] p-8 md:p-12">
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse at 0% 0%, rgba(212,168,83,0.14) 0%, transparent 55%)",
+                  }}
+                />
+                <div className="relative flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between md:gap-10">
+                  <div className="flex-1">
+                    <span className="mb-3 inline-block rounded-[2px] bg-[#d4a853]/15 px-3 py-1 font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-[#d4a853]">
+                      Start Here
+                    </span>
+                    <h3 className="mb-2 font-display text-[clamp(28px,3.5vw,38px)] leading-[1.1] text-white">
+                      Free Discovery Call
+                    </h3>
+                    <p className="mb-2 font-display text-[22px] italic text-[#d4a853]">
+                      The door is open. Come sit down.
+                    </p>
+                    <p className="font-body text-[15px] text-[#f5e6c8]/60">
+                      30 minutes · No pitch · No pressure
+                    </p>
+                  </div>
+                  <a
+                    href={CALENDLY_URL}
+                    onClick={(e) => openCalendly(e)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex w-full items-center justify-center gap-3 rounded-[3px] bg-[#d4a853] px-10 py-[18px] font-body text-[16px] font-medium tracking-[0.03em] text-[#0d0d0d] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#e8c56a] hover:shadow-[0_14px_40px_-8px_rgba(212,168,83,0.45)] md:w-auto"
+                  >
+                    Book Free Call
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* TIER 2 — GO DEEPER (two session products) */}
+          <Reveal>
+            <div className="mb-4 text-center">
+              <span className="font-body text-[12px] font-medium uppercase tracking-[0.22em] text-[#f5e6c8]/45">
+                Or, if you're ready
+              </span>
+            </div>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <div className="mb-3 text-center">
+              <h3 className="font-display text-[clamp(24px,3vw,32px)] text-white">Go Deeper</h3>
+            </div>
+          </Reveal>
+          <div className="mb-14 grid gap-6 md:grid-cols-2">
             <OfferCard
               label="Single Session"
               title="Mirror Session"
               price="$250"
               duration="60 minutes"
               body="One wound. One mirror. One session. We go straight to the root. You leave with clarity you didn't walk in with."
-              cta="Book Now"
+              cta="Book Mirror Session"
               href={MIRROR_URL}
               variant="gold"
+              popular
               mini={{
-                quote:
-                  "I could never imagine my life and headspace where they are today.",
+                quote: "I could never imagine my life and headspace where they are today.",
                 name: "Tyler, Mirror Session client",
-              }}
-              delay={0.08}
-            />
-            <OfferCard
-              label="Deep Work"
-              title="4-Session Package"
-              price="$850"
-              duration="4 × 60 minutes"
-              body="For the person who knows one session won't be enough. Four sessions. One root. Complete excavation. This is where real change lives."
-              cta="Go Deeper"
-              href={MIRROR_URL}
-              variant="gold"
-              delay={0.16}
-            />
-          </div>
-          <div className="mx-auto mt-6 grid max-w-[780px] gap-6 md:grid-cols-2">
-            <OfferCard
-              label="Immersive Experience"
-              title="Couples Intensive Retreat"
-              price="$4,500"
-              priceNote="per couple"
-              duration="3 days, all-inclusive"
-              body={
-                <>
-                  Two people. Two wounds. One relationship caught in the middle.
-                  <br />
-                  <br />
-                  This three-day immersive experience is designed for couples who are done
-                  repeating the same fight and ready to find the root — together.
-                  <br />
-                  <br />
-                  All-inclusive. In-person. Transformative.
-                </>
-              }
-              cta="Apply for the Retreat"
-              href="mailto:jcbatton@gmail.com?subject=Couples%20Retreat%20Application&body=I%20am%20interested%20in%20the%20Couples%20Intensive%20Retreat."
-              variant="outline"
-              mini={{
-                quote:
-                  "Two sessions changed the dynamic of our marriage in ways we never imagined.",
-                name: "Dallas, Couples client",
               }}
               delay={0}
             />
             <OfferCard
-              label="Full Engagement"
-              badge="By Application Only"
-              title="Root Work"
-              price="$12,000"
-              priceNote="or $14,000 payment plan"
-              duration="Full year engagement"
-              body={
-                <>
-                  Some wounds don't respond to a session. They've been running too long. They're
-                  too woven into the fabric of who you think you are.
-                  <br />
-                  <br />
-                  Root Work is for the person who has tried everything. The therapy. The
-                  self-help. The conversations. And the pattern is still there — older, quieter,
-                  but still there.
-                  <br />
-                  <br />
-                  This is a full year. One coach. One framework. The kind of depth that actually
-                  changes the program — not just the behavior on top of it.
-                  <br />
-                  <br />
-                  Not everyone is accepted. Because not everyone is ready.
-                  <br />
-                  <br />
-                  If you are — you already know it.
-                </>
-              }
-              cta="Apply Now"
-              href="mailto:jcbatton@gmail.com?subject=Root%20Work%20Application&body=I%20am%20ready%20to%20apply%20for%20Root%20Work."
-              variant="gold"
-              mini={{
-                quote: "It was not a fantasy. I'm living proof of what he told me was possible.",
-                name: "Mike B., Root Work client",
-              }}
-              delay={0.1}
+              label="Four Sessions"
+              title="4-Session Package"
+              price="$850"
+              duration="4 × 60 minutes"
+              body="For the person who knows one session won't be enough. Four sessions. One root. Complete excavation. This is where real change lives."
+              cta="Begin 4-Session Work"
+              href={MIRROR_URL}
+              variant="outline"
+              delay={0.08}
             />
           </div>
+
+          {/* TIER 3 — ROOT WORK flagship */}
+          <Reveal>
+            <div className="mx-auto max-w-[760px]">
+              <div className="relative overflow-hidden rounded-[4px] border-[1.5px] border-[#d4a853] bg-[#221912] p-8 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.8)] md:p-12">
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-transparent via-[#d4a853] to-transparent"
+                />
+                <div className="grid gap-8 md:grid-cols-[1.3fr_1fr] md:items-center">
+                  <div>
+                    <div className="mb-3 flex items-center gap-2">
+                      <span className="rounded-[2px] bg-[#d4a853] px-3 py-1 font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-[#0d0d0d]">
+                        Full Engagement
+                      </span>
+                      <span className="rounded-[2px] border border-[#d4a853]/50 px-3 py-1 font-body text-[11px] font-medium uppercase tracking-[0.15em] text-[#d4a853]">
+                        Application Only
+                      </span>
+                    </div>
+                    <h3 className="mb-3 font-display text-[clamp(30px,4vw,44px)] leading-[1.05] text-white">
+                      Root Work
+                    </h3>
+                    <p className="mb-2 font-body text-[22px] font-medium text-[#d4a853]">
+                      $12,000{" "}
+                      <span className="font-body text-[14px] font-normal text-[#f5e6c8]/50">
+                        or $14,000 payment plan
+                      </span>
+                    </p>
+                    <p className="mb-6 font-body text-[13px] text-[#f5e6c8]/45">
+                      Full year engagement
+                    </p>
+                    <p className="font-body text-[16px] leading-[1.85] text-[#f5e6c8]/75">
+                      For the person who has tried everything — the therapy, the self-help, the
+                      conversations — and the pattern is still there. One coach. One framework.
+                      The kind of depth that changes the program, not the behavior on top of it.
+                    </p>
+                    <p className="mt-4 font-display text-[17px] italic text-[#f5e6c8]/70">
+                      Not everyone is accepted. Because not everyone is ready.
+                    </p>
+                    <div className="mt-6 border-t border-[#d4a853]/20 pt-5 font-display text-[15px] italic leading-[1.7] text-[#f5e6c8]/60">
+                      "It was not a fantasy. I'm living proof of what he told me was possible."
+                      <div className="mt-2 font-body not-italic text-[12px] text-[#f5e6c8]/40">
+                        — <span className="text-[#d4a853]">Mike B., Root Work client</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <a
+                      href="mailto:jcbatton@gmail.com?subject=Root%20Work%20Application&body=I%20am%20ready%20to%20apply%20for%20Root%20Work."
+                      className="block rounded-[3px] bg-[#d4a853] px-6 py-[18px] text-center font-body text-[16px] font-medium tracking-[0.03em] text-[#0d0d0d] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#e8c56a] hover:shadow-[0_14px_40px_-8px_rgba(212,168,83,0.5)]"
+                    >
+                      Apply for Root Work
+                    </a>
+                    <p className="text-center font-body text-[12px] text-[#f5e6c8]/40">
+                      Every application read personally.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          TESTIMONIALS
-      ══════════════════════════════════════ */}
-      <section className="relative bg-[#0d0d0d] px-6 py-28 md:py-32">
+      {/* ═══════════════════════════════════════════════════════════════
+          COUPLES RETREAT — separate, different buying decision
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="relative overflow-hidden border-t border-[#b87333]/20 bg-[#0d0d0d] px-6 py-24 md:py-28">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.03]"
+          className="pointer-events-none absolute inset-0"
           style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-            backgroundSize: "256px",
+            background:
+              "radial-gradient(ellipse at 50% 100%, rgba(184,115,51,0.12) 0%, transparent 60%)",
           }}
+        />
+        <div className="relative mx-auto max-w-[900px] text-center">
+          <Reveal>
+            <span className="mb-5 inline-block font-body text-[13px] font-medium uppercase tracking-[0.22em] text-[#d4a853]">
+              For Couples
+            </span>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <h2 className="mb-6 font-display text-[clamp(30px,4.5vw,48px)] leading-[1.1] text-white">
+              Couples Intensive Retreat
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mb-4 font-body text-[22px] font-medium text-[#d4a853]">
+              $4,500 per couple
+            </p>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <p className="mb-8 font-body text-[14px] tracking-wide text-[#f5e6c8]/50">
+              Three days · All-inclusive · In-person
+            </p>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <p className="mx-auto mb-10 max-w-[620px] font-body text-[17px] leading-[1.9] text-[#f5e6c8]/75 md:text-[18px]">
+              Two people. Two wounds. One relationship caught in the middle. For couples who are
+              done repeating the same fight and ready to find the root — together.
+            </p>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <a
+              href="mailto:jcbatton@gmail.com?subject=Couples%20Retreat%20Application&body=I%20am%20interested%20in%20the%20Couples%20Intensive%20Retreat."
+              className="inline-flex items-center gap-3 rounded-[3px] border-[1.5px] border-[#d4a853] bg-transparent px-10 py-[16px] font-body text-[15px] font-medium tracking-[0.03em] text-[#d4a853] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#d4a853]/10"
+            >
+              Apply for Retreat →
+            </a>
+          </Reveal>
+          <Reveal delay={0.25}>
+            <figure className="mx-auto mt-12 max-w-[580px] border-t border-[#d4a853]/15 pt-8">
+              <blockquote className="font-display text-[18px] italic leading-[1.75] text-[#f5e6c8]/70">
+                "Two sessions changed the dynamic of our marriage in ways we never imagined."
+              </blockquote>
+              <figcaption className="mt-3 font-body text-[12px] tracking-[0.12em] uppercase text-[#d4a853]/80">
+                Dallas · Couples client
+              </figcaption>
+            </figure>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          TESTIMONIALS — no stars, oversized quote marks, monograms
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="relative overflow-hidden bg-[#1a1a1a] px-6 py-28 md:py-32">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.04] [background-image:var(--noise)]"
         />
         <div className="relative mx-auto max-w-[1180px]">
           <div className="mb-16 text-center">
             <Reveal>
-              <span className="mb-5 inline-block font-body text-[13px] font-medium uppercase tracking-[0.18em] text-[#d4a853]">
+              <span className="mb-5 inline-block font-body text-[13px] font-medium uppercase tracking-[0.22em] text-[#d4a853]">
                 What People Say
               </span>
             </Reveal>
@@ -660,36 +755,46 @@ export default function Home() {
               </h2>
             </Reveal>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-10 md:grid-cols-2 md:gap-12">
             {TESTIMONIALS.map((t, i) => (
-              <Reveal key={t.name + i} delay={i * 0.08}>
-                <article className="flex h-full flex-col rounded-[3px] border border-[#d4a853]/15 border-l-[3px] border-l-[#d4a853] bg-[#1a1a1a] p-10">
-                  <div className="mb-4 font-body text-[14px] tracking-[2px] text-[#d4a853]">
-                    ★★★★★
-                  </div>
-                  <p className="flex-1 font-display text-[18px] italic leading-[1.85] text-[#f5e6c8]">
-                    "{t.quote}"
-                  </p>
-                  <div className="mt-6 border-t border-[#d4a853]/10 pt-5">
-                    <div className="font-body text-[15px] font-medium text-[#d4a853]">
-                      {t.name}
-                    </div>
-                    <div className="mt-1 font-body text-[13px] text-[#f5e6c8]/50">{t.role}</div>
-                  </div>
-                </article>
+              <Reveal key={t.name + i} delay={(i % 2) * 0.08}>
+                <figure className="relative">
+                  <span
+                    aria-hidden
+                    className="absolute -left-1 -top-5 font-display text-[88px] leading-none text-[#d4a853] md:text-[104px]"
+                    style={{ fontStyle: "italic" }}
+                  >
+                    &ldquo;
+                  </span>
+                  <blockquote className="pl-8 font-display text-[20px] italic leading-[1.65] text-[#f5e6c8]/95 md:pl-10 md:text-[22px]">
+                    {t.quote}
+                  </blockquote>
+                  <figcaption className="mt-6 flex items-center gap-4 pl-8 md:pl-10">
+                    <span
+                      aria-hidden
+                      className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-[#d4a853]/40 bg-[#d4a853]/10 font-display text-[16px] text-[#d4a853]"
+                    >
+                      {t.initials}
+                    </span>
+                    <span className="font-body text-[14px] leading-[1.4]">
+                      <span className="block font-medium text-[#d4a853]">{t.name}</span>
+                      <span className="block text-[13px] text-[#f5e6c8]/45">{t.role}</span>
+                    </span>
+                  </figcaption>
+                </figure>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          A WORD
-      ══════════════════════════════════════ */}
+      {/* ═══════════════════════════════════════════════════════════════
+          THE WORD — prodigal son close
+      ═══════════════════════════════════════════════════════════════ */}
       <section className="border-t border-[#b87333]/25 bg-[#221912] px-6 py-28 md:py-32">
         <div className="mx-auto max-w-[720px] text-center">
           <Reveal>
-            <span className="mb-8 inline-block font-body text-[13px] font-medium uppercase tracking-[0.18em] text-[#d4a853]">
+            <span className="mb-8 inline-block font-body text-[13px] font-medium uppercase tracking-[0.22em] text-[#d4a853]">
               A Word
             </span>
           </Reveal>
@@ -728,14 +833,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          EMAIL CAPTURE — Netlify Forms
-      ══════════════════════════════════════ */}
-      <EmailCapture />
-
-      {/* ══════════════════════════════════════
-          FAQ
-      ══════════════════════════════════════ */}
+      {/* ═══════════════════════════════════════════════════════════════
+          FAQ — with one wink
+      ═══════════════════════════════════════════════════════════════ */}
       <section className="bg-[#1a1a1a] px-6 py-28 md:py-32">
         <div className="mx-auto max-w-[820px]">
           <Reveal>
@@ -745,7 +845,7 @@ export default function Home() {
           </Reveal>
           <div className="border-t border-[#d4a853]/15">
             {FAQ.map((f, i) => (
-              <Reveal key={f.q} delay={i * 0.04}>
+              <Reveal key={f.q} delay={i * 0.03}>
                 <FAQItem q={f.q} a={f.a} />
               </Reveal>
             ))}
@@ -753,13 +853,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
+      {/* ═══════════════════════════════════════════════════════════════
+          FINAL CTA — one last door
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="bg-[#0d0d0d] px-6 py-24 text-center">
+        <Reveal>
+          <p className="mx-auto mb-8 max-w-[600px] font-display text-[24px] italic leading-[1.55] text-[#f5e6c8] md:text-[28px]">
+            You already know something needs to change.
+            <br />
+            You just haven't seen the root yet.
+          </p>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <a
+            href={CALENDLY_URL}
+            onClick={(e) => openCalendly(e)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 rounded-[3px] bg-[#d4a853] px-12 py-[20px] font-body text-[17px] font-medium tracking-[0.03em] text-[#0d0d0d] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#e8c56a] hover:shadow-[0_18px_50px_-10px_rgba(212,168,83,0.5)]"
+          >
+            Book Your Free Discovery Call →
+          </a>
+        </Reveal>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════
           FOOTER
-      ══════════════════════════════════════ */}
-      <footer className="border-t border-[#d4a853]/25 bg-[#0d0d0d] px-6 py-16">
+      ═══════════════════════════════════════════════════════════════ */}
+      <footer className="border-t border-[#d4a853]/25 bg-[#0d0d0d] px-6 pb-14 pt-16">
         <div className="mx-auto grid max-w-[1180px] gap-10 md:grid-cols-3 md:items-center">
           <div className="text-center md:text-left">
-            <div className="font-body text-[13px] font-medium uppercase tracking-[0.18em] text-[#f5e6c8]">
+            <div className="font-body text-[13px] font-medium uppercase tracking-[0.22em] text-[#f5e6c8]">
               Jeff Batton Life Coaching
             </div>
             <a
@@ -800,190 +924,213 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="mx-auto mt-12 max-w-[1180px] border-t border-[#d4a853]/10 pt-6 text-center font-body text-[12px] leading-[1.7] text-[#f5e6c8]/25">
+        <div className="mx-auto mt-12 max-w-[1180px] border-t border-[#d4a853]/10 pt-6 text-center font-body text-[12px] leading-[1.7] text-[#f5e6c8]/30">
           © {new Date().getFullYear()} Jeff Batton Life Coaching LLC. All rights reserved. Works
-          virtually, globally.
+          virtually, globally. No gurus were harmed in the making of this website.
         </div>
       </footer>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          STICKY MOBILE CTA
+      ═══════════════════════════════════════════════════════════════ */}
+      <StickyMobileCTA onOpen={openCalendly} />
     </div>
   );
 }
 
-/* ══════════════════════════════════════════════════════════════════════════
-   SUB-COMPONENTS
-   ══════════════════════════════════════════════════════════════════════════ */
-
+/* ════════════════════════════════════════════════════════════════════════
+   TREE — animated visual moment. Roots draw from center outward, trunk
+   rises, branches extend, fruit appears. Full-width container, large scale.
+════════════════════════════════════════════════════════════════════════ */
 function Tree() {
   const reduced = useReducedMotion();
+  const ref = useRef<SVGSVGElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.2 });
+
+  const draw = (delay: number, duration = 1.4) =>
+    reduced
+      ? { initial: false as const }
+      : {
+          initial: { pathLength: 0, opacity: 0 },
+          animate: inView ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 },
+          transition: { duration, delay, ease: EASE },
+        };
+
+  const pop = (delay: number) =>
+    reduced
+      ? { initial: false as const }
+      : {
+          initial: { scale: 0, opacity: 0 },
+          animate: inView ? { scale: 1, opacity: 0.55 } : { scale: 0, opacity: 0 },
+          transition: { duration: 0.5, delay, ease: EASE },
+        };
+
   return (
-    <motion.figure
-      className="mx-auto mb-16 w-full max-w-[320px]"
-      initial={reduced ? false : "hidden"}
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
-      variants={{ hidden: {}, visible: {} }}
-    >
-      <svg
-        viewBox="0 0 400 520"
-        className="block h-auto w-full"
-        xmlns="http://www.w3.org/2000/svg"
-        role="img"
-        aria-label="A tree with fruit above ground and deep roots below. The wound is the root; awareness is the axe."
+    <div className="relative my-20 md:my-28">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 flex items-center justify-center"
       >
-        {/* ground */}
-        <line
-          x1="40"
-          y1="270"
-          x2="360"
-          y2="270"
-          stroke="#d4a853"
-          strokeWidth="1"
-          strokeDasharray="4 4"
-          opacity="0.35"
-        />
-        {/* branches above ground */}
-        <motion.g
-          fill="none"
-          stroke="#d4a853"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          opacity={0.82}
-          variants={{
-            hidden: { pathLength: 0 },
-            visible: { pathLength: 1 },
+        <div
+          className="h-[420px] w-[720px] max-w-full"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, rgba(212,168,83,0.11) 0%, transparent 60%)",
           }}
-          transition={{ duration: 1.8, ease: EASE }}
+        />
+      </div>
+      <figure
+        className="relative mx-auto w-full max-w-[560px] px-4"
+        aria-label="A tree illustrating the Love Wound framework: roots as the wound, trunk as awareness, fruit as the repeating pattern."
+      >
+        <svg
+          ref={ref}
+          viewBox="0 0 400 560"
+          className="block h-auto w-full"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
         >
-          <motion.path
-            d="M200,270 L 200,90"
-            initial={reduced ? false : { pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: EASE }}
+          {/* soil line */}
+          <motion.line
+            x1="30"
+            y1="280"
+            x2="370"
+            y2="280"
+            stroke="#d4a853"
+            strokeWidth="1"
+            strokeDasharray="3 5"
+            initial={reduced ? false : { opacity: 0 }}
+            animate={inView ? { opacity: 0.4 } : { opacity: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
           />
+          {/* ROOTS — draw first (from center outward, downward) */}
+          <g
+            fill="none"
+            stroke="#d4a853"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            opacity={0.72}
+          >
+            <motion.path d="M200,280 L 200,490" {...draw(0.1, 1.5)} />
+            <motion.path d="M200,300 Q 170,340 130,400" {...draw(0.25, 1.3)} />
+            <motion.path d="M200,300 Q 230,340 270,400" {...draw(0.25, 1.3)} />
+            <motion.path d="M200,360 Q 180,410 155,470" {...draw(0.45, 1.2)} />
+            <motion.path d="M200,360 Q 220,410 245,470" {...draw(0.45, 1.2)} />
+            <motion.path d="M200,420 Q 190,470 180,520" {...draw(0.65, 1)} />
+            <motion.path d="M200,420 Q 210,470 220,520" {...draw(0.65, 1)} />
+          </g>
+          {/* TRUNK — rises after roots established */}
           <motion.path
-            d="M200,190 Q 170,170 130,130"
-            initial={reduced ? false : { pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, delay: 0.3, ease: EASE }}
+            d="M200,280 L 200,100"
+            fill="none"
+            stroke="#d4a853"
+            strokeWidth="2"
+            strokeLinecap="round"
+            opacity={0.9}
+            {...draw(1.4, 1.2)}
           />
-          <motion.path
-            d="M200,190 Q 230,170 270,130"
-            initial={reduced ? false : { pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, delay: 0.3, ease: EASE }}
-          />
-          <motion.path
-            d="M200,140 Q 180,125 155,105"
-            initial={reduced ? false : { pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, delay: 0.6, ease: EASE }}
-          />
-          <motion.path
-            d="M200,140 Q 220,125 245,105"
-            initial={reduced ? false : { pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, delay: 0.6, ease: EASE }}
-          />
-          <motion.path
-            d="M200,100 Q 195,88 185,78"
-            initial={reduced ? false : { pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.9, ease: EASE }}
-          />
-          <motion.path
-            d="M200,100 Q 205,88 215,78"
-            initial={reduced ? false : { pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.9, ease: EASE }}
-          />
-        </motion.g>
-        {/* fruit */}
-        <g fill="#d4a853" opacity="0.5">
-          {[
-            { cx: 130, cy: 130, r: 4 },
-            { cx: 270, cy: 130, r: 4 },
-            { cx: 155, cy: 105, r: 3 },
-            { cx: 245, cy: 105, r: 3 },
-            { cx: 185, cy: 78, r: 3 },
-            { cx: 215, cy: 78, r: 3 },
-          ].map((c, i) => (
-            <motion.circle
-              key={i}
-              cx={c.cx}
-              cy={c.cy}
-              r={c.r}
-              initial={reduced ? false : { opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 0.5, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 1.3 + i * 0.08, ease: EASE }}
-            />
-          ))}
-        </g>
-        {/* roots below ground */}
-        <g
-          fill="none"
-          stroke="#d4a853"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          opacity={0.6}
-        >
-          {[
-            "M200,270 L 200,470",
-            "M200,290 Q 175,330 140,380",
-            "M200,290 Q 225,330 260,380",
-            "M200,340 Q 185,390 165,450",
-            "M200,340 Q 215,390 235,450",
-            "M200,390 Q 195,440 195,490",
-            "M200,390 Q 205,440 205,490",
-          ].map((d, i) => (
-            <motion.path
-              key={i}
-              d={d}
-              initial={reduced ? false : { pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.5, delay: 0.2 + i * 0.12, ease: EASE }}
-            />
-          ))}
-        </g>
-      </svg>
-    </motion.figure>
+          {/* BRANCHES — extend outward */}
+          <g
+            fill="none"
+            stroke="#d4a853"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            opacity={0.85}
+          >
+            <motion.path d="M200,200 Q 170,180 130,140" {...draw(2.0, 0.9)} />
+            <motion.path d="M200,200 Q 230,180 270,140" {...draw(2.0, 0.9)} />
+            <motion.path d="M200,150 Q 180,135 155,115" {...draw(2.4, 0.7)} />
+            <motion.path d="M200,150 Q 220,135 245,115" {...draw(2.4, 0.7)} />
+            <motion.path d="M200,110 Q 195,98 185,88" {...draw(2.75, 0.6)} />
+            <motion.path d="M200,110 Q 205,98 215,88" {...draw(2.75, 0.6)} />
+          </g>
+          {/* FRUIT — pop in last */}
+          <g fill="#d4a853">
+            <motion.circle cx="130" cy="140" r="5" {...pop(3.1)} />
+            <motion.circle cx="270" cy="140" r="5" {...pop(3.15)} />
+            <motion.circle cx="155" cy="115" r="4" {...pop(3.25)} />
+            <motion.circle cx="245" cy="115" r="4" {...pop(3.3)} />
+            <motion.circle cx="185" cy="88" r="4" {...pop(3.4)} />
+            <motion.circle cx="215" cy="88" r="4" {...pop(3.45)} />
+          </g>
+          {/* Labels */}
+          <motion.text
+            x="200"
+            y="60"
+            textAnchor="middle"
+            fill="#f5e6c8"
+            fontFamily="Playfair Display, serif"
+            fontStyle="italic"
+            fontSize="13"
+            opacity={0.7}
+            initial={reduced ? false : { opacity: 0, y: -6 }}
+            animate={inView ? { opacity: 0.7, y: 0 } : { opacity: 0, y: -6 }}
+            transition={{ duration: 0.7, delay: 3.6, ease: EASE }}
+          >
+            The pattern
+          </motion.text>
+          <motion.text
+            x="225"
+            y="205"
+            fill="#f5e6c8"
+            fontFamily="Playfair Display, serif"
+            fontStyle="italic"
+            fontSize="13"
+            opacity={0.7}
+            initial={reduced ? false : { opacity: 0, x: -6 }}
+            animate={inView ? { opacity: 0.7, x: 0 } : { opacity: 0, x: -6 }}
+            transition={{ duration: 0.7, delay: 1.8, ease: EASE }}
+          >
+            Awareness
+          </motion.text>
+          <motion.text
+            x="200"
+            y="548"
+            textAnchor="middle"
+            fill="#f5e6c8"
+            fontFamily="Playfair Display, serif"
+            fontStyle="italic"
+            fontSize="13"
+            opacity={0.7}
+            initial={reduced ? false : { opacity: 0, y: 6 }}
+            animate={inView ? { opacity: 0.7, y: 0 } : { opacity: 0, y: 6 }}
+            transition={{ duration: 0.7, delay: 1.0, ease: EASE }}
+          >
+            The wound
+          </motion.text>
+        </svg>
+      </figure>
+    </div>
   );
 }
 
+/* ════════════════════════════════════════════════════════════════════════
+   OfferCard — secondary tier cards
+════════════════════════════════════════════════════════════════════════ */
 function OfferCard({
   label,
-  badge,
   title,
   price,
-  priceNote,
   duration,
   body,
   cta,
   href,
   variant,
+  popular,
   mini,
   delay = 0,
 }: {
   label: string;
-  badge?: string;
   title: string;
   price: string;
-  priceNote?: string;
   duration: string;
   body: React.ReactNode;
   cta: string;
   href: string;
   variant: "gold" | "outline";
+  popular?: boolean;
   mini?: { quote: string; name: string };
   delay?: number;
 }) {
@@ -992,27 +1139,22 @@ function OfferCard({
       <motion.article
         whileHover={{ y: -4 }}
         transition={{ duration: 0.3, ease: EASE }}
-        className="group flex h-full flex-col rounded-b-[3px] border border-[#d4a853]/20 border-t-[3px] border-t-[#d4a853] bg-[#221912] p-9 transition-colors duration-300 hover:border-[#d4a853]/60 hover:shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)]"
+        className="group relative flex h-full flex-col rounded-[4px] border border-[#d4a853]/25 bg-[#221912] p-8 transition-colors duration-300 hover:border-[#d4a853]/60 hover:shadow-[0_20px_60px_-20px_rgba(0,0,0,0.7)] md:p-10"
       >
-        <div className="mb-3 flex items-center gap-2 font-body text-[12px] font-medium uppercase tracking-[0.15em] text-[#d4a853]">
-          <span>{label}</span>
-          {badge && (
-            <span className="rounded-[2px] bg-[#d4a853]/15 px-2 py-[3px] text-[10px]">
-              {badge}
-            </span>
-          )}
-        </div>
-        <h3 className="mb-3 font-display text-[26px] leading-[1.1] text-white">{title}</h3>
-        <div className="mb-1 font-body text-[22px] font-medium text-[#d4a853]">
-          {price}
-          {priceNote && (
-            <span className="ml-2 font-body text-[13px] font-normal text-[#f5e6c8]/45">
-              {priceNote}
-            </span>
-          )}
-        </div>
+        {popular && (
+          <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#d4a853] px-4 py-1 font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-[#0d0d0d] shadow-[0_6px_20px_-6px_rgba(212,168,83,0.6)]">
+            Most Popular
+          </span>
+        )}
+        <span className="mb-3 inline-block font-body text-[11px] font-semibold uppercase tracking-[0.18em] text-[#d4a853]">
+          {label}
+        </span>
+        <h4 className="mb-3 font-display text-[26px] leading-[1.1] text-white md:text-[28px]">
+          {title}
+        </h4>
+        <div className="mb-1 font-body text-[26px] font-medium text-[#d4a853]">{price}</div>
         <div className="mb-6 font-body text-[13px] text-[#f5e6c8]/45">{duration}</div>
-        <div className="mb-8 flex-1 font-body text-[15px] leading-[1.75] text-[#f5e6c8]/70">
+        <div className="mb-8 flex-1 font-body text-[15.5px] leading-[1.8] text-[#f5e6c8]/75">
           {body}
         </div>
         <a
@@ -1021,14 +1163,14 @@ function OfferCard({
           rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
           className={
             variant === "gold"
-              ? "block rounded-[3px] bg-[#d4a853] px-6 py-[15px] text-center font-body text-[15px] font-medium tracking-[0.03em] text-[#0d0d0d] transition-all duration-300 hover:bg-[#e8c56a] hover:shadow-[0_10px_30px_-10px_rgba(212,168,83,0.6)]"
-              : "block rounded-[3px] border border-[#d4a853] bg-transparent px-6 py-[14px] text-center font-body text-[15px] font-medium tracking-[0.03em] text-[#d4a853] transition-all duration-300 hover:bg-[#d4a853]/10"
+              ? "block rounded-[3px] bg-[#d4a853] px-6 py-[16px] text-center font-body text-[15px] font-medium tracking-[0.03em] text-[#0d0d0d] transition-all duration-300 hover:bg-[#e8c56a] hover:shadow-[0_10px_30px_-10px_rgba(212,168,83,0.6)]"
+              : "block rounded-[3px] border border-[#d4a853] bg-transparent px-6 py-[15px] text-center font-body text-[15px] font-medium tracking-[0.03em] text-[#d4a853] transition-all duration-300 hover:bg-[#d4a853]/10"
           }
         >
           {cta}
         </a>
         {mini && (
-          <div className="mt-5 border-t border-[#d4a853]/10 pt-5 font-display text-[15px] italic leading-[1.7] text-[#f5e6c8]/55">
+          <div className="mt-5 border-t border-[#d4a853]/10 pt-5 font-display text-[14.5px] italic leading-[1.7] text-[#f5e6c8]/60">
             "{mini.quote}"
             <div className="mt-2 font-body not-italic text-[12px] text-[#f5e6c8]/40">
               — <span className="text-[#d4a853]">{mini.name}</span>
@@ -1040,99 +1182,9 @@ function OfferCard({
   );
 }
 
-function EmailCapture() {
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitting(true);
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    try {
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(data as any).toString(),
-      });
-      setSubmitted(true);
-    } catch {
-      setSubmitted(true); // optimistic — Netlify handles it
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  return (
-    <section className="relative bg-[#0d0d0d] px-6 py-24 md:py-28">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-          backgroundSize: "256px",
-        }}
-      />
-      <div className="relative mx-auto max-w-[580px] text-center">
-        <Reveal>
-          <h2 className="mb-5 font-display text-[clamp(28px,4vw,44px)] leading-[1.1] text-white">
-            Get Chapter 4 Free
-          </h2>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <p className="mb-10 font-body text-[17px] leading-[1.75] text-[#f5e6c8]/70 md:text-[18px]">
-            The chapter that changes everything.
-          </p>
-        </Reveal>
-        <Reveal delay={0.1}>
-          {submitted ? (
-            <div className="rounded-[3px] border border-[#d4a853]/40 bg-[#d4a853]/10 px-6 py-6 font-display text-[18px] italic text-[#f5e6c8]">
-              Thank you. Chapter 4 is on its way.
-            </div>
-          ) : (
-            <form
-              name="chapter-4"
-              method="POST"
-              data-netlify="true"
-              onSubmit={handleSubmit}
-              className="flex flex-col gap-4"
-            >
-              <input type="hidden" name="form-name" value="chapter-4" />
-              <input
-                type="text"
-                name="first_name"
-                required
-                placeholder="Your first name"
-                aria-label="First name"
-                className="rounded-[3px] border-[1.5px] border-[#d4a853] bg-white/[0.04] px-5 py-[17px] font-body text-[16px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/35 outline-none transition-all focus:border-[#e8c56a] focus:bg-white/[0.07]"
-              />
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="your@email.com"
-                aria-label="Email address"
-                className="rounded-[3px] border-[1.5px] border-[#d4a853] bg-white/[0.04] px-5 py-[17px] font-body text-[16px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/35 outline-none transition-all focus:border-[#e8c56a] focus:bg-white/[0.07]"
-              />
-              <button
-                type="submit"
-                disabled={submitting}
-                className="rounded-[3px] bg-[#d4a853] px-6 py-[17px] font-body text-[16px] font-medium tracking-[0.03em] text-[#0d0d0d] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#e8c56a] hover:shadow-[0_14px_40px_-8px_rgba(212,168,83,0.45)] disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                {submitting ? "Sending…" : "Send Me Chapter 4"}
-              </button>
-            </form>
-          )}
-          <p className="mt-5 font-body text-[13px] text-[#f5e6c8]/35">
-            No spam. Ever. Just the chapter.
-          </p>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
+/* ════════════════════════════════════════════════════════════════════════
+   FAQItem — accessible accordion
+════════════════════════════════════════════════════════════════════════ */
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
@@ -1144,7 +1196,9 @@ function FAQItem({ q, a }: { q: string; a: string }) {
       >
         <span>{q}</span>
         <span
-          className={`flex-shrink-0 font-body text-[24px] font-light text-[#d4a853] transition-transform duration-300 ${open ? "rotate-45" : ""}`}
+          className={`flex-shrink-0 font-body text-[24px] font-light text-[#d4a853] transition-transform duration-300 ${
+            open ? "rotate-45" : ""
+          }`}
         >
           +
         </span>
@@ -1163,9 +1217,72 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   );
 }
 
-/* ══════════════════════════════════════════════════════════════════════════
+/* ════════════════════════════════════════════════════════════════════════
+   StickyMobileCTA — fixed-bottom bar, appears after hero scroll,
+   dismissible, mobile-only (hidden >= md)
+════════════════════════════════════════════════════════════════════════ */
+function StickyMobileCTA({
+  onOpen,
+}: {
+  onOpen: (e: React.MouseEvent, url?: string) => void;
+}) {
+  const [mounted, setMounted] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
+  const reduced = useReducedMotion();
+
+  useEffect(() => {
+    setMounted(true);
+    const onScroll = () => {
+      // Show after user scrolls ~90% of one viewport height
+      const trigger = window.innerHeight * 0.9;
+      setVisible(window.scrollY > trigger);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Render nothing until mounted AND until user has scrolled past the hero —
+  // keeps prerendered HTML clean (sticky bar doesn't flash on load).
+  if (!mounted || dismissed || !visible) return null;
+
+  return (
+    <motion.div
+      initial={reduced ? false : { y: 100, opacity: 0 }}
+      animate={reduced ? undefined : { y: 0, opacity: 1 }}
+      transition={{ duration: 0.4, ease: EASE }}
+      className="fixed inset-x-0 bottom-0 z-40 md:hidden"
+    >
+      <div className="border-t border-[#d4a853]/30 bg-[#1a1a1a]/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-[#1a1a1a]/85">
+        <div className="flex items-center gap-3">
+          <a
+            href={CALENDLY_URL}
+            onClick={(e) => onOpen(e)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 rounded-[3px] bg-[#d4a853] px-4 py-[14px] text-center font-body text-[15px] font-medium tracking-[0.02em] text-[#0d0d0d] transition-colors duration-300 hover:bg-[#e8c56a]"
+          >
+            Book a Free Call →
+          </a>
+          <button
+            onClick={() => setDismissed(true)}
+            aria-label="Dismiss booking bar"
+            className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[3px] border border-[#d4a853]/30 text-[#d4a853] transition-colors hover:bg-[#d4a853]/10"
+          >
+            <span aria-hidden className="text-[18px]">
+              ×
+            </span>
+          </button>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════════════════
    DATA
-   ══════════════════════════════════════════════════════════════════════════ */
+════════════════════════════════════════════════════════════════════════ */
 
 const TESTIMONIALS = [
   {
@@ -1173,36 +1290,42 @@ const TESTIMONIALS = [
       "Jeff's guidance has saved my life. I was in therapy for 17 years. I struggled with anxiety, depression and addiction. I could never imagine my life and headspace where they are today. Everybody needs a Jeff in their life.",
     name: "Tyler",
     role: "Mirror Session client",
-  },
-  {
-    quote:
-      "Jeff is like a lighthouse. He has helped me navigate through life's challenges and difficult times. When I find myself in the middle of the ocean alone and afraid, his light, his smile, his compassion become the light that helps me find my way.",
-    name: "Veronica",
-    role: "Coaching client",
+    initials: "T",
   },
   {
     quote:
       "Jeff is about freedom from our pasts that don't serve us. When I think back to what he told me would be possible — a large part of me felt it might be a fantasy. It was not a fantasy. I'm living proof of what he told me was possible.",
     name: "Mike B.",
     role: "Root Work client",
+    initials: "MB",
   },
   {
     quote:
       "Life coaching has been far more transformative for me than counseling. I feel like I'm out here spreading the gospel, telling all my friends to call him. If you're wondering if it's worth it — I promise you, it's worth every penny.",
     name: "Emily",
     role: "Coaching client",
+    initials: "E",
   },
   {
     quote:
       "Two sessions changed the dynamic of our marriage in so many positive ways. Before we started talking with Jeffrey, our marriage was in shambles and on the way to divorce court.",
     name: "Dallas",
     role: "Couples client",
+    initials: "D",
   },
   {
     quote:
       "Jeff has a way about him to cut to the heart of the matter. It's not always easy but definitely worth it. Having awareness is the first step to transformation — with Jeff this becomes the roadmap of your life.",
     name: "Barbara B.",
     role: "Coaching client",
+    initials: "BB",
+  },
+  {
+    quote:
+      "Jeff is like a lighthouse. He has helped me navigate through life's challenges and difficult times. His light, his smile, his compassion become the light that helps me find my way.",
+    name: "Veronica",
+    role: "Coaching client",
+    initials: "V",
   },
 ];
 
@@ -1214,6 +1337,10 @@ const FAQ = [
   {
     q: "What actually happens in a session?",
     a: "We talk. But not the way you expect. Jeffrey isn't here to give you advice or tell you what to do. He's here to show you what you can't see yet — the pattern, the root, the moment it all started making sense. Most people leave a session saying they've never thought about themselves that way before.",
+  },
+  {
+    q: "Do I have to cry?",
+    a: "Nobody's making you. But I'm not making any promises either.",
   },
   {
     q: "Is this for singles, couples, or both?",

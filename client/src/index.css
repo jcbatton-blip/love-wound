@@ -21,6 +21,8 @@
 
 :root {
   color-scheme: dark;
+  /* Shared noise texture used across dark sections */
+  --noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 html {
@@ -55,7 +57,7 @@ a[href] {
   cursor: pointer;
 }
 
-/* Touch targets — min 44x44 on small screens */
+/* Touch targets — min 44x44 on small screens for accessibility */
 @media (max-width: 640px) {
   button,
   a[href] {
@@ -63,9 +65,11 @@ a[href] {
   }
 }
 
-/* Calendly embed background match */
-.calendly-inline-widget iframe {
-  background: #0d0d0d !important;
+/* Reveal-style elements stay visible if JS never loads */
+noscript + section,
+[data-static-visible] {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
