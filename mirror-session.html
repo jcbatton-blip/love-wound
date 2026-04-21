@@ -64,6 +64,28 @@
   }
   .btn--ghost-dark:hover{background:rgba(245,239,227,.06);border-color:rgba(245,239,227,.45)}
 
+  /* JBLC-MIRROR-002 Task 2: Discovery Call — quieter secondary section
+     positioned between primary CTA (velvet) and footer. Uses ghost button
+     so it reads as an alternative path, not a competing primary. */
+  .discovery {
+    background:var(--bg-paper);
+    border-top:1px solid var(--line-on-dark);
+    padding:72px 48px 88px;text-align:center;
+    color:var(--cream-50);
+  }
+  .discovery .content{max-width:560px;margin:0 auto}
+  .discovery h3 {
+    font-family:var(--font-display);font-weight:400;font-style:normal;
+    font-size:32px;line-height:1.2;letter-spacing:-.01em;
+    color:var(--cream-50);margin:0 0 18px;
+  }
+  .discovery p.kicker {
+    font-family:var(--font-body);font-style:italic;
+    font-size:15px;line-height:1.7;
+    color:var(--cream-50);opacity:.65;
+    margin:0 0 32px;
+  }
+
   /* sticky header */
   header.site {
     position:sticky;top:0;z-index:20;
@@ -650,6 +672,17 @@
   </div>
 </section>
 
+<!-- DISCOVERY CALL — JBLC-MIRROR-002 Task 2 -->
+<section class="discovery">
+  <div class="content">
+    <h3>Let&rsquo;s see if we&rsquo;re a match.</h3>
+    <p class="kicker">One hour. Free. No pitch, no pressure. You might hate my cologne.</p>
+    <a class="cta-btn btn btn--ghost-dark" href="https://calendly.com/jcbatton/letstalk">
+      Let&rsquo;s Talk <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="site">
   <div class="grid">
@@ -671,7 +704,6 @@
   </div>
   <div class="rule">
     <span>© Jeff Batton Life Coaching LLC</span>
-    <span>Simple · Sophisticated · Sex · Southern</span>
   </div>
 </footer>
 
