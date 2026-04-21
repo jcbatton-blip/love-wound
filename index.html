@@ -241,6 +241,18 @@
   }
 
   /* WHO IT'S FOR — dark burgundy, checklist */
+  .who .photo {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center 30%;
+    opacity: .38;
+  }
+  .who .veil-who {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(54,12,15,.72) 0%, rgba(36,9,11,.92) 100%),
+      radial-gradient(ellipse at 70% 40%, rgba(90,20,24,.35), transparent 60%);
+  }
+  .who .std { position: relative; z-index: 1; }
   .who h2{
     font-family:var(--font-display);font-weight:400;
     font-size:clamp(40px, 5vw, 64px);line-height:1.06;letter-spacing:-.02em;
@@ -495,7 +507,7 @@
 
 <!-- HERO -->
 <section class="hero grain" id="top">
-  <img class="photo" src="assets/img-interior-1.svg" alt="">
+  <img class="photo" src="assets/photos/hero-warm.jpg" alt="Jeff Batton, seated in warm candlelit portrait">
   <div class="veil"></div>
   <div class="content exhale">
     <div class="eyebrow gold">The Mirror Session &nbsp;·&nbsp; 60 minutes &nbsp;·&nbsp; one-to-one</div>
@@ -553,6 +565,8 @@
 
 <!-- WHO IT'S FOR -->
 <section class="panel blood who on-dark grain">
+  <img class="photo" src="assets/photos/crowd-blur.jpg" alt="Jeff Batton standing still inside a moving crowd">
+  <div class="veil-who"></div>
   <div class="std">
     <div class="eyebrow gold">Who it's for</div>
     <h2>You've done the work. <em>You're still repeating the pattern.</em></h2>
