@@ -423,6 +423,9 @@
 
   /* Responsive */
   @media (max-width: 900px){
+    /* JBLC-MIRROR-001: header tagline overflows narrow viewports next to the
+       Book CTA. Hide it on mobile — footer tagline keeps the message visible. */
+    header.site .logo .tagline{display:none}
     header.site{padding:16px 24px}
     section.panel, section.panel.tight{padding:96px 24px}
     .hero{padding:72px 24px 120px;min-height:auto}
