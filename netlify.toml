@@ -1,5 +1,5 @@
 [build]
-  command = "mkdir -p dist/images && cp index.html dist/ && cp client-portal.html dist/ && cp library.html dist/ && cp mirror-session.html dist/ && cp colors_and_type.css dist/ && cp -R assets dist/ && cp images/jeffrey-batton-hero.jpeg dist/images/ && cp images/jeffrey-crowd.jpeg dist/images/ && cp images/jeffrey-chair.mp4 dist/images/ && cp images/headshot.jpg dist/images/ && echo 'Build complete'"
+  command = "mkdir -p dist/images && cp index.html dist/ && cp book.html dist/ && cp client-portal.html dist/ && cp library.html dist/ && cp colors_and_type.css dist/ && cp -R assets dist/ && cp images/jeffrey-batton-hero.jpeg dist/images/ && cp images/jeffrey-crowd.jpeg dist/images/ && cp images/jeffrey-chair.mp4 dist/images/ && cp images/headshot.jpg dist/images/ && echo 'Build complete'"
   publish = "dist"
 
 [build.environment]
@@ -11,12 +11,20 @@
   status = 301
   force = true
 
-# JBLC-MIRROR-001: pretty URL for the new sales page. MUST come before the SPA catch-all.
+# Former /mirror-session route now lives at site root. 301 any inbound links home.
 [[redirects]]
   from = "/mirror-session"
-  to = "/mirror-session.html"
-  status = 200
+  to = "/"
+  status = 301
+  force = true
 
+[[redirects]]
+  from = "/mirror-session.html"
+  to = "/"
+  status = 301
+  force = true
+
+# SPA fallback — only fires if the requested file doesn't exist on disk.
 [[redirects]]
   from = "/*"
   to = "/index.html"
