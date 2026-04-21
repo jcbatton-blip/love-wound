@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 16" role="img" aria-label="fleuron divider">
+  
+  <g fill="currentColor">
+    <line x1="0" y1="8" x2="46" y2="8" stroke="currentColor" stroke-width="0.5" opacity="0.5"></line>
+    <circle cx="54" cy="8" r="1.2"></circle>
+    <circle cx="60" cy="8" r="1.8"></circle>
+    <circle cx="66" cy="8" r="1.2"></circle>
+    <line x1="74" y1="8" x2="120" y2="8" stroke="currentColor" stroke-width="0.5" opacity="0.5"></line>
+  </g>
+</svg>

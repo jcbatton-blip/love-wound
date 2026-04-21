@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="estate library interior placeholder">
+  
+  <defs>
+    <linearGradient id="i1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2A1618"></stop>
+      <stop offset="60%" stop-color="#3D1619"></stop>
+      <stop offset="100%" stop-color="#1C0F10"></stop>
+    </linearGradient>
+    <radialGradient id="i2" cx="28%" cy="42%" r="34%">
+      <stop offset="0%" stop-color="#E8D5A8" stop-opacity="0.45"></stop>
+      <stop offset="100%" stop-color="#E8D5A8" stop-opacity="0"></stop>
+    </radialGradient>
+    <radialGradient id="i3" cx="78%" cy="58%" r="28%">
+      <stop offset="0%" stop-color="#C9A961" stop-opacity="0.35"></stop>
+      <stop offset="100%" stop-color="#C9A961" stop-opacity="0"></stop>
+    </radialGradient>
+    <filter id="ig"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2"></feTurbulence><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.22 0"></feColorMatrix><feComposite in2="SourceGraphic" operator="in"></feComposite></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#i1)"></rect>
+  
+  <g opacity="0.55">
+    <rect x="80" y="160" width="420" height="520" fill="#1C0F10"></rect>
+    <g fill="#5C1E22">
+      <rect x="100" y="180" width="380" height="3"></rect>
+      <rect x="100" y="280" width="380" height="3"></rect>
+      <rect x="100" y="380" width="380" height="3"></rect>
+      <rect x="100" y="480" width="380" height="3"></rect>
+      <rect x="100" y="580" width="380" height="3"></rect>
+    </g>
+    <g fill="#2A1115">
+      <rect x="110" y="186" width="12" height="90"></rect><rect x="126" y="186" width="10" height="90"></rect><rect x="140" y="186" width="14" height="90"></rect><rect x="158" y="186" width="10" height="90"></rect><rect x="172" y="186" width="11" height="90"></rect>
+      <rect x="110" y="286" width="10" height="90"></rect><rect x="124" y="286" width="13" height="90"></rect><rect x="141" y="286" width="11" height="90"></rect><rect x="156" y="286" width="14" height="90"></rect>
+      <rect x="110" y="386" width="12" height="90"></rect><rect x="126" y="386" width="10" height="90"></rect><rect x="140" y="386" width="13" height="90"></rect>
+    </g>
+  </g>
+  
+  <path d="M 1000 900 L 1000 540 C 1000 480, 1060 450, 1160 450 C 1260 450, 1320 480, 1320 540 L 1320 900 Z" fill="#1C0F10" opacity="0.9"></path>
+  
+  <circle cx="450" cy="420" r="8" fill="#F1E3BE"></circle>
+  <circle cx="450" cy="420" r="30" fill="#C9A961" opacity="0.3"></circle>
+  <rect width="1600" height="900" fill="url(#i2)"></rect>
+  <rect width="1600" height="900" fill="url(#i3)"></rect>
+  <rect width="1600" height="900" filter="url(#ig)" opacity="0.55"></rect>
+  <radialGradient id="ivig" cx="50%" cy="50%" r="70%">
+    <stop offset="55%" stop-color="#000" stop-opacity="0"></stop>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.6"></stop>
+  </radialGradient>
+  <rect width="1600" height="900" fill="url(#ivig)"></rect>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-label="velvet texture">
+  <defs>
+    <radialGradient id="v1" cx="50%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#7A2A2F"></stop>
+      <stop offset="100%" stop-color="#2A1115"></stop>
+    </radialGradient>
+    <filter id="vg"><feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="3"></feTurbulence><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.4 0"></feColorMatrix></filter>
+  </defs>
+  <rect width="1200" height="1500" fill="url(#v1)"></rect>
+  <rect width="1200" height="1500" filter="url(#vg)" opacity="0.45"></rect>
+</svg>

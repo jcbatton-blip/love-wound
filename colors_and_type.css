@@ -1,0 +1,297 @@
+/* ============================================================
+   JBLC — Jeff Batton Life Coaching
+   Colors & Typography
+   ============================================================
+   Simple. Sophisticated. Sex. Southern.
+   Boutique therapy suite meets Southern estate library.
+   ============================================================ */
+
+/* ---- Webfonts ------------------------------------------------
+   Fonts are loaded from Google Fonts for portability.
+   If shipping locally, drop TTF/WOFF into /fonts/ and swap.
+   SUBSTITUTION NOTICE: No brand font files were provided.
+   Google Fonts stand-ins used: Cormorant Garamond, Inter.
+   ------------------------------------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ==========================================================
+     COLOR — CORE PALETTE
+     The brand lives on four grounds: burgundy, charcoal,
+     cream, and a candlelight gold accent. Everything else
+     is a tint or shade of these four.
+     ========================================================== */
+
+  /* Burgundy — the brand's blood color. Oxblood/wine, not pink. */
+  --burgundy-950: #190608;   /* near-black oxblood */
+  --burgundy-900: #24090B;
+  --burgundy-800: #360C0F;   /* hero grounds */
+  --burgundy-700: #481014;
+  --burgundy-600: #5C1418;   /* PRIMARY burgundy — deeper, less violet */
+  --burgundy-500: #72201F;
+  --burgundy-400: #8A3328;   /* hover / muted — brick, not rose */
+  --burgundy-300: #A85A45;   /* muted brick highlight */
+  --burgundy-200: #C78B6F;   /* warm clay, not pink */
+  --burgundy-100: #E4C4A8;   /* dusty cream-clay tint, not blush */
+
+  /* Charcoal — warm, never blue */
+  --charcoal-950: #14110F;
+  --charcoal-900: #1C1815;   /* darkest ground */
+  --charcoal-800: #26211D;   /* hero alt ground */
+  --charcoal-700: #332C27;
+  --charcoal-600: #433A33;
+  --charcoal-500: #5A4F46;
+  --charcoal-400: #78695E;
+  --charcoal-300: #9C8E83;
+  --charcoal-200: #C4B8AD;
+  --charcoal-100: #E5DDD3;
+
+  /* Cream — the paper */
+  --cream-50:  #FBF7EF;   /* PRIMARY cream */
+  --cream-100: #F5EFE3;
+  --cream-200: #EDE3D0;
+  --cream-300: #DFD0B4;
+  --cream-400: #CDB890;
+
+  /* Gold — candlelight accent, used sparingly */
+  --gold-100: #F1E3BE;
+  --gold-200: #E8D5A8;   /* soft candlelight */
+  --gold-300: #D9BE83;
+  --gold-400: #C9A961;   /* PRIMARY gold */
+  --gold-500: #AE8C44;
+  --gold-600: #8C6E30;
+
+  /* ==========================================================
+     COLOR — SEMANTIC TOKENS
+     Use these in components. Never hardcode a hue.
+     ========================================================== */
+
+  /* Backgrounds */
+  --bg-paper:        var(--cream-50);     /* default light ground */
+  --bg-paper-sunk:   var(--cream-100);    /* secondary card on cream */
+  --bg-ink:          var(--charcoal-900); /* default dark ground */
+  --bg-blood:        var(--burgundy-800); /* hero burgundy ground */
+  --bg-blood-deep:   var(--burgundy-900);
+  --bg-velvet:       var(--burgundy-950); /* deepest statement bg */
+  --bg-overlay:      rgba(31, 10, 12, 0.72); /* image overlay */
+
+  /* Foregrounds on cream */
+  --fg-1: var(--charcoal-900);    /* primary ink */
+  --fg-2: var(--charcoal-600);    /* body */
+  --fg-3: var(--charcoal-400);    /* muted */
+  --fg-4: var(--charcoal-300);    /* captions */
+
+  /* Foregrounds on dark (burgundy/charcoal ground) */
+  --fg-on-dark-1: var(--cream-50);
+  --fg-on-dark-2: var(--cream-200);
+  --fg-on-dark-3: var(--charcoal-300);
+  --fg-on-dark-muted: var(--charcoal-400);
+
+  /* Accent */
+  --accent:         var(--burgundy-600);
+  --accent-hover:   var(--burgundy-500);
+  --accent-press:   var(--burgundy-700);
+  --gold:           var(--gold-400);
+  --gold-soft:      var(--gold-200);
+
+  /* Lines & borders */
+  --line-hair:     rgba(31, 10, 12, 0.12);   /* fine divider on cream */
+  --line-soft:     rgba(31, 10, 12, 0.08);
+  --line-strong:   rgba(31, 10, 12, 0.35);
+  --line-on-dark:  rgba(245, 239, 227, 0.14);
+  --line-gold:     rgba(201, 169, 97, 0.4);
+
+  /* Shadows — warm, never cool; low elevation, long tail */
+  --shadow-xs:  0 1px 2px rgba(31, 10, 12, 0.06);
+  --shadow-sm:  0 2px 6px rgba(31, 10, 12, 0.08);
+  --shadow-md:  0 8px 24px -6px rgba(31, 10, 12, 0.14);
+  --shadow-lg:  0 24px 48px -12px rgba(31, 10, 12, 0.22);
+  --shadow-inset-warm: inset 0 0 40px rgba(201, 169, 97, 0.06);
+
+  /* ==========================================================
+     TYPE — FAMILIES
+     Display: Cormorant Garamond — warm, literary, a little
+              hand-set. Used italic often for soul.
+     Body:    Inter — clean, neutral, tracked open for breath.
+     Mono:    system stack, used sparingly.
+     ========================================================== */
+
+  --font-display: 'Cormorant Garamond', 'Garamond', 'Georgia', serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:    ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Type scale — generous, editorial */
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-md:   18px;
+  --text-lg:   21px;
+  --text-xl:   26px;
+  --text-2xl:  34px;
+  --text-3xl:  44px;
+  --text-4xl:  58px;
+  --text-5xl:  76px;
+  --text-6xl:  100px;
+
+  /* Line heights */
+  --lh-tight:   1.05;
+  --lh-snug:    1.2;
+  --lh-body:    1.6;
+  --lh-relaxed: 1.75;
+
+  /* Tracking */
+  --track-tight:  -0.02em;
+  --track-normal: 0em;
+  --track-wide:   0.08em;
+  --track-wider:  0.18em;   /* for small caps labels */
+  --track-widest: 0.32em;   /* for the "LIFE COACHING" style */
+
+  /* ==========================================================
+     SPACING, RADII, MOTION
+     ========================================================== */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+  --space-11: 192px;
+
+  --radius-none: 0;
+  --radius-sm:   2px;    /* default — we favor sharp corners */
+  --radius-md:   4px;
+  --radius-lg:   8px;
+  --radius-pill: 999px;  /* only for pills/tags, rarely buttons */
+
+  --ease-gentle:  cubic-bezier(0.33, 0, 0.2, 1);
+  --ease-letter:  cubic-bezier(0.4, 0, 0.1, 1);  /* slow, almost editorial */
+  --dur-fast:     160ms;
+  --dur-med:      280ms;
+  --dur-slow:     480ms;
+  --dur-exhale:   900ms;
+
+  /* ==========================================================
+     LAYOUT
+     ========================================================== */
+  --container-narrow: 640px;   /* essays, sales letter column */
+  --container-reading: 780px;
+  --container-std:    1120px;
+  --container-wide:   1280px;
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT STYLES
+   Apply directly to tags or use via utility classes below.
+   ============================================================ */
+
+html { font-family: var(--font-body); color: var(--fg-1); background: var(--bg-paper); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+body { font-size: var(--text-base); line-height: var(--lh-body); color: var(--fg-2); }
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-5xl);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--track-tight);
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-3xl);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--track-tight);
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--text-2xl);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+h4, .h4 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--text-xl);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-6xl);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.display-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+}
+
+p, .body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-2);
+  text-wrap: pretty;
+}
+.lead {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--text-xl);
+  line-height: var(--lh-body);
+  color: var(--fg-1);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--track-widest);
+  color: var(--accent);
+}
+.eyebrow--gold { color: var(--gold); }
+.eyebrow--muted { color: var(--fg-3); }
+
+.caption {
+  font-size: var(--text-xs);
+  color: var(--fg-3);
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+}
+
+.pullquote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--text-3xl);
+  line-height: 1.25;
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 0.5px; transition: color var(--dur-fast) var(--ease-gentle); }
+a:hover { color: var(--accent-hover); }
+
+small, .small { font-size: var(--text-sm); color: var(--fg-3); }
+
+/* On-dark variants — apply to any container with .on-dark */
+.on-dark { color: var(--fg-on-dark-1); }
+.on-dark h1, .on-dark h2, .on-dark h3, .on-dark h4, .on-dark .display { color: var(--fg-on-dark-1); }
+.on-dark p, .on-dark .body { color: var(--fg-on-dark-2); }
+.on-dark .eyebrow { color: var(--gold); }
+.on-dark .small, .on-dark small, .on-dark .caption { color: var(--fg-on-dark-3); }
+.on-dark a { color: var(--gold); }

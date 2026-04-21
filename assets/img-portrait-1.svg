@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="portrait placeholder">
+  
+  <defs>
+    <radialGradient id="p1" cx="55%" cy="38%" r="70%">
+      <stop offset="0%" stop-color="#8A5A4A"></stop>
+      <stop offset="35%" stop-color="#4A2A28"></stop>
+      <stop offset="100%" stop-color="#1C0F10"></stop>
+    </radialGradient>
+    <radialGradient id="p2" cx="55%" cy="36%" r="22%">
+      <stop offset="0%" stop-color="#E8D5A8" stop-opacity="0.55"></stop>
+      <stop offset="100%" stop-color="#E8D5A8" stop-opacity="0"></stop>
+    </radialGradient>
+    <filter id="pg"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"></feTurbulence><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.28 0"></feColorMatrix><feComposite in2="SourceGraphic" operator="in"></feComposite></filter>
+  </defs>
+  <rect width="800" height="1000" fill="url(#p1)"></rect>
+  
+  <ellipse cx="400" cy="360" rx="110" ry="140" fill="#2A1618" opacity="0.75"></ellipse>
+  <path d="M 230 1000 C 230 720, 300 560, 400 560 C 500 560, 570 720, 570 1000 Z" fill="#1C0F10" opacity="0.85"></path>
+  
+  <rect width="800" height="1000" fill="url(#p2)"></rect>
+  
+  <rect width="800" height="1000" filter="url(#pg)" opacity="0.6"></rect>
+  
+  <radialGradient id="vig" cx="50%" cy="50%" r="75%">
+    <stop offset="60%" stop-color="#000" stop-opacity="0"></stop>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.55"></stop>
+  </radialGradient>
+  <rect width="800" height="1000" fill="url(#vig)"></rect>
+</svg>

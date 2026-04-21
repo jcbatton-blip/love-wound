@@ -1,5 +1,5 @@
 [build]
-  command = "mkdir -p dist/images && cp index.html dist/ && cp client-portal.html dist/ && cp library.html dist/ && cp images/jeffrey-batton-hero.jpeg dist/images/ && cp images/jeffrey-crowd.jpeg dist/images/ && cp images/jeffrey-chair.mp4 dist/images/ && cp images/headshot.jpg dist/images/ && echo 'Build complete'"
+  command = "mkdir -p dist/images && cp index.html dist/ && cp client-portal.html dist/ && cp library.html dist/ && cp mirror-session.html dist/ && cp colors_and_type.css dist/ && cp -R assets dist/ && cp images/jeffrey-batton-hero.jpeg dist/images/ && cp images/jeffrey-crowd.jpeg dist/images/ && cp images/jeffrey-chair.mp4 dist/images/ && cp images/headshot.jpg dist/images/ && echo 'Build complete'"
   publish = "dist"
 
 [build.environment]
@@ -10,6 +10,12 @@
   to = "https://jeffbatton.com/:splat"
   status = 301
   force = true
+
+# JBLC-MIRROR-001: pretty URL for the new sales page. MUST come before the SPA catch-all.
+[[redirects]]
+  from = "/mirror-session"
+  to = "/mirror-session.html"
+  status = 200
 
 [[redirects]]
   from = "/*"
