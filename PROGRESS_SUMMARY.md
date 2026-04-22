@@ -23,14 +23,14 @@
 5. **Stripe Checkout Integration Working**
    - tRPC endpoint created for checkout sessions
    - "Book A Session" button successfully redirects to Stripe checkout
-   - Shows correct product name and price ($350 for Mirror Session)
+   - Shows correct product name and price ($250 for Mirror Session)
    - All tests passing (7/7)
 
 ### 🔲 NEEDS YOUR ACTION
 
 1. **Create Stripe Products in Dashboard**
    - Go to Stripe Dashboard → Products
-   - Create: Mirror Session ($350), Teaching Clinic ($150), The Kit ($47)
+   - Create: Mirror Session ($250), Teaching Clinic ($150), The Kit ($47)
    - Individual Container ($5,000), Couples Container ($7,500)
    
 2. **Upload JBLC Branding to Stripe**
