@@ -1,5 +1,5 @@
 [build]
-  command = "mkdir -p dist/images && cp index.html dist/ && cp book.html dist/ && cp client-portal.html dist/ && cp library.html dist/ && cp colors_and_type.css dist/ && cp -R assets dist/ && cp images/jeffrey-batton-hero.jpeg dist/images/ && cp images/jeffrey-crowd.jpeg dist/images/ && cp images/jeffrey-chair.mp4 dist/images/ && cp images/headshot.jpg dist/images/ && echo 'Build complete'"
+  command = "rm -rf dist && mkdir -p dist/images && cp index.html dist/ && cp book.html dist/ && cp client-portal.html dist/ && cp library.html dist/ && cp colors_and_type.css dist/ && cp -R assets dist/ && cp images/jeffrey-batton-hero.jpeg dist/images/ && cp images/jeffrey-crowd.jpeg dist/images/ && cp images/jeffrey-chair.mp4 dist/images/ && cp images/headshot.jpg dist/images/ && echo 'Build complete'"
   publish = "dist"
 
 [build.environment]
