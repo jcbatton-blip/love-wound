@@ -9,7 +9,7 @@
 
 ### Service Flow (Membership-First Model)
 1. **Discovery Call** (Free, 60 min) - "Not sure where to start?"
-2. **The Mirror Session** ($350) - MOST POPULAR badge
+2. **The Mirror Session** ($250) - MOST POPULAR badge
 3. **The Individual Container** ($5,000 or $1,350×4 payment plan) - MOST POPULAR badge
 4. **The Couples Container** ($7,500 or $2,000×4 payment plan)
 5. **The Inner Circle** ($29/month) - BEST STARTING POINT badge (prominent dark section)
@@ -41,7 +41,7 @@
 4. Upgrade to Container when ready for deep work ($5k-$7.5k)
 
 **Alternative Path:**
-1. Jump straight to Mirror Session ($350) if you want to try the method
+1. Jump straight to Mirror Session ($250) if you want to try the method
 2. If Mirror Session resonates, book Container within 30 days (Mirror Session cost credits toward Container)
 
 ## Next Steps
