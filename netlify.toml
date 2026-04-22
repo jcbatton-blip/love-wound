@@ -24,6 +24,12 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/mirror-session/*"
+  to = "/"
+  status = 301
+  force = true
+
 # SPA fallback — only fires if the requested file doesn't exist on disk.
 [[redirects]]
   from = "/*"

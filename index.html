@@ -163,6 +163,21 @@
     margin:28px 0 0;color:var(--cream-50);text-wrap:balance;
   }
   .hero h1 em{color:var(--gold-200)}
+  .hero .kicker {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(18px, 2.2vw, 26px);
+    line-height: 1.4;
+    letter-spacing: .01em;
+    color: var(--gold-200);
+    max-width: 640px;
+    margin: 24px 0 0;
+  }
+  .hero .kicker em {
+    font-style: italic;
+    color: var(--gold);
+  }
   .hero .sub{
     font-family:var(--font-display);font-style:italic;font-weight:400;
     font-size:clamp(20px, 2.1vw, 26px);line-height:1.45;
@@ -244,7 +259,7 @@
   .who .photo {
     position: absolute; inset: 0; width: 100%; height: 100%;
     object-fit: cover; object-position: center 30%;
-    opacity: .38;
+    opacity: .48;
   }
   .who .veil-who {
     position: absolute; inset: 0;
@@ -511,7 +526,8 @@
   <div class="veil"></div>
   <div class="content exhale">
     <div class="eyebrow gold">The Mirror Session &nbsp;·&nbsp; 60 minutes &nbsp;·&nbsp; one-to-one</div>
-    <h1>You already know something is <em>off.</em></h1>
+    <p class="kicker">You already know <em>something is off.</em></p>
+    <h1>You don't need a guru. <em>You need a mirror.</em></h1>
     <p class="sub">The Mirror Session is 60 minutes to finally see <em>why.</em></p>
     <div class="meta-row">
       <a class="cta-btn btn btn--gold" href="#book">
