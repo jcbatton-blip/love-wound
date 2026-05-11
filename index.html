@@ -215,6 +215,8 @@
   /* Generic section */
   section.panel{padding:160px 48px;position:relative;overflow:hidden}
   section.panel.tight{padding:128px 48px}
+  /* JBLC-006: tighten bridge section bottom padding so it doesn't stack with CTA's top padding */
+  section.panel.bridge-tight{padding-bottom:80px}
   section.cream{background:var(--bg-paper)}
   section.cream-sunk{background:var(--cream-100)}
   section.blood{background:var(--bg-blood);color:var(--cream-50)}
@@ -492,6 +494,7 @@
     header.site .logo .tagline{display:none}
     header.site{padding:16px 24px}
     section.panel, section.panel.tight{padding:96px 24px}
+    section.panel.bridge-tight{padding-bottom:48px}
     .hero{padding:72px 24px 120px;min-height:auto}
     .hero .ribbon{padding:16px 24px;gap:12px;flex-wrap:wrap}
     .cta{padding:120px 24px}
@@ -700,7 +703,7 @@
 </section>
 
 <!-- BRIDGE: I'll tell you in the room (JBLC-004) -->
-<section class="panel cream what-it-is">
+<section class="panel cream what-it-is bridge-tight">
   <div class="reading">
     <h2><em>I'll tell you in the room</em></h2>
     <p>This is you choosing you — maybe for the first time in a long time. Most people put themselves last so long they forget what their own name sounds like.</p>
