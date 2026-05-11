@@ -487,6 +487,44 @@
     color:var(--charcoal-400);
   }
 
+  /* WHAT PEOPLE SAY — JBLC-007 testimonials grid */
+  .testimonials h2{
+    font-family:var(--font-display);font-weight:400;
+    font-size:clamp(40px, 5vw, 64px);line-height:1.06;letter-spacing:-.02em;
+    margin:28px 0 72px;color:var(--fg-1);
+  }
+  .testimonials h2 em{font-style:italic}
+  .testimonials .t-grid{
+    display:grid;grid-template-columns:repeat(3, 1fr);gap:32px;
+  }
+  .testimonials .t-card{
+    margin:0;padding:36px 32px;
+    background:var(--cream-100);
+    border:1px solid var(--line-hair);
+    box-shadow:0 1px 2px rgba(20,17,15,.04);
+    display:flex;flex-direction:column;gap:20px;
+  }
+  .testimonials .t-stars{
+    color:var(--gold);font-size:18px;letter-spacing:.12em;line-height:1;
+  }
+  .testimonials .t-quote{
+    margin:0;font-family:var(--font-body);font-size:16px;line-height:1.75;
+    color:var(--fg-1);font-style:normal;
+  }
+  .testimonials .t-attr{
+    margin-top:auto;padding-top:8px;
+    display:flex;flex-direction:column;gap:4px;
+    border-top:1px solid var(--line-hair);
+  }
+  .testimonials .t-name{
+    font-family:var(--font-display);font-style:italic;font-size:18px;
+    color:var(--fg-1);
+  }
+  .testimonials .t-desc{
+    font-family:var(--font-body);font-size:11px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--fg-3);
+  }
+
   /* Responsive */
   @media (max-width: 900px){
     /* JBLC-MIRROR-001: header tagline overflows narrow viewports next to the
@@ -507,6 +545,9 @@
     .who .stmt .body{font-size:22px}
     footer.site .grid{grid-template-columns:1fr;gap:32px}
     footer.site .rule{flex-direction:column;gap:12px;text-align:center}
+    .testimonials h2{margin:20px 0 48px}
+    .testimonials .t-grid{grid-template-columns:1fr;gap:20px}
+    .testimonials .t-card{padding:28px 24px}
   }
 </style>
 </head>
@@ -622,6 +663,46 @@
     </div>
 
     <p class="close">If you've made it this far down the page, <strong>it's already yours.</strong> You don't need another book. You need to look in the mirror with someone who won't look away.</p>
+  </div>
+</section>
+
+<!-- WHAT PEOPLE SAY — JBLC-007 -->
+<section class="panel cream testimonials">
+  <div class="std">
+    <div class="eyebrow gold">What People Say</div>
+    <h2><em>Words from the mirror.</em></h2>
+    <div class="t-grid">
+      <figure class="t-card">
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote class="t-quote">"Jeff's guidance has saved my life. I was in therapy for 17 years. I struggled with anxiety, depression and addiction. I could never imagine my life and headspace where they are today. Everybody needs a Jeff in their life."</blockquote>
+        <figcaption class="t-attr"><span class="t-name">Tyler</span><span class="t-desc">Mirror Session client</span></figcaption>
+      </figure>
+      <figure class="t-card">
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote class="t-quote">"Jeff is like a lighthouse. He has helped me navigate through life's challenges and difficult times. When I find myself in the middle of the ocean alone and afraid, his light, his smile, his compassion become the light that helps me find my way."</blockquote>
+        <figcaption class="t-attr"><span class="t-name">Veronica</span><span class="t-desc">Coaching client</span></figcaption>
+      </figure>
+      <figure class="t-card">
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote class="t-quote">"Jeff is about freedom from our pasts that don't serve us. When I think back to what he told me would be possible — a large part of me felt it might be a fantasy. It was not a fantasy. I'm living proof of what he told me was possible."</blockquote>
+        <figcaption class="t-attr"><span class="t-name">Mike B.</span><span class="t-desc">Root Work client</span></figcaption>
+      </figure>
+      <figure class="t-card">
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote class="t-quote">"Life coaching has been far more transformative for me than counseling. I feel like I'm out here spreading the gospel, telling all my friends to call him. If you're wondering if it's worth it — I promise you, it's worth every penny."</blockquote>
+        <figcaption class="t-attr"><span class="t-name">Emily</span><span class="t-desc">Coaching client</span></figcaption>
+      </figure>
+      <figure class="t-card">
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote class="t-quote">"Two sessions changed the dynamic of our marriage in so many positive ways. Before we started talking with Jeffrey, our marriage was in shambles and on the way to divorce court."</blockquote>
+        <figcaption class="t-attr"><span class="t-name">Dallas</span><span class="t-desc">Couples client</span></figcaption>
+      </figure>
+      <figure class="t-card">
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote class="t-quote">"Jeff has a way about him to cut to the heart of the matter. It's not always easy but definitely worth it. Having awareness is the first step to transformation — with Jeff this becomes the roadmap of your life."</blockquote>
+        <figcaption class="t-attr"><span class="t-name">Barbara B.</span><span class="t-desc">Coaching client</span></figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
