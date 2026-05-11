@@ -361,6 +361,42 @@
     color:var(--fg-1);margin:0;
   }
 
+  /* WHAT PEOPLE SAY — testimonials grid (JBLC-007) */
+  .testimonials h2{
+    font-family:var(--font-display);font-weight:400;
+    font-size:clamp(44px, 5.5vw, 76px);line-height:1.02;letter-spacing:-.025em;
+    margin:36px 0 64px;color:var(--fg-1);
+  }
+  .testimonials h2 em{font-style:italic}
+  .testimonials .testimonial-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
+  }
+  .testimonials .testimonial{
+    background:var(--cream-100);
+    border-left:1px solid var(--accent);
+    padding:32px 28px;
+    display:flex;flex-direction:column;gap:18px;
+  }
+  .testimonials .testimonial .stars{
+    color:var(--gold);font-size:14px;letter-spacing:.18em;line-height:1;
+  }
+  .testimonials .testimonial .quote{
+    font-family:var(--font-body);font-size:15px;line-height:1.7;
+    color:var(--fg-1);margin:0;
+  }
+  .testimonials .testimonial .attribution{
+    display:flex;flex-direction:column;gap:4px;
+    margin-top:auto;padding-top:8px;
+  }
+  .testimonials .testimonial .name{
+    font-family:var(--font-display);font-style:italic;font-size:18px;
+    color:var(--fg-1);line-height:1.2;
+  }
+  .testimonials .testimonial .descriptor{
+    font-family:var(--font-body);font-size:10px;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--fg-3);
+  }
+
   /* PULL QUOTE — tight cream break */
   .pullbreak{padding:120px 48px;background:var(--cream-100);text-align:center}
   .pullbreak .q{
@@ -501,6 +537,9 @@
     .investment .grid{grid-template-columns:1fr;gap:56px}
     .happens .timeline{grid-template-columns:1fr;gap:48px}
     .happens .aftermath{grid-template-columns:1fr;gap:16px;padding:28px 24px}
+    .testimonials .testimonial-grid{grid-template-columns:1fr;gap:20px}
+    .testimonials h2{margin-bottom:40px}
+    .testimonials .testimonial{padding:28px 24px}
     .what-it-is .not-not-just{grid-template-columns:1fr;gap:40px}
     .who .statements .stmt{grid-template-columns:40px 1fr;gap:20px}
     .who .stmt .tag{display:none}
@@ -622,6 +661,70 @@
     </div>
 
     <p class="close">If you've made it this far down the page, <strong>it's already yours.</strong> You don't need another book. You need to look in the mirror with someone who won't look away.</p>
+  </div>
+</section>
+
+<!-- WHAT PEOPLE SAY (JBLC-007) -->
+<section class="panel cream testimonials">
+  <div class="std">
+    <div class="eyebrow gold">What People Say</div>
+    <h2><em>Words from the mirror.</em></h2>
+
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Jeff's guidance has saved my life. I was in therapy for 17 years. I struggled with anxiety, depression and addiction. I could never imagine my life and headspace where they are today. Everybody needs a Jeff in their life."</p>
+        <div class="attribution">
+          <span class="name">Tyler</span>
+          <span class="descriptor">Mirror Session client</span>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Jeff is like a lighthouse. He has helped me navigate through life's challenges and difficult times. When I find myself in the middle of the ocean alone and afraid, his light, his smile, his compassion become the light that helps me find my way."</p>
+        <div class="attribution">
+          <span class="name">Veronica</span>
+          <span class="descriptor">Coaching client</span>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Jeff is about freedom from our pasts that don't serve us. When I think back to what he told me would be possible — a large part of me felt it might be a fantasy. It was not a fantasy. I'm living proof of what he told me was possible."</p>
+        <div class="attribution">
+          <span class="name">Mike B.</span>
+          <span class="descriptor">Root Work client</span>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Life coaching has been far more transformative for me than counseling. I feel like I'm out here spreading the gospel, telling all my friends to call him. If you're wondering if it's worth it — I promise you, it's worth every penny."</p>
+        <div class="attribution">
+          <span class="name">Emily</span>
+          <span class="descriptor">Coaching client</span>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Two sessions changed the dynamic of our marriage in so many positive ways. Before we started talking with Jeffrey, our marriage was in shambles and on the way to divorce court."</p>
+        <div class="attribution">
+          <span class="name">Dallas</span>
+          <span class="descriptor">Couples client</span>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Jeff has a way about him to cut to the heart of the matter. It's not always easy but definitely worth it. Having awareness is the first step to transformation — with Jeff this becomes the roadmap of your life."</p>
+        <div class="attribution">
+          <span class="name">Barbara B.</span>
+          <span class="descriptor">Coaching client</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
