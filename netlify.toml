@@ -1,5 +1,5 @@
 [build]
-  command = "rm -rf dist && mkdir -p dist/images && cp index.html dist/ && cp book.html dist/ && cp client-portal.html dist/ && cp library.html dist/ && cp colors_and_type.css dist/ && cp -R assets dist/ && cp images/jeffrey-batton-hero.jpeg dist/images/ && cp images/jeffrey-crowd.jpeg dist/images/ && cp images/jeffrey-chair.mp4 dist/images/ && cp images/headshot.jpg dist/images/ && echo 'Build complete'"
+  command = "rm -rf dist && mkdir -p dist/images && cp index.html dist/ && cp book.html dist/ && cp client-portal.html dist/ && cp library.html dist/ && cp privacy.html dist/ && cp terms.html dist/ && cp colors_and_type.css dist/ && cp -R assets dist/ && cp images/jeffrey-batton-hero.jpeg dist/images/ && cp images/jeffrey-crowd.jpeg dist/images/ && cp images/jeffrey-chair.mp4 dist/images/ && cp images/headshot.jpg dist/images/ && echo 'Build complete'"
   publish = "dist"
 
 [build.environment]
@@ -29,6 +29,17 @@
   to = "/"
   status = 301
   force = true
+
+# Pretty URLs for legal pages (JBLC-017)
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms.html"
+  status = 200
 
 # SPA fallback — only fires if the requested file doesn't exist on disk.
 [[redirects]]
