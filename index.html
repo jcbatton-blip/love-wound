@@ -527,7 +527,37 @@
     text-transform:uppercase;color:var(--fg-3);
   }
 
-  /* Responsive */
+  /* ABOUT JEFF — JBLC-015 */
+.about-jeff h2{
+font-family:var(--font-display);font-weight:400;
+font-size:clamp(40px, 5vw, 64px);line-height:1.06;letter-spacing:-.02em;
+margin:0 0 32px;color:var(--fg-1);
+}
+.about-jeff h2 em{font-style:italic}
+.about-jeff .eyebrow{margin-bottom:48px;display:block}
+.about-jeff .aj-grid{
+display:grid;grid-template-columns:minmax(0,40%) minmax(0,60%);
+gap:72px;align-items:center;
+}
+.about-jeff .aj-photo img{
+width:100%;height:auto;display:block;
+box-shadow:0 1px 2px rgba(20,17,15,.06),0 18px 48px rgba(20,17,15,.12);
+}
+.about-jeff .aj-text p{
+font-family:var(--font-body);font-size:17px;line-height:1.8;
+color:var(--fg-2);margin:0 0 20px;
+}
+.about-jeff .aj-text p:last-child{margin-bottom:0}
+section.panel.about-jeff-tight{padding-bottom:80px}
+@media (max-width:900px){
+.about-jeff .aj-grid{grid-template-columns:1fr;gap:36px}
+.about-jeff .aj-photo{display:flex;justify-content:center}
+.about-jeff .aj-photo img{max-width:280px;width:100%}
+.about-jeff h2{font-size:36px;margin-bottom:24px}
+section.panel.about-jeff-tight{padding-bottom:48px}
+}
+
+/* Responsive */
   @media (max-width: 900px){
     /* JBLC-MIRROR-001: header tagline overflows narrow viewports next to the
        Book CTA. Hide it on mobile — footer tagline keeps the message visible. */
@@ -666,6 +696,26 @@
 
     <p class="close">If you've made it this far down the page, <strong>it's already yours.</strong> You don't need another book. You need to look in the mirror with someone who won't look away.</p>
   </div>
+</section>
+
+<!-- ABOUT JEFF — JBLC-015 -->
+<section class="panel cream about-jeff about-jeff-tight">
+<div class="std">
+<div class="eyebrow gold">About Jeff</div>
+<div class="aj-grid">
+<div class="aj-photo">
+<img src="assets/photos/hero-warm.jpg" alt="Jeff Batton portrait">
+</div>
+<div class="aj-text">
+<h2><em>Hey. I'm Jeff.</em></h2>
+<p>Thirty years of sitting with people in the rooms where they finally tell the truth.</p>
+<p>Thirty years.</p>
+<p>Most of my day, I spend talking people into loving themselves and having fun. That's the irony of this work — adults need to be talked into both. By the time you've done the therapy and read the books and tried the retreats, the thing you've stopped doing is choosing yourself. The mirror just shows you that.</p>
+<p>I'm not a guru. I don't have a method I'm selling. I've got an ear that's been trained for three decades to hear what most people stop listening for around age seven — the original pattern, the first wound, the place where the story you've been telling yourself started telling itself back to you.</p>
+<p>If that sounds like what you've been circling, the door's open.</p>
+</div>
+</div>
+</div>
 </section>
 
 <!-- WHAT PEOPLE SAY — JBLC-007 -->
