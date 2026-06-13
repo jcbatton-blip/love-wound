@@ -34,7 +34,7 @@ const pricingTiers = [
       "Personalized Insight"
     ],
     cta: "Book Now",
-    href: "https://calendly.com/d/cxkw-gzv-8kv",
+    href: "https://calendly.com/jcbatton/mirror",
     id: "mirror_session",
     popular: true,
     delay: 0.1,
@@ -51,7 +51,7 @@ const pricingTiers = [
       "Integration Between Sessions"
     ],
     cta: "Book Now",
-    href: "https://calendly.com/d/cxkw-gzv-8kv",
+    href: "https://calendly.com/jcbatton/mirror",
     id: "package_4session",
     popular: false,
     delay: 0.2,

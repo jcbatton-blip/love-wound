@@ -306,7 +306,7 @@ export default function Home() {
                     A single session. Just you and your mirror.
                   </p>
                   <a
-                    href="https://calendly.com/d/cxkw-gzv-8kv"
+                    href="https://calendly.com/jcbatton/mirror"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block"
@@ -341,7 +341,7 @@ export default function Home() {
                     Deep root work. This is where the real shift happens.
                   </p>
                   <a
-                    href="https://calendly.com/d/cxkw-gzv-8kv"
+                    href="https://calendly.com/jcbatton/mirror"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block"
