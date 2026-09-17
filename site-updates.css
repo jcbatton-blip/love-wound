@@ -23,4 +23,4 @@ footer.site .rule{color:var(--charcoal-200)}
 
 .hero .session-rates{display:flex;flex-wrap:wrap;gap:8px 24px}.hero .session-rates .value{white-space:nowrap}.hero .session-rates .value em{opacity:1;color:var(--cream-200)}
 
-.about-jeff .aj-photo img{aspect-ratio:4/5;object-fit:cover;object-position:center 32%}
+.about-jeff .aj-photo img{height:auto;aspect-ratio:auto;object-fit:contain}
