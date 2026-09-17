@@ -2,20 +2,20 @@
 
 September 17, 2026. The deployed site uses root HTML files, not the older React pages.
 
-The syllabus is `library.html`, served at `/syllabus`. Nine ordinary Amazon product links are present. They do not earn commissions yet. Do not reuse `lovewound-20` from the older React source without verifying that it belongs to Jeff and is active.
+The syllabus is `library.html`, served at `/syllabus`. Seven ordinary Amazon product links are present. They do not earn commissions yet. Do not reuse `lovewound-20` from the older React source without verifying that it belongs to Jeff and is active.
 
 ## Activate once the account is verified
 
 1. Sign into the correct Amazon Associates account, or enroll JeffBatton.com. The current browser session reports no connected Associates account.
 2. Confirm the approved website and tracking ID in that account.
-3. Generate a SiteStripe text link for each exact book edition and replace the nine ordinary product URLs. Confirm each destination title and format.
-4. Add `rel="sponsored"` to the nine paid links.
+3. Generate a SiteStripe text link for each exact book edition and replace the seven ordinary product URLs. Confirm each destination title and format.
+4. Add `rel="sponsored"` to the seven paid links.
 5. Place this disclosure between the introductory section and the books, visibly above the first purchase link:
 
    “As an Amazon Associate I earn from qualifying purchases. If you buy through the Amazon links on this page, I may earn a commission at no additional cost to you.”
 
 6. Add the same Amazon identification to the footer. Check desktop and phone display and ensure the disclosure remains visible without JavaScript.
-7. Verify all nine links have Jeff's confirmed tag. Do not place a test order using Jeff's own account to meet application requirements.
+7. Verify all seven links have Jeff's confirmed tag. Do not place a test order using Jeff's own account to meet application requirements.
 
 No book prices or star ratings are copied from Amazon. Existing book covers were reused; new War of Art, Body Keeps the Score, and Iron John thumbnails came from publisher pages, not Amazon product-image scraping. Publisher-hosted availability alone does not establish a reuse license; retain source records and confirm promotional-use permission before production release.
 
