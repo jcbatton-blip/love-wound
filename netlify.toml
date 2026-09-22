@@ -1,5 +1,5 @@
 [build]
-  command = "rm -rf dist && mkdir -p dist/images && cp index.html freedom.css dist/ && cp -R blog dist/ && cp sitemap.xml robots.txt dist/ && cp book.html weekend.html dist/ && cp client-portal.html dist/ && cp library.html dist/ && cp privacy.html dist/ && cp terms.html dist/ && cp colors_and_type.css site-updates.css dist/ && cp -R assets dist/ && cp images/jeffrey-batton-hero.jpeg dist/images/ && cp images/jeffrey-crowd.jpeg dist/images/ && cp images/jeffrey-chair.mp4 dist/images/ && cp images/headshot.jpg dist/images/ && echo 'Build complete'"
+  command = "rm -rf dist && mkdir -p dist/images && cp index.html freedom.css dist/ && cp -R blog dist/ && cp sitemap.xml robots.txt dist/ && cp book.html weekend.html contact.html thank-you.html contact.js support.css dist/ && cp client-portal.html dist/ && cp library.html dist/ && cp privacy.html dist/ && cp terms.html dist/ && cp colors_and_type.css site-updates.css dist/ && cp -R assets dist/ && cp images/jeffrey-batton-hero.jpeg dist/images/ && cp images/jeffrey-crowd.jpeg dist/images/ && cp images/jeffrey-chair.mp4 dist/images/ && cp images/headshot.jpg dist/images/ && echo 'Build complete'"
   publish = "dist"
 
 [build.environment]
@@ -62,6 +62,16 @@
 [[redirects]]
   from = "/weekend"
   to = "/weekend.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/thank-you"
+  to = "/thank-you.html"
   status = 200
 
 # SPA fallback — only fires if the requested file doesn't exist on disk.
