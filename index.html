@@ -1,816 +1,191 @@
 <!doctype html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="utf-8">
-<title>Jeff Batton · You don't need a guru. You need a mirror.</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Individual coaching $150. Couples coaching $250. Weekend retreats $4,500. Work with Jeff Batton on the patterns in your relationships and your life.">
+<title>Jeff Batton — Freedom begins with a different choice.</title>
+
+<meta name="description" content="Life coaching, couples work, and speaking with Jeff Batton. Recognize inherited patterns, make the unconscious conscious, and practice a freer way to live.">
+
 <link rel="canonical" href="https://jeffbatton.com/">
-<meta property="og:title" content="Jeff Batton · You don't need a guru. You need a mirror.">
-<meta property="og:description" content="Individual coaching $150. Couples coaching $250. Weekend retreats $4,500. Work with Jeff Batton on the patterns in your relationships and your life.">
+<meta property="og:title" content="Jeff Batton — Freedom begins with a different choice.">
+<meta property="og:description" content="You’re not stuck. You’re running a play you learned years ago. Life coaching, couples work, and speaking with Jeff Batton.">
+<meta property="og:image" content="https://jeffbatton.com/assets/photos/hero-warm.jpg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jeffbatton.com/">
-<meta property="og:image" content="https://jeffbatton.com/assets/photos/hero-warm.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Jeff Batton · You don't need a guru. You need a mirror.">
-<meta name="twitter:description" content="Individual coaching $150. Couples coaching $250. Weekend retreats $4,500. Work with Jeff Batton on the patterns in your relationships and your life.">
-<meta name="twitter:image" content="https://jeffbatton.com/assets/photos/hero-warm.jpg">
-<link rel="icon" href="/assets/monogram.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/monogram.svg">
 <link rel="stylesheet" href="colors_and_type.css">
-<style>
-  *{box-sizing:border-box}
-  html,body{margin:0;background:var(--bg-paper);scroll-behavior:smooth}
-  img{display:block;max-width:100%}
-  em{font-style:italic}
-  button{font:inherit;cursor:pointer}
-  a.cta-btn{text-decoration:none}
+<link rel="stylesheet" href="freedom.css"></head>
+<body><a class="skip" href="#main">Skip to content</a>
 
-  /* Grain overlay helper */
-  .grain::after{
-    content:"";position:absolute;inset:0;pointer-events:none;
-    background-image:url('assets/texture-grain.svg');
-    background-size:220px;opacity:.08;mix-blend-mode:overlay;
-  }
-
-  /* Sales container widths */
-  .narrow{max-width:640px;margin:0 auto}
-  .reading{max-width:720px;margin:0 auto}
-  .std{max-width:1120px;margin:0 auto}
-
-  /* Hero exhale */
-  @keyframes exhale {
-    from { opacity:0; transform:translateY(10px); }
-    to   { opacity:1; transform:none; }
-  }
-  .exhale > * { animation: exhale var(--dur-exhale) var(--ease-gentle) both; }
-  .exhale > *:nth-child(1){animation-delay:.10s}
-  .exhale > *:nth-child(2){animation-delay:.30s}
-  .exhale > *:nth-child(3){animation-delay:.55s}
-  .exhale > *:nth-child(4){animation-delay:.85s}
-  .exhale > *:nth-child(5){animation-delay:1.15s}
-
-  /* Primary CTA button — on dark */
-  .btn {
-    display:inline-flex;align-items:center;gap:14px;
-    font-family:var(--font-body);font-weight:500;font-size:13px;
-    letter-spacing:.18em;text-transform:uppercase;
-    padding:18px 32px;border-radius:2px;border:1px solid transparent;
-    transition:all .24s var(--ease-gentle);cursor:pointer;
-  }
-  .btn .arrow{display:inline-block;transition:transform .22s var(--ease-gentle)}
-  .btn:hover .arrow{transform:translateX(4px)}
-
-  .btn--gold {
-    background:var(--gold-400);color:var(--burgundy-900);
-  }
-  .btn--gold:hover{background:var(--gold-300)}
-
-  .btn--blood {
-    background:var(--burgundy-600);color:var(--cream-50);
-  }
-  .btn--blood:hover{background:var(--burgundy-500)}
-
-  .btn--ghost-dark {
-    background:transparent;color:var(--cream-50);
-    border-color:rgba(245,239,227,.28);
-  }
-  .btn--ghost-dark:hover{background:rgba(245,239,227,.06);border-color:rgba(245,239,227,.45)}
-
-  /* JBLC-MIRROR-002 Task 2: Discovery Call — quieter secondary section
-     positioned between primary CTA (velvet/burgundy) and footer. Uses dark
-     ink ground (NOT bg-paper which is cream) + ghost button so it reads as
-     an alternative path, not a competing primary. */
-  .discovery {
-    background:var(--bg-ink);
-    border-top:1px solid var(--line-on-dark);
-    padding:72px 48px 88px;text-align:center;
-    color:var(--cream-50);
-  }
-  .discovery .content{max-width:560px;margin:0 auto}
-  .discovery h3 {
-    font-family:var(--font-display);font-weight:400;font-style:normal;
-    font-size:32px;line-height:1.2;letter-spacing:-.01em;
-    color:var(--cream-50);margin:0 0 18px;
-  }
-  .discovery p.kicker {
-    font-family:var(--font-body);font-style:italic;
-    font-size:15px;line-height:1.7;
-    color:var(--cream-50);opacity:.65;
-    margin:0 0 32px;
-  }
-
-  /* sticky header */
-  header.site {
-    position:sticky;top:0;z-index:20;
-    padding:18px 48px;display:flex;align-items:center;justify-content:space-between;
-    background:rgba(20,17,15,.72);
-    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--line-on-dark);
-    color:var(--cream-50);
-  }
-  header.site .logo{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
-  header.site .logo .name{font-family:var(--font-display);font-style:italic;font-size:17px;line-height:1}
-  header.site .logo .tag{font-family:var(--font-body);font-size:8px;letter-spacing:.28em;opacity:.7;margin-top:3px}
-  /* JBLC-MIRROR-001: primary tagline below the lockup. Hides on narrow mobile so the
-     sticky header keeps its compact two-element layout. */
-  header.site .logo .tagline{
-    font-family:var(--font-display);font-style:italic;font-size:11px;line-height:1.2;
-    color:var(--gold);opacity:.65;margin-top:6px;letter-spacing:.01em;
-    white-space:nowrap;
-  }
-  header.site .book{
-    font-family:var(--font-body);font-size:11px;letter-spacing:.24em;text-transform:uppercase;
-    color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold);
-    padding:4px 0;transition:opacity .2s;
-  }
-  header.site .book:hover{opacity:.8}
-
-  /* Fleuron (inline) */
-  .fleuron{display:flex;align-items:center;gap:12px;margin:0 auto;max-width:240px;opacity:.7}
-  .fleuron .line{flex:1;height:1px;background:currentColor;opacity:.5}
- /* Override for Discovery CTA button in header — gives dark text on gold bg */
-     header.site .book.btn--gold{color:var(--burgundy-900);background:var(--gold);border-bottom:0;padding:10px 18px;letter-spacing:.18em;border-radius:2px;}
-  .fleuron .dots{display:flex;gap:5px;align-items:center}
-  .fleuron .dots span{background:currentColor;border-radius:50%}
-  .fleuron .dots span:nth-child(1),.fleuron .dots span:nth-child(3){width:3px;height:3px}
-  .fleuron .dots span:nth-child(2){width:4.5px;height:4.5px}
-
-  /* Eyebrow */
-  .eyebrow{
-    font-family:var(--font-body);font-size:12px;font-weight:500;
-    text-transform:uppercase;letter-spacing:.32em;color:var(--accent);
-  }
-  .eyebrow.gold{color:var(--gold)}
-  .eyebrow.muted{color:var(--fg-3)}
-
-  /* HERO */
-  .hero{
-    position:relative;min-height:92vh;overflow:hidden;
-    display:flex;align-items:center;
-    padding:96px 48px 120px;
-    color:var(--cream-50);
-    background:var(--burgundy-950);
-  }
-  .hero .photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
-  .hero .veil{
-    position:absolute;inset:0;
-    background:
-      radial-gradient(ellipse at 20% 30%, rgba(90,20,24,.35), transparent 60%),
-      linear-gradient(180deg, rgba(20,17,15,.55) 0%, rgba(20,17,15,.85) 100%);
-  }
-  .hero .content{position:relative;z-index:1;max-width:940px}
-  .hero h1{
-    font-family:var(--font-display);font-weight:400;
-    font-size:clamp(54px, 8vw, 108px);line-height:.98;letter-spacing:-.03em;
-    margin:28px 0 0;color:var(--cream-50);text-wrap:balance;
-  }
-  .hero h1 em{color:var(--gold-200)}
-  .hero .kicker {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: 400;
-    font-size: clamp(18px, 2.2vw, 26px);
-    line-height: 1.4;
-    letter-spacing: .01em;
-    color: var(--gold-200);
-    max-width: 640px;
-    margin: 24px 0 0;
-  }
-  .hero .kicker em {
-    font-style: italic;
-    color: var(--gold);
-  }
-  .hero .sub{
-    font-family:var(--font-display);font-style:italic;font-weight:400;
-    font-size:clamp(20px, 2.1vw, 26px);line-height:1.45;
-    max-width:640px;margin:40px 0 0;color:var(--cream-200);
-  }
-  .hero .meta-row{
-    display:flex;gap:32px;align-items:center;flex-wrap:wrap;
-    margin-top:56px;
-  }
-  .hero .price-chip{
-    display:flex;flex-direction:column;gap:2px;
-    padding-left:20px;border-left:1px solid var(--line-gold);
-  }
-  .hero .price-chip .label{
-    font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);
-  }
-  .hero .price-chip .value{
-    font-family:var(--font-display);font-size:22px;color:var(--cream-50);
-  }
-  .hero .price-chip .value em{font-style:italic;opacity:.65;font-size:14px;margin-left:8px}
-
-  /* bottom rule with brand tagline */
-  .hero .ribbon{
-    position:absolute;left:0;right:0;bottom:0;
-    padding:20px 48px;display:flex;justify-content:space-between;align-items:center;
-    font-family:var(--font-body);font-size:10px;letter-spacing:.32em;text-transform:uppercase;
-    color:var(--charcoal-300);border-top:1px solid var(--line-on-dark);
-    z-index:1;
-  }
-  .hero .ribbon .dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-right:10px;vertical-align:middle;animation:pulse 2.6s ease-in-out infinite}
-  @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
-
-  /* Generic section */
-  section.panel{padding:160px 48px;position:relative;overflow:hidden}
-  section.panel.tight{padding:128px 48px}
-  /* JBLC-006: tighten bridge section bottom padding so it doesn't stack with CTA's top padding */
-  section.panel.bridge-tight{padding-bottom:80px}section.panel.testimonials-tight{padding-top:80px;padding-bottom:80px}
-  section.cream{background:var(--bg-paper)}
-  section.cream-sunk{background:var(--cream-100)}
-  section.blood{background:var(--bg-blood);color:var(--cream-50)}
-  section.velvet{background:var(--bg-velvet);color:var(--cream-50)}
-  section.ink{background:var(--charcoal-900);color:var(--cream-50)}
-
-  .on-dark h2, .on-dark h3{color:var(--cream-50)}
-
-  /* WHAT IT IS — editorial reading column */
-  .what-it-is h2{
-    font-family:var(--font-display);font-weight:400;
-    font-size:clamp(44px, 5.5vw, 76px);line-height:1.02;letter-spacing:-.025em;
-    margin:36px 0 40px;color:var(--fg-1);
-  }
-  .what-it-is h2 em{font-style:italic}
-  .what-it-is .lead{
-    font-family:var(--font-display);font-style:italic;font-weight:400;
-    font-size:26px;line-height:1.45;color:var(--fg-1);
-    margin:0 0 40px;text-wrap:balance;
-  }
-  .what-it-is p{
-    font-family:var(--font-body);font-size:18px;line-height:1.8;
-    color:var(--fg-2);margin:0 0 24px;
-  }
-  .what-it-is .not-not-just{
-    display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:56px;
-    padding-top:40px;border-top:1px solid var(--line-hair);
-  }
-  .nn-col .k{
-    font-size:11px;letter-spacing:.32em;text-transform:uppercase;
-    color:var(--fg-3);margin-bottom:16px;
-  }
-  .nn-col ul{list-style:none;margin:0;padding:0}
-  .nn-col li{
-    font-family:var(--font-body);font-size:16px;color:var(--fg-1);
-    padding:10px 0;border-bottom:1px dashed var(--line-soft);
-  }
-  .nn-col.is-not li{color:var(--fg-3);text-decoration:line-through;text-decoration-color:var(--line-hair);text-decoration-thickness:.5px}
-  .nn-col.is-yes li::before{
-    content:"—";color:var(--accent);margin-right:14px;font-family:var(--font-display);
-  }
-
-  /* WHO IT'S FOR — dark burgundy, checklist */
-  .who .photo {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    object-fit: cover; object-position: center 30%;
-    opacity: .48;
-  }
-  .who .veil-who {
-    position: absolute; inset: 0;
-    background:
-      linear-gradient(180deg, rgba(54,12,15,.72) 0%, rgba(36,9,11,.92) 100%),
-      radial-gradient(ellipse at 70% 40%, rgba(90,20,24,.35), transparent 60%);
-  }
-  .who .std { position: relative; z-index: 1; }
-  .who h2{
-    font-family:var(--font-display);font-weight:400;
-    font-size:clamp(40px, 5vw, 64px);line-height:1.06;letter-spacing:-.02em;
-    margin:28px 0 0;color:var(--cream-50);
-  }
-  .who h2 em{color:var(--gold-200);font-style:italic}
-  .who .sub{
-    font-family:var(--font-display);font-style:italic;font-size:22px;
-    color:var(--cream-200);margin:28px 0 72px;max-width:680px;line-height:1.5;
-  }
-  .who .statements{display:flex;flex-direction:column;gap:0}
-  .who .statements .stmt{
-    display:grid;grid-template-columns:60px 1fr auto;gap:32px;align-items:baseline;
-    padding:28px 0;border-top:1px solid var(--line-gold);
-  }
-  .who .statements .stmt:last-child{border-bottom:1px solid var(--line-gold)}
-  .who .stmt .n{
-    font-family:var(--font-display);font-style:italic;font-size:22px;
-    color:var(--gold);letter-spacing:-.02em;
-  }
-  .who .stmt .body{
-    font-family:var(--font-display);font-weight:400;font-size:28px;line-height:1.35;
-    color:var(--cream-50);letter-spacing:-.01em;text-wrap:pretty;
-  }
-  .who .stmt .body em{color:var(--gold-200);font-style:italic}
-  .who .stmt .tag{
-    font-family:var(--font-body);font-size:10px;letter-spacing:.32em;text-transform:uppercase;
-    color:var(--charcoal-300);align-self:center;
-  }
-  .who .close{
-    font-family:var(--font-display);font-style:italic;font-size:26px;
-    color:var(--cream-50);margin-top:72px;max-width:640px;line-height:1.45;
-  }
-  .who .close strong{font-style:normal;color:var(--gold);font-weight:500}
-
-  /* WHAT HAPPENS — cream, 3 movements */
-  .happens h2{
-    font-family:var(--font-display);font-weight:400;
-    font-size:clamp(40px, 5vw, 64px);line-height:1.06;letter-spacing:-.02em;
-    margin:28px 0 24px;
-  }
-  .happens .intro{
-    font-family:var(--font-display);font-style:italic;font-size:22px;color:var(--fg-1);
-    max-width:640px;margin:0 0 96px;line-height:1.5;
-  }
-  .happens .timeline{
-    display:grid;grid-template-columns:repeat(3, 1fr);gap:48px;
-    position:relative;
-  }
-  .happens .step{
-    padding-top:32px;border-top:1px solid var(--line-hair);
-    position:relative;
-  }
-  .happens .step::before{
-    content:"";position:absolute;top:-1px;left:0;width:64px;height:1px;
-    background:var(--accent);
-  }
-  .happens .step .meta{
-    display:flex;justify-content:space-between;align-items:baseline;
-    font-size:11px;letter-spacing:.32em;text-transform:uppercase;
-    color:var(--fg-3);margin-bottom:20px;
-  }
-  .happens .step .meta .num{
-    font-family:var(--font-display);font-style:italic;font-size:20px;
-    color:var(--accent);letter-spacing:0;text-transform:none;
-  }
-  .happens .step h3{
-    font-family:var(--font-display);font-weight:400;font-size:34px;
-    line-height:1.15;letter-spacing:-.015em;margin:0 0 18px;color:var(--fg-1);
-  }
-  .happens .step h3 em{font-style:italic}
-  .happens .step p{
-    font-family:var(--font-body);font-size:16px;line-height:1.8;
-    color:var(--fg-2);margin:0;
-  }
-  .happens .aftermath{
-    margin-top:96px;padding:40px 48px;
-    background:var(--cream-100);border-left:1px solid var(--accent);
-    display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;
-  }
-  .happens .aftermath .k{
-    font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);
-    font-family:var(--font-body);font-weight:500;white-space:nowrap;
-  }
-  .happens .aftermath .t{
-    font-family:var(--font-display);font-style:italic;font-size:22px;line-height:1.4;
-    color:var(--fg-1);margin:0;
-  }
-
-  /* PULL QUOTE — tight cream break */
-  .pullbreak{padding:120px 48px;background:var(--cream-100);text-align:center}
-  .pullbreak .q{
-    font-family:var(--font-display);font-style:italic;font-size:clamp(32px, 3.6vw, 44px);
-    line-height:1.25;color:var(--fg-1);max-width:820px;margin:32px auto 0;text-wrap:balance;
-  }
-  .pullbreak .q em{color:var(--accent)}
-  .pullbreak .attr{
-    font-family:var(--font-body);font-size:11px;letter-spacing:.32em;
-    text-transform:uppercase;color:var(--fg-3);margin-top:36px;
-  }
-
-  /* INVESTMENT — velvet, price treated editorially */
-  .investment{position:relative}
-  .investment .grid{
-    display:grid;grid-template-columns:1.15fr 1fr;gap:96px;align-items:center;
-  }
-  .investment .price-card{
-    padding:56px 48px;border:1px solid var(--line-gold);
-    background:rgba(255,255,255,.015);
-    box-shadow:var(--shadow-inset-warm);
-    position:relative;
-  }
-  .investment .price-card::before, .investment .price-card::after{
-    content:"";position:absolute;width:12px;height:12px;border:1px solid var(--gold);
-  }
-  .investment .price-card::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
-  .investment .price-card::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
-  .investment .price-card .label{
-    font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);
-    margin-bottom:20px;
-  }
-  .investment .price-card .number{
-    font-family:var(--font-display);font-weight:300;
-    font-size:clamp(88px, 10vw, 144px);line-height:.95;letter-spacing:-.04em;
-    color:var(--cream-50);display:flex;align-items:flex-start;gap:4px;
-  }
-  .investment .price-card .number .sign{
-    font-size:.38em;line-height:1.2;color:var(--gold-200);margin-top:.4em;
-  }
-  .investment .price-card .unit{
-    font-family:var(--font-display);font-style:italic;font-size:22px;
-    color:var(--cream-200);margin-top:12px;
-  }
-  .investment .price-card .rows{
-    margin-top:40px;padding-top:32px;border-top:1px solid var(--line-on-dark);
-    display:flex;flex-direction:column;gap:18px;
-  }
-  .investment .price-card .rows .row{
-    display:flex;justify-content:space-between;align-items:baseline;gap:24px;
-    font-family:var(--font-body);font-size:13px;color:var(--cream-200);
-  }
-  .investment .price-card .rows .row .k{
-    font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--charcoal-300);
-  }
-  .investment .copy h2{
-    font-family:var(--font-display);font-weight:400;
-    font-size:clamp(40px, 4.6vw, 56px);line-height:1.06;letter-spacing:-.02em;
-    margin:28px 0 28px;color:var(--cream-50);
-  }
-  .investment .copy h2 em{color:var(--gold-200);font-style:italic}
-  .investment .copy p{
-    font-family:var(--font-body);font-size:17px;line-height:1.8;color:var(--cream-200);
-    margin:0 0 20px;max-width:460px;
-  }
-  .investment .copy .sig{
-    font-family:var(--font-display);font-style:italic;font-size:20px;color:var(--gold);
-    margin-top:28px;
-  }
-
-  /* INVESTMENT 3-CARD (JBLC-013) */ .investment .invest-head{max-width:760px;margin:0 auto 56px;text-align:center} .investment .invest-head h2{margin:18px 0 14px} .investment .invest-head .eyebrow{justify-content:center;display:block} .investment .invest-subhead{font-family:var(--font-display);font-style:italic;font-size:22px;color:var(--gold-200);margin:6px 0 0;line-height:1.4} .investment .invest-subhead em{font-style:italic} .investment .invest-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;align-items:stretch;margin:0 auto 64px;max-width:1180px} .investment .pc-card{padding:44px 28px 36px;border:1px solid var(--line-gold);background:rgba(255,255,255,.015);box-shadow:var(--shadow-inset-warm);display:flex;flex-direction:column;text-align:center;position:relative} .investment .pc-card.pc-featured{border-color:var(--gold);background:rgba(212,175,90,.045);transform:translateY(-10px)} .investment .pc-eyebrow{font-family:var(--font-body);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:18px} .investment .pc-title{font-family:var(--font-display);font-weight:300;font-size:30px;line-height:1.1;color:var(--cream-50);margin-bottom:18px;letter-spacing:-.01em} .investment .pc-price{font-family:var(--font-display);font-weight:300;font-size:54px;line-height:1;color:var(--cream-50);margin-bottom:8px;letter-spacing:-.02em} .investment .pc-featured .pc-price{color:var(--gold-200)} .investment .pc-duration{font-family:var(--font-body);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--fg-3);margin-bottom:22px} .investment .pc-sub{font-family:var(--font-body);font-size:15px;line-height:1.6;color:var(--cream-200);margin:0 0 30px;flex:1} .investment .pc-btn{display:inline-block;padding:14px 22px;font-family:var(--font-body);font-size:11px;letter-spacing:.28em;text-transform:uppercase;text-decoration:none;border:1px solid var(--gold);color:var(--gold);transition:background .2s,color .2s;align-self:center} .investment .pc-btn:hover{background:var(--gold);color:var(--burgundy-950)} .investment .pc-btn-gold{background:var(--gold);color:var(--burgundy-950);border-color:var(--gold)} .investment .pc-btn-gold:hover{background:transparent;color:var(--gold)} .investment .invest-detail{max-width:680px;margin:0 auto 36px;padding:30px 36px;border:1px solid var(--line-gold);background:rgba(255,255,255,.015)} .investment .invest-detail .rows{display:grid;gap:0} .investment .invest-detail .row{display:flex;justify-content:space-between;align-items:center;font-family:var(--font-body);font-size:14px;color:var(--cream-200);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)} .investment .invest-detail .row:last-child{border-bottom:0} .investment .invest-detail .k{color:var(--fg-3);letter-spacing:.18em;text-transform:uppercase;font-size:11px} .investment .invest-not-ready{max-width:680px;margin:0 auto;text-align:center;font-family:var(--font-body);font-size:15px;line-height:1.7;color:var(--cream-200)}
-.invest-body-prose{max-width:680px;margin:0 auto 18px;text-align:center;font-family:var(--font-body);font-size:16px;line-height:1.75;color:var(--cream-100)}
-.invest-kicker{max-width:680px;margin:24px auto 0;text-align:center;font-family:var(--font-display);font-style:italic;font-size:20px;line-height:1.5;color:var(--gold-200)} .investment .invest-not-ready a{color:var(--gold);text-decoration:underline} @media (max-width:900px){ .investment .invest-cards{grid-template-columns:1fr;gap:20px;margin-bottom:48px} .investment .pc-mirror{order:1} .investment .pc-discovery{order:2} .investment .pc-package{order:3} .investment .pc-featured{transform:none} .investment .invest-detail{padding:22px 24px} .investment .invest-subhead{font-size:19px} .investment .pc-title{font-size:26px} .investment .pc-price{font-size:46px} } /* CTA */
-  .cta{
-    position:relative;padding:96px 48px;text-align:center;
-    color:var(--cream-50);overflow:hidden;background:var(--burgundy-950);
-  }
-  .cta .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
-  .cta .veil{position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,17,15,.7), rgba(20,17,15,.92))}
-  .cta .content{position:relative;z-index:1;max-width:760px;margin:0 auto}
-  .cta h2{
-    font-family:var(--font-display);font-weight:400;
-    font-size:clamp(54px, 7vw, 88px);line-height:1.02;letter-spacing:-.03em;
-    margin:36px 0 32px;color:var(--cream-50);
-  }
-  .cta h2 em{color:var(--gold-200);font-style:italic}
-  .cta p.kicker{
-    font-family:var(--font-display);font-style:italic;font-size:22px;
-    color:var(--cream-200);max-width:560px;margin:0 auto 56px;line-height:1.5;
-  }
-  .cta .meta{
-    margin:48px auto 0;max-width:760px;display:grid;grid-template-columns:repeat(3,1fr);align-items:center;gap:24px 32px;
-    font-family:var(--font-body);font-size:10px;letter-spacing:.32em;text-transform:uppercase;
-    color:var(--charcoal-300);
-  }
-  .cta .meta{letter-spacing:.2em}.cta .meta > span{text-align:center;white-space:nowrap}.cta .meta span em{color:var(--gold);font-style:normal;font-weight:500;margin-right:8px}@media (max-width:520px){.cta .meta{grid-template-columns:1fr;gap:14px}}
-
-  /* Footer */
-  footer.site{
-    background:var(--charcoal-950);color:var(--cream-200);
-    padding:72px 48px 36px;
-  }
-  footer.site .grid{
-    max-width:1120px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:start;
-  }
-  footer.site .mono{
-    font-family:var(--font-display);font-style:italic;font-size:17px;line-height:1.5;
-    max-width:380px;color:var(--cream-200);margin:20px 0 0;
-  }
-  footer.site .brand{display:flex;align-items:center;gap:14px;color:var(--cream-50);text-decoration:none}
-  footer.site .brand .name{font-family:var(--font-display);font-style:italic;font-size:20px;line-height:1}
-  footer.site .brand .tag{font-family:var(--font-body);font-size:9px;letter-spacing:.28em;opacity:.7;margin-top:4px}
-  footer.site .brand .tagline{
-    font-family:var(--font-display);font-style:italic;font-size:13px;line-height:1.35;
-    color:var(--gold);opacity:.65;margin-top:8px;letter-spacing:.01em;
-  }
-  footer.site .back{
-    font-family:var(--font-body);font-size:11px;letter-spacing:.24em;text-transform:uppercase;
-    color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:4px;
-  }
-  footer.site .rule{
-    max-width:1120px;margin:64px auto 0;padding-top:28px;
-    border-top:1px solid var(--line-on-dark);
-    display:flex;justify-content:space-between;align-items:center;
-    font-family:var(--font-body);font-size:10px;letter-spacing:.3em;text-transform:uppercase;
-    color:var(--charcoal-400);
-  }
-
-  /* Legal footer links — JBLC-017 */
-footer.site .rule .legal-link{color:var(--charcoal-300);text-decoration:none;letter-spacing:.3em;text-transform:uppercase;font-family:var(--font-body);font-size:10px;transition:color .2s var(--ease-gentle)}
-footer.site .rule .legal-link:hover{color:var(--gold)}
-
-/* WHAT PEOPLE SAY — JBLC-007 testimonials grid */
-  .testimonials h2{
-    font-family:var(--font-display);font-weight:400;
-    font-size:clamp(40px, 5vw, 64px);line-height:1.06;letter-spacing:-.02em;
-    margin:28px 0 72px;color:var(--fg-1);
-  }
-  .testimonials h2 em{font-style:italic}
-  .testimonials .t-grid{
-    display:grid;grid-template-columns:repeat(3, 1fr);gap:32px;
-  }
-  .testimonials .t-card{
-    margin:0;padding:36px 32px;
-    background:var(--cream-100);
-    border:1px solid var(--line-hair);
-    box-shadow:0 1px 2px rgba(20,17,15,.04);
-    display:flex;flex-direction:column;gap:20px;
-  }
-  .testimonials .t-stars{
-    color:var(--gold);font-size:18px;letter-spacing:.12em;line-height:1;
-  }
-  .testimonials .t-quote{
-    margin:0;font-family:var(--font-body);font-size:16px;line-height:1.75;
-    color:var(--fg-1);font-style:normal;
-  }
-  .testimonials .t-attr{
-    margin-top:auto;padding-top:8px;
-    display:flex;flex-direction:column;gap:4px;
-    border-top:1px solid var(--line-hair);
-  }
-  .testimonials .t-name{
-    font-family:var(--font-display);font-style:italic;font-size:18px;
-    color:var(--fg-1);
-  }
-  .testimonials .t-desc{
-    font-family:var(--font-body);font-size:11px;letter-spacing:.24em;
-    text-transform:uppercase;color:var(--fg-3);
-  }
-
-  /* ABOUT JEFF — JBLC-015 */
-.about-jeff h2{
-font-family:var(--font-display);font-weight:400;
-font-size:clamp(40px, 5vw, 64px);line-height:1.06;letter-spacing:-.02em;
-margin:0 0 32px;color:var(--fg-1);
-}
-.about-jeff h2 em{font-style:italic}
-.about-jeff .eyebrow{margin-bottom:48px;display:block}
-.about-jeff .aj-grid{
-display:grid;grid-template-columns:minmax(0,40%) minmax(0,60%);
-gap:72px;align-items:center;
-}
-.about-jeff .aj-photo img{
-width:100%;height:auto;display:block;
-box-shadow:0 1px 2px rgba(20,17,15,.06),0 18px 48px rgba(20,17,15,.12);
-}
-.about-jeff .aj-text p{
-font-family:var(--font-body);font-size:17px;line-height:1.8;
-color:var(--fg-2);margin:0 0 20px;
-}
-.about-jeff .aj-text p:last-child{margin-bottom:0}
-section.panel.about-jeff-tight{padding-bottom:80px}
-@media (max-width:900px){
-.about-jeff .aj-grid{grid-template-columns:1fr;gap:36px}
-.about-jeff .aj-photo{display:flex;justify-content:center}
-.about-jeff .aj-photo img{max-width:280px;width:100%}
-.about-jeff h2{font-size:36px;margin-bottom:24px}
-section.panel.about-jeff-tight{padding-bottom:48px}
-}
-
-/* Responsive */
-  @media (max-width: 900px){
-    /* JBLC-MIRROR-001: header tagline overflows narrow viewports next to the
-       Book CTA. Hide it on mobile — footer tagline keeps the message visible. */
-    header.site .logo .tagline{display:none}
-    header.site{padding:16px 24px}
-    section.panel, section.panel.tight{padding:96px 24px}
-    section.panel.bridge-tight{padding-bottom:48px}section.panel.testimonials-tight{padding-top:48px;padding-bottom:48px}
-    .hero{padding:72px 24px 120px;min-height:auto}
-    .hero .ribbon{padding:16px 24px;gap:12px;flex-wrap:wrap}
-    .cta{padding:56px 24px}
-    .investment .grid{grid-template-columns:1fr;gap:56px}
-    .happens .timeline{grid-template-columns:1fr;gap:48px}
-    .happens .aftermath{grid-template-columns:1fr;gap:16px;padding:28px 24px}
-    .what-it-is .not-not-just{grid-template-columns:1fr;gap:40px}
-    .who .statements .stmt{grid-template-columns:40px 1fr;gap:20px}
-    .who .stmt .tag{display:none}
-    .who .stmt .body{font-size:22px}
-    footer.site .grid{grid-template-columns:1fr;gap:32px}
-    footer.site .rule{flex-direction:column;gap:12px;text-align:center}
-    .testimonials h2{margin:20px 0 48px}
-    .testimonials .t-grid{grid-template-columns:1fr;gap:20px}
-    .testimonials .t-card{padding:28px 24px}
-  }
-</style>
-<link rel="stylesheet" href="site-updates.css">
-</head>
-<body data-screen-label="Coaching Home">
-<a class="skip-link" href="#main">Skip to content</a>
-
-<!-- STICKY HEADER -->
-<header class="site">
-  <a class="logo" href="#top" aria-label="Jeff Batton Life Coaching">
-    <img src="assets/monogram.svg" alt="" style="height:30px;filter:invert(1) sepia(.3)">
-    <div>
-      <div class="name">Jeff Batton</div>
-      <div class="tag">LIFE COACHING</div>
-      <div class="tagline">You don&rsquo;t need a guru. You need a mirror.</div>
-    </div>
-  </a>
-  <nav class="site-nav" aria-label="Main navigation"><a href="#about">About Jeff</a><a href="#services">Work with Jeff</a><a href="/syllabus">Syllabus</a></nav>
-  <a class="book cta-btn btn btn--gold" href="https://calendly.com/jcbatton/let-s-talk" target="_blank" rel="noopener">Book a FREE Discovery Call</a>
+<header><a class="brand" href="#top">Jeff Batton<span>LIFE COACHING · SPEAKING</span></a>
+<nav aria-label="Main navigation"><a href="#work">The work</a><a href="#about">About</a><a href="#speaking">Speaking</a><a href="/blog/">Journal</a>
+</nav><a class="nav-cta" href="#services">Work with Jeff ↗</a>
 </header>
 
 <main id="main">
-<!-- HERO -->
-<section class="hero grain" id="top">
-  <img class="photo" fetchpriority="high" width="896" height="1200" src="assets/photos/hero-warm.jpg" alt="Jeff Batton, seated in warm candlelit portrait">
-  <div class="veil"></div>
-  <div class="content exhale">
-    <div class="eyebrow gold">Individual &amp; couples coaching &nbsp;·&nbsp; Online</div>
-    <p class="kicker">You already know <em>something is off.</em></p>
-    <h1>You don't need a guru. <em>You need a mirror.</em></h1>
-    <p class="sub">You can know better and still do the same old thing. We’ll look at what keeps happening, then practice another way.</p>
-    <div class="meta-row">
-      <a class="cta-btn btn btn--gold" href="#services">
-        Explore the sessions <span class="arrow">→</span>
-      </a>
-      <div class="price-chip">
-        <span class="label">Sessions</span>
-        <div class="session-rates"><span class="value">$150 <em>· individual session</em></span><span class="value">$250 <em>· couples session</em></span></div>
-      </div>
-    </div>
-  </div>
-  <div class="ribbon">
-    <span><span class="dot"></span>Private · by video · at your pace</span>
-    <span>Come as you are</span>
-  </div>
+
+<section class="hero" id="top">
+<div class="hero-copy">
+<p class="eyebrow">A little more room to be yourself</p>
+<h1>Freedom begins<br>with a different<br><em>choice.</em></h1>
+<p class="intro">You’re not stuck. You’re running a play you learned years ago.</p>
+<p class="hero-detail">Life coaching, relationship work, and honest conversations about the patterns you inherited—and the life you want to choose.</p><a class="button light" href="https://calendly.com/jcbatton/let-s-talk">Book a free discovery call <span>↗</span></a><a class="text-link" href="#work">See how we work ↓</a>
+</div>
+<div class="hero-image"><img src="assets/photos/hero-warm.jpg" alt="Jeff Batton seated in warm light" width="896" height="1200" fetchpriority="high"><span>Come as you are.</span>
+</div>
+<div class="hero-foot"><span>INDIVIDUALS &amp; COUPLES</span><span>ONLINE · AT YOUR PACE</span>
+</div>
 </section>
 
-<!-- WHAT IT IS -->
-<section class="panel cream what-it-is"><div class="reading">
-<div class="eyebrow">Working together</div><h2>So, what do we <em>do?</em></h2>
-<p class="lead">We talk about the thing that keeps happening. Usually, you know exactly which thing.</p>
-<p>Maybe you say yes when you mean no. Maybe you and your partner can have the same argument in five different kitchens. You can explain it perfectly afterward, but in the moment, there you go again.</p>
-<p>That’s where we start. I’ll listen, ask questions, and tell you what I’m hearing. Sometimes we’ll laugh. You’re allowed to have a little fun while you figure yourself out.</p>
-<p>The point is to understand what you’re doing well enough to try something different when it matters.</p>
-</div></section>
-
-<!-- WHO IT'S FOR -->
-<section class="panel blood who on-dark grain">
-<img class="photo" loading="lazy" decoding="async" src="assets/photos/crowd-blur.jpg" alt="Jeff Batton standing still inside a moving crowd"><div class="veil-who"></div>
-<div class="std"><div class="eyebrow gold">Sound familiar?</div><h2>“Why do I <em>keep doing this?”</em></h2><p class="sub">A few things people bring to our conversations.</p>
-<div class="statements">
-<div class="stmt"><div class="n">i.</div><div class="body">You take care of everybody else. Then you’re <em>mad that nobody takes care of you.</em></div></div>
-<div class="stmt"><div class="n">ii.</div><div class="body">You and your partner start with the dishes and somehow end up <em>arguing about the whole marriage.</em></div></div>
-<div class="stmt"><div class="n">iii.</div><div class="body">You’ve learned plenty about yourself. You’d like some of it to <em>make a difference on a Tuesday.</em></div></div>
-<div class="stmt"><div class="n">iv.</div><div class="body">Your life looks fine from the outside. You’re wondering <em>when you get to enjoy it.</em></div></div>
-</div><p class="close">You don’t have to arrive with a tidy explanation. <strong>We can start with “I don’t know.”</strong></p>
-</div></section>
-
-<!-- ABOUT JEFF — JBLC-015 -->
-<section class="panel cream about-jeff about-jeff-tight" id="about">
-<div class="std">
-<div class="eyebrow gold">About Jeff</div>
-<div class="aj-grid">
-<div class="aj-photo">
-<img src="assets/photos/jeff-about-warm.png" alt="Jeff Batton wearing glasses and a black sweater" width="704" height="1504" loading="lazy" decoding="async">
+<section class="section split" id="work"><div>
+<p class="eyebrow">Making the unconscious conscious</p>
+<h2>You don’t need a guru.<br><em>You need a mirror.</em></h2>
 </div>
-<div class="aj-text">
-<h2><em>Hey. I'm Jeff.</em></h2>
+<div class="copy">
+<p class="lead">You can know better and still do the same old thing.</p>
+<p>Say yes when you mean no. Take care of everybody, then resent that nobody takes care of you. Find yourself in the same relationship with a different person.</p>
+<p>Most of us learned what love, success, and responsibility looked like before we were old enough to question it. We absorbed our families’ expectations and childhood lessons. Some of those instructions are still running the show.</p>
+<p>We talk about the thing that keeps happening. I listen, ask questions, and hold up a mirror. When you can see the old script, you have somewhere new to begin.</p>
+<p>As I often say: “You can’t kill a tree by pulling the fruit off of it.” We look at what keeps feeding the pattern.</p>
+</div>
+</section>
+
+<section class="relationship section" id="relationships">
+<div class="split"><div>
+<p class="eyebrow">The patterns we bring to love</p>
+<h2>“Your insecurities<br><em>are fighting.”</em></h2>
+</div>
+<div class="copy">
+<p class="lead">You start with the dishes. Somehow, you’re arguing about the whole marriage.</p>
+<p>Sometimes the argument carries an old love script: what you learned you had to do to be heard, stay safe, or feel wanted. One person pushes. The other pulls away. Both feel misunderstood.</p>
+<p>I call it the love wound. What’s familiar can feel like love—even when it hurts. We can find ourselves reenacting the family patterns we hoped to leave behind.</p>
+<p>We slow the conversation down. What happened? What did you hear? What were you afraid it meant? Seeing the pattern gives you a chance to hear the person in front of you.</p><a class="inline-link" href="mailto:jcbatton@gmail.com?subject=Couples%20coaching%20inquiry">Ask about couples work ↗</a>
+</div>
+</div>
+</section>
+
+<section class="section practice">
+<p class="eyebrow">Awareness is the beginning. Practice is the work.</p>
+<h2>Awareness changes the choice.<br><em>Choice changes the result.</em></h2>
+<div class="steps">
+<article><span>01 / NOTICE</span>
+<h3>Catch the old play.</h3>
+<p>At first, you notice afterward. Then halfway through. Eventually, you hear the familiar response before it leaves your mouth.</p>
+</article>
+<article><span>02 / CHOOSE</span>
+<h3>Try another response.</h3>
+<p>Pause. Ask what they meant. Say what you need. We work with the ordinary moments where a different choice becomes possible.</p>
+</article>
+<article><span>03 / PRACTICE</span>
+<h3>Run it again.</h3>
+<p>Like learning a play on the court, you repeat it until the new response becomes second nature. Catching yourself counts. You keep practicing.</p>
+</article>
+</div>
+</section>
+
+<section class="section about" id="about">
+<div class="about-photo"><img src="assets/photos/jeff-about-warm.png" alt="Jeff Batton in a black sweater, wearing glasses" loading="lazy" width="704" height="1504">
+</div>
+<div class="copy">
+<p class="eyebrow">Hey. I’m Jeff.</p>
+<h2>I spent years<br><em>trying to fix myself.</em></h2>
+<p>I read. Studied. Prayed. Searched. Analyzed. My own Don Quixote quest, chasing every windmill I could find.</p>
+<p class="lead">Then I realized: believing I was broken was part of the trap.</p>
+<p>That became the foundation of my work. For thirty years, I’ve sat with people, listening for the things we learn to do to be loved—and what happens when we keep doing them long after they’ve stopped helping.</p>
 <p>Most of my day, I spend talking people into loving themselves and having fun. You’d think those two things would come naturally. We can make them awfully complicated.</p>
-<p>I’ve spent thirty years sitting with people, listening to what’s going on in their lives. I’m curious about the things we learn to do to be loved, and what happens when we keep doing them long after they’ve stopped helping.</p>
-<p>You can expect questions, a little straight talk, and room to disagree with me. You know your life. I’m here to help you hear yourself a bit more clearly.</p>
-<p>And yes, we can laugh. Falling in love with yourself ought to have some joy in it.</p>
-</div>
-</div>
+<p>You can expect questions, straight talk, and room to disagree with me. And yes, we can laugh. A freer life ought to have some joy in it.</p>
 </div>
 </section>
 
-<!-- WHAT PEOPLE SAY — JBLC-007 -->
-<section class="panel cream testimonials testimonials-tight">
-  <div class="std">
-    <div class="eyebrow gold">What People Say</div>
-    <h2><em>A word from my clients.</em></h2>
-    <div class="t-grid">
-      <figure class="t-card">
-        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote class="t-quote">"Jeff's guidance has saved my life. I was in therapy for 17 years. I struggled with anxiety, depression and addiction. I could never imagine my life and headspace where they are today. Everybody needs a Jeff in their life."</blockquote>
-        <figcaption class="t-attr"><span class="t-name">Tyler</span><span class="t-desc">Mirror Session client</span></figcaption>
-      </figure>
-      <figure class="t-card">
-        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote class="t-quote">"Jeff is like a lighthouse. He has helped me navigate through life's challenges and difficult times. When I find myself in the middle of the ocean alone and afraid, his light, his smile, his compassion become the light that helps me find my way."</blockquote>
-        <figcaption class="t-attr"><span class="t-name">Veronica</span><span class="t-desc">Coaching client</span></figcaption>
-      </figure>
-      <figure class="t-card">
-        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote class="t-quote">"Jeff is about freedom from our pasts that don't serve us. When I think back to what he told me would be possible — a large part of me felt it might be a fantasy. It was not a fantasy. I'm living proof of what he told me was possible."</blockquote>
-        <figcaption class="t-attr"><span class="t-name">Mike B.</span><span class="t-desc">Root Work client</span></figcaption>
-      </figure>
-      <figure class="t-card">
-        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote class="t-quote">"Life coaching has been far more transformative for me than counseling. I feel like I'm out here spreading the gospel, telling all my friends to call him. If you're wondering if it's worth it — I promise you, it's worth every penny."</blockquote>
-        <figcaption class="t-attr"><span class="t-name">Emily</span><span class="t-desc">Coaching client</span></figcaption>
-      </figure>
-      <figure class="t-card">
-        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote class="t-quote">"Two sessions changed the dynamic of our marriage in so many positive ways. Before we started talking with Jeffrey, our marriage was in shambles and on the way to divorce court."</blockquote>
-        <figcaption class="t-attr"><span class="t-name">Dallas</span><span class="t-desc">Couples client</span></figcaption>
-      </figure>
-      <figure class="t-card">
-        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote class="t-quote">"Jeff has a way about him to cut to the heart of the matter. It's not always easy but definitely worth it. Having awareness is the first step to transformation — with Jeff this becomes the roadmap of your life."</blockquote>
-        <figcaption class="t-attr"><span class="t-name">Barbara B.</span><span class="t-desc">Coaching client</span></figcaption>
-      </figure>
-    </div>
-  </div>
+<section class="speaking section" id="speaking">
+<div class="speaking-backdrop" aria-hidden="true">
+</div>
+<div class="speaking-copy">
+<p class="eyebrow">Invite Jeff to speak</p>
+<h2>You did everything right.<br><em>So why aren’t you happy?</em></h2>
+<p class="lead">You were responsible. You kept your promises. You built the life you were supposed to want.</p>
+<p>I know that elder-brother story: doing what’s expected, keeping score, and wondering when it gets to feel good. My talks explore the cost of living by someone else’s script—and the freedom that begins when we realize we have a choice.</p>
+<p>For teams, communities, and rooms full of people ready for an honest conversation about success, inherited expectations, relationships, and being human.</p><a class="button light" href="mailto:jcbatton@gmail.com?subject=Speaking%20inquiry&body=Hi%20Jeff%2C%0A%0AEvent%3A%0ADate%3A%0ALocation%20or%20virtual%3A%0AAudience%3A%0AWhat%20we%20hope%20people%20take%20away%3A%0A">Invite Jeff to speak <span>↗</span></a>
+</div>
 </section>
 
-<!-- THE LOVE WOUND -->
-<section class="panel cream what-it-is" id="love-wound" aria-labelledby="love-wound-title"><div class="reading">
-<div class="eyebrow">The Love Wound</div>
-<h2 id="love-wound-title">Who taught you how to <em>do love?</em></h2>
-<p class="lead">I think of it this way: we’re born knowing love. We learn how to <em>do</em> love from the people who raise us.</p>
-<p>In those early years, we absorb what’s around us. Almost like downloading instructions we’re too young to question. If love comes with disrespect, we may absorb the belief that disrespect is part of being loved.</p>
-<p>That’s the love wound. What’s familiar can feel like true love—even when it hurts. We may seek it out, or unknowingly test a relationship until it confirms what we already believe.</p>
-<p>We’re not consciously choosing pain. An old lesson is running underneath.</p>
-<p>We follow the patterns to bring those hidden lessons into the light. Once we see them, we can begin to practice another way.</p>
-</div></section>
-
-<!-- WHAT HAPPENS -->
-<section class="panel cream happens"><div class="reading">
-<div class="eyebrow">How change gets practiced</div><h2>Keep running <em>the play.</em></h2>
-<p class="intro">Think about learning to play basketball. You can understand the play on the board. Then you get on the court and forget where your feet are supposed to go.</p>
-<p>You run it again. You notice where you got stuck. After enough practice, you spend less time thinking about every move. It starts to become second nature.</p>
-<p>That’s how I talk about changing the subconscious: working with those old responses that happen before you’ve really thought about them. We notice the play you keep running and practice a different one.</p>
-<p>In a session, we might look at an argument you had this week. What happened? What did you hear? What did you do next? Then we work out something you can try the next time you’re in that spot.</p>
-<p>You may catch yourself afterward at first. Then halfway through. Sometimes you’ll catch it before the words leave your mouth. That’s worth noticing.</p>
-<p>There’s no stopwatch on this. We’ll take the time to understand what’s happening, and keep coming back to how it works in your actual life.</p>
-<div class="aftermath"><div class="k">After we talk</div><p class="t">I may recommend a book from the <a href="/syllabus">syllabus</a> if it fits what we’re working on.</p></div>
-</div></section>
-
-<!-- PULL QUOTE -->
-<section class="pullbreak">
-  <div class="fleuron" style="color:var(--accent)"><span class="line"></span><span class="dots"><span></span><span></span><span></span></span><span class="line"></span></div>
-  <p class="q">You can't kill a tree by pulling the fruit off of it. <em>Let’s look at what keeps growing it.</em></p>
-  <div class="attr">— Jeff</div>
+<section class="section testimonials">
+<p class="eyebrow">A word from my clients</p>
+<h2>More room.<br><em>More possibility.</em></h2>
+<div class="quotes">
+<figure><blockquote>Jeff is like a lighthouse. He has helped me navigate through life's challenges and difficult times. When I find myself in the middle of the ocean alone and afraid, his light, his smile, his compassion become the light that helps me find my way.</blockquote><figcaption>Veronica</figcaption>
+</figure>
+<figure><blockquote>Jeff is about freedom from our pasts that don't serve us. When I think back to what he told me would be possible — a large part of me felt it might be a fantasy. It was not a fantasy. I'm living proof of what he told me was possible.</blockquote><figcaption>Mike B.</figcaption>
+</figure>
+<figure><blockquote>Jeff has a way about him to cut to the heart of the matter. It's not always easy but definitely worth it. Having awareness is the first step to transformation — with Jeff this becomes the roadmap of your life.</blockquote><figcaption>Barbara B.</figcaption>
+</figure>
+</div>
 </section>
 
-<!-- INVESTMENT -->
-<section class="panel velvet investment on-dark grain tight" id="services"><div class="std"><div class="invest-head"><div class="eyebrow gold">Work with Jeff</div><h2>Come on your own.<br><em>Or come together.</em></h2><p class="invest-subhead">Here are the ways we can work together.</p></div><div class="invest-cards"><article class="pc-card pc-featured"><div class="pc-eyebrow">One-to-one</div><h3 class="pc-title">Individual coaching</h3><div class="pc-price">$150</div><div class="pc-duration">60 minutes · online</div><p class="pc-sub">An hour for what’s going on with you. We’ll talk it through and look at what you want to do differently.</p><a class="pc-btn pc-btn-gold" href="/book">Choose a time</a></article><article class="pc-card "><div class="pc-eyebrow">Together</div><h3 class="pc-title">Couples coaching</h3><div class="pc-price">$250</div><div class="pc-duration">60 minutes · online</div><p class="pc-sub">For the conversation you keep trying to have. We’ll slow it down so you can hear each other and try a different response.</p><a class="pc-btn " href="mailto:jcbatton@gmail.com?subject=Couples%20coaching%20inquiry">Ask about couples work</a></article><article class="pc-card "><div class="pc-eyebrow">A weekend together</div><h3 class="pc-title">Weekend retreat</h3><div class="pc-price"><a class="retreat-price-link" href="/weekend" aria-label="$4,500 per couple — see the coaching weekend format">$4,500</a></div><div class="pc-duration">Per couple · weekend</div><p class="pc-sub">More time together, away from the usual interruptions. Get in touch and we’ll talk about dates, the setting, and what’s included.</p><a class="pc-btn " href="/weekend">See the weekend format</a></article></div><p class="invest-not-ready">Not sure where to begin? <a href="https://calendly.com/jcbatton/let-s-talk">Start with a free discovery conversation</a>.</p></div></section>
-
-<section class="panel cream" id="questions"><div class="reading">
-<div class="eyebrow">Before you book</div><h2>A few things you <em>might be wondering.</em></h2>
-<div class="faq-list">
-<details open><summary>Is this therapy?</summary><p>No. This is life coaching. We talk about what’s happening in your life and practice how you want to respond. I don’t diagnose or treat mental health conditions, and coaching doesn’t replace care from a licensed mental health professional.</p><p>Think of me as the coach watching you run the play. I can help you notice where you keep getting stuck. You get to try it again. And you don’t have to be any good at basketball.</p></details>
-<details><summary>Can I start with one session?</summary><p>Yes. Individual sessions are $150 and couples sessions are $250. Start with one. We can talk about meeting again after we’ve had a chance to work together.</p></details>
-<details><summary>Do we meet online?</summary><p>Yes, individual and couples sessions are on Zoom. You’ll get the link when you book. If you’re interested in a weekend retreat, we’ll discuss the location and details first.</p></details>
-<details><summary>Will you recommend things to read?</summary><p>Yes. Sometimes a book helps you see what we’ve been talking about from another angle. I’ll recommend reading when it fits our work. The books are on the <a href="/syllabus">syllabus page</a>, with a little about each one and a link to find it.</p><p>You don’t need to read anything before our first conversation. And there won’t be a pop quiz.</p></details>
-<details><summary>What if I’m not sure we’re a fit?</summary><p>Then let’s talk first. The discovery conversation is free. You can ask questions, get a feel for me, and decide whether you want to book a session.</p></details>
-</div></div></section>
-<section class="panel cream"><div class="library-invite"><div><div class="eyebrow">A little reading</div><h2>Something for <em>between sessions.</em></h2><p>These are the books I may send you to when something in our conversation reminds me of a passage or an idea. You can browse them here. We’ll figure out which, if any, is useful for you.</p></div><a class="cta-btn btn btn--blood" href="/syllabus">See the books <span aria-hidden="true">→</span></a></div></section>
-
-<!-- CTA -->
-<section class="cta grain" id="book">
-  <img class="bg" src="assets/img-velvet.svg" alt="">
-  <div class="veil"></div>
-  <div class="content">
-    <div class="fleuron" style="color:var(--gold)"><span class="line"></span><span class="dots"><span></span><span></span><span></span></span><span class="line"></span></div>
-    <div class="eyebrow gold" style="margin-top:36px">Begin</div>
-    <h2>What keeps <em>coming up?</em></h2>
-    <p class="kicker">Bring that. You don’t need to work out what to say before we meet. We’ll have an hour to talk, and you can start wherever you need to.</p>
-    <a class="cta-btn btn btn--gold" href="/book">
-      Book an individual session <span class="arrow">→</span>
-    </a>
-    <div class="meta">
-      <span><em>$150</em> · individual session</span>
-      <span><em>60 min</em> · one-to-one</span>
-      <span><em>Zoom</em> · meet from home</span>
-    </div>
-  </div>
+<section class="section services" id="services">
+<div class="section-top"><div>
+<p class="eyebrow">Work with Jeff</p>
+<h2>Come on your own.<br><em>Or come together.</em></h2>
+</div>
+<p>Start with a conversation.<br>We’ll take it from there.</p>
+</div>
+<div class="offers">
+<article>
+<p class="eyebrow">One-to-one</p>
+<h3>Individual coaching</h3>
+<p class="price">$150 <span>/ 60 minutes</span></p>
+<p>An hour for the pattern you keep circling and the choices you want to make. Private, online, at your pace.</p><a class="button dark" href="/book">Book a session ↗</a>
+</article>
+<article>
+<p class="eyebrow">Together</p>
+<h3>Couples coaching</h3>
+<p class="price">$250 <span>/ 60 minutes</span></p>
+<p>For the conversation you keep trying to have. Slow it down, hear each other, and practice another response.</p><a class="button dark" href="mailto:jcbatton@gmail.com?subject=Couples%20coaching%20inquiry">Ask about couples work ↗</a>
+</article>
+<article>
+<p class="eyebrow">Time away</p>
+<h3>A weekend together</h3>
+<p class="price">$4,500 <span>/ couple</span></p>
+<p>More space for the work, away from everyday interruptions. Let’s discuss the setting, dates, and what’s included.</p><a class="button dark" href="/weekend">Explore the weekend ↗</a>
+</article>
+</div>
 </section>
 
-<!-- DISCOVERY CALL — JBLC-MIRROR-002 Task 2 -->
-<section class="discovery">
-  <div class="content">
-    <h3>Let&rsquo;s see if we&rsquo;re a match.</h3>
-    <p class="kicker">An hour to ask questions and get a feel for each other. It’s free. You might decide I’m not your cup of tea, and that’s useful to know too.</p>
-    <a class="cta-btn btn btn--ghost-dark" href="https://calendly.com/jcbatton/let-s-talk">
-      Book a FREE Discovery Call <span class="arrow">→</span>
-    </a>
-  </div>
+<section class="section questions"><div>
+<p class="eyebrow">Before we meet</p>
+<h2>A few things<br><em>you might wonder.</em></h2>
+</div><div>
+<details><summary>Can we talk before I book a session?</summary>
+<p>Yes. Start with a free discovery conversation. Ask questions, get a feel for me, and decide whether we’re a fit. <a href="https://calendly.com/jcbatton/let-s-talk">Book a free call.</a></p>
+</details>
+<details><summary>Is this therapy?</summary>
+<p>No. This is life coaching. We explore what’s happening in your life and practice how you want to respond. I don’t diagnose or treat mental health conditions.</p>
+</details>
+<details><summary>How long does change take?</summary>
+<p>There isn’t a fixed timetable. Seeing a pattern is a beginning. Trust, repetition, and practicing a different response take time. We decide together what continuing the work could look like.</p>
+</details>
+<details><summary>Where do we meet?</summary>
+<p>Individual and couples sessions take place online. Weekend details are arranged together before booking.</p>
+</details>
+<details><summary>Do I need to prepare?</summary>
+<p>Bring whatever keeps coming up. You don’t need a tidy explanation. If reading helps, you can explore the <a href="/syllabus">books I return to</a>.</p>
+</details>
+</div>
+</section>
+
+<section class="closing section">
+<p class="eyebrow">You have more choices than you think.</p>
+<h2>A life that feels<br><em>more like your own.</em></h2>
+<p>Freedom from inherited expectations.<br>Room to respond differently. Room to enjoy being here.</p><a class="button light" href="https://calendly.com/jcbatton/let-s-talk">Book a free discovery call ↗</a>
 </section>
 
 </main>
-<!-- FOOTER -->
-<footer class="site">
-  <div class="grid">
-    <div>
-      <a class="brand" href="#top">
-        <img src="assets/monogram.svg" alt="" style="height:36px;filter:invert(1) sepia(.3)">
-        <div>
-          <div class="name">Jeff Batton</div>
-          <div class="tag">LIFE COACHING</div>
-          <div class="tagline">You don&rsquo;t need a guru. You need a mirror.</div>
-        </div>
-      </a>
-      <p class="mono">A little more room to be yourself.</p>
-    </div>
-    <div>
-      <div style="font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:18px">The Session</div>
-      <a class="back" href="/book">Book an individual session →</a><br><a class="back" href="/syllabus">Explore the syllabus →</a>
-    </div>
-  </div>
-  <div class="rule">
-    <span>© Jeff Batton Life Coaching LLC &middot; <a class="legal-link" href="/privacy">Privacy Policy</a> &middot; <a class="legal-link" href="/terms">Terms of Service</a></span>
-    <span>Simple · Sexy · Southern · Sophisticated</span>
-  </div>
-</footer>
-
-</body>
-</html>
+<footer><div><a class="brand" href="#top">Jeff Batton<span>LIFE COACHING · SPEAKING</span></a>
+<p>You don’t need a guru. You need a mirror.</p>
+</div>
+<nav aria-label="Footer navigation"><a href="/blog/">Read the journal</a><a href="/syllabus">Explore the syllabus</a><a href="#speaking">Invite Jeff to speak</a><a href="https://jeffbatton.com">Visit jeffbatton.com</a>
+</nav>
+<div class="legal">© Jeff Batton Life Coaching LLC <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+</div>
+</footer></body></html>
