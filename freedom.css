@@ -3,3 +3,5 @@
 .hero h1,.speaking h2,.closing h2{color:#f3e9d9}.hero .intro{color:#f3e9d9}.hero h1{max-width:none}.about-photo img{object-fit:contain;background:#e6dccf}.about-photo{background:#e6dccf}
 
 @media(max-width:650px){.hero h1{font-size:54px}.hero-copy{padding-top:38px}.hero .intro{margin-top:22px}.hero .eyebrow{margin-bottom:20px}}
+
+.hero h1 + .hero-detail{margin-top:28px}
