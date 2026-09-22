@@ -1,374 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Library — Jeff Batton Life Coaching</title>
-  <meta name="description" content="Books that have shaped The Love Wound framework. Not a reading list — a lineage.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --bg-deep: #1a1410;
-      --bg-mid: #241e17;
-      --text-cream: #f5f0e8;
-      --text-dark: #1a1410;
-      --gold: #c9a84c;
-      --gold-hover: #e8c56a;
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body: 'DM Sans', system-ui, sans-serif;
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      background: var(--bg-deep);
-      color: var(--text-cream);
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-    }
-
-    /* Header */
-    .lib-header {
-      padding: 32px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(201,168,76,0.15);
-    }
-    .lib-brand {
-      font-family: var(--font-body);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-cream);
-      text-decoration: none;
-    }
-    .lib-back {
-      font-size: 14px;
-      color: var(--gold);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .lib-back:hover { color: var(--gold-hover); }
-
-    /* Hero */
-    .lib-hero {
-      text-align: center;
-      padding: 100px 24px 80px;
-    }
-    .lib-label {
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 28px;
-      display: block;
-    }
-    .lib-hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      color: var(--text-cream);
-      margin-bottom: 20px;
-    }
-    .lib-hero p {
-      font-size: 18px;
-      color: rgba(245,240,232,0.6);
-      max-width: 520px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
-    /* Grid */
-    .lib-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 40px 100px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-    }
-    .book-card {
-      background: var(--bg-mid);
-      border: 1px solid rgba(201,168,76,0.12);
-      border-radius: 4px;
-      overflow: hidden;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .book-card:hover {
-      border-color: rgba(201,168,76,0.4);
-      transform: translateY(-3px);
-    }
-    .book-card.featured {
-      border-color: var(--gold);
-      border-width: 2px;
-    }
-    .book-cover {
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: linear-gradient(135deg, #2a2219 0%, #1a1410 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      text-align: center;
-      position: relative;
-    }
-    .book-cover-title {
-      font-family: var(--font-display);
-      font-size: 18px;
-      font-style: italic;
-      color: var(--gold);
-      line-height: 1.4;
-    }
-    .book-cover-author {
-      font-family: var(--font-body);
-      font-size: 12px;
-      color: rgba(245,240,232,0.4);
-      position: absolute;
-      bottom: 16px;
-      left: 0;
-      right: 0;
-      text-align: center;
-    }
-    .featured .book-cover {
-      background: linear-gradient(135deg, #33291c 0%, #1a1410 100%);
-      border-bottom: 2px solid var(--gold);
-    }
-    .featured-badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      font-family: var(--font-body);
-      font-size: 9px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      background: var(--gold);
-      color: var(--text-dark);
-      padding: 4px 10px;
-      border-radius: 3px;
-    }
-    .book-info {
-      padding: 20px;
-    }
-    .book-title {
-      font-family: var(--font-body);
-      font-weight: 500;
-      font-size: 16px;
-      color: var(--text-cream);
-      margin-bottom: 4px;
-    }
-    .book-author {
-      font-family: var(--font-body);
-      font-size: 14px;
-      color: rgba(245,240,232,0.5);
-      margin-bottom: 12px;
-    }
-    .book-desc {
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-style: italic;
-      color: rgba(245,240,232,0.65);
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-    .book-link {
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--gold);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .book-link:hover { color: var(--gold-hover); }
-    .btn-buy {
-      display: block;
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 500;
-      text-decoration: none;
-      padding: 12px 20px;
-      background: var(--gold);
-      color: var(--text-dark);
-      border-radius: 4px;
-      text-align: center;
-      transition: background 0.3s;
-    }
-    .btn-buy:hover { background: var(--gold-hover); }
-
-    /* Footer */
-    .lib-footer {
-      background: #0f0b08;
-      border-top: 1px solid rgba(201,168,76,0.2);
-      padding: 40px 24px;
-      text-align: center;
-    }
-    .lib-footer p {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 15px;
-      color: rgba(245,240,232,0.4);
-      margin-bottom: 16px;
-    }
-    .lib-footer small {
-      font-size: 12px;
-      color: rgba(245,240,232,0.2);
-    }
-
-    @media (max-width: 768px) {
-      .lib-grid {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 0 24px 80px;
-        gap: 20px;
-      }
-      .lib-header { padding: 24px; }
-    }
-    @media (max-width: 480px) {
-      .lib-grid { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
-<body>
-
-  <header class="lib-header">
-    <a href="index.html" class="lib-brand">Jeff Batton Life Coaching</a>
-    <a href="index.html" class="lib-back">&larr; Back to site</a>
-  </header>
-
-  <section class="lib-hero">
-    <span class="lib-label">The Library</span>
-    <h1>Books that have helped people come home.</h1>
-    <p>These are the texts that have shaped the work. Not a reading list — a lineage.</p>
-  </section>
-
-  <div class="lib-grid">
-
-    <!-- Jeffrey's Book — Featured -->
-    <div class="book-card featured">
-      <div class="book-cover">
-        <span class="featured-badge">Jeffrey's Book</span>
-        <span class="book-cover-title">Grinnin' Like a Jackass Eatin' Briars</span>
-        <span class="book-cover-author">Jeffrey Batton</span>
-      </div>
-      <div class="book-info">
-        <div class="book-title">Grinnin' Like a Jackass Eatin' Briars</div>
-        <div class="book-author">Jeffrey Batton</div>
-        <div class="book-desc">The story of what got him here.</div>
-        <a href="mailto:jcbatton@gmail.com?subject=Book%20Order" class="btn-buy">Buy the Book</a>
-      </div>
-    </div>
-
-    <!-- A Return to Love -->
-    <div class="book-card">
-      <div class="book-cover">
-        <span class="book-cover-title">A Return to Love</span>
-        <span class="book-cover-author">Marianne Williamson</span>
-      </div>
-      <div class="book-info">
-        <div class="book-title">A Return to Love</div>
-        <div class="book-author">Marianne Williamson</div>
-        <div class="book-desc">Love as the only real answer.</div>
-        <a href="#" class="book-link">Get the book &rarr;</a>
-      </div>
-    </div>
-
-    <!-- The Body Keeps the Score -->
-    <div class="book-card">
-      <div class="book-cover">
-        <span class="book-cover-title">The Body Keeps the Score</span>
-        <span class="book-cover-author">Bessel van der Kolk</span>
-      </div>
-      <div class="book-info">
-        <div class="book-title">The Body Keeps the Score</div>
-        <div class="book-author">Bessel van der Kolk</div>
-        <div class="book-desc">How the past lives in the body.</div>
-        <a href="#" class="book-link">Get the book &rarr;</a>
-      </div>
-    </div>
-
-    <!-- Awareness -->
-    <div class="book-card">
-      <div class="book-cover">
-        <span class="book-cover-title">Awareness</span>
-        <span class="book-cover-author">Anthony de Mello</span>
-      </div>
-      <div class="book-info">
-        <div class="book-title">Awareness</div>
-        <div class="book-author">Anthony de Mello</div>
-        <div class="book-desc">The axe at every root.</div>
-        <a href="#" class="book-link">Get the book &rarr;</a>
-      </div>
-    </div>
-
-    <!-- The Surrender Experiment -->
-    <div class="book-card">
-      <div class="book-cover">
-        <span class="book-cover-title">The Surrender Experiment</span>
-        <span class="book-cover-author">Michael A. Singer</span>
-      </div>
-      <div class="book-info">
-        <div class="book-title">The Surrender Experiment</div>
-        <div class="book-author">Michael A. Singer</div>
-        <div class="book-desc">What happens when you stop resisting.</div>
-        <a href="#" class="book-link">Get the book &rarr;</a>
-      </div>
-    </div>
-
-    <!-- Meditations for Mortals -->
-    <div class="book-card">
-      <div class="book-cover">
-        <span class="book-cover-title">Meditations for Mortals</span>
-        <span class="book-cover-author">Oliver Burkeman</span>
-      </div>
-      <div class="book-info">
-        <div class="book-title">Meditations for Mortals</div>
-        <div class="book-author">Oliver Burkeman</div>
-        <div class="book-desc">On doing what actually matters.</div>
-        <a href="#" class="book-link">Get the book &rarr;</a>
-      </div>
-    </div>
-
-    <!-- Iron John -->
-    <div class="book-card">
-      <div class="book-cover">
-        <span class="book-cover-title">Iron John</span>
-        <span class="book-cover-author">Robert Bly</span>
-      </div>
-      <div class="book-info">
-        <div class="book-title">Iron John</div>
-        <div class="book-author">Robert Bly</div>
-        <div class="book-desc">The wound beneath the wound in men.</div>
-        <a href="#" class="book-link">Get the book &rarr;</a>
-      </div>
-    </div>
-
-    <!-- Summerhill -->
-    <div class="book-card">
-      <div class="book-cover">
-        <span class="book-cover-title">Summerhill</span>
-        <span class="book-cover-author">A.S. Neill</span>
-      </div>
-      <div class="book-info">
-        <div class="book-title">Summerhill</div>
-        <div class="book-author">A.S. Neill</div>
-        <div class="book-desc">What children need to become whole.</div>
-        <a href="#" class="book-link">Get the book &rarr;</a>
-      </div>
-    </div>
-
-  </div>
-
-  <footer class="lib-footer">
-    <p>"You don't need a guru. You need a mirror."</p>
-    <small>&copy; 2026 Jeff Batton Life Coaching LLC. All rights reserved.</small>
-  </footer>
-
-</body>
-</html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Syllabus · Books for the Work · Jeff Batton</title>
+<meta name="description" content="Explore Jeff Batton’s reading syllabus: seven books on awareness, relationships, letting go, and meaningful change, with short summaries and Amazon links.">
+<link rel="canonical" href="https://jeffbatton.com/syllabus"><meta property="og:title" content="The Syllabus · Jeff Batton"><meta property="og:description" content="A little reading. A different way of seeing. Seven books to take into the work of your own life."><meta property="og:type" content="website"><meta property="og:url" content="https://jeffbatton.com/syllabus"><meta property="og:image" content="https://jeffbatton.com/assets/photos/hero-warm.jpg"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/monogram.svg" type="image/svg+xml"><link rel="stylesheet" href="colors_and_type.css"><link rel="stylesheet" href="site-updates.css">
+<style>
+*{box-sizing:border-box}body{margin:0;background:var(--cream-50);color:var(--fg-1);font-family:var(--font-body);line-height:1.7}a{color:inherit}header{padding:20px max(24px,calc((100vw - 1160px)/2));display:flex;justify-content:space-between;align-items:center;gap:24px;background:var(--charcoal-950);color:var(--cream-50)}.brand{display:flex;align-items:center;gap:12px;text-decoration:none}.brand img{width:32px;height:40px;filter:invert(1) sepia(.3)}.brand span{font:italic 24px var(--font-display);white-space:nowrap}.nav{display:flex;gap:24px;align-items:center;flex-wrap:wrap}.nav a{font-size:13px;min-height:44px;display:inline-flex;align-items:center;text-underline-offset:6px}.nav .active{color:var(--gold-200)}.intro{padding:82px 24px 66px;background:var(--burgundy-900);color:var(--cream-50);text-align:center}.eyebrow,.topic{text-transform:uppercase;letter-spacing:.18em;font-size:11px;font-weight:600}.intro .eyebrow{color:var(--gold-200)}h1{color:var(--cream-50);font:400 clamp(56px,7vw,88px)/1 var(--font-display);letter-spacing:-.03em;margin:22px 0}h1 em{color:var(--gold-200)}.intro .lead{max-width:580px;margin:24px auto;font-size:17px;color:var(--cream-200)}.intro .note{font-size:13px;color:var(--cream-200);margin:28px 0 0}.shelf{max-width:1160px;margin:auto;padding:60px 24px 80px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:64px;row-gap:0}.book-card{display:grid;grid-template-columns:140px minmax(0,1fr);gap:26px;padding:38px 0 42px;border-top:1px solid var(--line-hair);align-items:start}.cover{background:var(--cream-100);padding:12px 8px;display:flex;align-items:center;justify-content:center;min-height:200px}.cover img{display:block;width:100%;height:184px;object-fit:contain}.topic{color:var(--accent);font-size:10px;margin:0 0 12px}.book-copy h2{font:500 32px/1.08 var(--font-display);margin:0 0 10px;letter-spacing:-.02em}.author{font-size:13px;color:var(--fg-2);margin:0 0 18px}.synopsis{font-size:14px;line-height:1.75;color:var(--fg-2);margin:0 0 14px}.amazon-link{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:13px;font-weight:600;color:var(--accent);text-underline-offset:6px}.next{background:var(--cream-100);padding:58px 24px;text-align:center}.next h2{font:400 44px/1.1 var(--font-display);margin:0 0 18px}.next p{max-width:550px;margin:0 auto 24px}.button{display:inline-flex;padding:14px 24px;background:var(--burgundy-600);color:var(--cream-50);text-decoration:none;font-size:14px}footer{padding:32px 24px;background:var(--charcoal-950);color:var(--cream-200);font-size:12px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}footer nav{display:flex;gap:24px}footer a{display:inline-flex;align-items:center;min-height:44px}footer p{margin:10px 0;color:var(--cream-200)}
+@media(max-width:900px){.shelf{grid-template-columns:1fr;max-width:720px}.book-card{grid-template-columns:150px minmax(0,1fr)}header{flex-wrap:wrap;padding:16px 24px;gap:10px}.nav{gap:24px}.intro{padding:54px 24px}.cover img{height:200px}}
+@media(max-width:420px){.book-card{grid-template-columns:100px minmax(0,1fr);gap:18px}.cover{min-height:148px;padding:8px 4px}.cover img{height:132px}.book-copy h2{font-size:27px}.shelf{padding:38px 20px 48px}.synopsis{font-size:14px}.nav{gap:18px}.nav a{font-size:12px}}
+</style><link rel="stylesheet" href="/support.css">
+</head><body><a class="skip-link" href="#main">Skip to books</a>
+<header class="shared-header"><a class="shared-brand" href="/">Jeff Batton<span>LIFE COACHING · SPEAKING</span></a><nav aria-label="Main navigation"><a href="/#work">The work</a><a href="/#about">About</a><a href="/#speaking">Speaking</a><a href="/blog/">Journal</a><a href="/syllabus">Syllabus</a></nav><a class="shared-cta" href="/#services">Work with Jeff ↗</a></header>
+<main id="main"><section class="intro"><p class="eyebrow">Books for the work</p><h1>The <em>syllabus.</em></h1><p class="lead">Sometimes a book puts words to something we’ve been talking about.<br>These are the books I may recommend in our sessions.</p><p class="note">You don’t need to read them all. We can pick a place to start together.</p></section>
+<!-- Amazon links are ordinary product links until Jeff's Associates account and tracking ID are verified. -->
+<div class="shelf"><article class="book-card" aria-labelledby="book-1">
+ <div class="cover"><img src="assets/books/awareness-book.jpg" alt="Cover of Awareness" width="220" height="320" loading="lazy" decoding="async"></div>
+ <div class="book-copy"><p class="topic">Seeing yourself clearly</p><h2 id="book-1">Awareness</h2><p class="author">Anthony de Mello</p><p class="synopsis">De Mello asks you to pay attention to the beliefs and reactions you usually take for granted. He uses stories from several spiritual traditions to question what we think we know about ourselves. It’s a book you can argue with as you read.</p><a class="amazon-link" href="https://www.amazon.com/dp/0385249373" aria-label="View Awareness on Amazon">View on Amazon <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="book-card" aria-labelledby="book-7">
+ <div class="cover"><img src="assets/books/summerhill-book.jpg" alt="Cover of Summerhill School" width="220" height="320" loading="lazy" decoding="async"></div>
+ <div class="book-copy"><p class="topic">Freedom and trust</p><h2 id="book-7">Summerhill School</h2><p class="author">A. S. Neill</p><p class="synopsis">What happens when children have more say in their own lives? Neill describes the school he built around that question. It’s about education, but it also gets you thinking about approval, authority, and the rules you grew up with.</p><a class="amazon-link" href="https://www.amazon.com/dp/0312141378" aria-label="View Summerhill School on Amazon">View on Amazon <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="book-card" aria-labelledby="book-2">
+ <div class="cover"><img src="assets/books/return-to-love-book.jpg" alt="Cover of A Return to Love" width="220" height="320" loading="lazy" decoding="async"></div>
+ <div class="book-copy"><p class="topic">Love and relationships</p><h2 id="book-2">A Return to Love</h2><p class="author">Marianne Williamson</p><p class="synopsis">Drawing on A Course in Miracles, Williamson looks at how fear shapes our relationships and how love and forgiveness might change the way we approach them. This one takes a spiritual approach to everyday problems.</p><a class="amazon-link" href="https://www.amazon.com/dp/0060927488" aria-label="View A Return to Love on Amazon">View on Amazon <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="book-card" aria-labelledby="book-3">
+ <div class="cover"><img src="assets/books/surrender-experiment-book.jpg" alt="Cover of The Surrender Experiment" width="220" height="320" loading="lazy" decoding="async"></div>
+ <div class="book-copy"><p class="topic">Letting go of control</p><h2 id="book-3">The Surrender Experiment</h2><p class="author">Michael A. Singer</p><p class="synopsis">Singer decided to see what happened when he stopped insisting that life follow his plan. This memoir follows that experiment through solitude, work, and building a business. It raises a useful question: how much energy goes into trying to control everything?</p><a class="amazon-link" href="https://www.amazon.com/dp/080414110X" aria-label="View The Surrender Experiment on Amazon">View on Amazon <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="book-card" aria-labelledby="book-0">
+ <div class="cover"><img src="assets/books/war-of-art.png" alt="Cover of The War of Art" width="220" height="320" loading="lazy" decoding="async"></div>
+ <div class="book-copy"><p class="topic">Beginning the work</p><h2 id="book-0">The War of Art</h2><p class="author">Steven Pressfield</p><p class="synopsis">You know the thing you keep meaning to start? Pressfield calls the force that talks you out of it “Resistance.” These short chapters look at procrastination, self-doubt, and the habit of getting on with work that matters to you.</p><a class="amazon-link" href="https://www.amazon.com/dp/1936891026" aria-label="View The War of Art on Amazon">View on Amazon <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="book-card" aria-labelledby="book-5">
+ <div class="cover"><img src="assets/books/body-keeps-score.jpg" alt="Cover of The Body Keeps the Score" width="220" height="320" loading="lazy" decoding="async"></div>
+ <div class="book-copy"><p class="topic">Understanding old patterns</p><h2 id="book-5">The Body Keeps the Score</h2><p class="author">Bessel van der Kolk</p><p class="synopsis">Psychiatrist Bessel van der Kolk writes about how traumatic experiences can affect the body, memory, and relationships. He discusses research and different approaches to recovery. Some of the accounts are difficult to read; take your time with this one.</p><a class="amazon-link" href="https://www.amazon.com/dp/0143127748" aria-label="View The Body Keeps the Score on Amazon">View on Amazon <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="book-card" aria-labelledby="book-8">
+ <div class="cover"><img src="assets/books/book-cover.jpg" alt="Cover of Grinnin’ Like a Jackass Eatin’ Briars" width="220" height="320" loading="lazy" decoding="async"></div>
+ <div class="book-copy"><p class="topic">A little of my story</p><h2 id="book-8">Grinnin’ Like a Jackass Eatin’ Briars</h2><p class="author">Jeff Batton with Landon J. Napoleon</p><p class="synopsis">This is my story: growing up in the South, trying to be who I thought I was supposed to be, and eventually questioning the whole arrangement. There’s some laughter in it. Some hard stuff too. It will give you a pretty good idea of who you’re talking to.</p><a class="amazon-link" href="https://www.amazon.com/dp/1734877421" aria-label="View Grinnin’ Like a Jackass Eatin’ Briars on Amazon">View on Amazon <span aria-hidden="true">↗</span></a></div>
+</article></div>
+<section class="next"><h2>Read something that got you thinking?</h2><p>Bring it to our next conversation. Especially the part you disagree with. That can be where it gets interesting.</p><a class="button" href="/book">Book an individual session · $150</a></section></main>
+<footer class="shared-footer"><a class="shared-brand" href="/">Jeff Batton<span>LIFE COACHING · SPEAKING</span></a><nav aria-label="Footer navigation"><a href="/weekend">The weekend</a><a href="/syllabus">The syllabus</a><a href="/contact">Get in touch</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></nav><small>© Jeff Batton Life Coaching LLC</small></footer></body></html>
