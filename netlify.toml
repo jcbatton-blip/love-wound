@@ -1,12 +1,12 @@
 [build]
-  command = "rm -rf dist && mkdir -p dist/images && cp index.html freedom.css dist/ && cp -R blog dist/ && cp sitemap.xml robots.txt dist/ && cp book.html weekend.html contact.html thank-you.html contact.js support.css dist/ && cp client-portal.html portal-admin.html client-portal.js portal-admin.js portal.css dist/ && cp library.html dist/ && cp privacy.html dist/ && cp terms.html dist/ && cp colors_and_type.css site-updates.css dist/ && cp -R assets dist/ && cp images/jeffrey-batton-hero.jpeg dist/images/ && cp images/jeffrey-crowd.jpeg dist/images/ && cp images/jeffrey-chair.mp4 dist/images/ && cp images/headshot.jpg dist/images/ && echo 'Build complete'"
+  command = "rm -rf dist && mkdir -p dist/images && cp index.html freedom.css dist/ && cp -R blog dist/ && cp sitemap.xml robots.txt dist/ && cp book.html weekend.html contact.html thank-you.html contact.js support.css dist/ && cp client-portal.html portal-admin.html portal-admin.js portal.css dist/ && ./node_modules/.bin/esbuild client-portal.js --bundle --platform=browser --format=esm --outfile=dist/client-portal.js && cp library.html dist/ && cp privacy.html dist/ && cp terms.html dist/ && cp colors_and_type.css site-updates.css dist/ && cp -R assets dist/ && cp images/jeffrey-batton-hero.jpeg dist/images/ && cp images/jeffrey-crowd.jpeg dist/images/ && cp images/jeffrey-chair.mp4 dist/images/ && cp images/headshot.jpg dist/images/ && echo 'Build complete'"
   publish = "dist"
 
 [functions]
   directory = "netlify/functions"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "22"
 
 [[redirects]]
   from = "https://www.jeffbatton.com/*"

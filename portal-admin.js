@@ -68,7 +68,7 @@ function renderClientList() {
           client => `
     <button class="client-row ${client.id === selectedClientId ? "active" : ""}" type="button" data-client-id="${escapeHtml(client.id)}">
       <strong>${escapeHtml(client.name)}</strong>
-      <span>${client.summaries.length} reflection${client.summaries.length === 1 ? "" : "s"} • ${escapeHtml(client.status)}</span>
+      <span>${client.summaries.length} summar${client.summaries.length === 1 ? "y" : "ies"} • ${client.accountLinked ? "account active" : "awaiting signup"}</span>
     </button>`
         )
         .join("")
@@ -80,12 +80,6 @@ function renderClientList() {
         selectClient(button.dataset.clientId)
       )
     );
-}
-
-function setInvite(link) {
-  const box = document.querySelector("#invite-box");
-  box.hidden = !link;
-  document.querySelector("#invite-link").textContent = link || "";
 }
 
 function openNewClient() {
@@ -100,10 +94,12 @@ function openNewClient() {
   document.querySelector("#client-form-title").textContent =
     "Create a private profile";
   document.querySelector("#status-field").hidden = true;
-  document.querySelector("#rotate-link-button").hidden = true;
   document.querySelector("#summaries-editor").hidden = true;
   document.querySelector("#client-form-message").textContent = "";
-  setInvite("");
+  document.querySelector("#account-status").textContent =
+    "The account will connect when the client signs up with this email.";
+  document.querySelector("#nugget-status").textContent =
+    "The client chooses universal-nugget permission during their one-time setup.";
   clientForm.elements.name.focus();
 }
 
@@ -124,11 +120,16 @@ function selectClient(id) {
   document.querySelector("#client-form-kicker").textContent = "Client profile";
   document.querySelector("#client-form-title").textContent = client.name;
   document.querySelector("#status-field").hidden = false;
-  document.querySelector("#rotate-link-button").hidden = false;
   document.querySelector("#summaries-editor").hidden = false;
   document.querySelector("#client-form-message").textContent = "";
+  document.querySelector("#account-status").textContent = client.accountLinked
+    ? "Client account is active."
+    : "Profile is ready. It will connect when the client signs up with this email.";
+  const nuggetPermission = client.nuggetConsent?.granted
+    ? "Universal-nugget permission granted. No case studies or personal narratives."
+    : "No universal-nugget permission. Keep this client’s material out of the writing stream.";
+  document.querySelector("#nugget-status").textContent = nuggetPermission;
   summaryForm.hidden = true;
-  setInvite("");
   renderSummaries(client);
 }
 
@@ -144,7 +145,7 @@ function renderSummaries(client) {
     </button>`
         )
         .join("")
-    : `<p class="small-note">No reflections yet. Add one after a session and keep it as a draft until it is ready to share.</p>`;
+    : `<p class="small-note">No session summaries yet. Automated Zoom summaries will appear here once that connection is enabled.</p>`;
   list
     .querySelectorAll("[data-summary-id]")
     .forEach(button =>
@@ -163,7 +164,7 @@ function openSummary(summaryId = "") {
   summaryForm.elements.summaryId.value = summary?.id || "";
   summaryForm.elements.sessionDate.value =
     summary?.sessionDate || new Date().toISOString().slice(0, 10);
-  summaryForm.elements.status.value = summary?.status || "draft";
+  summaryForm.elements.status.value = summary?.status || "published";
   summaryForm.elements.title.value = summary?.title || "";
   summaryForm.elements.reflection.value = summary?.reflection || "";
   summaryForm.elements.takeaways.value = summary?.takeaways?.join("\n") || "";
@@ -210,12 +211,10 @@ clientForm.addEventListener("submit", async event => {
       body: JSON.stringify(payload),
     });
     selectedClientId = data.client.id;
-    if (data.inviteLink) setInvite(data.inviteLink);
     await loadClients();
     message.textContent = id
       ? "Profile saved."
-      : "Profile created. Copy the private access link below.";
-    if (data.inviteLink) setInvite(data.inviteLink);
+      : "Profile created. It will connect when the client signs up with this email.";
   } catch (error) {
     message.textContent = error.message;
   }
@@ -245,8 +244,8 @@ summaryForm.addEventListener("submit", async event => {
     });
     message.textContent =
       payload.status === "published"
-        ? "Saved and published to the client."
-        : "Draft saved. The client cannot see it yet.";
+        ? "Saved and visible to the client."
+        : "Held privately. The client cannot see it.";
     await loadClients();
     summaryForm.hidden = false;
   } catch (error) {
@@ -264,38 +263,6 @@ document
   .querySelector("#cancel-summary-button")
   .addEventListener("click", () => {
     summaryForm.hidden = true;
-  });
-document
-  .querySelector("#rotate-link-button")
-  .addEventListener("click", async () => {
-    const button = document.querySelector("#rotate-link-button");
-    button.disabled = true;
-    try {
-      const data = await api(
-        `/admin/clients/${selectedClientId}/rotate-access`,
-        { method: "POST", body: "{}" }
-      );
-      setInvite(data.inviteLink);
-      document.querySelector("#client-form-message").textContent =
-        "New link created. The previous link will no longer sign in.";
-    } catch (error) {
-      document.querySelector("#client-form-message").textContent =
-        error.message;
-    } finally {
-      button.disabled = false;
-    }
-  });
-document
-  .querySelector("#copy-invite-button")
-  .addEventListener("click", async () => {
-    const button = document.querySelector("#copy-invite-button");
-    await navigator.clipboard.writeText(
-      document.querySelector("#invite-link").textContent
-    );
-    button.textContent = "Copied";
-    window.setTimeout(() => {
-      button.textContent = "Copy link";
-    }, 1800);
   });
 logoutButton.addEventListener("click", async () => {
   try {

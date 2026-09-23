@@ -1,10 +1,6 @@
-import {
-  createHmac,
-  randomBytes,
-  randomUUID,
-  timingSafeEqual,
-} from "node:crypto";
+import { createHmac, randomUUID, timingSafeEqual } from "node:crypto";
 import { getDeployStore, getStore, type Store } from "@netlify/blobs";
+import { getUser, type User } from "@netlify/identity";
 import type { Config, Context } from "@netlify/functions";
 
 type SummaryStatus = "draft" | "published";
@@ -23,23 +19,28 @@ type SessionSummary = {
 };
 
 type ClientRecord = {
-  version: 1;
+  version: 1 | 2;
   id: string;
+  identityUserId?: string;
   name: string;
   email: string;
   preferredName: string;
   focus: string;
   memberSince: string;
   status: ClientStatus;
-  accessCodeHash: string;
+  accessCodeHash?: string;
+  summaryAcknowledgedAt?: string;
+  nuggetConsent?: {
+    granted: boolean;
+    updatedAt: string;
+  };
   summaries: SessionSummary[];
   createdAt: string;
   updatedAt: string;
 };
 
-type Session = {
-  role: "admin" | "client";
-  clientId?: string;
+type AdminSession = {
+  role: "admin";
   issuedAt: number;
   expiresAt: number;
 };
@@ -98,12 +99,12 @@ function safeEqual(left: string, right: string): boolean {
   return a.length === b.length && timingSafeEqual(a, b);
 }
 
-function signSession(session: Session): string {
+function signSession(session: AdminSession): string {
   const payload = Buffer.from(JSON.stringify(session)).toString("base64url");
   return `${payload}.${digest(payload)}`;
 }
 
-function readSession(request: Request): Session | null {
+function readAdminSession(request: Request): AdminSession | null {
   const cookie = request.headers.get("cookie") ?? "";
   const token = cookie
     .split(";")
@@ -119,16 +120,16 @@ function readSession(request: Request): Session | null {
   try {
     const session = JSON.parse(
       Buffer.from(payload, "base64url").toString("utf8")
-    ) as Session;
-    if (session.expiresAt <= Date.now()) return null;
-    if (session.role === "client" && !session.clientId) return null;
+    ) as AdminSession;
+    if (session.role !== "admin" || session.expiresAt <= Date.now())
+      return null;
     return session;
   } catch {
     return null;
   }
 }
 
-function sessionCookie(session: Session): string {
+function sessionCookie(session: AdminSession): string {
   const maxAge = Math.max(
     0,
     Math.floor((session.expiresAt - Date.now()) / 1000)
@@ -204,6 +205,7 @@ function publicClient(client: ClientRecord) {
     focus: client.focus,
     memberSince: client.memberSince,
     status: client.status,
+    nuggetConsent: Boolean(client.nuggetConsent?.granted),
     summaries: client.summaries
       .filter(summary => summary.status === "published")
       .sort((a, b) => b.sessionDate.localeCompare(a.sessionDate))
@@ -212,9 +214,10 @@ function publicClient(client: ClientRecord) {
 }
 
 function adminClient(client: ClientRecord) {
-  const { accessCodeHash: _accessCodeHash, ...safe } = client;
+  const { accessCodeHash: _accessCodeHash, identityUserId, ...safe } = client;
   return {
     ...safe,
+    accountLinked: Boolean(identityUserId),
     summaries: [...safe.summaries].sort((a, b) =>
       b.sessionDate.localeCompare(a.sessionDate)
     ),
@@ -242,13 +245,34 @@ async function saveClient(store: Store, client: ClientRecord): Promise<void> {
   await store.setJSON(`clients/${client.id}`, client);
 }
 
-function clientCodeHash(code: string): string {
-  return digest(`client-code:${code}`);
-}
+async function findClientForUser(
+  store: Store,
+  user: User
+): Promise<ClientRecord | null> {
+  const email = user.email?.trim().toLowerCase();
+  const ids = await getClientIds(store);
+  let emailMatch: ClientRecord | null = null;
 
-function inviteFor(request: Request, code: string): string {
-  const url = new URL(request.url);
-  return `${url.origin}/client-portal#access=${encodeURIComponent(code)}`;
+  for (const id of ids) {
+    const client = await getClient(store, id);
+    if (!client) continue;
+    if (client.identityUserId === user.id) return client;
+    if (
+      email &&
+      !client.identityUserId &&
+      client.email.trim().toLowerCase() === email
+    ) {
+      emailMatch = client;
+    }
+  }
+
+  if (emailMatch) {
+    emailMatch.identityUserId = user.id;
+    emailMatch.version = 2;
+    emailMatch.updatedAt = new Date().toISOString();
+    await saveClient(store, emailMatch);
+  }
+  return emailMatch;
 }
 
 function requestFingerprint(request: Request): string {
@@ -304,51 +328,6 @@ export default async (
       return json({ error: "This request could not be verified." }, 403);
     }
 
-    if (method === "POST" && path === "/client-login") {
-      if (await isRateLimited(store, request)) {
-        return json(
-          { error: "Too many attempts. Please wait 15 minutes and try again." },
-          429
-        );
-      }
-      const input = await body(request);
-      const code = cleanText(input.code, 160, true);
-      const targetHash = clientCodeHash(code);
-      const ids = await getClientIds(store);
-      let client: ClientRecord | null = null;
-
-      for (const id of ids) {
-        const candidate = await getClient(store, id);
-        if (candidate && safeEqual(candidate.accessCodeHash, targetHash)) {
-          client = candidate;
-          break;
-        }
-      }
-
-      if (!client || client.status !== "active") {
-        await failedLogin(store, request);
-        return json(
-          {
-            error:
-              "That private access link is not valid. Ask Jeff for a new one.",
-          },
-          401
-        );
-      }
-
-      await successfulLogin(store, request);
-      const now = Date.now();
-      const session: Session = {
-        role: "client",
-        clientId: client.id,
-        issuedAt: now,
-        expiresAt: now + 30 * 24 * 60 * 60 * 1000,
-      };
-      return json({ role: "client", client: publicClient(client) }, 200, {
-        "set-cookie": sessionCookie(session),
-      });
-    }
-
     if (method === "POST" && path === "/admin-login") {
       if (await isRateLimited(store, request)) {
         return json(
@@ -369,7 +348,7 @@ export default async (
       }
       await successfulLogin(store, request);
       const now = Date.now();
-      const session: Session = {
+      const session: AdminSession = {
         role: "admin",
         issuedAt: now,
         expiresAt: now + 12 * 60 * 60 * 1000,
@@ -383,19 +362,85 @@ export default async (
       return json({ success: true }, 200, { "set-cookie": clearCookie() });
     }
 
-    const session = readSession(request);
+    const adminSession = readAdminSession(request);
 
     if (method === "GET" && path === "/session") {
-      if (!session) return unauthorized();
-      if (session.role === "admin") return json({ role: "admin" });
-      const client = await getClient(store, session.clientId!);
-      if (!client || client.status !== "active") return unauthorized();
+      if (adminSession) return json({ role: "admin" });
+      const user = await getUser();
+      if (!user) return unauthorized();
+      const client = await findClientForUser(store, user);
+      if (!client) {
+        return json({
+          role: "client",
+          needsProfile: true,
+          user: { email: user.email ?? "", name: user.name ?? "" },
+        });
+      }
+      if (client.status !== "active") return forbidden();
       return json({ role: "client", client: publicClient(client) });
     }
 
-    if (!session) return unauthorized();
+    if (method === "POST" && path === "/onboard") {
+      const user = await getUser();
+      if (!user?.email) return unauthorized();
+      const input = await body(request);
+      if (input.summaryAcknowledgement !== true) {
+        return json(
+          { error: "Please acknowledge how session summaries are used." },
+          400
+        );
+      }
 
-    if (path.startsWith("/admin/") && session.role !== "admin")
+      const now = new Date().toISOString();
+      const name = cleanText(input.name, 120, true);
+      let client = await findClientForUser(store, user);
+
+      if (client?.status === "paused") return forbidden();
+
+      if (client) {
+        client.name = name;
+        client.preferredName =
+          cleanText(input.preferredName, 80) || name.split(/\s+/)[0];
+        client.focus = cleanText(input.focus, 500);
+        client.summaryAcknowledgedAt = now;
+        client.nuggetConsent = {
+          granted: input.nuggetConsent === true,
+          updatedAt: now,
+        };
+        client.version = 2;
+        client.updatedAt = now;
+      } else {
+        client = {
+          version: 2,
+          id: randomUUID(),
+          identityUserId: user.id,
+          name,
+          email: user.email.toLowerCase(),
+          preferredName:
+            cleanText(input.preferredName, 80) || name.split(/\s+/)[0],
+          focus: cleanText(input.focus, 500),
+          memberSince: now.slice(0, 10),
+          status: "active",
+          summaryAcknowledgedAt: now,
+          nuggetConsent: {
+            granted: input.nuggetConsent === true,
+            updatedAt: now,
+          },
+          summaries: [],
+          createdAt: now,
+          updatedAt: now,
+        };
+        const ids = await getClientIds(store);
+        if (!ids.includes(client.id))
+          await store.setJSON(CLIENT_INDEX_KEY, [...ids, client.id]);
+      }
+
+      await saveClient(store, client);
+      return json({ role: "client", client: publicClient(client) }, 201);
+    }
+
+    if (!adminSession) return unauthorized();
+    if (path.startsWith("/admin/") && adminSession.role !== "admin")
       return forbidden();
 
     if (method === "GET" && path === "/admin/clients") {
@@ -413,14 +458,26 @@ export default async (
       const email = cleanText(input.email, 320, true).toLowerCase();
       if (!validEmail(email))
         return json({ error: "Enter a valid email address." }, 400);
+
+      const existing = await Promise.all(
+        (await getClientIds(store)).map(id => getClient(store, id))
+      );
+      if (
+        existing.some(client => client?.email.trim().toLowerCase() === email)
+      ) {
+        return json(
+          { error: "A client profile already exists for that email." },
+          409
+        );
+      }
+
       const now = new Date().toISOString();
       const id = randomUUID();
-      const code = randomBytes(32).toString("base64url");
       const memberSince = cleanText(input.memberSince, 10) || now.slice(0, 10);
       if (!validDate(memberSince))
         return json({ error: "Enter a valid start date." }, 400);
       const client: ClientRecord = {
-        version: 1,
+        version: 2,
         id,
         name,
         email,
@@ -429,7 +486,7 @@ export default async (
         focus: cleanText(input.focus, 500),
         memberSince,
         status: "active",
-        accessCodeHash: clientCodeHash(code),
+        nuggetConsent: { granted: false, updatedAt: now },
         summaries: [],
         createdAt: now,
         updatedAt: now,
@@ -438,10 +495,7 @@ export default async (
       const ids = await getClientIds(store);
       if (!ids.includes(id))
         await store.setJSON(CLIENT_INDEX_KEY, [...ids, id]);
-      return json(
-        { client: adminClient(client), inviteLink: inviteFor(request, code) },
-        201
-      );
+      return json({ client: adminClient(client) }, 201);
     }
 
     const clientMatch = path.match(/^\/admin\/clients\/([^/]+)$/);
@@ -458,6 +512,7 @@ export default async (
         return json({ error: "Enter a valid start date." }, 400);
       const updated: ClientRecord = {
         ...client,
+        version: 2,
         name: cleanText(input.name, 120, true),
         email,
         preferredName: cleanText(input.preferredName, 80),
@@ -468,19 +523,6 @@ export default async (
       };
       await saveClient(store, updated);
       return json({ client: adminClient(updated) });
-    }
-
-    const rotateMatch = path.match(
-      /^\/admin\/clients\/([^/]+)\/rotate-access$/
-    );
-    if (method === "POST" && rotateMatch) {
-      const client = await getClient(store, rotateMatch[1]);
-      if (!client) return json({ error: "Client not found." }, 404);
-      const code = randomBytes(32).toString("base64url");
-      client.accessCodeHash = clientCodeHash(code);
-      client.updatedAt = new Date().toISOString();
-      await saveClient(store, client);
-      return json({ inviteLink: inviteFor(request, code) });
     }
 
     const summariesMatch = path.match(/^\/admin\/clients\/([^/]+)\/summaries$/);
@@ -499,7 +541,7 @@ export default async (
         reflection: cleanText(input.reflection, 12_000, true),
         takeaways: cleanList(input.takeaways),
         nextSteps: cleanList(input.nextSteps),
-        status: input.status === "published" ? "published" : "draft",
+        status: input.status === "draft" ? "draft" : "published",
         createdAt: now,
         updatedAt: now,
       };
@@ -528,7 +570,7 @@ export default async (
       summary.reflection = cleanText(input.reflection, 12_000, true);
       summary.takeaways = cleanList(input.takeaways);
       summary.nextSteps = cleanList(input.nextSteps);
-      summary.status = input.status === "published" ? "published" : "draft";
+      summary.status = input.status === "draft" ? "draft" : "published";
       summary.updatedAt = new Date().toISOString();
       client.updatedAt = summary.updatedAt;
       await saveClient(store, client);

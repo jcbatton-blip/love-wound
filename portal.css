@@ -110,6 +110,14 @@ select {
   color: #63856a;
   margin-right: 6px;
 }
+.demo-label {
+  padding: 6px 9px;
+  border: 1px solid rgba(169, 95, 56, 0.32);
+  color: var(--copper);
+  font-size: 0.67rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
 .text-button {
   border: 0;
   padding: 4px 0;
@@ -151,6 +159,27 @@ select {
   grid-template-columns: 1.18fr 0.82fr;
   gap: clamp(48px, 9vw, 120px);
   align-items: center;
+}
+.onboarding-shell {
+  width: min(1120px, calc(100% - 40px));
+  min-height: 72vh;
+  margin: 0 auto;
+  padding: clamp(54px, 8vw, 108px) 0;
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(420px, 0.72fr);
+  gap: clamp(46px, 8vw, 100px);
+  align-items: start;
+}
+.onboarding-copy {
+  position: sticky;
+  top: 48px;
+}
+.onboarding-copy h1 {
+  max-width: 650px;
+  margin: 0;
+  font-size: clamp(3rem, 6.2vw, 6rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
 }
 .eyebrow {
   margin: 0 0 14px;
@@ -218,6 +247,74 @@ h3 {
 .access-card > p:not(.eyebrow) {
   color: var(--muted);
   line-height: 1.6;
+}
+.auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin: -10px -10px 34px;
+  padding: 5px;
+  background: rgba(234, 223, 206, 0.48);
+}
+.auth-tab {
+  border: 0;
+  padding: 11px 10px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+.auth-tab.active {
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 4px 18px rgba(47, 33, 21, 0.08);
+}
+.inline-button {
+  border: 0;
+  margin-top: 12px;
+  padding: 4px 0;
+  background: transparent;
+  color: var(--copper);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+.field-help,
+.optional {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+.field-help {
+  margin: 7px 0 0 !important;
+}
+.optional {
+  font-weight: 400;
+}
+.consent-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.check-row {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 11px;
+  align-items: start;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 400;
+  line-height: 1.6;
+  cursor: pointer;
+}
+.check-row input {
+  width: 16px;
+  height: 16px;
+  margin: 3px 0 0;
+  accent-color: var(--copper);
 }
 label {
   display: block;
@@ -492,6 +589,10 @@ form .primary-button {
 .compact-card {
   box-shadow: none;
 }
+.future-card {
+  border-style: dashed;
+  background: rgba(255, 250, 241, 0.42);
+}
 .portal-footer {
   position: relative;
   z-index: 1;
@@ -610,6 +711,23 @@ form .primary-button {
   background: rgba(207, 154, 57, 0.1);
   border: 1px solid rgba(207, 154, 57, 0.3);
 }
+.account-notes {
+  margin-top: 20px;
+  padding: 16px 18px;
+  background: rgba(207, 154, 57, 0.08);
+  border-left: 3px solid var(--amber);
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+.account-notes p {
+  margin: 0;
+}
+.account-notes p + p {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
 .invite-box code {
   display: block;
   word-break: break-all;
@@ -662,12 +780,16 @@ form .primary-button {
 }
 @media (max-width: 880px) {
   .access-shell,
+  .onboarding-shell,
   .dashboard-grid,
   .admin-layout {
     grid-template-columns: 1fr;
   }
   .access-shell {
     gap: 54px;
+  }
+  .onboarding-copy {
+    position: static;
   }
   .dashboard-hero {
     align-items: flex-start;
@@ -688,6 +810,7 @@ form .primary-button {
   .portal-nav,
   .dashboard,
   .access-shell,
+  .onboarding-shell,
   .admin-shell,
   .portal-footer {
     width: min(100% - 28px, 1180px);

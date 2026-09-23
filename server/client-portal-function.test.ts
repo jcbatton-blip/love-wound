@@ -19,9 +19,17 @@ const store = {
   },
 };
 
+const { mockGetUser } = vi.hoisted(() => ({
+  mockGetUser: vi.fn(),
+}));
+
 vi.mock("@netlify/blobs", () => ({
   getStore: () => store,
   getDeployStore: () => store,
+}));
+
+vi.mock("@netlify/identity", () => ({
+  getUser: mockGetUser,
 }));
 
 import portalHandler from "../netlify/functions/client-portal.mts";
@@ -49,6 +57,8 @@ function cookieFrom(response: Response) {
 
 beforeEach(() => {
   records.clear();
+  mockGetUser.mockReset();
+  mockGetUser.mockResolvedValue(null);
   Object.assign(globalThis, {
     Netlify: {
       env: {
@@ -70,7 +80,39 @@ describe("private client portal", () => {
     expect(response.status).toBe(401);
   });
 
-  it("shows clients only their own published reflections", async () => {
+  it("lets a confirmed client create a profile with separate nugget consent", async () => {
+    mockGetUser.mockResolvedValue({
+      id: "identity-user-1",
+      email: "avery@example.com",
+      name: "Avery Example",
+      confirmedAt: "2026-09-23T10:00:00.000Z",
+    });
+
+    const beforeSetup = await call("/session");
+    expect(beforeSetup.status).toBe(200);
+    await expect(beforeSetup.json()).resolves.toMatchObject({
+      role: "client",
+      needsProfile: true,
+    });
+
+    const setup = await call("/onboard", {
+      method: "POST",
+      body: JSON.stringify({
+        name: "Avery Example",
+        preferredName: "Avery",
+        focus: "Choose clarity over urgency.",
+        summaryAcknowledgement: true,
+        nuggetConsent: false,
+      }),
+    });
+    expect(setup.status).toBe(201);
+    const setupBody = await setup.json();
+    expect(setupBody.client.name).toBe("Avery Example");
+    expect(setupBody.client.nuggetConsent).toBe(false);
+    expect(JSON.stringify(setupBody)).not.toContain("identity-user-1");
+  });
+
+  it("shows clients only their own published session summaries", async () => {
     const adminLogin = await call("/admin-login", {
       method: "POST",
       body: JSON.stringify({ password: "test-admin-password" }),
@@ -92,17 +134,13 @@ describe("private client portal", () => {
     expect(created.status).toBe(201);
     const createdBody = await created.json();
     const clientId = createdBody.client.id;
-    const accessCode = new URL(createdBody.inviteLink).hash.replace(
-      "#access=",
-      ""
-    );
 
     const draft = await call(`/admin/clients/${clientId}/summaries`, {
       method: "POST",
       headers: { cookie: adminCookie },
       body: JSON.stringify({
         sessionDate: "2026-09-01",
-        title: "Jeff-only draft",
+        title: "Jeff-only hold",
         reflection: "This should remain private.",
         status: "draft",
       }),
@@ -124,24 +162,24 @@ describe("private client portal", () => {
     });
     expect(published.status).toBe(201);
 
-    const clientLogin = await call("/client-login", {
-      method: "POST",
-      body: JSON.stringify({ code: decodeURIComponent(accessCode) }),
+    mockGetUser.mockResolvedValue({
+      id: "identity-user-1",
+      email: "avery@example.com",
+      name: "Avery Example",
+      confirmedAt: "2026-09-23T10:00:00.000Z",
     });
-    expect(clientLogin.status).toBe(200);
-    const clientBody = await clientLogin.json();
+    const clientSession = await call("/session");
+    expect(clientSession.status).toBe(200);
+    const clientBody = await clientSession.json();
     expect(clientBody.client.name).toBe("Avery Example");
     expect(clientBody.client.summaries).toHaveLength(1);
     expect(clientBody.client.summaries[0].title).toBe(
       "Choosing the steadier response"
     );
-    expect(JSON.stringify(clientBody)).not.toContain("Jeff-only draft");
-    expect(JSON.stringify(clientBody)).not.toContain("accessCodeHash");
+    expect(JSON.stringify(clientBody)).not.toContain("Jeff-only hold");
+    expect(JSON.stringify(clientBody)).not.toContain("identityUserId");
 
-    const clientCookie = cookieFrom(clientLogin);
-    const adminAttempt = await call("/admin/clients", {
-      headers: { cookie: clientCookie },
-    });
-    expect(adminAttempt.status).toBe(403);
+    const adminAttempt = await call("/admin/clients");
+    expect(adminAttempt.status).toBe(401);
   });
 });

@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/portal.css" />
-    <script src="/client-portal.js" defer></script>
+    <script src="/client-portal.js" type="module"></script>
   </head>
   <body>
     <a class="skip-link" href="#portal-main">Skip to your portal</a>
@@ -23,6 +23,7 @@
         <span>Jeff Batton</span>
       </a>
       <div class="nav-actions">
+        <span class="demo-label" id="demo-label" hidden>Example view</span>
         <span class="privacy-mark"
           ><span aria-hidden="true">●</span> Private space</span
         >
@@ -43,8 +44,8 @@
           <p class="eyebrow">Your private client space</p>
           <h1>A quiet place to return to what matters.</h1>
           <p class="lede">
-            Review the reflections Jeff has shared with you, remember what
-            became clear, and carry your next steps into the week.
+            Review your dated session summaries, remember what became clear, and
+            carry your next steps into the week.
           </p>
           <div class="trust-note">
             <span class="trust-icon" aria-hidden="true">✦</span>
@@ -58,30 +59,211 @@
         </div>
 
         <div class="access-card reveal reveal-delay">
-          <p class="eyebrow">Client sign in</p>
-          <h2>Welcome back</h2>
-          <p>Use the private access code Jeff sent you.</p>
-          <form id="access-form">
-            <label for="access-code">Private access code</label>
-            <input
-              id="access-code"
-              name="code"
-              type="password"
-              autocomplete="one-time-code"
-              required
-            />
-            <button class="primary-button" type="submit">
-              Open my portal <span aria-hidden="true">→</span>
+          <div class="auth-tabs" role="tablist" aria-label="Account access">
+            <button
+              class="auth-tab active"
+              id="signin-tab"
+              type="button"
+              role="tab"
+              aria-selected="true"
+            >
+              Sign in
             </button>
-          </form>
+            <button
+              class="auth-tab"
+              id="signup-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+            >
+              Create account
+            </button>
+          </div>
+          <div id="signin-panel">
+            <p class="eyebrow">Client sign in</p>
+            <h2>Welcome back</h2>
+            <p>Return anytime with the email and password you created.</p>
+            <form id="signin-form">
+              <label for="signin-email">Email</label>
+              <input
+                id="signin-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              />
+              <label for="signin-password">Password</label>
+              <input
+                id="signin-password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                minlength="8"
+                required
+              />
+              <button class="primary-button" type="submit">
+                Open my portal <span aria-hidden="true">→</span>
+              </button>
+            </form>
+            <button
+              class="inline-button"
+              id="forgot-password-button"
+              type="button"
+            >
+              Forgot your password?
+            </button>
+          </div>
+          <div id="signup-panel" hidden>
+            <p class="eyebrow">Your private account</p>
+            <h2>Create your portal</h2>
+            <p>Use the same email address you use when booking sessions.</p>
+            <form id="signup-form">
+              <label for="signup-name">Full name</label>
+              <input
+                id="signup-name"
+                name="name"
+                autocomplete="name"
+                maxlength="120"
+                required
+              />
+              <label for="signup-email">Email</label>
+              <input
+                id="signup-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              />
+              <label for="signup-password">Create a password</label>
+              <input
+                id="signup-password"
+                name="password"
+                type="password"
+                autocomplete="new-password"
+                minlength="8"
+                required
+              />
+              <p class="field-help">
+                Use at least 8 characters. You can reset it anytime.
+              </p>
+              <button class="primary-button" type="submit">
+                Create my account <span aria-hidden="true">→</span>
+              </button>
+            </form>
+          </div>
+          <div id="recovery-panel" hidden>
+            <p class="eyebrow">Account help</p>
+            <h2>Reset your password</h2>
+            <p id="recovery-copy">
+              Enter your email and we’ll send you a secure reset link.
+            </p>
+            <form id="recovery-form">
+              <label for="recovery-email">Email</label>
+              <input
+                id="recovery-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              />
+              <button class="primary-button" type="submit">
+                Send reset link <span aria-hidden="true">→</span>
+              </button>
+            </form>
+            <form id="new-password-form" hidden>
+              <label for="new-password">New password</label>
+              <input
+                id="new-password"
+                name="password"
+                type="password"
+                autocomplete="new-password"
+                minlength="8"
+                required
+              />
+              <button class="primary-button" type="submit">
+                Save new password <span aria-hidden="true">→</span>
+              </button>
+            </form>
+            <button
+              class="inline-button"
+              id="back-to-signin-button"
+              type="button"
+            >
+              Back to sign in
+            </button>
+          </div>
           <p class="form-message" id="access-message" role="status"></p>
           <p class="small-note">
-            Need a new link?
-            <a href="mailto:jcbatton@gmail.com?subject=Client%20portal%20access"
-              >Ask Jeff for help</a
+            Need help?
+            <a href="mailto:jcbatton@gmail.com?subject=Client%20portal%20help"
+              >Contact Jeff</a
             >.
           </p>
         </div>
+      </section>
+
+      <section class="onboarding-shell" id="onboarding-view" hidden>
+        <div class="onboarding-copy reveal">
+          <p class="eyebrow">One-time setup</p>
+          <h1>Make this space yours.</h1>
+          <p class="lede">
+            A few details help Jeff connect your bookings, Zoom sessions, and
+            private session summaries to the right account.
+          </p>
+        </div>
+        <form class="access-card reveal reveal-delay" id="onboarding-form">
+          <p class="eyebrow">Your client profile</p>
+          <h2>How should we welcome you?</h2>
+          <label for="profile-name">Full name</label>
+          <input
+            id="profile-name"
+            name="name"
+            autocomplete="name"
+            maxlength="120"
+            required
+          />
+          <label for="profile-preferred-name">Preferred name</label>
+          <input
+            id="profile-preferred-name"
+            name="preferredName"
+            autocomplete="given-name"
+            maxlength="80"
+          />
+          <label for="profile-focus"
+            >What are you working toward right now?
+            <span class="optional">Optional</span></label
+          >
+          <textarea id="profile-focus" name="focus" maxlength="500"></textarea>
+          <div class="consent-list">
+            <label class="check-row" for="summary-acknowledgement">
+              <input
+                id="summary-acknowledgement"
+                name="summaryAcknowledgement"
+                type="checkbox"
+                required
+              />
+              <span
+                >I consent to Zoom processing session audio or a transcript to
+                create dated, client-facing summaries for my portal. The portal
+                will not contain the raw transcript, a clinical record, or
+                Jeff’s private coaching notes.</span
+              >
+            </label>
+            <label class="check-row" for="nugget-consent">
+              <input id="nugget-consent" name="nuggetConsent" type="checkbox" />
+              <span
+                >Jeff may consider de-identified, universal insights from our
+                work for his writing. This does not permit case studies, my
+                personal story, identifying details, or any combination of
+                details that could reconstruct my experience.</span
+              >
+            </label>
+          </div>
+          <button class="primary-button" type="submit">
+            Finish setting up my portal <span aria-hidden="true">→</span>
+          </button>
+          <p class="form-message" id="onboarding-message" role="status"></p>
+        </form>
       </section>
 
       <section class="dashboard" id="dashboard-view" hidden>
@@ -105,7 +287,7 @@
             <div class="section-heading">
               <div>
                 <p class="eyebrow">Your work, remembered</p>
-                <h2 id="summaries-heading">Session reflections</h2>
+                <h2 id="summaries-heading">Session summaries</h2>
               </div>
               <span class="count-badge" id="summary-count">0 shared</span>
             </div>
@@ -139,16 +321,21 @@
               >
             </div>
             <div class="side-card compact-card">
-              <h3>Need to move something?</h3>
+              <p class="eyebrow">Appointments</p>
+              <h3>Book or make a change</h3>
               <p>
-                Use the reschedule link in your confirmation email, or contact
-                Jeff directly.
+                Book a new session here. For now, use the manage link in your
+                confirmation email to reschedule or cancel.
               </p>
-              <a
-                class="inline-link"
-                href="mailto:jcbatton@gmail.com?subject=Client%20portal%20help"
-                >Contact Jeff</a
-              >
+              <a class="inline-link" href="/book">Manage appointments</a>
+            </div>
+            <div class="side-card compact-card future-card">
+              <p class="eyebrow">Coming later</p>
+              <h3>Payments & receipts</h3>
+              <p>
+                A secure billing area will let you pay for sessions and return
+                to past receipts without leaving your portal.
+              </p>
             </div>
           </aside>
         </div>

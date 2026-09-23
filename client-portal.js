@@ -1,8 +1,51 @@
+import {
+  getUser,
+  handleAuthCallback,
+  login,
+  logout,
+  requestPasswordRecovery,
+  signup,
+  updateUser,
+} from "@netlify/identity";
+
 const API = "/api/client-portal";
 const loadingView = document.querySelector("#loading-view");
 const accessView = document.querySelector("#access-view");
+const onboardingView = document.querySelector("#onboarding-view");
 const dashboardView = document.querySelector("#dashboard-view");
 const logoutButton = document.querySelector("#logout-button");
+const accessMessage = document.querySelector("#access-message");
+const demoMode = new URLSearchParams(location.search).get("demo");
+const DEMO_CLIENT = {
+  name: "Avery Morgan",
+  preferredName: "Avery",
+  focus: "Practicing the pause between what you feel and what you choose next.",
+  memberSince: "2026-04-09",
+  summaries: [
+    {
+      sessionDate: "2026-09-18",
+      title: "Let the pause do some of the work",
+      reflection:
+        "You noticed how quickly urgency can sound like certainty. The work this week is not to eliminate the feeling, but to make enough room to decide whether it deserves the wheel.",
+      takeaways: [
+        "Urgency is information, not instruction.",
+        "A pause can be an active choice.",
+      ],
+      nextSteps: [
+        "Wait ten minutes before answering the charged message.",
+        "Write down what a steadier response would protect.",
+      ],
+    },
+    {
+      sessionDate: "2026-09-04",
+      title: "Choosing the honest yes",
+      reflection:
+        "We separated generosity from self-erasure and named the difference between a wholehearted yes and a reflexive one.",
+      takeaways: ["A boundary can protect warmth instead of reducing it."],
+      nextSteps: ["Use “Let me come back to you” before making a commitment."],
+    },
+  ],
+};
 
 function escapeHtml(value = "") {
   return String(value).replace(
@@ -18,6 +61,19 @@ function escapeHtml(value = "") {
   );
 }
 
+function friendlyError(error) {
+  const message = error instanceof Error ? error.message : "";
+  if (/invalid login credentials|invalid email or password/i.test(message))
+    return "That email and password do not match. Try again or reset your password.";
+  if (/already registered|already exists/i.test(message))
+    return "An account already exists for that email. Sign in or reset your password.";
+  if (/password.*(short|length)|at least/i.test(message))
+    return "Please use a password with at least 8 characters.";
+  if (/identity.*(not available|not configured)|404/i.test(message))
+    return "Account access is being connected now. Please check back shortly.";
+  return message || "Something went wrong. Please try again.";
+}
+
 async function api(path, options = {}) {
   const response = await fetch(`${API}${path}`, {
     credentials: "same-origin",
@@ -30,12 +86,47 @@ async function api(path, options = {}) {
   return data;
 }
 
-function showAccess(message = "") {
-  loadingView.hidden = true;
-  dashboardView.hidden = true;
-  accessView.hidden = false;
-  logoutButton.hidden = true;
-  document.querySelector("#access-message").textContent = message;
+function setActiveView(view) {
+  loadingView.hidden = view !== "loading";
+  accessView.hidden = view !== "access";
+  onboardingView.hidden = view !== "onboarding";
+  dashboardView.hidden = view !== "dashboard";
+  logoutButton.hidden = !["onboarding", "dashboard"].includes(view);
+}
+
+function showAuthPanel(panel) {
+  const isAccessPanel = panel === "signin" || panel === "signup";
+  document.querySelector("#signin-panel").hidden = panel !== "signin";
+  document.querySelector("#signup-panel").hidden = panel !== "signup";
+  document.querySelector("#recovery-panel").hidden = panel !== "recovery";
+  document.querySelector(".auth-tabs").hidden = !isAccessPanel;
+  document
+    .querySelector("#signin-tab")
+    .classList.toggle("active", panel === "signin");
+  document
+    .querySelector("#signup-tab")
+    .classList.toggle("active", panel === "signup");
+  document
+    .querySelector("#signin-tab")
+    .setAttribute("aria-selected", String(panel === "signin"));
+  document
+    .querySelector("#signup-tab")
+    .setAttribute("aria-selected", String(panel === "signup"));
+  accessMessage.textContent = "";
+}
+
+function showAccess(message = "", panel = "signin") {
+  setActiveView("access");
+  showAuthPanel(panel);
+  accessMessage.textContent = message;
+}
+
+function showOnboarding(user) {
+  setActiveView("onboarding");
+  const fullName = user?.name || "";
+  document.querySelector("#profile-name").value = fullName;
+  document.querySelector("#profile-preferred-name").value =
+    fullName.split(/\s+/)[0] || "";
 }
 
 function formatDate(date) {
@@ -72,10 +163,7 @@ function summaryMarkup(summary, index) {
 }
 
 function showDashboard(client) {
-  loadingView.hidden = true;
-  accessView.hidden = true;
-  dashboardView.hidden = false;
-  logoutButton.hidden = false;
+  setActiveView("dashboard");
   const preferredName =
     client.preferredName || client.name?.split(/\s+/)[0] || "Welcome";
   document.querySelector("#welcome-heading").textContent =
@@ -90,54 +178,175 @@ function showDashboard(client) {
   document.querySelector("#summary-count").textContent = `${count} shared`;
   document.querySelector("#summary-list").innerHTML = count
     ? client.summaries.map(summaryMarkup).join("")
-    : `<div class="empty-state"><h3>Your reflections will appear here.</h3><p>After a session, Jeff can publish a client-facing summary so the insight stays close when you need it.</p></div>`;
+    : `<div class="empty-state"><h3>Your summaries will appear here.</h3><p>After each session, a dated, client-facing summary can be added automatically so you can return to what mattered without searching through notes.</p></div>`;
 }
 
-async function signIn(code) {
-  const button = document.querySelector("#access-form button");
-  const message = document.querySelector("#access-message");
+async function openPortal() {
+  const data = await api("/session");
+  if (data.needsProfile) showOnboarding(data.user);
+  else if (data.role === "client") showDashboard(data.client);
+  else showAccess();
+}
+
+async function withBusyButton(form, busyText, action) {
+  const button = form.querySelector('button[type="submit"]');
+  const original = button.innerHTML;
   button.disabled = true;
-  button.textContent = "Opening…";
-  message.textContent = "";
+  button.textContent = busyText;
+  accessMessage.textContent = "";
   try {
-    const data = await api("/client-login", {
-      method: "POST",
-      body: JSON.stringify({ code }),
-    });
-    showDashboard(data.client);
+    await action();
   } catch (error) {
-    showAccess(error.message);
+    accessMessage.textContent = friendlyError(error);
   } finally {
     button.disabled = false;
-    button.innerHTML = `Open my portal <span aria-hidden="true">→</span>`;
+    button.innerHTML = original;
   }
 }
 
-document.querySelector("#access-form").addEventListener("submit", event => {
+document
+  .querySelector("#signin-tab")
+  .addEventListener("click", () => showAuthPanel("signin"));
+document
+  .querySelector("#signup-tab")
+  .addEventListener("click", () => showAuthPanel("signup"));
+document
+  .querySelector("#back-to-signin-button")
+  .addEventListener("click", () => showAuthPanel("signin"));
+document
+  .querySelector("#forgot-password-button")
+  .addEventListener("click", () => {
+    document.querySelector("#new-password-form").hidden = true;
+    document.querySelector("#recovery-form").hidden = false;
+    document.querySelector("#recovery-copy").textContent =
+      "Enter your email and we’ll send you a secure reset link.";
+    showAuthPanel("recovery");
+  });
+
+document.querySelector("#signin-form").addEventListener("submit", event => {
   event.preventDefault();
-  signIn(new FormData(event.currentTarget).get("code"));
+  const form = event.currentTarget;
+  withBusyButton(form, "Opening…", async () => {
+    const fields = new FormData(form);
+    await login(String(fields.get("email")), String(fields.get("password")));
+    form.reset();
+    await openPortal();
+  });
 });
+
+document.querySelector("#signup-form").addEventListener("submit", event => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  withBusyButton(form, "Creating…", async () => {
+    const fields = new FormData(form);
+    const user = await signup(
+      String(fields.get("email")),
+      String(fields.get("password")),
+      { full_name: String(fields.get("name")) }
+    );
+    form.reset();
+    if (user.confirmedAt || (await getUser())) {
+      await openPortal();
+      return;
+    }
+    showAccess(
+      "Check your email to confirm your account. Then return here and sign in.",
+      "signin"
+    );
+  });
+});
+
+document.querySelector("#recovery-form").addEventListener("submit", event => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  withBusyButton(form, "Sending…", async () => {
+    const email = String(new FormData(form).get("email"));
+    await requestPasswordRecovery(email);
+    form.reset();
+    accessMessage.textContent =
+      "If an account exists for that email, a secure reset link is on its way.";
+  });
+});
+
+document
+  .querySelector("#new-password-form")
+  .addEventListener("submit", event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    withBusyButton(form, "Saving…", async () => {
+      await updateUser({
+        password: String(new FormData(form).get("password")),
+      });
+      history.replaceState(null, "", location.pathname);
+      await openPortal();
+    });
+  });
+
+document
+  .querySelector("#onboarding-form")
+  .addEventListener("submit", async event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const button = form.querySelector('button[type="submit"]');
+    const message = document.querySelector("#onboarding-message");
+    if (demoMode) {
+      message.textContent =
+        "This is the setup example. No account or profile was created.";
+      return;
+    }
+    button.disabled = true;
+    message.textContent = "Creating your private space…";
+    try {
+      const fields = new FormData(form);
+      const data = await api("/onboard", {
+        method: "POST",
+        body: JSON.stringify({
+          name: fields.get("name"),
+          preferredName: fields.get("preferredName"),
+          focus: fields.get("focus"),
+          summaryAcknowledgement: fields.get("summaryAcknowledgement") === "on",
+          nuggetConsent: fields.get("nuggetConsent") === "on",
+        }),
+      });
+      showDashboard(data.client);
+    } catch (error) {
+      message.textContent = friendlyError(error);
+    } finally {
+      button.disabled = false;
+    }
+  });
 
 logoutButton.addEventListener("click", async () => {
   try {
-    await api("/logout", { method: "POST", body: "{}" });
+    await logout();
   } catch {}
   showAccess("You have been signed out.");
 });
 
 (async function initialize() {
-  const fragment = new URLSearchParams(window.location.hash.slice(1));
-  const accessCode = fragment.get("access");
-  if (accessCode) {
-    history.replaceState(null, "", `${location.pathname}${location.search}`);
-    await signIn(accessCode);
-    return;
-  }
   try {
-    const data = await api("/session");
-    if (data.role === "client") showDashboard(data.client);
-    else showAccess();
-  } catch {
-    showAccess();
+    if (demoMode === "setup" || demoMode === "complete") {
+      document.querySelector("#demo-label").hidden = false;
+      if (demoMode === "setup") {
+        showOnboarding({ name: "Avery Morgan" });
+      } else {
+        showDashboard(DEMO_CLIENT);
+      }
+      return;
+    }
+    const callback = await handleAuthCallback();
+    if (callback?.type === "recovery") {
+      setActiveView("access");
+      showAuthPanel("recovery");
+      document.querySelector("#recovery-form").hidden = true;
+      document.querySelector("#new-password-form").hidden = false;
+      document.querySelector("#recovery-copy").textContent =
+        "Choose a new password for your client portal.";
+      return;
+    }
+    if (callback) history.replaceState(null, "", location.pathname);
+    await openPortal();
+  } catch (error) {
+    showAccess(friendlyError(error));
   }
 })();

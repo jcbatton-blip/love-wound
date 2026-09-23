@@ -1,139 +1,493 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Privacy Policy · Jeff Batton Life Coaching</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Privacy Policy for Jeff Batton Life Coaching — what we collect, how we use it, how to contact us.">
-<meta name="robots" content="noindex,follow">
-<link rel="canonical" href="https://jeffbatton.com/privacy">
-<link rel="icon" href="/assets/monogram.svg" type="image/svg+xml">
-<link rel="stylesheet" href="colors_and_type.css">
-<style>
-*{box-sizing:border-box}
-html,body{margin:0;background:var(--bg-paper);scroll-behavior:smooth}
-img{display:block;max-width:100%}
-em{font-style:italic}
+  <head>
+    <meta charset="utf-8" />
+    <title>Privacy Policy · Jeff Batton Life Coaching</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Privacy Policy for Jeff Batton Life Coaching — what we collect, how we use it, how to contact us."
+    />
+    <meta name="robots" content="noindex,follow" />
+    <link rel="canonical" href="https://jeffbatton.com/privacy" />
+    <link rel="icon" href="/assets/monogram.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="colors_and_type.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--bg-paper);
+        scroll-behavior: smooth;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      em {
+        font-style: italic;
+      }
 
-header.site{position:sticky;top:0;z-index:20;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(20,17,15,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line-on-dark);color:var(--cream-50)}
-header.site .logo{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
-header.site .logo .name{font-family:var(--font-display);font-style:italic;font-size:17px;line-height:1}
-header.site .logo .tag{font-family:var(--font-body);font-size:8px;letter-spacing:.28em;opacity:.7;margin-top:3px}
-header.site .logo .tagline{font-family:var(--font-display);font-style:italic;font-size:11px;line-height:1.2;color:var(--gold);opacity:.65;margin-top:6px;letter-spacing:.01em;white-space:nowrap}
-header.site .book{font-family:var(--font-body);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--burgundy-900);background:var(--gold);text-decoration:none;padding:10px 18px;border-radius:2px;transition:opacity .2s}
-header.site .book:hover{opacity:.9}
+      header.site {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        padding: 18px 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(20, 17, 15, 0.72);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--line-on-dark);
+        color: var(--cream-50);
+      }
+      header.site .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: inherit;
+        text-decoration: none;
+      }
+      header.site .logo .name {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 17px;
+        line-height: 1;
+      }
+      header.site .logo .tag {
+        font-family: var(--font-body);
+        font-size: 8px;
+        letter-spacing: 0.28em;
+        opacity: 0.7;
+        margin-top: 3px;
+      }
+      header.site .logo .tagline {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 11px;
+        line-height: 1.2;
+        color: var(--gold);
+        opacity: 0.65;
+        margin-top: 6px;
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+      }
+      header.site .book {
+        font-family: var(--font-body);
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--burgundy-900);
+        background: var(--gold);
+        text-decoration: none;
+        padding: 10px 18px;
+        border-radius: 2px;
+        transition: opacity 0.2s;
+      }
+      header.site .book:hover {
+        opacity: 0.9;
+      }
 
-.legal-page{max-width:720px;margin:0 auto;padding:96px 48px 128px}
-.legal-page .eyebrow{font-family:var(--font-body);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.32em;color:var(--accent);margin-bottom:20px}
-.legal-page h1{font-family:var(--font-display);font-weight:400;font-size:clamp(44px, 6vw, 76px);line-height:1.02;letter-spacing:-.03em;margin:0 0 24px;color:var(--fg-1)}
-.legal-page .updated{font-family:var(--font-body);font-size:13px;color:var(--fg-3);letter-spacing:.12em;text-transform:uppercase;margin:0 0 56px}
-.legal-page h2{font-family:var(--font-display);font-weight:400;font-size:28px;line-height:1.2;letter-spacing:-.01em;margin:48px 0 16px;color:var(--fg-1)}
-.legal-page p,.legal-page li{font-family:var(--font-body);font-size:17px;line-height:1.8;color:var(--fg-2);margin:0 0 18px}
-.legal-page ul{margin:0 0 24px;padding-left:22px}
-.legal-page li{margin-bottom:8px}
-.legal-page a{color:var(--accent)}
-.legal-page .back-home{display:inline-block;margin-top:48px;font-family:var(--font-body);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:4px}
+      .legal-page {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 96px 48px 128px;
+      }
+      .legal-page .eyebrow {
+        font-family: var(--font-body);
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.32em;
+        color: var(--accent);
+        margin-bottom: 20px;
+      }
+      .legal-page h1 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(44px, 6vw, 76px);
+        line-height: 1.02;
+        letter-spacing: -0.03em;
+        margin: 0 0 24px;
+        color: var(--fg-1);
+      }
+      .legal-page .updated {
+        font-family: var(--font-body);
+        font-size: 13px;
+        color: var(--fg-3);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin: 0 0 56px;
+      }
+      .legal-page h2 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        margin: 48px 0 16px;
+        color: var(--fg-1);
+      }
+      .legal-page p,
+      .legal-page li {
+        font-family: var(--font-body);
+        font-size: 17px;
+        line-height: 1.8;
+        color: var(--fg-2);
+        margin: 0 0 18px;
+      }
+      .legal-page ul {
+        margin: 0 0 24px;
+        padding-left: 22px;
+      }
+      .legal-page li {
+        margin-bottom: 8px;
+      }
+      .legal-page a {
+        color: var(--accent);
+      }
+      .legal-page .back-home {
+        display: inline-block;
+        margin-top: 48px;
+        font-family: var(--font-body);
+        font-size: 11px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid var(--accent);
+        padding-bottom: 4px;
+      }
 
-footer.site{background:var(--charcoal-950);color:var(--cream-200);padding:72px 48px 36px}
-footer.site .grid{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:start}
-footer.site .mono{font-family:var(--font-display);font-style:italic;font-size:17px;line-height:1.5;max-width:380px;color:var(--cream-200);margin:20px 0 0}
-footer.site .brand{display:flex;align-items:center;gap:14px;color:var(--cream-50);text-decoration:none}
-footer.site .brand .name{font-family:var(--font-display);font-style:italic;font-size:20px;line-height:1}
-footer.site .brand .tag{font-family:var(--font-body);font-size:9px;letter-spacing:.28em;opacity:.7;margin-top:4px}
-footer.site .brand .tagline{font-family:var(--font-display);font-style:italic;font-size:13px;line-height:1.35;color:var(--gold);opacity:.65;margin-top:8px;letter-spacing:.01em}
-footer.site .back{font-family:var(--font-body);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:4px}
-footer.site .rule{max-width:1120px;margin:64px auto 0;padding-top:28px;border-top:1px solid var(--line-on-dark);display:flex;justify-content:space-between;align-items:center;font-family:var(--font-body);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--charcoal-400)}
-footer.site .rule .legal-link{color:var(--charcoal-300);text-decoration:none;letter-spacing:.3em;text-transform:uppercase;font-family:var(--font-body);font-size:10px;transition:color .2s var(--ease-gentle)}
-footer.site .rule .legal-link:hover{color:var(--gold)}
+      footer.site {
+        background: var(--charcoal-950);
+        color: var(--cream-200);
+        padding: 72px 48px 36px;
+      }
+      footer.site .grid {
+        max-width: 1120px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 48px;
+        align-items: start;
+      }
+      footer.site .mono {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 17px;
+        line-height: 1.5;
+        max-width: 380px;
+        color: var(--cream-200);
+        margin: 20px 0 0;
+      }
+      footer.site .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: var(--cream-50);
+        text-decoration: none;
+      }
+      footer.site .brand .name {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 20px;
+        line-height: 1;
+      }
+      footer.site .brand .tag {
+        font-family: var(--font-body);
+        font-size: 9px;
+        letter-spacing: 0.28em;
+        opacity: 0.7;
+        margin-top: 4px;
+      }
+      footer.site .brand .tagline {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 13px;
+        line-height: 1.35;
+        color: var(--gold);
+        opacity: 0.65;
+        margin-top: 8px;
+        letter-spacing: 0.01em;
+      }
+      footer.site .back {
+        font-family: var(--font-body);
+        font-size: 11px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--gold);
+        text-decoration: none;
+        border-bottom: 1px solid var(--gold);
+        padding-bottom: 4px;
+      }
+      footer.site .rule {
+        max-width: 1120px;
+        margin: 64px auto 0;
+        padding-top: 28px;
+        border-top: 1px solid var(--line-on-dark);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--font-body);
+        font-size: 10px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--charcoal-400);
+      }
+      footer.site .rule .legal-link {
+        color: var(--charcoal-300);
+        text-decoration: none;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        font-family: var(--font-body);
+        font-size: 10px;
+        transition: color 0.2s var(--ease-gentle);
+      }
+      footer.site .rule .legal-link:hover {
+        color: var(--gold);
+      }
 
-@media (max-width:900px){
-header.site{padding:16px 24px}
-header.site .logo .tagline{display:none}
-.legal-page{padding:56px 24px 96px}
-.legal-page h1{font-size:40px}
-footer.site{padding:56px 24px 32px}
-footer.site .grid{grid-template-columns:1fr;gap:32px}
-footer.site .rule{flex-direction:column;gap:12px;text-align:center}
-}
-</style>
-<link rel="stylesheet" href="/support.css">
-</head>
-<body>
+      @media (max-width: 900px) {
+        header.site {
+          padding: 16px 24px;
+        }
+        header.site .logo .tagline {
+          display: none;
+        }
+        .legal-page {
+          padding: 56px 24px 96px;
+        }
+        .legal-page h1 {
+          font-size: 40px;
+        }
+        footer.site {
+          padding: 56px 24px 32px;
+        }
+        footer.site .grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        footer.site .rule {
+          flex-direction: column;
+          gap: 12px;
+          text-align: center;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="/support.css" />
+  </head>
+  <body>
+    <header class="shared-header">
+      <a class="shared-brand" href="/"
+        >Jeff Batton<span>LIFE COACHING · SPEAKING</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="/#work">The work</a><a href="/#about">About</a
+        ><a href="/#speaking">Speaking</a><a href="/blog/">Journal</a
+        ><a href="/syllabus">Syllabus</a>
+      </nav>
+      <a class="shared-cta" href="/#services">Work with Jeff ↗</a>
+    </header>
 
-<header class="shared-header"><a class="shared-brand" href="/">Jeff Batton<span>LIFE COACHING · SPEAKING</span></a><nav aria-label="Main navigation"><a href="/#work">The work</a><a href="/#about">About</a><a href="/#speaking">Speaking</a><a href="/blog/">Journal</a><a href="/syllabus">Syllabus</a></nav><a class="shared-cta" href="/#services">Work with Jeff ↗</a></header>
+    <main class="legal-page">
+      <div class="eyebrow">Legal</div>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: September 23, 2026</p>
 
-<main class="legal-page">
-<div class="eyebrow">Legal</div>
-<h1>Privacy Policy</h1>
-<p class="updated">Last updated: September 23, 2026</p>
+      <p>
+        This is the privacy policy for Jeff Batton Life Coaching LLC ("we,"
+        "us," or "Jeff"), a one-person coaching practice based in Detroit,
+        Michigan. It's written in plain English because the law shouldn't be the
+        only thing in the room that's hard to understand.
+      </p>
 
-<p>This is the privacy policy for Jeff Batton Life Coaching LLC ("we," "us," or "Jeff"), a one-person coaching practice based in Detroit, Michigan. It's written in plain English because the law shouldn't be the only thing in the room that's hard to understand.</p>
+      <h2>What we collect</h2>
+      <p>When you interact with this site or book a session, we may receive:</p>
+      <ul>
+        <li>
+          Your name, email address, chosen service, and any brief message you
+          submit through our inquiry form or when booking
+        </li>
+        <li>Scheduling details — date, time, time zone (via Calendly)</li>
+        <li>
+          Payment information — handled and stored by Stripe; we never see or
+          store your card number
+        </li>
+        <li>
+          Anything you choose to share with us in a session, by email, or in a
+          form
+        </li>
+        <li>
+          If you use the private client portal: your account information, client
+          profile, consent preferences, and dated client-facing session
+          summaries
+        </li>
+        <li>
+          Basic site analytics — pages visited, anonymized device info — used to
+          improve the site, not to identify you
+        </li>
+      </ul>
 
-<h2>What we collect</h2>
-<p>When you interact with this site or book a session, we may receive:</p>
-<ul>
-<li>Your name, email address, chosen service, and any brief message you submit through our inquiry form or when booking</li>
-<li>Scheduling details — date, time, time zone (via Calendly)</li>
-<li>Payment information — handled and stored by Stripe; we never see or store your card number</li>
-<li>Anything you choose to share with us in a session, by email, or in a form</li>
-<li>If you use the private client portal: your client profile and the client-facing session reflections Jeff intentionally publishes for you</li>
-<li>Basic site analytics — pages visited, anonymized device info — used to improve the site, not to identify you</li>
-</ul>
+      <h2>How we use it</h2>
+      <p>We use the information you give us only for the obvious things:</p>
+      <ul>
+        <li>To deliver the coaching service you booked</li>
+        <li>
+          To send you confirmations, reminders, and agreed follow-up materials
+        </li>
+        <li>
+          To provide your private client account, connect your sessions to the
+          correct profile, and make your dated session summaries available to
+          you
+        </li>
+        <li>To answer your questions and stay in touch when you ask us to</li>
+        <li>
+          To keep our practice running — accounting, scheduling, basic
+          compliance
+        </li>
+      </ul>
+      <p>
+        We do not sell your data. We do not rent it. We do not pass it to
+        advertisers.
+      </p>
 
-<h2>How we use it</h2>
-<p>We use the information you give us only for the obvious things:</p>
-<ul>
-<li>To deliver the coaching service you booked</li>
-<li>To send you confirmations, reminders, and agreed follow-up materials</li>
-<li>To answer your questions and stay in touch when you ask us to</li>
-<li>To keep our practice running — accounting, scheduling, basic compliance</li>
-</ul>
-<p>We do not sell your data. We do not rent it. We do not pass it to advertisers.</p>
+      <h2>Third parties we use</h2>
+      <p>This site relies on a handful of trusted services to operate:</p>
+      <ul>
+        <li>
+          <strong>Calendly</strong> — handles scheduling and calendar
+          coordination
+        </li>
+        <li>
+          <strong>Stripe</strong> — processes payments; your card data lives
+          with them, not us
+        </li>
+        <li>
+          <strong>Netlify</strong> — hosts this website, manages client sign-in,
+          and securely stores private client-portal profiles and session
+          summaries
+        </li>
+        <li>
+          <strong>Zoom</strong> — hosts online sessions and, when you have given
+          the one-time portal consent, processes session audio or a transcript
+          to produce an AI-generated meeting summary
+        </li>
+        <li><strong>Google Fonts</strong> — supplies website fonts</li>
+        <li>
+          <strong>Email</strong> — Gmail / Google Workspace for ongoing
+          correspondence
+        </li>
+      </ul>
+      <p>
+        Each of these has their own privacy policy, and we recommend reading
+        them if you want the full picture.
+      </p>
 
-<h2>Third parties we use</h2>
-<p>This site relies on a handful of trusted services to operate:</p>
-<ul>
-<li><strong>Calendly</strong> — handles scheduling and calendar coordination</li>
-<li><strong>Stripe</strong> — processes payments; your card data lives with them, not us</li>
-<li><strong>Netlify</strong> — hosts this website, processes inquiry forms, and securely stores private client-portal profiles and published reflections</li>
-<li><strong>Zoom</strong> — hosts online sessions</li>
-<li><strong>Google Fonts</strong> — supplies website fonts</li>
-<li><strong>Email</strong> — Gmail / Google Workspace for ongoing correspondence</li>
-</ul>
-<p>Each of these has their own privacy policy, and we recommend reading them if you want the full picture.</p>
+      <h2>Confidentiality of session content</h2>
+      <p>
+        What you share in a coaching session stays between you and Jeff, subject
+        to the two narrow exceptions below. If you give the one-time portal
+        consent, Zoom may process session audio or a transcript to create a
+        dated, client-facing summary. The raw transcript is not published to
+        your portal. Your portal summary is not a complete transcript, clinical
+        record, or Jeff’s private coaching notes.
+      </p>
+      <p>
+        Each client creates a password-protected account and can see only their
+        own profile and session summaries. Summaries are stored in date order so
+        you can return to what was discussed. You may withdraw permission for
+        future AI-generated summaries by contacting Jeff.
+      </p>
 
-<h2>Confidentiality of session content</h2>
-<p>What you share in a coaching session stays between you and Jeff. We do not record or transcribe coaching sessions, use AI tools with session notes, or discuss specific client material publicly. Online sessions use Zoom; inquiries, scheduling, and correspondence use the service providers listed above.</p>
-<p>The client portal contains only a client-facing reflection Jeff has deliberately prepared and marked as published. Private coaching notes are not placed in the portal. Each client receives personal access and can see only their own profile and published reflections.</p>
-<p>Two narrow exceptions, common to any helping professional: (1) if you indicate you intend to seriously harm yourself or someone else, and (2) if we are legally compelled by a court order. Beyond that, what is said in the room stays in the room.</p>
+      <h2>Universal insights for writing — never case studies</h2>
+      <p>
+        During one-time profile setup, you may separately choose whether
+        de-identified, universal insights from the work may be considered for
+        Jeff’s writing. This is optional and is not required to use the portal
+        or receive coaching.
+      </p>
+      <p>
+        This permission covers only ideas that stand on their own — a broadly
+        useful principle, question, phrase, or human pattern. It does not permit
+        a case study, your personal narrative, quotations attributed to you,
+        identifying details, or any combination of details that could allow
+        someone to reconstruct your experience. Your private session summary is
+        not published or repurposed as content. If you do not opt in, material
+        from your sessions is excluded from the writing stream.
+      </p>
+      <p>
+        Two narrow exceptions, common to any helping professional: (1) if you
+        indicate you intend to seriously harm yourself or someone else, and (2)
+        if we are legally compelled by a court order. Beyond that, what is said
+        in the room stays in the room.
+      </p>
 
-<h2>Your rights</h2>
-<p>You can ask us, at any time, to:</p>
-<ul>
-<li>Tell you what information we have about you</li>
-<li>Correct anything that's wrong</li>
-<li>Delete your data from our records (except where we're required to keep it for tax or legal reasons)</li>
-<li>Stop emailing you</li>
-</ul>
-<p>Email <a href="mailto:jcbatton@gmail.com">jcbatton@gmail.com</a> with the request and we'll handle it within a reasonable window — usually a few business days.</p>
+      <h2>Your rights</h2>
+      <p>You can ask us, at any time, to:</p>
+      <ul>
+        <li>Tell you what information we have about you</li>
+        <li>Correct anything that's wrong</li>
+        <li>
+          Delete your data from our records (except where we're required to keep
+          it for tax or legal reasons)
+        </li>
+        <li>Stop emailing you</li>
+      </ul>
+      <p>
+        Email <a href="mailto:jcbatton@gmail.com">jcbatton@gmail.com</a> with
+        the request and we'll handle it within a reasonable window — usually a
+        few business days.
+      </p>
 
-<h2>Cookies</h2>
-<p>The website uses externally hosted fonts and an embedded Calendly scheduler on the booking page. These providers receive connection information and may use cookies under their own policies. Calendly offers its own cookie controls. We do not add advertising trackers to this website.</p>
-<p>The private client portal uses one strictly necessary, secure sign-in cookie so you do not have to re-enter your access code on every page load. It is not used for advertising or tracking.</p>
+      <h2>Cookies</h2>
+      <p>
+        The website uses externally hosted fonts and an embedded Calendly
+        scheduler on the booking page. These providers receive connection
+        information and may use cookies under their own policies. Calendly
+        offers its own cookie controls. We do not add advertising trackers to
+        this website.
+      </p>
+      <p>
+        The private client portal uses strictly necessary, secure sign-in
+        cookies so you can return to your account without signing in on every
+        page load. They are not used for advertising or tracking.
+      </p>
 
-<h2>Children</h2>
-<p>This service is for adults. We do not knowingly collect information from anyone under 18.</p>
+      <h2>Children</h2>
+      <p>
+        This service is for adults. We do not knowingly collect information from
+        anyone under 18.
+      </p>
 
-<h2>Changes</h2>
-<p>If we update this policy, we'll change the "last updated" date at the top of this page. Material changes will be flagged plainly.</p>
+      <h2>Changes</h2>
+      <p>
+        If we update this policy, we'll change the "last updated" date at the
+        top of this page. Material changes will be flagged plainly.
+      </p>
 
-<h2>Contact</h2>
-<p>Questions, requests, or anything else: <a href="mailto:jcbatton@gmail.com">jcbatton@gmail.com</a>.</p>
+      <h2>Contact</h2>
+      <p>
+        Questions, requests, or anything else:
+        <a href="mailto:jcbatton@gmail.com">jcbatton@gmail.com</a>.
+      </p>
 
-<a class="back-home" href="/">← Back to the site</a>
-</main>
+      <a class="back-home" href="/">← Back to the site</a>
+    </main>
 
-<footer class="shared-footer"><a class="shared-brand" href="/">Jeff Batton<span>LIFE COACHING · SPEAKING</span></a><nav aria-label="Footer navigation"><a href="/weekend">The weekend</a><a href="/syllabus">The syllabus</a><a href="/contact">Get in touch</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></nav><small>© Jeff Batton Life Coaching LLC</small></footer>
-
-</body>
+    <footer class="shared-footer">
+      <a class="shared-brand" href="/"
+        >Jeff Batton<span>LIFE COACHING · SPEAKING</span></a
+      >
+      <nav aria-label="Footer navigation">
+        <a href="/weekend">The weekend</a><a href="/syllabus">The syllabus</a
+        ><a href="/contact">Get in touch</a><a href="/privacy">Privacy</a
+        ><a href="/terms">Terms</a>
+      </nav>
+      <small>© Jeff Batton Life Coaching LLC</small>
+    </footer>
+  </body>
 </html>

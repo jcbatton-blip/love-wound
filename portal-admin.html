@@ -37,7 +37,7 @@
         <div class="access-card reveal">
           <p class="eyebrow">Jeff-only workspace</p>
           <h2>Client portal admin</h2>
-          <p>Sign in to create profiles and share session reflections.</p>
+          <p>Sign in to manage client profiles and session summaries.</p>
           <form id="admin-login-form">
             <label for="admin-password">Admin password</label
             ><input
@@ -57,27 +57,28 @@
         <div class="admin-heading reveal">
           <div>
             <p class="eyebrow">Client care</p>
-            <h1>Profiles & reflections</h1>
+            <h1>Profiles & summaries</h1>
           </div>
           <button class="primary-button" id="new-client-button" type="button">
-            Add a client <span aria-hidden="true">+</span>
+            Add a profile <span aria-hidden="true">+</span>
           </button>
         </div>
         <div class="admin-layout">
           <aside class="admin-panel reveal">
             <h2>Clients</h2>
             <p class="small-note">
-              Choose a profile to update it or share a reflection.
+              Clients can create their own profile at signup. You can also
+              prepare one here using the same email they use to register.
             </p>
             <div class="client-list" id="client-list"></div>
           </aside>
           <div class="admin-panel reveal reveal-delay" id="editor-panel">
             <div id="empty-editor">
               <p class="eyebrow">Choose a client</p>
-              <h2>Everything shared stays intentional.</h2>
+              <h2>Every client has their own account.</h2>
               <p>
-                Select a client profile, or add a new one. Only reflections
-                marked “Published” will appear in the client’s portal.
+                Select a profile to view its account connection and dated
+                session summaries.
               </p>
             </div>
             <form id="client-form" hidden>
@@ -139,14 +140,7 @@
               </div>
               <div class="admin-toolbar">
                 <button class="primary-button" type="submit">
-                  Save profile</button
-                ><button
-                  class="secondary-button"
-                  id="rotate-link-button"
-                  type="button"
-                  hidden
-                >
-                  Create a new access link
+                  Save profile
                 </button>
               </div>
               <p
@@ -154,20 +148,9 @@
                 id="client-form-message"
                 role="status"
               ></p>
-              <div class="invite-box" id="invite-box" hidden>
-                <strong>Private access link</strong>
-                <p class="small-note">
-                  Copy this now and send it directly to the client. Creating
-                  another link will replace this one.
-                </p>
-                <code id="invite-link"></code
-                ><button
-                  class="secondary-button"
-                  id="copy-invite-button"
-                  type="button"
-                >
-                  Copy link
-                </button>
+              <div class="account-notes" id="account-notes">
+                <p id="account-status"></p>
+                <p id="nugget-status"></p>
               </div>
             </form>
             <div id="summaries-editor" hidden>
@@ -175,14 +158,14 @@
               <div class="section-heading">
                 <div>
                   <p class="eyebrow">Client-facing only</p>
-                  <h2>Session reflections</h2>
+                  <h2>Session summaries</h2>
                 </div>
                 <button
                   class="secondary-button"
                   id="new-summary-button"
                   type="button"
                 >
-                  Add reflection
+                  Add summary
                 </button>
               </div>
               <div class="summary-admin-list" id="summary-admin-list"></div>
@@ -201,14 +184,14 @@
                   <div>
                     <label for="summary-status">Visibility</label
                     ><select id="summary-status" name="status">
-                      <option value="draft">Draft — Jeff only</option>
                       <option value="published">
-                        Published — client can see
+                        Published — client can see immediately
                       </option>
+                      <option value="draft">Hold — Jeff only</option>
                     </select>
                   </div>
                   <div class="full">
-                    <label for="summary-title">Reflection title</label
+                    <label for="summary-title">Summary title</label
                     ><input
                       id="summary-title"
                       name="title"
@@ -217,7 +200,7 @@
                     />
                   </div>
                   <div class="full">
-                    <label for="reflection">Shared reflection</label
+                    <label for="reflection">Client-facing summary</label
                     ><textarea
                       id="reflection"
                       name="reflection"
@@ -240,7 +223,7 @@
                 </div>
                 <div class="admin-toolbar">
                   <button class="primary-button" type="submit">
-                    Save reflection</button
+                    Save summary</button
                   ><button
                     class="secondary-button"
                     id="cancel-summary-button"
