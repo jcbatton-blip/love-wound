@@ -24,7 +24,7 @@ vi.mock("@netlify/blobs", () => ({
   getDeployStore: () => store,
 }));
 
-import portalHandler from "./client-portal.mts";
+import portalHandler from "../netlify/functions/client-portal.mts";
 
 const origin = "https://jeffbatton.com";
 

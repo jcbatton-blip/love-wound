@@ -17,7 +17,6 @@ export default defineConfig({
     include: [
       "server/**/*.test.ts",
       "server/**/*.spec.ts",
-      "netlify/functions/**/*.test.ts",
     ],
   },
 });
