@@ -21,6 +21,18 @@ const DEMO_CLIENT = {
   preferredName: "Avery",
   focus: "Practicing the pause between what you feel and what you choose next.",
   memberSince: "2026-04-09",
+  appointments: [
+    {
+      id: "demo-appointment",
+      title: "Private coaching session",
+      startTime: "2026-10-02T18:00:00.000Z",
+      endTime: "2026-10-02T19:00:00.000Z",
+      status: "active",
+      cancelUrl: "/client-portal?demo=complete",
+      rescheduleUrl: "/book",
+      joinUrl: "https://zoom.us/j/123456789",
+    },
+  ],
   summaries: [
     {
       sessionDate: "2026-09-18",
@@ -137,6 +149,17 @@ function formatDate(date) {
   }).format(new Date(`${date}T12:00:00`));
 }
 
+function formatAppointment(date) {
+  return new Intl.DateTimeFormat("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    timeZoneName: "short",
+  }).format(new Date(date));
+}
+
 function listMarkup(items) {
   if (!items?.length) return "";
   return `<ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
@@ -179,6 +202,54 @@ function showDashboard(client) {
   document.querySelector("#summary-list").innerHTML = count
     ? client.summaries.map(summaryMarkup).join("")
     : `<div class="empty-state"><h3>Your summaries will appear here.</h3><p>After each session, a dated, client-facing summary can be added automatically so you can return to what mattered without searching through notes.</p></div>`;
+
+  const nextAppointment = (client.appointments || []).find(
+    appointment =>
+      appointment.status === "active" &&
+      new Date(appointment.endTime).getTime() >= Date.now()
+  );
+  const primary = document.querySelector("#next-session-primary");
+  const zoomLink = document.querySelector("#zoom-link");
+  const actions = document.querySelector("#appointment-actions");
+  if (nextAppointment) {
+    document.querySelector("#next-session-heading").textContent =
+      nextAppointment.title || "Private coaching session";
+    document.querySelector("#next-session-copy").textContent =
+      `${formatAppointment(nextAppointment.startTime)} · one hour`;
+    primary.href = nextAppointment.joinUrl || "/book";
+    primary.target = nextAppointment.joinUrl ? "_blank" : "";
+    primary.rel = nextAppointment.joinUrl ? "noopener noreferrer" : "";
+    primary.innerHTML = nextAppointment.joinUrl
+      ? 'Join Zoom <span aria-hidden="true">↗</span>'
+      : 'View booking <span aria-hidden="true">→</span>';
+    actions.hidden = !(
+      nextAppointment.rescheduleUrl || nextAppointment.cancelUrl
+    );
+    const reschedule = document.querySelector("#reschedule-link");
+    const cancel = document.querySelector("#cancel-link");
+    reschedule.hidden = !nextAppointment.rescheduleUrl;
+    cancel.hidden = !nextAppointment.cancelUrl;
+    reschedule.href = nextAppointment.rescheduleUrl || "#";
+    cancel.href = nextAppointment.cancelUrl || "#";
+    document.querySelector("#zoom-card-copy").textContent =
+      nextAppointment.joinUrl
+        ? "Your private Zoom room is ready for your scheduled session."
+        : "Your Zoom link will appear here when it is ready.";
+    zoomLink.href = nextAppointment.joinUrl || "/book";
+    zoomLink.textContent = nextAppointment.joinUrl
+      ? "Join Zoom ↗"
+      : "View booking →";
+  } else {
+    actions.hidden = true;
+    document.querySelector("#next-session-heading").textContent =
+      "Make space for the work.";
+    document.querySelector("#next-session-copy").textContent =
+      "Sessions are one hour, with breathing room around them so the work never feels rushed.";
+    primary.href = "/book";
+    primary.textContent = "Book a session →";
+    zoomLink.href = "/book";
+    zoomLink.textContent = "Book a session →";
+  }
 }
 
 async function openPortal() {
@@ -304,8 +375,6 @@ document
           name: fields.get("name"),
           preferredName: fields.get("preferredName"),
           focus: fields.get("focus"),
-          summaryAcknowledgement: fields.get("summaryAcknowledgement") === "on",
-          nuggetConsent: fields.get("nuggetConsent") === "on",
         }),
       });
       showDashboard(data.client);

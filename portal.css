@@ -291,30 +291,20 @@ h3 {
 .optional {
   font-weight: 400;
 }
-.consent-list {
-  display: grid;
-  gap: 14px;
+.standard-note {
   margin-top: 30px;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
-}
-.check-row {
-  margin: 0;
-  display: grid;
-  grid-template-columns: 18px 1fr;
-  gap: 11px;
-  align-items: start;
+  padding: 18px 20px;
+  border-left: 3px solid var(--amber);
+  background: rgba(207, 154, 57, 0.08);
   color: var(--muted);
-  font-size: 0.76rem;
-  font-weight: 400;
+  font-size: 0.78rem;
   line-height: 1.6;
-  cursor: pointer;
 }
-.check-row input {
-  width: 16px;
-  height: 16px;
-  margin: 3px 0 0;
-  accent-color: var(--copper);
+.standard-note strong {
+  color: var(--ink);
+}
+.standard-note p {
+  margin: 5px 0 0;
 }
 label {
   display: block;
@@ -585,6 +575,18 @@ form .primary-button {
   background: var(--amber);
   border-color: var(--amber);
   color: var(--ink);
+}
+.appointment-actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 16px;
+}
+.appointment-actions a {
+  color: var(--paper);
+  font-size: 0.78rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .compact-card {
   box-shadow: none;

@@ -234,30 +234,12 @@
             <span class="optional">Optional</span></label
           >
           <textarea id="profile-focus" name="focus" maxlength="500"></textarea>
-          <div class="consent-list">
-            <label class="check-row" for="summary-acknowledgement">
-              <input
-                id="summary-acknowledgement"
-                name="summaryAcknowledgement"
-                type="checkbox"
-                required
-              />
-              <span
-                >I consent to Zoom processing session audio or a transcript to
-                create dated, client-facing summaries for my portal. The portal
-                will not contain the raw transcript, a clinical record, or
-                Jeff’s private coaching notes.</span
-              >
-            </label>
-            <label class="check-row" for="nugget-consent">
-              <input id="nugget-consent" name="nuggetConsent" type="checkbox" />
-              <span
-                >Jeff may consider de-identified, universal insights from our
-                work for his writing. This does not permit case studies, my
-                personal story, identifying details, or any combination of
-                details that could reconstruct my experience.</span
-              >
-            </label>
+          <div class="standard-note">
+            <strong>After each session</strong>
+            <p>
+              A private, dated summary will be added to your portal so you can
+              return to what became clear and what you want to carry forward.
+            </p>
           </div>
           <button class="primary-button" type="submit">
             Finish setting up my portal <span aria-hidden="true">→</span>
@@ -298,34 +280,41 @@
             class="portal-sidebar reveal reveal-delay"
             aria-label="Session tools"
           >
-            <div class="side-card accent-card">
+            <div class="side-card accent-card" id="next-session-card">
               <p class="eyebrow">Next session</p>
-              <h2>Make space for the work.</h2>
-              <p>
+              <h2 id="next-session-heading">Make space for the work.</h2>
+              <p id="next-session-copy">
                 Sessions are one hour, with breathing room around them so the
                 work never feels rushed.
               </p>
-              <a class="primary-button" href="/book"
+              <a class="primary-button" id="next-session-primary" href="/book"
                 >Book a session <span aria-hidden="true">→</span></a
               >
+              <div class="appointment-actions" id="appointment-actions" hidden>
+                <a id="reschedule-link" href="#">Reschedule</a>
+                <a id="cancel-link" href="#">Cancel</a>
+              </div>
             </div>
             <div class="side-card">
               <h3>When it’s time</h3>
-              <p>Join your scheduled session in Jeff’s private Zoom room.</p>
+              <p id="zoom-card-copy">
+                Your private Zoom link will appear here with your appointment.
+              </p>
               <a
                 class="secondary-button"
-                href="https://us02web.zoom.us/j/6811699428"
+                id="zoom-link"
+                href="/book"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Join Zoom <span aria-hidden="true">↗</span></a
+                >Book a session <span aria-hidden="true">→</span></a
               >
             </div>
             <div class="side-card compact-card">
               <p class="eyebrow">Appointments</p>
               <h3>Book or make a change</h3>
               <p>
-                Book a new session here. For now, use the manage link in your
-                confirmation email to reschedule or cancel.
+                Book a new session here. Upcoming sessions can be rescheduled or
+                canceled directly from this page.
               </p>
               <a class="inline-link" href="/book">Manage appointments</a>
             </div>

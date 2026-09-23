@@ -80,7 +80,7 @@ describe("private client portal", () => {
     expect(response.status).toBe(401);
   });
 
-  it("lets a confirmed client create a profile with separate nugget consent", async () => {
+  it("lets a confirmed client create a profile", async () => {
     mockGetUser.mockResolvedValue({
       id: "identity-user-1",
       email: "avery@example.com",
@@ -101,14 +101,12 @@ describe("private client portal", () => {
         name: "Avery Example",
         preferredName: "Avery",
         focus: "Choose clarity over urgency.",
-        summaryAcknowledgement: true,
-        nuggetConsent: false,
       }),
     });
     expect(setup.status).toBe(201);
     const setupBody = await setup.json();
     expect(setupBody.client.name).toBe("Avery Example");
-    expect(setupBody.client.nuggetConsent).toBe(false);
+    expect(setupBody.client.appointments).toEqual([]);
     expect(JSON.stringify(setupBody)).not.toContain("identity-user-1");
   });
 

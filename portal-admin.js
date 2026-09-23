@@ -98,8 +98,6 @@ function openNewClient() {
   document.querySelector("#client-form-message").textContent = "";
   document.querySelector("#account-status").textContent =
     "The account will connect when the client signs up with this email.";
-  document.querySelector("#nugget-status").textContent =
-    "The client chooses universal-nugget permission during their one-time setup.";
   clientForm.elements.name.focus();
 }
 
@@ -125,10 +123,6 @@ function selectClient(id) {
   document.querySelector("#account-status").textContent = client.accountLinked
     ? "Client account is active."
     : "Profile is ready. It will connect when the client signs up with this email.";
-  const nuggetPermission = client.nuggetConsent?.granted
-    ? "Universal-nugget permission granted. No case studies or personal narratives."
-    : "No universal-nugget permission. Keep this client’s material out of the writing stream.";
-  document.querySelector("#nugget-status").textContent = nuggetPermission;
   summaryForm.hidden = true;
   renderSummaries(client);
 }

@@ -8,6 +8,7 @@ type ClientStatus = "active" | "paused";
 
 type SessionSummary = {
   id: string;
+  sourceId?: string;
   sessionDate: string;
   title: string;
   reflection: string;
@@ -15,6 +16,20 @@ type SessionSummary = {
   nextSteps: string[];
   status: SummaryStatus;
   createdAt: string;
+  updatedAt: string;
+};
+
+type Appointment = {
+  id: string;
+  eventUri: string;
+  title: string;
+  startTime: string;
+  endTime: string;
+  status: "active" | "canceled";
+  cancelUrl: string;
+  rescheduleUrl: string;
+  joinUrl?: string;
+  zoomMeetingId?: string;
   updatedAt: string;
 };
 
@@ -29,11 +44,7 @@ type ClientRecord = {
   memberSince: string;
   status: ClientStatus;
   accessCodeHash?: string;
-  summaryAcknowledgedAt?: string;
-  nuggetConsent?: {
-    granted: boolean;
-    updatedAt: string;
-  };
+  appointments?: Appointment[];
   summaries: SessionSummary[];
   createdAt: string;
   updatedAt: string;
@@ -205,7 +216,16 @@ function publicClient(client: ClientRecord) {
     focus: client.focus,
     memberSince: client.memberSince,
     status: client.status,
-    nuggetConsent: Boolean(client.nuggetConsent?.granted),
+    appointments: (client.appointments ?? [])
+      .filter(appointment => appointment.status === "active")
+      .sort((a, b) => a.startTime.localeCompare(b.startTime))
+      .map(
+        ({
+          zoomMeetingId: _zoomMeetingId,
+          eventUri: _eventUri,
+          ...appointment
+        }) => appointment
+      ),
     summaries: client.summaries
       .filter(summary => summary.status === "published")
       .sort((a, b) => b.sessionDate.localeCompare(a.sessionDate))
@@ -384,12 +404,6 @@ export default async (
       const user = await getUser();
       if (!user?.email) return unauthorized();
       const input = await body(request);
-      if (input.summaryAcknowledgement !== true) {
-        return json(
-          { error: "Please acknowledge how session summaries are used." },
-          400
-        );
-      }
 
       const now = new Date().toISOString();
       const name = cleanText(input.name, 120, true);
@@ -402,11 +416,6 @@ export default async (
         client.preferredName =
           cleanText(input.preferredName, 80) || name.split(/\s+/)[0];
         client.focus = cleanText(input.focus, 500);
-        client.summaryAcknowledgedAt = now;
-        client.nuggetConsent = {
-          granted: input.nuggetConsent === true,
-          updatedAt: now,
-        };
         client.version = 2;
         client.updatedAt = now;
       } else {
@@ -421,11 +430,7 @@ export default async (
           focus: cleanText(input.focus, 500),
           memberSince: now.slice(0, 10),
           status: "active",
-          summaryAcknowledgedAt: now,
-          nuggetConsent: {
-            granted: input.nuggetConsent === true,
-            updatedAt: now,
-          },
+          appointments: [],
           summaries: [],
           createdAt: now,
           updatedAt: now,
@@ -486,7 +491,7 @@ export default async (
         focus: cleanText(input.focus, 500),
         memberSince,
         status: "active",
-        nuggetConsent: { granted: false, updatedAt: now },
+        appointments: [],
         summaries: [],
         createdAt: now,
         updatedAt: now,
