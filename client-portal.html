@@ -1,240 +1,162 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Client Portal — Jeff Batton Life Coaching</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --bg-deep: #1a1410;
-      --bg-mid: #241e17;
-      --bg-light: #f5f0e8;
-      --text-cream: #f5f0e8;
-      --text-dark: #1a1410;
-      --gold: #c9a84c;
-      --gold-hover: #e8c56a;
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body: 'DM Sans', system-ui, sans-serif;
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      background: var(--bg-deep);
-      color: var(--text-cream);
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Private Client Portal — Jeff Batton</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/portal.css" />
+    <script src="/client-portal.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#portal-main">Skip to your portal</a>
+    <header class="portal-nav">
+      <a class="brand" href="/" aria-label="Jeff Batton home">
+        <img src="/assets/monogram.svg" alt="" width="42" height="42" />
+        <span>Jeff Batton</span>
+      </a>
+      <div class="nav-actions">
+        <span class="privacy-mark"
+          ><span aria-hidden="true">●</span> Private space</span
+        >
+        <button class="text-button" id="logout-button" type="button" hidden>
+          Sign out
+        </button>
+      </div>
+    </header>
 
-    .back-link {
-      display: inline-block;
-      font-size: 14px;
-      color: var(--gold);
-      text-decoration: none;
-      padding: 24px 0 0 32px;
-      transition: color 0.3s;
-    }
-    .back-link:hover { color: var(--gold-hover); }
+    <main id="portal-main">
+      <section class="portal-loading" id="loading-view" aria-live="polite">
+        <div class="loading-mark" aria-hidden="true"></div>
+        <p>Opening your private space…</p>
+      </section>
 
-    .portal-header {
-      text-align: center;
-      padding: 60px 24px 40px;
-    }
-    .portal-header h1 {
-      font-family: var(--font-display);
-      font-size: clamp(32px, 5vw, 48px);
-      font-weight: 400;
-      color: var(--text-cream);
-      margin-bottom: 12px;
-    }
-    .portal-header p {
-      font-size: 17px;
-      color: rgba(245,240,232,0.6);
-    }
+      <section class="access-shell" id="access-view" hidden>
+        <div class="access-copy reveal">
+          <p class="eyebrow">Your private client space</p>
+          <h1>A quiet place to return to what matters.</h1>
+          <p class="lede">
+            Review the reflections Jeff has shared with you, remember what
+            became clear, and carry your next steps into the week.
+          </p>
+          <div class="trust-note">
+            <span class="trust-icon" aria-hidden="true">✦</span>
+            <p>
+              <strong>Built for privacy.</strong> Your access is personal. You
+              will only see summaries Jeff has intentionally published for
+              you—not private coaching notes.
+            </p>
+          </div>
+        </div>
 
-    /* Policy banner */
-    .policy {
-      max-width: 700px;
-      margin: 0 auto 40px;
-      padding: 16px 24px;
-      background: rgba(201,168,76,0.1);
-      border: 1px solid rgba(201,168,76,0.25);
-      border-radius: 4px;
-      font-size: 14px;
-      color: rgba(245,240,232,0.8);
-      text-align: center;
-    }
-    .policy strong { color: var(--gold); }
+        <div class="access-card reveal reveal-delay">
+          <p class="eyebrow">Client sign in</p>
+          <h2>Welcome back</h2>
+          <p>Use the private access code Jeff sent you.</p>
+          <form id="access-form">
+            <label for="access-code">Private access code</label>
+            <input
+              id="access-code"
+              name="code"
+              type="password"
+              autocomplete="one-time-code"
+              required
+            />
+            <button class="primary-button" type="submit">
+              Open my portal <span aria-hidden="true">→</span>
+            </button>
+          </form>
+          <p class="form-message" id="access-message" role="status"></p>
+          <p class="small-note">
+            Need a new link?
+            <a href="mailto:jcbatton@gmail.com?subject=Client%20portal%20access"
+              >Ask Jeff for help</a
+            >.
+          </p>
+        </div>
+      </section>
 
-    /* Card grid */
-    .grid {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 24px 80px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-    .card {
-      background: var(--bg-mid);
-      border: 1px solid rgba(201,168,76,0.2);
-      border-top: 3px solid var(--gold);
-      border-radius: 0 0 4px 4px;
-      padding: 32px 28px;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .card:hover {
-      border-color: var(--gold);
-      transform: translateY(-2px);
-    }
-    .card-icon {
-      font-size: 28px;
-      margin-bottom: 16px;
-    }
-    .card h2 {
-      font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 400;
-      color: var(--text-cream);
-      margin-bottom: 8px;
-    }
-    .card p {
-      font-size: 15px;
-      line-height: 1.7;
-      color: rgba(245,240,232,0.6);
-      margin-bottom: 20px;
-    }
+      <section class="dashboard" id="dashboard-view" hidden>
+        <div class="dashboard-hero reveal">
+          <div>
+            <p class="eyebrow">Your private client space</p>
+            <h1 id="welcome-heading">Welcome back.</h1>
+            <p class="lede" id="focus-copy"></p>
+          </div>
+          <div class="profile-stamp" aria-label="Client profile">
+            <span class="stamp-label">Working together since</span>
+            <strong id="member-since">—</strong>
+          </div>
+        </div>
 
-    .btn {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: 15px;
-      font-weight: 500;
-      text-decoration: none;
-      padding: 14px 28px;
-      border-radius: 4px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: none;
-      text-align: center;
-      width: 100%;
-    }
-    .btn-gold {
-      background: var(--gold);
-      color: var(--text-dark);
-    }
-    .btn-gold:hover {
-      background: var(--gold-hover);
-      transform: translateY(-1px);
-    }
-    .btn-outline {
-      background: transparent;
-      color: var(--gold);
-      border: 1.5px solid var(--gold);
-    }
-    .btn-outline:hover {
-      background: rgba(201,168,76,0.1);
-    }
+        <div class="dashboard-grid">
+          <section
+            class="summary-panel reveal"
+            aria-labelledby="summaries-heading"
+          >
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Your work, remembered</p>
+                <h2 id="summaries-heading">Session reflections</h2>
+              </div>
+              <span class="count-badge" id="summary-count">0 shared</span>
+            </div>
+            <div id="summary-list"></div>
+          </section>
 
-    /* Help section */
-    .help {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 24px 60px;
-      text-align: center;
-    }
-    .help p {
-      font-size: 15px;
-      color: rgba(245,240,232,0.5);
-      margin-bottom: 16px;
-    }
-    .help a {
-      color: var(--gold);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .help a:hover { color: var(--gold-hover); }
+          <aside
+            class="portal-sidebar reveal reveal-delay"
+            aria-label="Session tools"
+          >
+            <div class="side-card accent-card">
+              <p class="eyebrow">Next session</p>
+              <h2>Make space for the work.</h2>
+              <p>
+                Sessions are one hour, with breathing room around them so the
+                work never feels rushed.
+              </p>
+              <a class="primary-button" href="/book"
+                >Book a session <span aria-hidden="true">→</span></a
+              >
+            </div>
+            <div class="side-card">
+              <h3>When it’s time</h3>
+              <p>Join your scheduled session in Jeff’s private Zoom room.</p>
+              <a
+                class="secondary-button"
+                href="https://us02web.zoom.us/j/6811699428"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Join Zoom <span aria-hidden="true">↗</span></a
+              >
+            </div>
+            <div class="side-card compact-card">
+              <h3>Need to move something?</h3>
+              <p>
+                Use the reschedule link in your confirmation email, or contact
+                Jeff directly.
+              </p>
+              <a
+                class="inline-link"
+                href="mailto:jcbatton@gmail.com?subject=Client%20portal%20help"
+                >Contact Jeff</a
+              >
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
 
-    .card.full-width { grid-column: 1 / -1; }
-
-    @media (max-width: 600px) {
-      .grid { grid-template-columns: 1fr; }
-      .card.full-width { grid-column: auto; }
-    }
-  </style>
-</head>
-<body>
-
-  <a href="index.html" class="back-link">&larr; Back to jeffbatton.com</a>
-
-  <div class="portal-header">
-    <h1>Client Portal</h1>
-    <p>Need to book, move a session, or ask me something? Start here.</p>
-  </div>
-
-  <div class="policy">
-    <strong>Cancellation deadline:</strong> Cancel or reschedule individual and couples sessions by 11:59 p.m. Eastern Time on the day before your appointment. After that deadline, or if you miss the session, the session fee applies. A prepaid session is used; you are not charged twice. Discovery calls remain free. Weekend retreats have separate terms agreed before booking.
-  </div>
-
-  <div class="grid">
-    <!-- Book a Session -->
-    <div class="card">
-      <div class="card-icon">&#128197;</div>
-      <h2>Book a Session</h2>
-      <p>Schedule your next coaching session at a time that works for you.</p>
-      <a href="/book" target="_blank" rel="noopener" class="btn btn-gold" style="margin-bottom:10px;">Book an individual session</a>
-      <a href="mailto:jcbatton@gmail.com?subject=Couples%20session" class="btn btn-outline">Ask about a couples session</a>
-    </div>
-
-    <!-- Payment questions -->
-    <div class="card">
-      <div class="card-icon">&#128179;</div>
-      <h2>Payment questions</h2>
-      <p>Have a question about an invoice or payment? Email me and we’ll sort it out.</p>
-      <a href="mailto:jcbatton@gmail.com?subject=Billing%20Inquiry&body=Hi%20Jeffrey%2C%20I%20have%20a%20question%20about%20my%20billing." class="btn btn-gold">Ask about a payment</a>
-    </div>
-
-    <!-- Join Session -->
-    <div class="card">
-      <div class="card-icon">&#127909;</div>
-      <h2>Join Your Session</h2>
-      <p>Click here when it's time for your scheduled session.</p>
-      <a href="https://us02web.zoom.us/j/6811699428" target="_blank" rel="noopener" class="btn btn-gold">Join Zoom Session</a>
-    </div>
-
-    <!-- Apply Discount -->
-    <div class="card">
-      <div class="card-icon">&#127919;</div>
-      <h2>Apply Discount Code</h2>
-      <p>Have a legacy or referral discount code? Contact Jeff to apply it to your next booking.</p>
-      <a href="mailto:jcbatton@gmail.com?subject=Discount%20Code&body=Hi%20Jeffrey%2C%20I%20have%20a%20discount%20code%20to%20apply." class="btn btn-outline">Send Discount Code</a>
-    </div>
-
-    <!-- Recurring / Package -->
-    <div class="card">
-      <div class="card-icon">&#128260;</div>
-      <h2>Want a regular time?</h2>
-      <p>If a regular weekly or every-other-week appointment would help, let’s find a time that works.</p>
-      <a href="mailto:jcbatton@gmail.com?subject=Recurring%20Sessions&body=Hi%20Jeffrey%2C%20I'd%20like%20to%20set%20up%20recurring%20sessions." class="btn btn-outline">Ask about a regular time</a>
-    </div>
-
-    <!-- Reschedule -->
-    <div class="card">
-      <div class="card-icon">&#128336;</div>
-      <h2>Reschedule or Cancel</h2>
-      <p>Need to move your session? Use the link in your Calendly confirmation email, or contact Jeff directly.</p>
-      <a href="mailto:jcbatton@gmail.com?subject=Reschedule%20Request&body=Hi%20Jeffrey%2C%20I%20need%20to%20reschedule%20my%20upcoming%20session." class="btn btn-outline">Request Reschedule</a>
-    </div>
-  </div>
-
-  <div class="help">
-    <p>Need help with anything else?</p>
-    <a href="mailto:jcbatton@gmail.com">Contact Jeff directly: jcbatton@gmail.com</a>
-  </div>
-
-</body>
+    <footer class="portal-footer">
+      <span>Jeff Batton Life Coaching</span
+      ><span>Confidential • Personal • Secure</span>
+    </footer>
+  </body>
 </html>
