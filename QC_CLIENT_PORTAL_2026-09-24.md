@@ -2,10 +2,11 @@
 
 ## Verdict
 
-**FIX IT before production launch.** The client-facing preview is polished and
-the portal-specific security/tests pass, but the external Calendly and Zoom
-automations are not connected and the universal-insight workflow is only a
-queue, not an extraction pipeline.
+**CONDITIONAL before production launch.** The client-facing preview, booking,
+discount, package, payment-history, and portal-specific security work pass.
+Production should wait until Calendly and Zoom credentials/webhooks are connected
+and a real end-to-end test confirms that one completed session lands on the
+correct client profile.
 
 ## What works now
 
@@ -20,16 +21,27 @@ queue, not an extraction pipeline.
 - Admin access uses an HTTP-only secure cookie, same-origin checks, and login
   rate limiting.
 - Calendly and Zoom webhook signatures are verified in code.
-- Five portal-specific automated tests pass and all three Netlify functions
-  bundle successfully.
+- Seven portal and webhook tests pass, including Calendly payment/receipt
+  ingestion and Zoom summary handling.
+- Calendly's live $150 booking flow is enabled through Stripe and displays a
+  receipt promise at checkout.
+- Four live legacy-client codes correctly reduce a single session to $65, $95,
+  $100, or $125. One code was exercised in the live checkout and calculated the
+  correct final price without completing a booking.
+- The live four-session package contains four one-hour coaching sessions for
+  $540 ($135 each; 10%/$60 savings) with the correct cancellation terms.
+- Desktop and 375-pixel mobile visual checks pass for the booking page and the
+  completed client-portal example.
+- Payments and receipt links are stored from Calendly/Stripe and shown in the
+  client portal.
 - The current deploy preview has no browser console errors, duplicate IDs, or
   visible action links without destinations.
 
 ## Launch blockers
 
-1. The pull request is still open; production does not contain the new portal
-   or its API functions.
-2. Calendly still needs a personal access token, webhook subscription,
+1. The pull request is still open; production does not contain the new portal,
+   booking-page improvements, or API functions.
+2. Calendly still needs a valid personal access token, webhook subscription,
    webhook signing key, and Netlify secret values.
 3. Zoom still needs a Server-to-Server OAuth app, summary-read scope,
    `meeting.summary_completed` webhook, webhook secret, and Netlify secret
@@ -45,12 +57,11 @@ queue, not an extraction pipeline.
    insights, nor create Substack/blog/book drafts.
 7. There is no admin view or alert for unmatched Zoom meetings, failed
    webhooks, or pending nugget sources.
-8. The portal copy still says summaries are “intentionally published” by Jeff,
-   which conflicts with the approved automatic, no-approval workflow.
-9. Payments and receipts are still a placeholder despite Stripe already being
-   connected to Calendly.
-10. A real end-to-end test has not yet been run from booking through completed
+8. A real end-to-end test has not yet been run from booking through completed
     Zoom summary to the correct test client profile.
+9. Recurring legacy clients who are already on the calendar still need a
+   separate day-of collection workflow; the codes apply to appointments they
+   book themselves and collect payment at checkout.
 
 ## Non-blocking cleanup
 
@@ -70,20 +81,22 @@ queue, not an extraction pipeline.
 | Panel                         | Status      | Notes                                                                                              |
 | ----------------------------- | ----------- | -------------------------------------------------------------------------------------------------- |
 | 1. Voice & Brand              | PASS        | Warm, private, grounded, and visually on-brand.                                                    |
-| 2. Value & Completeness       | FAIL        | External automation, nugget extraction, and payments are incomplete.                               |
-| 3. Legal & Professional       | CONDITIONAL | Privacy/terms are strong; automatic-workflow copy and data-handling implementation need alignment. |
+| 2. Value & Completeness       | CONDITIONAL | Booking, discounts, packages, and payment history work; external automation still needs credentials. |
+| 3. Legal & Professional       | PASS        | Privacy, summary, payment, package, and cancellation language are aligned.                          |
 | 4. Independent ChatGPT Review | NOT RUN     | Run after the launch blockers are fixed.                                                           |
 | 5. Gemini Review              | NOT RUN     | Run after the launch blockers are fixed.                                                           |
 | 6. Perplexity/Market Review   | N/A         | This is a private service portal, not a public digital product listing.                            |
 
 ## Evidence
 
-- Portal tests: 5/5 pass.
-- Full repository tests: 21 pass, 2 fail, and 1 suite fails during setup for
+- Portal and webhook tests: 7/7 pass.
+- Full repository tests: 23 pass, 2 fail, and 1 suite fails during setup for
   pre-existing non-portal issues.
 - Production build: pass.
 - Type check: fails on a pre-existing `Services.tsx` union-type error.
-- Netlify preview checks: pass; pull request is clean and mergeable.
+- Netlify preview checks: pass. Essential internal and external links return
+  successfully; the journal article's expected trailing-slash redirect resolves
+  to 200.
 - Official Calendly docs confirm `invitee.created` and `invitee.canceled`
   webhook subscriptions and signing-key support.
 - Official Zoom docs confirm `meeting.summary_completed`, the meeting-summary
