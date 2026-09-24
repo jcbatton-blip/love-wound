@@ -209,19 +209,24 @@ function showDashboard(client) {
       new Date(appointment.endTime).getTime() >= Date.now()
   );
   const primary = document.querySelector("#next-session-primary");
-  const zoomLink = document.querySelector("#zoom-link");
+  const bookLink = document.querySelector("#office-book-link");
   const actions = document.querySelector("#appointment-actions");
   if (nextAppointment) {
+    document.querySelector("#next-session-eyebrow").textContent =
+      "Next session";
     document.querySelector("#next-session-heading").textContent =
       nextAppointment.title || "Private coaching session";
     document.querySelector("#next-session-copy").textContent =
-      `${formatAppointment(nextAppointment.startTime)} · one hour`;
+      `${formatAppointment(
+        nextAppointment.startTime
+      )} · one hour. When it’s time, Jeff will be here waiting for you.`;
     primary.href = nextAppointment.joinUrl || "/book";
     primary.target = nextAppointment.joinUrl ? "_blank" : "";
     primary.rel = nextAppointment.joinUrl ? "noopener noreferrer" : "";
     primary.innerHTML = nextAppointment.joinUrl
-      ? 'Join Zoom <span aria-hidden="true">↗</span>'
-      : 'View booking <span aria-hidden="true">→</span>';
+      ? 'Enter Jeff’s office <span aria-hidden="true">↗</span>'
+      : 'View your appointment <span aria-hidden="true">→</span>';
+    bookLink.hidden = false;
     actions.hidden = !(
       nextAppointment.rescheduleUrl || nextAppointment.cancelUrl
     );
@@ -231,24 +236,19 @@ function showDashboard(client) {
     cancel.hidden = !nextAppointment.cancelUrl;
     reschedule.href = nextAppointment.rescheduleUrl || "#";
     cancel.href = nextAppointment.cancelUrl || "#";
-    document.querySelector("#zoom-card-copy").textContent =
-      nextAppointment.joinUrl
-        ? "Your private Zoom room is ready for your scheduled session."
-        : "Your Zoom link will appear here when it is ready.";
-    zoomLink.href = nextAppointment.joinUrl || "/book";
-    zoomLink.textContent = nextAppointment.joinUrl
-      ? "Join Zoom ↗"
-      : "View booking →";
   } else {
     actions.hidden = true;
+    bookLink.hidden = true;
+    document.querySelector("#next-session-eyebrow").textContent =
+      "Jeff’s office";
     document.querySelector("#next-session-heading").textContent =
-      "Make space for the work.";
+      "A quiet place for the work.";
     document.querySelector("#next-session-copy").textContent =
-      "Sessions are one hour, with breathing room around them so the work never feels rushed.";
+      "Book your next one-hour session. There will be breathing room around it so the work never feels rushed.";
     primary.href = "/book";
-    primary.textContent = "Book a session →";
-    zoomLink.href = "/book";
-    zoomLink.textContent = "Book a session →";
+    primary.target = "";
+    primary.rel = "";
+    primary.textContent = "Book your next session →";
   }
 }
 

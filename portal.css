@@ -576,6 +576,18 @@ form .primary-button {
   border-color: var(--amber);
   color: var(--ink);
 }
+.office-book-link {
+  display: block;
+  margin-top: 18px;
+  color: var(--paper);
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+}
+.office-book-link:hover {
+  color: var(--amber-light);
+}
 .appointment-actions {
   display: flex;
   justify-content: center;
