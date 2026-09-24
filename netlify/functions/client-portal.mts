@@ -533,7 +533,7 @@ export default async (
         custom_text: {
           submit: {
             message:
-              "Your card is stored securely by Stripe, not by Jeff Batton Life Coaching. It may be charged only for your scheduled coaching sessions at your agreed rate under the cancellation terms you accepted.",
+              "Your card is stored securely by our payment processor, not by Jeff Batton Life Coaching. It may be charged only for your scheduled coaching sessions at your agreed rate under the cancellation terms you accepted.",
           },
         },
         setup_intent_data: {
@@ -544,7 +544,7 @@ export default async (
         cancel_url: `${origin}/client-portal?billing=canceled`,
       });
       if (!checkout.url) {
-        return json({ error: "Stripe checkout could not be opened." }, 502);
+        return json({ error: "Secure card setup could not be opened." }, 502);
       }
 
       client.stripeCustomerId = customerId;
@@ -566,7 +566,7 @@ export default async (
       const input = await body(request);
       const sessionId = cleanText(input.sessionId, 200, true);
       if (!/^cs_(?:test_|live_)?[A-Za-z0-9]+$/.test(sessionId)) {
-        return json({ error: "That Stripe confirmation is not valid." }, 400);
+        return json({ error: "That card confirmation is not valid." }, 400);
       }
 
       const stripe = new Stripe(env("STRIPE_SECRET_KEY"), {
@@ -585,7 +585,7 @@ export default async (
         checkoutCustomer !== client.stripeCustomerId
       ) {
         return json(
-          { error: "Stripe has not confirmed this card setup." },
+          { error: "The payment processor has not confirmed this card setup." },
           409
         );
       }

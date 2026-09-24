@@ -315,7 +315,7 @@ async function confirmBillingReturn() {
     return;
   }
   if (billing !== "saved" || !sessionId) return;
-  message.textContent = "Confirming your card with Stripe…";
+  message.textContent = "Confirming your card securely…";
   try {
     const data = await api("/billing/setup-status", {
       method: "POST",
@@ -328,7 +328,7 @@ async function confirmBillingReturn() {
     );
     message.textContent = data.billing?.cardSaved
       ? "Your card is ready for scheduled session charges."
-      : "Stripe could not confirm the saved card.";
+      : "The payment processor could not confirm the saved card.";
   } catch (error) {
     message.textContent = friendlyError(error);
   } finally {
@@ -475,7 +475,7 @@ document
       return;
     }
     button.disabled = true;
-    button.textContent = "Opening Stripe…";
+    button.textContent = "Opening secure payment…";
     message.textContent = "";
     try {
       const data = await api("/billing/setup", {
@@ -487,7 +487,7 @@ document
       message.textContent = friendlyError(error);
       button.disabled = false;
       button.innerHTML =
-        'Save a card with Stripe <span aria-hidden="true">→</span>';
+        'Save a card securely <span aria-hidden="true">→</span>';
     }
   });
 
