@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Book a Session · Jeff Batton</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Book individual coaching with Jeff Batton. 60 minutes on Zoom, $150. Payment arranged separately.">
+<meta name="description" content="Book and pay for individual coaching with Jeff Batton. 60 minutes on Zoom, $150.">
 <link rel="canonical" href="https://jeffbatton.com/book">
 <meta property="og:title" content="Book a Session · Jeff Batton">
 <meta property="og:description" content="Individual coaching with Jeff Batton. $150 for 60 minutes, one-to-one, by video.">
@@ -57,6 +57,34 @@
     color:var(--fg-2);max-width:540px;margin:0 auto;
   }
 
+  .booking-options{
+    max-width:900px;margin:18px auto 34px;padding:0 24px;
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;
+  }
+  .booking-option{
+    display:flex;flex-direction:column;align-items:flex-start;min-height:230px;
+    padding:28px;border:1px solid rgba(74,54,40,.18);border-radius:4px;
+    background:rgba(255,250,241,.74);box-shadow:0 18px 48px rgba(47,33,21,.07);
+  }
+  .booking-option.featured{background:var(--charcoal-950);color:var(--cream-50);border-color:var(--charcoal-950)}
+  .booking-option .option-label{
+    margin:0 0 12px;font-family:var(--font-body);font-size:10px;font-weight:600;
+    letter-spacing:.24em;text-transform:uppercase;color:var(--accent);
+  }
+  .booking-option.featured .option-label{color:var(--gold)}
+  .booking-option h2{margin:0 0 8px;font-family:var(--font-display);font-size:30px;font-weight:400;color:inherit}
+  .booking-option .price{margin:0 0 12px;font-family:var(--font-display);font-size:22px;color:var(--fg-1)}
+  .booking-option.featured .price{color:var(--cream-50)}
+  .booking-option .details{margin:0 0 22px;font-family:var(--font-body);font-size:14px;line-height:1.6;color:var(--fg-2)}
+  .booking-option.featured .details{color:var(--cream-200)}
+  .booking-option .option-link{
+    margin-top:auto;display:inline-flex;align-items:center;justify-content:center;min-height:46px;
+    padding:12px 18px;border:1px solid var(--accent);border-radius:2px;
+    font-family:var(--font-body);font-size:11px;font-weight:600;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--accent);text-decoration:none;
+  }
+  .booking-option.featured .option-link{background:var(--gold);border-color:var(--gold);color:var(--charcoal-950)}
+  .booking-option .option-link:hover{text-decoration:none;filter:brightness(.96)}
   .embed-wrap{
     max-width:1040px;margin:24px auto 72px;padding:0 16px;
   }
@@ -90,6 +118,10 @@
     footer.site{padding:36px 24px 24px}
     footer.site .rule{flex-direction:column;text-align:center}
   }
+  @media (max-width:640px){
+    .booking-options{grid-template-columns:1fr}
+    .booking-option{min-height:0}
+  }
 </style>
 <link rel="stylesheet" href="site-updates.css">
 <link rel="stylesheet" href="/support.css">
@@ -102,12 +134,26 @@
 <main id="main"><section class="intro">
   <div class="eyebrow">Book · individual coaching</div>
   <h1>Find a time. <em>We’ll talk.</em></h1>
-  <p>We’ll meet on Zoom for an hour. Individual sessions are $150. Choose a time for your paid session below. Payment is arranged separately; Calendly will not charge you.</p>
+  <p>We’ll meet on Zoom for an hour. Individual sessions are $150. Choose your time and pay securely by card to complete your booking. A receipt will be emailed to you automatically.</p>
 </section>
-<p style="max-width:640px;margin:0 auto 24px;padding:0 24px">Want to meet first? <a href="/contact?interest=discovery">Request a free discovery call</a>. The calendar below is for a $150 coaching session.</p>
-
+<section class="booking-options" aria-label="Choose how you would like to book">
+  <article class="booking-option">
+    <p class="option-label">One conversation</p>
+    <h2>Single session</h2>
+    <p class="price">$150 · one hour</p>
+    <p class="details">Choose a time below and pay securely when you book.</p>
+    <a class="option-link" href="#single-session-calendar">Book a session <span aria-hidden="true">↓</span></a>
+  </article>
+  <article class="booking-option featured">
+    <p class="option-label">Save 10% · $60</p>
+    <h2>Four-session package</h2>
+    <p class="price">$540 · $135 each</p>
+    <p class="details">Purchase four sessions together, then schedule them over time at your own pace.</p>
+    <a class="option-link" href="https://calendly.com/jcbatton/packages/fc741730-9e56-45e6-88ad-b69273850370">Purchase four sessions <span aria-hidden="true">→</span></a>
+  </article>
+</section>
 <p style="max-width:640px;margin:0 auto;padding:0 24px;font-size:14px">Cancel or reschedule by 11:59 p.m. Eastern Time the day before your appointment. After that deadline, or for a missed session, the session fee applies. If already paid, it is retained rather than charged again. <a href="/terms">Read the session terms</a>.</p>
-<section class="embed-wrap">
+<section class="embed-wrap" id="single-session-calendar" aria-label="Single-session calendar">
   <div class="calendly-inline-widget"
        data-url="https://calendly.com/jcbatton/let-s-talk"
        style="min-width:0;height:780px;"></div>
