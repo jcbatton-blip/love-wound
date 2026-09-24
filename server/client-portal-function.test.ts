@@ -19,8 +19,18 @@ const store = {
   },
 };
 
-const { mockGetUser } = vi.hoisted(() => ({
+const {
+  mockGetUser,
+  mockCustomerList,
+  mockCustomerCreate,
+  mockCheckoutCreate,
+  mockCheckoutRetrieve,
+} = vi.hoisted(() => ({
   mockGetUser: vi.fn(),
+  mockCustomerList: vi.fn(),
+  mockCustomerCreate: vi.fn(),
+  mockCheckoutCreate: vi.fn(),
+  mockCheckoutRetrieve: vi.fn(),
 }));
 
 vi.mock("@netlify/blobs", () => ({
@@ -30,6 +40,18 @@ vi.mock("@netlify/blobs", () => ({
 
 vi.mock("@netlify/identity", () => ({
   getUser: mockGetUser,
+}));
+
+vi.mock("stripe", () => ({
+  default: class StripeMock {
+    customers = { list: mockCustomerList, create: mockCustomerCreate };
+    checkout = {
+      sessions: {
+        create: mockCheckoutCreate,
+        retrieve: mockCheckoutRetrieve,
+      },
+    };
+  },
 }));
 
 import portalHandler from "../netlify/functions/client-portal.mts";
@@ -59,6 +81,16 @@ beforeEach(() => {
   records.clear();
   mockGetUser.mockReset();
   mockGetUser.mockResolvedValue(null);
+  mockCustomerCreate.mockReset();
+  mockCustomerCreate.mockResolvedValue({ id: "cus_test123" });
+  mockCustomerList.mockReset();
+  mockCustomerList.mockResolvedValue({ data: [] });
+  mockCheckoutCreate.mockReset();
+  mockCheckoutCreate.mockResolvedValue({
+    id: "cs_test_saved123",
+    url: "https://checkout.stripe.com/c/pay/test-session",
+  });
+  mockCheckoutRetrieve.mockReset();
   Object.assign(globalThis, {
     Netlify: {
       env: {
@@ -67,6 +99,7 @@ beforeEach(() => {
             PORTAL_SESSION_SECRET:
               "a-secure-test-secret-that-is-longer-than-32-characters",
             PORTAL_ADMIN_PASSWORD: "test-admin-password",
+            STRIPE_SECRET_KEY: "sk_test_portal",
           })[key],
       },
       context: { deploy: { context: "production" } },
@@ -208,5 +241,68 @@ describe("private client portal", () => {
 
     const adminAttempt = await call("/admin/clients");
     expect(adminAttempt.status).toBe(401);
+  });
+
+  it("saves a card only after explicit consent and Stripe confirmation", async () => {
+    mockGetUser.mockResolvedValue({
+      id: "identity-user-card",
+      email: "card@example.com",
+      name: "Card Example",
+      confirmedAt: "2026-09-24T10:00:00.000Z",
+    });
+
+    const setup = await call("/onboard", {
+      method: "POST",
+      body: JSON.stringify({
+        name: "Card Example",
+        preferredName: "Card",
+        focus: "",
+      }),
+    });
+    expect(setup.status).toBe(201);
+    const clientId = (await setup.json()).client.id;
+
+    const withoutConsent = await call("/billing/setup", {
+      method: "POST",
+      body: JSON.stringify({ consent: false }),
+    });
+    expect(withoutConsent.status).toBe(400);
+    expect(mockCustomerCreate).not.toHaveBeenCalled();
+
+    const checkout = await call("/billing/setup", {
+      method: "POST",
+      body: JSON.stringify({ consent: true }),
+    });
+    expect(checkout.status).toBe(200);
+    await expect(checkout.json()).resolves.toEqual({
+      url: "https://checkout.stripe.com/c/pay/test-session",
+    });
+    expect(mockCheckoutCreate).toHaveBeenCalledWith(
+      expect.objectContaining({
+        mode: "setup",
+        customer: "cus_test123",
+        client_reference_id: clientId,
+      })
+    );
+
+    mockCheckoutRetrieve.mockResolvedValue({
+      mode: "setup",
+      status: "complete",
+      client_reference_id: clientId,
+      customer: "cus_test123",
+    });
+    const confirmed = await call("/billing/setup-status", {
+      method: "POST",
+      body: JSON.stringify({ sessionId: "cs_test_saved123" }),
+    });
+    expect(confirmed.status).toBe(200);
+    await expect(confirmed.json()).resolves.toEqual({
+      billing: { cardSaved: true },
+    });
+
+    const session = await call("/session");
+    const sessionBody = await session.json();
+    expect(sessionBody.client.billing).toEqual({ cardSaved: true });
+    expect(JSON.stringify(sessionBody)).not.toContain("cus_test123");
   });
 });

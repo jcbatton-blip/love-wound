@@ -34,6 +34,9 @@ correct client profile.
   completed client-portal example.
 - Payments and receipt links are stored from Calendly/Stripe and shown in the
   client portal.
+- Signed-in clients can explicitly authorize and save a card through
+  Stripe-hosted Checkout. The site stores only the Stripe customer reference
+  and authorization status, never card numbers.
 - The current deploy preview has no browser console errors, duplicate IDs, or
   visible action links without destinations.
 
@@ -59,9 +62,9 @@ correct client profile.
    webhooks, or pending nugget sources.
 8. A real end-to-end test has not yet been run from booking through completed
     Zoom summary to the correct test client profile.
-9. Recurring legacy clients who are already on the calendar still need a
-   separate day-of collection workflow; the codes apply to appointments they
-   book themselves and collect payment at checkout.
+9. Recurring clients can now save a card with explicit authorization, but the
+   automatic day-of charge scheduler and failed-payment follow-up are not yet
+   implemented. Codes still apply only to appointments booked through Calendly.
 
 ## Non-blocking cleanup
 
@@ -89,7 +92,7 @@ correct client profile.
 
 ## Evidence
 
-- Portal and webhook tests: 7/7 pass.
+- Portal and webhook tests: 8/8 pass.
 - Full repository tests: 23 pass, 2 fail, and 1 suite fails during setup for
   pre-existing non-portal issues.
 - Production build: pass.

@@ -2,6 +2,7 @@ import { createHmac, randomUUID, timingSafeEqual } from "node:crypto";
 import { getDeployStore, getStore, type Store } from "@netlify/blobs";
 import { getUser, type User } from "@netlify/identity";
 import type { Config, Context } from "@netlify/functions";
+import Stripe from "stripe";
 
 type SummaryStatus = "draft" | "published";
 type ClientStatus = "active" | "paused";
@@ -45,6 +46,13 @@ type PaymentRecord = {
   updatedAt: string;
 };
 
+type BillingAuthorization = {
+  status: "pending" | "active";
+  acceptedAt: string;
+  setupCompletedAt?: string;
+  termsVersion: "2026-09-24";
+};
+
 type ClientRecord = {
   version: 1 | 2;
   id: string;
@@ -58,6 +66,8 @@ type ClientRecord = {
   accessCodeHash?: string;
   appointments?: Appointment[];
   payments?: PaymentRecord[];
+  stripeCustomerId?: string;
+  billingAuthorization?: BillingAuthorization;
   summaries: SessionSummary[];
   createdAt: string;
   updatedAt: string;
@@ -250,6 +260,9 @@ function publicClient(client: ClientRecord) {
           ...payment
         }) => payment
       ),
+    billing: {
+      cardSaved: client.billingAuthorization?.status === "active",
+    },
     summaries: client.summaries
       .filter(summary => summary.status === "published")
       .sort((a, b) => b.sessionDate.localeCompare(a.sessionDate))
@@ -258,7 +271,12 @@ function publicClient(client: ClientRecord) {
 }
 
 function adminClient(client: ClientRecord) {
-  const { accessCodeHash: _accessCodeHash, identityUserId, ...safe } = client;
+  const {
+    accessCodeHash: _accessCodeHash,
+    identityUserId,
+    stripeCustomerId: _stripeCustomerId,
+    ...safe
+  } = client;
   return {
     ...safe,
     accountLinked: Boolean(identityUserId),
@@ -467,6 +485,121 @@ export default async (
 
       await saveClient(store, client);
       return json({ role: "client", client: publicClient(client) }, 201);
+    }
+
+    if (method === "POST" && path === "/billing/setup") {
+      const user = await getUser();
+      if (!user?.email) return unauthorized();
+      const client = await findClientForUser(store, user);
+      if (!client || client.status !== "active") return forbidden();
+      const input = await body(request);
+      if (input.consent !== true) {
+        return json(
+          { error: "Please authorize secure card storage before continuing." },
+          400
+        );
+      }
+
+      const stripe = new Stripe(env("STRIPE_SECRET_KEY"), {
+        apiVersion: "2025-11-17.clover",
+      });
+      let customerId = client.stripeCustomerId;
+      if (!customerId) {
+        const existingCustomers = await stripe.customers.list({
+          email: client.email,
+          limit: 1,
+        });
+        customerId = existingCustomers.data[0]?.id;
+        if (!customerId) {
+          const customer = await stripe.customers.create({
+            email: client.email,
+            name: client.name,
+            metadata: { portalClientId: client.id },
+          });
+          customerId = customer.id;
+        }
+      }
+
+      const origin = new URL(request.url).origin;
+      const checkout = await stripe.checkout.sessions.create({
+        mode: "setup",
+        currency: "usd",
+        customer: customerId,
+        client_reference_id: client.id,
+        payment_method_types: ["card"],
+        consent_collection: {
+          payment_method_reuse_agreement: { position: "auto" },
+        },
+        custom_text: {
+          submit: {
+            message:
+              "Your card is stored securely by Stripe, not by Jeff Batton Life Coaching. It may be charged only for your scheduled coaching sessions at your agreed rate under the cancellation terms you accepted.",
+          },
+        },
+        setup_intent_data: {
+          description: "Card saved for scheduled coaching sessions",
+          metadata: { portalClientId: client.id },
+        },
+        success_url: `${origin}/client-portal?billing=saved&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${origin}/client-portal?billing=canceled`,
+      });
+      if (!checkout.url) {
+        return json({ error: "Stripe checkout could not be opened." }, 502);
+      }
+
+      client.stripeCustomerId = customerId;
+      client.billingAuthorization = {
+        status: "pending",
+        acceptedAt: new Date().toISOString(),
+        termsVersion: "2026-09-24",
+      };
+      client.updatedAt = new Date().toISOString();
+      await saveClient(store, client);
+      return json({ url: checkout.url });
+    }
+
+    if (method === "POST" && path === "/billing/setup-status") {
+      const user = await getUser();
+      if (!user?.email) return unauthorized();
+      const client = await findClientForUser(store, user);
+      if (!client || client.status !== "active") return forbidden();
+      const input = await body(request);
+      const sessionId = cleanText(input.sessionId, 200, true);
+      if (!/^cs_(?:test_|live_)?[A-Za-z0-9]+$/.test(sessionId)) {
+        return json({ error: "That Stripe confirmation is not valid." }, 400);
+      }
+
+      const stripe = new Stripe(env("STRIPE_SECRET_KEY"), {
+        apiVersion: "2025-11-17.clover",
+      });
+      const checkout = await stripe.checkout.sessions.retrieve(sessionId);
+      const checkoutCustomer =
+        typeof checkout.customer === "string"
+          ? checkout.customer
+          : checkout.customer?.id;
+      if (
+        checkout.mode !== "setup" ||
+        checkout.status !== "complete" ||
+        checkout.client_reference_id !== client.id ||
+        !client.stripeCustomerId ||
+        checkoutCustomer !== client.stripeCustomerId
+      ) {
+        return json(
+          { error: "Stripe has not confirmed this card setup." },
+          409
+        );
+      }
+
+      const now = new Date().toISOString();
+      client.billingAuthorization = {
+        status: "active",
+        acceptedAt: client.billingAuthorization?.acceptedAt ?? now,
+        setupCompletedAt: now,
+        termsVersion: "2026-09-24",
+      };
+      client.updatedAt = now;
+      await saveClient(store, client);
+      return json({ billing: { cardSaved: true } });
     }
 
     if (!adminSession) return unauthorized();

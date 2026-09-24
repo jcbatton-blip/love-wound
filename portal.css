@@ -668,6 +668,81 @@ form .primary-button {
   font-size: 0.78rem;
   text-underline-offset: 4px;
 }
+.billing-method {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.save-card-form h4 {
+  margin: 0 0 8px;
+  font-family: var(--serif-display);
+  font-size: 1.02rem;
+  font-weight: 500;
+}
+.save-card-form > p {
+  margin: 0 0 14px;
+  font-size: 0.74rem;
+  line-height: 1.55;
+}
+.billing-consent {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+.billing-consent input {
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--copper);
+}
+.billing-consent a {
+  color: var(--copper);
+  text-underline-offset: 3px;
+}
+.save-card-form .secondary-button {
+  width: 100%;
+  margin-top: 15px;
+  font-size: 0.75rem;
+}
+.saved-card-status {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid rgba(169, 95, 56, 0.28);
+  background: rgba(169, 95, 56, 0.07);
+}
+.saved-card-status[hidden] {
+  display: none;
+}
+.saved-card-status > span {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--copper);
+  color: var(--paper);
+  font-size: 0.8rem;
+}
+.saved-card-status p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+.saved-card-status strong {
+  color: var(--ink);
+  font-size: 0.78rem;
+}
+.billing-message {
+  margin: 10px 0 0 !important;
+}
 .portal-footer {
   position: relative;
   z-index: 1;

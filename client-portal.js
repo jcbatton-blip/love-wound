@@ -42,6 +42,7 @@ const DEMO_CLIENT = {
       paidAt: "2026-09-18T18:00:00.000Z",
     },
   ],
+  billing: { cardSaved: true },
   summaries: [
     {
       sessionDate: "2026-09-18",
@@ -240,6 +241,10 @@ function showDashboard(client) {
     ? `${payments.map(paymentMarkup).join("")}<p class="billing-note">Receipts are also sent to the email used when booking.</p>`
     : `<div class="billing-empty"><p>Your paid sessions and receipt links will appear here automatically after booking.</p><a href="/book">Book and pay for a session <span aria-hidden="true">→</span></a></div>`;
 
+  const cardSaved = Boolean(client.billing?.cardSaved);
+  document.querySelector("#saved-card-status").hidden = !cardSaved;
+  document.querySelector("#save-card-form").hidden = cardSaved;
+
   const nextAppointment = (client.appointments || []).find(
     appointment =>
       appointment.status === "active" &&
@@ -292,8 +297,43 @@ function showDashboard(client) {
 async function openPortal() {
   const data = await api("/session");
   if (data.needsProfile) showOnboarding(data.user);
-  else if (data.role === "client") showDashboard(data.client);
-  else showAccess();
+  else if (data.role === "client") {
+    showDashboard(data.client);
+    await confirmBillingReturn();
+  } else showAccess();
+}
+
+async function confirmBillingReturn() {
+  const params = new URLSearchParams(location.search);
+  const billing = params.get("billing");
+  const sessionId = params.get("session_id");
+  if (!billing) return;
+  const message = document.querySelector("#billing-message");
+  if (billing === "canceled") {
+    message.textContent = "No card was saved.";
+    history.replaceState(null, "", location.pathname);
+    return;
+  }
+  if (billing !== "saved" || !sessionId) return;
+  message.textContent = "Confirming your card with Stripe…";
+  try {
+    const data = await api("/billing/setup-status", {
+      method: "POST",
+      body: JSON.stringify({ sessionId }),
+    });
+    document.querySelector("#saved-card-status").hidden =
+      !data.billing?.cardSaved;
+    document.querySelector("#save-card-form").hidden = Boolean(
+      data.billing?.cardSaved
+    );
+    message.textContent = data.billing?.cardSaved
+      ? "Your card is ready for scheduled session charges."
+      : "Stripe could not confirm the saved card.";
+  } catch (error) {
+    message.textContent = friendlyError(error);
+  } finally {
+    history.replaceState(null, "", location.pathname);
+  }
 }
 
 async function withBusyButton(form, busyText, action) {
@@ -419,6 +459,35 @@ document
       message.textContent = friendlyError(error);
     } finally {
       button.disabled = false;
+    }
+  });
+
+document
+  .querySelector("#save-card-form")
+  .addEventListener("submit", async event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const button = form.querySelector('button[type="submit"]');
+    const message = document.querySelector("#billing-message");
+    if (demoMode) {
+      message.textContent =
+        "This is an example. No card information was requested.";
+      return;
+    }
+    button.disabled = true;
+    button.textContent = "Opening Stripe…";
+    message.textContent = "";
+    try {
+      const data = await api("/billing/setup", {
+        method: "POST",
+        body: JSON.stringify({ consent: form.elements.consent.checked }),
+      });
+      location.assign(data.url);
+    } catch (error) {
+      message.textContent = friendlyError(error);
+      button.disabled = false;
+      button.innerHTML =
+        'Save a card with Stripe <span aria-hidden="true">→</span>';
     }
   });
 

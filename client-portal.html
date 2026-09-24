@@ -311,6 +311,22 @@
               <p class="eyebrow">Secure billing</p>
               <h3>Payments & receipts</h3>
               <div id="payment-list"></div>
+              <div class="billing-method">
+                <div class="saved-card-status" id="saved-card-status" hidden>
+                  <span aria-hidden="true">✓</span>
+                  <p><strong>Card saved securely with Stripe</strong><br />Ready for scheduled session charges.</p>
+                </div>
+                <form class="save-card-form" id="save-card-form">
+                  <h4>Keep a card on file</h4>
+                  <p>Stripe stores the card securely. This website never receives or keeps your card number.</p>
+                  <label class="billing-consent">
+                    <input type="checkbox" name="consent" required />
+                    <span>I authorize charges on the day of my scheduled coaching sessions at my agreed rate, subject to the <a href="/terms" target="_blank" rel="noopener noreferrer">session terms</a>.</span>
+                  </label>
+                  <button class="secondary-button" type="submit">Save a card with Stripe <span aria-hidden="true">→</span></button>
+                </form>
+                <p class="form-message billing-message" id="billing-message" role="status"></p>
+              </div>
             </div>
           </aside>
         </div>
