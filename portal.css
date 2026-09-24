@@ -577,16 +577,18 @@ form .primary-button {
   color: var(--ink);
 }
 .office-book-link {
-  display: block;
   margin-top: 18px;
   color: var(--paper);
-  text-align: center;
-  font-size: 0.78rem;
-  letter-spacing: 0.03em;
-  text-decoration: none;
+  border-color: rgba(255, 250, 241, 0.48);
+  background: rgba(255, 250, 241, 0.06);
+  font-size: 0.82rem;
+  letter-spacing: 0.025em;
 }
-.office-book-link:hover {
-  color: var(--amber-light);
+.office-book-link:hover,
+.office-book-link:focus-visible {
+  color: var(--midnight);
+  border-color: var(--paper);
+  background: var(--paper);
 }
 .appointment-actions {
   display: flex;
