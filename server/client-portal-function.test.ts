@@ -160,6 +160,24 @@ describe("private client portal", () => {
     });
     expect(published.status).toBe(201);
 
+    const storedClient = structuredClone(
+      records.get(`clients/${clientId}`)
+    ) as Record<string, any>;
+    storedClient.payments = [
+      {
+        id: "ch_private-stripe-id",
+        appointmentId: "invitee-1",
+        description: "Private coaching session",
+        amount: 150,
+        currency: "USD",
+        status: "paid",
+        paidAt: "2026-09-15T16:00:00.000Z",
+        receiptUrl: "https://pay.stripe.com/receipts/payment/example",
+        updatedAt: "2026-09-15T16:00:00.000Z",
+      },
+    ];
+    records.set(`clients/${clientId}`, storedClient);
+
     mockGetUser.mockResolvedValue({
       id: "identity-user-1",
       email: "avery@example.com",
@@ -174,8 +192,19 @@ describe("private client portal", () => {
     expect(clientBody.client.summaries[0].title).toBe(
       "Choosing the steadier response"
     );
+    expect(clientBody.client.payments).toEqual([
+      {
+        description: "Private coaching session",
+        amount: 150,
+        currency: "USD",
+        status: "paid",
+        paidAt: "2026-09-15T16:00:00.000Z",
+        receiptUrl: "https://pay.stripe.com/receipts/payment/example",
+      },
+    ]);
     expect(JSON.stringify(clientBody)).not.toContain("Jeff-only hold");
     expect(JSON.stringify(clientBody)).not.toContain("identityUserId");
+    expect(JSON.stringify(clientBody)).not.toContain("ch_private-stripe-id");
 
     const adminAttempt = await call("/admin/clients");
     expect(adminAttempt.status).toBe(401);

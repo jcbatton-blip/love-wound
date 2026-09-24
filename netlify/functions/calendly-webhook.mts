@@ -1,11 +1,13 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 import type { Config, Context } from "@netlify/functions";
+import Stripe from "stripe";
 import {
   ensureClientForBooking,
   portalStore,
   runtimeEnv,
   saveClient,
   type Appointment,
+  type PaymentRecord,
 } from "./_portal-integrations.mts";
 
 function json(data: unknown, status = 200): Response {
@@ -52,6 +54,70 @@ async function scheduledEvent(uri: string): Promise<Record<string, any>> {
   if (!response.ok) throw new Error("Calendly event details were unavailable.");
   const data = (await response.json()) as { resource?: Record<string, any> };
   return data.resource ?? {};
+}
+
+function safeReceiptUrl(value: unknown): string | undefined {
+  if (typeof value !== "string" || !value) return undefined;
+  try {
+    const url = new URL(value);
+    if (
+      url.protocol !== "https:" ||
+      !(url.hostname === "stripe.com" || url.hostname.endsWith(".stripe.com"))
+    ) {
+      return undefined;
+    }
+    return url.toString();
+  } catch {
+    return undefined;
+  }
+}
+
+async function stripeReceiptUrl(
+  externalId: string
+): Promise<string | undefined> {
+  if (!externalId) return undefined;
+  const stripe = new Stripe(runtimeEnv("STRIPE_SECRET_KEY"), {
+    apiVersion: "2025-11-17.clover",
+  });
+  if (externalId.startsWith("ch_")) {
+    const charge = await stripe.charges.retrieve(externalId);
+    return "deleted" in charge ? undefined : safeReceiptUrl(charge.receipt_url);
+  }
+  if (externalId.startsWith("pi_")) {
+    const intent = await stripe.paymentIntents.retrieve(externalId, {
+      expand: ["latest_charge"],
+    });
+    const charge = intent.latest_charge;
+    if (charge && typeof charge !== "string" && !("deleted" in charge)) {
+      return safeReceiptUrl(charge.receipt_url);
+    }
+  }
+  return undefined;
+}
+
+export function paymentFromCalendly(
+  value: unknown,
+  appointment: Appointment,
+  paidAt: string,
+  receiptUrl?: string
+): PaymentRecord | null {
+  if (!value || typeof value !== "object") return null;
+  const payment = value as Record<string, unknown>;
+  if (payment.successful !== true || payment.provider !== "stripe") return null;
+  const externalId = String(payment.external_id ?? "").trim();
+  const amount = Number(payment.amount);
+  if (!externalId || !Number.isFinite(amount) || amount < 0) return null;
+  return {
+    id: externalId,
+    appointmentId: appointment.id,
+    description: appointment.title || "Private coaching session",
+    amount,
+    currency: String(payment.currency ?? "USD").toUpperCase(),
+    status: "paid",
+    paidAt,
+    receiptUrl: safeReceiptUrl(receiptUrl),
+    updatedAt: new Date().toISOString(),
+  };
 }
 
 export default async (
@@ -111,6 +177,22 @@ export default async (
       updatedAt: now,
     };
 
+    let payment = paymentFromCalendly(
+      payload.payment,
+      appointment,
+      String(payload.created_at ?? now)
+    );
+    if (payment && !payment.receiptUrl) {
+      try {
+        payment = {
+          ...payment,
+          receiptUrl: await stripeReceiptUrl(payment.id),
+        };
+      } catch (error) {
+        console.warn("[Calendly webhook] Stripe receipt lookup failed", error);
+      }
+    }
+
     const store = portalStore();
     const client = await ensureClientForBooking(
       store,
@@ -121,6 +203,14 @@ export default async (
     const existingIndex = client.appointments.findIndex(item => item.id === id);
     if (existingIndex >= 0) client.appointments[existingIndex] = appointment;
     else client.appointments.push(appointment);
+    if (payment) {
+      client.payments ??= [];
+      const paymentIndex = client.payments.findIndex(
+        item => item.id === payment.id
+      );
+      if (paymentIndex >= 0) client.payments[paymentIndex] = payment;
+      else client.payments.push(payment);
+    }
     client.updatedAt = now;
     await saveClient(store, client);
     return json({ received: true });

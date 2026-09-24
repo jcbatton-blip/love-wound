@@ -605,9 +605,54 @@ form .primary-button {
 .compact-card {
   box-shadow: none;
 }
-.future-card {
-  border-style: dashed;
-  background: rgba(255, 250, 241, 0.42);
+.billing-card {
+  background: rgba(255, 250, 241, 0.72);
+}
+.payment-row {
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: start;
+}
+.payment-row:last-of-type {
+  border-bottom: 1px solid var(--line);
+}
+.payment-row strong,
+.payment-row span,
+.payment-row a {
+  display: block;
+}
+.payment-row strong {
+  color: var(--ink);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+.payment-row span,
+.payment-row a {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+.payment-row a {
+  color: var(--copper);
+  text-underline-offset: 3px;
+}
+.payment-amount {
+  text-align: right;
+}
+.billing-card .billing-note {
+  margin: 14px 0 0;
+  font-size: 0.72rem;
+}
+.billing-empty p {
+  margin-bottom: 12px;
+}
+.billing-empty a {
+  color: var(--copper);
+  font-size: 0.78rem;
+  text-underline-offset: 4px;
 }
 .portal-footer {
   position: relative;

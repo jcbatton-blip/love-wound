@@ -33,6 +33,18 @@ type Appointment = {
   updatedAt: string;
 };
 
+type PaymentRecord = {
+  id: string;
+  appointmentId: string;
+  description: string;
+  amount: number;
+  currency: string;
+  status: "paid" | "refunded";
+  paidAt: string;
+  receiptUrl?: string;
+  updatedAt: string;
+};
+
 type ClientRecord = {
   version: 1 | 2;
   id: string;
@@ -45,6 +57,7 @@ type ClientRecord = {
   status: ClientStatus;
   accessCodeHash?: string;
   appointments?: Appointment[];
+  payments?: PaymentRecord[];
   summaries: SessionSummary[];
   createdAt: string;
   updatedAt: string;
@@ -225,6 +238,17 @@ function publicClient(client: ClientRecord) {
           eventUri: _eventUri,
           ...appointment
         }) => appointment
+      ),
+    payments: (client.payments ?? [])
+      .filter(payment => payment.status === "paid")
+      .sort((a, b) => b.paidAt.localeCompare(a.paidAt))
+      .map(
+        ({
+          id: _id,
+          appointmentId: _appointmentId,
+          updatedAt: _updatedAt,
+          ...payment
+        }) => payment
       ),
     summaries: client.summaries
       .filter(summary => summary.status === "published")
@@ -431,6 +455,7 @@ export default async (
           memberSince: now.slice(0, 10),
           status: "active",
           appointments: [],
+          payments: [],
           summaries: [],
           createdAt: now,
           updatedAt: now,
@@ -492,6 +517,7 @@ export default async (
         memberSince,
         status: "active",
         appointments: [],
+        payments: [],
         summaries: [],
         createdAt: now,
         updatedAt: now,

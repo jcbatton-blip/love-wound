@@ -1,6 +1,7 @@
 import { createHmac } from "node:crypto";
 import { describe, expect, it } from "vitest";
 import { verifyCalendlySignature } from "../netlify/functions/calendly-webhook.mts";
+import { paymentFromCalendly } from "../netlify/functions/calendly-webhook.mts";
 import { verifyZoomSignature } from "../netlify/functions/zoom-webhook.mts";
 
 describe("portal integration webhook security", () => {
@@ -52,5 +53,62 @@ describe("portal integration webhook security", () => {
         now + 6 * 60 * 1000
       )
     ).toBe(false);
+  });
+});
+
+describe("Calendly payment records", () => {
+  it("turns a successful Stripe payment into a client receipt record", () => {
+    const record = paymentFromCalendly(
+      {
+        external_id: "ch_paid-session",
+        provider: "stripe",
+        amount: 150,
+        currency: "USD",
+        successful: true,
+      },
+      {
+        id: "invitee-1",
+        eventUri: "event-1",
+        title: "Private coaching session",
+        startTime: "2026-09-24T17:00:00Z",
+        endTime: "2026-09-24T18:00:00Z",
+        status: "active",
+        cancelUrl: "",
+        rescheduleUrl: "",
+        updatedAt: "2026-09-24T16:00:00Z",
+      },
+      "2026-09-24T16:00:00Z",
+      "https://pay.stripe.com/receipts/payment/example"
+    );
+
+    expect(record).toMatchObject({
+      id: "ch_paid-session",
+      appointmentId: "invitee-1",
+      amount: 150,
+      currency: "USD",
+      status: "paid",
+      receiptUrl: "https://pay.stripe.com/receipts/payment/example",
+    });
+  });
+
+  it("does not create a record for unsuccessful payment data", () => {
+    const appointment = {
+      id: "invitee-1",
+      eventUri: "event-1",
+      title: "Private coaching session",
+      startTime: "2026-09-24T17:00:00Z",
+      endTime: "2026-09-24T18:00:00Z",
+      status: "active" as const,
+      cancelUrl: "",
+      rescheduleUrl: "",
+      updatedAt: "2026-09-24T16:00:00Z",
+    };
+    expect(
+      paymentFromCalendly(
+        { provider: "stripe", amount: 150, successful: false },
+        appointment,
+        "2026-09-24T16:00:00Z"
+      )
+    ).toBeNull();
   });
 });

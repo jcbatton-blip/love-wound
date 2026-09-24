@@ -15,6 +15,18 @@ export type Appointment = {
   updatedAt: string;
 };
 
+export type PaymentRecord = {
+  id: string;
+  appointmentId: string;
+  description: string;
+  amount: number;
+  currency: string;
+  status: "paid" | "refunded";
+  paidAt: string;
+  receiptUrl?: string;
+  updatedAt: string;
+};
+
 export type IntegrationClient = {
   version: 1 | 2;
   id: string;
@@ -27,6 +39,7 @@ export type IntegrationClient = {
   status: "active" | "paused";
   accessCodeHash?: string;
   appointments?: Appointment[];
+  payments?: PaymentRecord[];
   summaries: Array<Record<string, unknown>>;
   createdAt: string;
   updatedAt: string;
@@ -107,6 +120,7 @@ export async function ensureClientForBooking(
     memberSince: now.slice(0, 10),
     status: "active",
     appointments: [],
+    payments: [],
     summaries: [],
     createdAt: now,
     updatedAt: now,

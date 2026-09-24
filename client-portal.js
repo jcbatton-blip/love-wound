@@ -33,6 +33,15 @@ const DEMO_CLIENT = {
       joinUrl: "https://zoom.us/j/123456789",
     },
   ],
+  payments: [
+    {
+      description: "Private coaching session",
+      amount: 150,
+      currency: "USD",
+      status: "paid",
+      paidAt: "2026-09-18T18:00:00.000Z",
+    },
+  ],
   summaries: [
     {
       sessionDate: "2026-09-18",
@@ -160,6 +169,29 @@ function formatAppointment(date) {
   }).format(new Date(date));
 }
 
+function formatMoney(amount, currency = "USD") {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency,
+  }).format(amount);
+}
+
+function paymentMarkup(payment) {
+  const receipt = payment.receiptUrl
+    ? `<a href="${escapeHtml(payment.receiptUrl)}" target="_blank" rel="noopener noreferrer">View receipt <span aria-hidden="true">↗</span></a>`
+    : `<span>Receipt emailed</span>`;
+  return `<div class="payment-row">
+    <div>
+      <strong>${escapeHtml(payment.description || "Private coaching session")}</strong>
+      <span>${escapeHtml(formatDate(String(payment.paidAt).slice(0, 10)))}</span>
+    </div>
+    <div class="payment-amount">
+      <strong>${escapeHtml(formatMoney(payment.amount, payment.currency))}</strong>
+      ${receipt}
+    </div>
+  </div>`;
+}
+
 function listMarkup(items) {
   if (!items?.length) return "";
   return `<ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
@@ -202,6 +234,11 @@ function showDashboard(client) {
   document.querySelector("#summary-list").innerHTML = count
     ? client.summaries.map(summaryMarkup).join("")
     : `<div class="empty-state"><h3>Your summaries will appear here.</h3><p>After each session, a dated, client-facing summary can be added automatically so you can return to what mattered without searching through notes.</p></div>`;
+
+  const payments = client.payments || [];
+  document.querySelector("#payment-list").innerHTML = payments.length
+    ? `${payments.map(paymentMarkup).join("")}<p class="billing-note">Receipts are also sent to the email used when booking.</p>`
+    : `<div class="billing-empty"><p>Your paid sessions and receipt links will appear here automatically after booking.</p><a href="/book">Book and pay for a session <span aria-hidden="true">→</span></a></div>`;
 
   const nextAppointment = (client.appointments || []).find(
     appointment =>
