@@ -576,6 +576,20 @@ form .primary-button {
   border-color: var(--amber);
   color: var(--ink);
 }
+.package-link {
+  display: block;
+  margin-top: 16px;
+  color: var(--paper);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.package-link:hover,
+.package-link:focus-visible {
+  color: var(--amber-light);
+}
 .office-book-link {
   margin-top: 18px;
   color: var(--paper);
