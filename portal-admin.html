@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Client Portal Admin — Jeff Batton</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/portal.css" />
+    <script src="/portal-admin.js" defer></script>
+  </head>
+  <body>
+    <header class="portal-nav">
+      <a class="brand" href="/" aria-label="Jeff Batton home"
+        ><img src="/assets/monogram.svg" alt="" width="42" height="42" /><span
+          >Jeff Batton</span
+        ></a
+      >
+      <div class="nav-actions">
+        <span class="privacy-mark"
+          ><span aria-hidden="true">●</span> Jeff-only workspace</span
+        ><button class="text-button" id="admin-logout" hidden>Sign out</button>
+      </div>
+    </header>
+    <main>
+      <section class="portal-loading" id="admin-loading" aria-live="polite">
+        <div class="loading-mark" aria-hidden="true"></div>
+        <p>Opening client workspace…</p>
+      </section>
+      <section class="admin-login" id="admin-login-view" hidden>
+        <div class="access-card reveal">
+          <p class="eyebrow">Jeff-only workspace</p>
+          <h2>Client portal admin</h2>
+          <p>Sign in to manage client profiles and session summaries.</p>
+          <form id="admin-login-form">
+            <label for="admin-password">Admin password</label
+            ><input
+              id="admin-password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            /><button class="primary-button" type="submit">
+              Sign in <span aria-hidden="true">→</span>
+            </button>
+          </form>
+          <p class="form-message" id="admin-login-message" role="status"></p>
+        </div>
+      </section>
+      <section class="admin-shell" id="admin-view" hidden>
+        <div class="admin-heading reveal">
+          <div>
+            <p class="eyebrow">Client care</p>
+            <h1>Profiles & summaries</h1>
+          </div>
+          <button class="primary-button" id="new-client-button" type="button">
+            Add a profile <span aria-hidden="true">+</span>
+          </button>
+        </div>
+        <div class="admin-layout">
+          <aside class="admin-panel reveal">
+            <h2>Clients</h2>
+            <p class="small-note">
+              Clients can create their own profile at signup. You can also
+              prepare one here using the same email they use to register.
+            </p>
+            <div class="client-list" id="client-list"></div>
+          </aside>
+          <div class="admin-panel reveal reveal-delay" id="editor-panel">
+            <div id="empty-editor">
+              <p class="eyebrow">Choose a client</p>
+              <h2>Every client has their own account.</h2>
+              <p>
+                Select a profile to view its account connection and dated
+                session summaries.
+              </p>
+            </div>
+            <form id="client-form" hidden>
+              <input type="hidden" name="clientId" />
+              <p class="eyebrow" id="client-form-kicker">New client</p>
+              <h2 id="client-form-title">Create a private profile</h2>
+              <div class="admin-form-grid">
+                <div>
+                  <label for="client-name">Full name</label
+                  ><input
+                    id="client-name"
+                    name="name"
+                    required
+                    maxlength="120"
+                  />
+                </div>
+                <div>
+                  <label for="preferred-name">Preferred name</label
+                  ><input
+                    id="preferred-name"
+                    name="preferredName"
+                    maxlength="80"
+                  />
+                </div>
+                <div>
+                  <label for="client-email">Email</label
+                  ><input
+                    id="client-email"
+                    name="email"
+                    type="email"
+                    required
+                    maxlength="320"
+                  />
+                </div>
+                <div>
+                  <label for="member-since-input">Working together since</label
+                  ><input
+                    id="member-since-input"
+                    name="memberSince"
+                    type="date"
+                  />
+                </div>
+                <div class="full">
+                  <label for="client-focus"
+                    >Current focus shown on their profile</label
+                  ><textarea
+                    id="client-focus"
+                    name="focus"
+                    maxlength="500"
+                  ></textarea>
+                </div>
+                <div id="status-field" hidden>
+                  <label for="client-status">Portal access</label
+                  ><select id="client-status" name="status">
+                    <option value="active">Active</option>
+                    <option value="paused">Paused</option>
+                  </select>
+                </div>
+              </div>
+              <div class="admin-toolbar">
+                <button class="primary-button" type="submit">
+                  Save profile
+                </button>
+              </div>
+              <p
+                class="form-message"
+                id="client-form-message"
+                role="status"
+              ></p>
+              <div class="account-notes" id="account-notes">
+                <p id="account-status"></p>
+              </div>
+            </form>
+            <div id="summaries-editor" hidden>
+              <hr class="admin-divider" />
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Client-facing only</p>
+                  <h2>Session summaries</h2>
+                </div>
+                <button
+                  class="secondary-button"
+                  id="new-summary-button"
+                  type="button"
+                >
+                  Add summary
+                </button>
+              </div>
+              <div class="summary-admin-list" id="summary-admin-list"></div>
+              <form id="summary-form" hidden>
+                <input type="hidden" name="summaryId" />
+                <div class="admin-form-grid">
+                  <div>
+                    <label for="session-date">Session date</label
+                    ><input
+                      id="session-date"
+                      name="sessionDate"
+                      type="date"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label for="summary-status">Visibility</label
+                    ><select id="summary-status" name="status">
+                      <option value="published">
+                        Published — client can see immediately
+                      </option>
+                      <option value="draft">Hold — Jeff only</option>
+                    </select>
+                  </div>
+                  <div class="full">
+                    <label for="summary-title">Summary title</label
+                    ><input
+                      id="summary-title"
+                      name="title"
+                      required
+                      maxlength="160"
+                    />
+                  </div>
+                  <div class="full">
+                    <label for="reflection">Client-facing summary</label
+                    ><textarea
+                      id="reflection"
+                      name="reflection"
+                      required
+                      maxlength="12000"
+                    ></textarea>
+                  </div>
+                  <div>
+                    <label for="takeaways"
+                      >What became clear
+                      <span class="small-note">(one per line)</span></label
+                    ><textarea id="takeaways" name="takeaways"></textarea>
+                  </div>
+                  <div>
+                    <label for="next-steps"
+                      >Carry this forward
+                      <span class="small-note">(one per line)</span></label
+                    ><textarea id="next-steps" name="nextSteps"></textarea>
+                  </div>
+                </div>
+                <div class="admin-toolbar">
+                  <button class="primary-button" type="submit">
+                    Save summary</button
+                  ><button
+                    class="secondary-button"
+                    id="cancel-summary-button"
+                    type="button"
+                  >
+                    Cancel
+                  </button>
+                </div>
+                <p
+                  class="form-message"
+                  id="summary-form-message"
+                  role="status"
+                ></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
