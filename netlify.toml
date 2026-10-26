@@ -74,6 +74,19 @@
   to = "/thank-you.html"
   status = 200
 
+# Nobody Cares film, shareable short link (2026-10-26)
+[[redirects]]
+  from = "/nobodycares"
+  to = "https://youtu.be/sej4eU_ZFow"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/nobody-cares"
+  to = "https://youtu.be/sej4eU_ZFow"
+  status = 301
+  force = true
+
 # SPA fallback — only fires if the requested file doesn't exist on disk.
 [[redirects]]
   from = "/*"
